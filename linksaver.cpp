@@ -1,9 +1,10 @@
 #include "linksaver.h"
 #include "ui_linksaver.h"
+#include "apps.h"
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QProcess>
-#include "apps.h"
+
 #define tmpdir QDir::toNativeSeparators ( QDir::tempPath()+"/" )
 #define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/images/" )
 LinkSaver::LinkSaver(QWidget *parent) :
@@ -22,9 +23,9 @@ LinkSaver::LinkSaver(QWidget *parent) :
     screenHeight = desktop->height(); // get height of screen
     windowSize = size(); // size of our application window
     width = windowSize.width();
-   #include "apps.h" height = windowSize.height();
+    height = windowSize.height();
     // little computations
-    #include "apps.h"x = screenWidth - width;
+     x = screenWidth - width;
     y = screenHeight - height;
     y -= 50;
     // move window to desired coordinates
