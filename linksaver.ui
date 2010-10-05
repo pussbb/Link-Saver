@@ -60,15 +60,6 @@
       <attribute name="headerShowSortIndicator" stdset="0">
        <bool>false</bool>
       </attribute>
-      <attribute name="headerCascadingSectionResizes">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="headerShowSortIndicator" stdset="0">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="headerHighlightSections">
-       <bool>true</bool>
-      </attribute>
       <column>
        <property name="text">
         <string>Links</string>
@@ -84,7 +75,7 @@
      <x>0</x>
      <y>0</y>
      <width>235</width>
-     <height>19</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -99,6 +90,7 @@
      <string>File</string>
     </property>
     <addaction name="actionAdd_Category"/>
+    <addaction name="actionAdd_App"/>
     <addaction name="actionADD"/>
     <addaction name="actionExit"/>
    </widget>
@@ -145,6 +137,11 @@
   <action name="RemoveFolderItem">
    <property name="text">
     <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionAdd_App">
+   <property name="text">
+    <string>Add App</string>
    </property>
   </action>
  </widget>

@@ -2,6 +2,8 @@
 #include "ui_linksaver.h"
 #include <QDebug>
 #include <QDesktopWidget>
+#include <QProcess>
+#include "apps.h"
 #define tmpdir QDir::toNativeSeparators ( QDir::tempPath()+"/" )
 #define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/images/" )
 LinkSaver::LinkSaver(QWidget *parent) :
@@ -20,9 +22,9 @@ LinkSaver::LinkSaver(QWidget *parent) :
     screenHeight = desktop->height(); // get height of screen
     windowSize = size(); // size of our application window
     width = windowSize.width();
-    height = windowSize.height();
+   #include "apps.h" height = windowSize.height();
     // little computations
-    x = screenWidth - width;
+    #include "apps.h"x = screenWidth - width;
     y = screenHeight - height;
     y -= 50;
     // move window to desired coordinates
@@ -93,10 +95,30 @@ void LinkSaver::init_items()
                 for(int w=0;w<elem.childNodes().count();w++)
                 {
                     QTreeWidgetItem *child=new QTreeWidgetItem(item);
+                    QDomAttr e=elem.childNodes().item(w).toElement().attributeNode("url");
+
+                    if(e.value()=="app")
+                    {
+                         e=elem.childNodes().item(w).toElement().attributeNode("app");
+                        child->setText(0,e.value());
+                         e=elem.childNodes().item(w).toElement().attributeNode("icon");
+
+                        if(e.value().isEmpty()!=true){
+                         child->setIcon(0,QIcon(e.value()));
+                        }
+                        else
+                        {
+                            child->setIcon(0,QIcon(":appexec"));
+                        }
+
+                    }
+                    else{
                     child->setText(0,elem.childNodes().item(w).toElement().text());
+                    child->setIcon(0,QIcon(":/res/link.png"));
+                }
                     child->setData(0,32,w);//elem.childNodes().item(w).lineNumber() );
                     child->setData(0,33,"bookmark");
-                    child->setIcon(0,QIcon(":/res/link.png"));
+
                     item->addChild(child);
                 }
             }
@@ -329,8 +351,16 @@ void LinkSaver::on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column)
     {
         item->data(0,32).toInt();
         QString urlgo=doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().attribute("url","not found");
-        //   qDebug()<<doc.childNodes().at(item->data(0,32).toInt()).toElement().text();
+          qDebug()<<doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().text();
+        qDebug()<<urlgo;
+        if(urlgo=="app")
+        {
+            QProcess *app= new QProcess();
+            app->start(doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().text());
+       }
+        else{
         QDesktopServices::openUrl(QUrl(urlgo, QUrl::TolerantMode));
+           }
     }
 }
 #include "about.h"
@@ -338,4 +368,30 @@ void LinkSaver::on_actionAbout_triggered()
 {
 About *about=new About(this);
 about->exec();
+}
+
+void LinkSaver::on_actionAdd_App_triggered()
+{
+    Apps *app= new Apps(this);
+    QDomElement docElem = doc.documentElement();
+    for(int i=0;i<docElem.childNodes().count();i++)
+    {
+        if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
+            app->additem(docElem.childNodes().item(i).toElement().attribute("name"),i);
+        }
+    }
+    if(app->exec()==QDialog::Accepted)
+    {
+        QDomElement elem=doc.createElement("bookmark");
+        elem.setAttribute("url","app");
+        elem.setAttribute("app",app->getitem(0));
+        QDomText elemlText =doc.createTextNode(QString(app->getitem(2)));
+        elem.setAttribute("image",app->getitem(3));
+        elem.setAttribute("icon",app->getitem(1));
+        elem.appendChild(elemlText);
+        // elem.setNodeValue(QString(url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()));
+        //  qDebug()<<url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString();
+        docElem.childNodes().item(app->getitem(4).toInt()).toElement().appendChild(elem);
+        save_to_file();
+    }
 }
