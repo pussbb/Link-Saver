@@ -7,13 +7,13 @@
 
 #define tmpdir QDir::toNativeSeparators ( QDir::tempPath()+"/" )
 #define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/images/" )
+#define appimgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/images/" )
+#define appicondir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/icons/" )
 LinkSaver::LinkSaver(QWidget *parent) :
         QMainWindow(parent),
         ui(new Ui::LinkSaver)
 {
     ui->setupUi(this);
-    ///
-
     QDesktopWidget *desktop = QApplication::desktop();
     int screenWidth, width;
     int screenHeight, height;
@@ -104,8 +104,8 @@ void LinkSaver::init_items()
                         child->setText(0,e.value());
                          e=elem.childNodes().item(w).toElement().attributeNode("icon");
 
-                        if(e.value().isEmpty()!=true){
-                         child->setIcon(0,QIcon(e.value()));
+                         if(e.value().isEmpty()!=true && QFile::exists(appicondir+e.value())){
+                         child->setIcon(0,QIcon(appicondir+e.value()));
                         }
                         else
                         {
@@ -274,14 +274,10 @@ void LinkSaver::on_actionADD_triggered()
             //elemlText.toElement().setAttribute();
             elem.setAttribute("image",url->fname);
             elem.appendChild(elemlText);
-            // elem.setNodeValue(QString(url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()));
-            //  qDebug()<<url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString();
             docElem.childNodes().item(url->get_cat().toInt()).toElement().appendChild(elem);
             save_to_file();
         }
-       // while(url->isVisible()){qApp->processEvents(QEventLoop::WaitForMoreEvents );}
        delete url;
-        //delete &url;
     }
 }
 #include <pictureflow.h>
@@ -336,9 +332,18 @@ void LinkSaver::on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column)
             QDomElement elem=doc.documentElement().childNodes().item(item->data(0,32).toInt()).toElement();
             for(int i=0;i<elem.childNodes().count();i++)
             {
-                w->addSlide(QImage(imgdir+elem.childNodes().item(i).toElement().attribute("image","not found")),
-                            elem.childNodes().item(i).toElement().text(),elem.childNodes().item(i).toElement().attribute("url","not found"));
-            }
+                QString tag=elem.childNodes().item(i).toElement().attribute("url","not found");
+                if(tag=="app")
+                {
+                    w->addSlide(QImage(appimgdir+elem.childNodes().item(i).toElement().attribute("image","not found")),
+                                elem.childNodes().item(i).toElement().attribute("app","not found"),elem.childNodes().item(i).toElement().text(),"app");
+                }
+                else
+                {
+                    w->addSlide(QImage(imgdir+elem.childNodes().item(i).toElement().attribute("image","not found")),
+                                elem.childNodes().item(i).toElement().text(),elem.childNodes().item(i).toElement().attribute("url","not found"),"");
+                }
+                 }
 
             w->setCenterIndex(w->slideCount()/2);
             w->setReflectionEffect(PictureFlow::PlainReflection);
@@ -370,7 +375,7 @@ void LinkSaver::on_actionAbout_triggered()
 About *about=new About(this);
 about->exec();
 }
-
+#include <QFileInfo>
 void LinkSaver::on_actionAdd_App_triggered()
 {
     Apps *app= new Apps(this);
@@ -387,11 +392,15 @@ void LinkSaver::on_actionAdd_App_triggered()
         elem.setAttribute("url","app");
         elem.setAttribute("app",app->getitem(0));
         QDomText elemlText =doc.createTextNode(QString(app->getitem(2)));
-        elem.setAttribute("image",app->getitem(3));
-        elem.setAttribute("icon",app->getitem(1));
+        QFileInfo fi(app->getitem(3));
+        QString img=fi.fileName();
+        QFile::copy(app->getitem(3),appimgdir+img);
+        elem.setAttribute("image",img);
+        fi.setFile(app->getitem(1));
+        QString icon=fi.fileName();
+        QFile::copy(app->getitem(1),appicondir+icon);
+        elem.setAttribute("icon",icon);
         elem.appendChild(elemlText);
-        // elem.setNodeValue(QString(url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()));
-        //  qDebug()<<url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString();
         docElem.childNodes().item(app->getitem(4).toInt()).toElement().appendChild(elem);
         save_to_file();
     }

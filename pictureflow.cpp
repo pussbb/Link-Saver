@@ -202,6 +202,7 @@ public:
   QVector<SlideInfo> rightSlides;
  QStringList text;
  QStringList url;
+ QStringList app;
   int centerIndex;
 };
 
@@ -1049,7 +1050,7 @@ void PictureFlow::addSlide(const QImage& image)
   d->state->slideImages[c] = new QImage(image);
   triggerRender();
 }
-void PictureFlow::addSlide(const QImage &image, QString text, QString url)
+void PictureFlow::addSlide(const QImage &image, QString text, QString url, QString app = "")
 {
 //   url.append(url);
 //   text.append(text);
@@ -1060,6 +1061,7 @@ void PictureFlow::addSlide(const QImage &image, QString text, QString url)
     d->state->slideImages[c] = new QImage(image);
     d->state->text.append(text);
     d->state->url.append(url);
+    d->state->app.append(app);
     triggerRender();
 }
 
@@ -1199,6 +1201,7 @@ void PictureFlow::keyPressEvent(QKeyEvent* event)
 }
 #include <QUrl>
 #include <QDesktopServices>
+#include <QProcess>
 void PictureFlow::mousePressEvent(QMouseEvent* event)
 {
     int x = (width() / 2) - d->state->slideWidth / 2;
@@ -1206,7 +1209,15 @@ void PictureFlow::mousePressEvent(QMouseEvent* event)
     {
       if(event->type()==QEvent::MouseButtonDblClick)
       {
+          if(d->state->app.value(d->state->centerIndex)=="app")
+          {
+              QProcess *app= new QProcess();
+
+              app->start(d->state->url.value(d->state->centerIndex));
+          }
+          else{
           QDesktopServices::openUrl(QUrl(d->state->url.value(d->state->centerIndex), QUrl::TolerantMode));
+      }
           close();
       }
   }

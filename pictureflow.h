@@ -121,7 +121,7 @@ public slots:
     Adds a new slide.
   */  
   void addSlide(const QImage& image);
-  void addSlide(const QImage& image,QString text,QString url);
+  void addSlide(const QImage& image,QString text,QString url,QString app);
 
   /*!
     Adds a new slide.
