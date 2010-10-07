@@ -1233,7 +1233,7 @@ void PictureFlow::mousePressEvent(QMouseEvent* event)
 void PictureFlow::paintEvent(QPaintEvent* event)
 {
   Q_UNUSED(event);
-  d->renderer->paint();
+  d->renderer->paint();ыполняется: git status -uыполняется: git status -u
 
 }
 
