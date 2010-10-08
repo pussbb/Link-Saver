@@ -739,7 +739,13 @@ QImage* PictureFlowSoftwareRenderer::surface(int slideIndex)
       QLinearGradient linearGrad(p1, p2);
       linearGrad.setColorAt(0, Qt::black);
       linearGrad.setColorAt(1, Qt::white);
+#if Q_OS_OS2 || Q_OS_OS2EMX
+      painter.setBrush(linearGrad);
+      painter.fillRect(0, 0, sw, sh, QBrush(linearGrad));
 
+      painter.setPen(QPen(QColor(64,64,64), 4));
+      painter.setBrush(QBrush());
+#else
       QLinearGradient gradient(0, 0, 0, sh);
       gradient.setColorAt(0, Qt::black);
       gradient.setColorAt(1, QColor(0x55, 0x55, 0x55));
@@ -750,6 +756,7 @@ QImage* PictureFlowSoftwareRenderer::surface(int slideIndex)
 
       painter.setPen(QPen(QColor(64,64,64), 4));
       painter.setBrush(gradient);
+#endif
       painter.drawRect(2, 2, sw-3, sh-3);
 
       painter.end();
@@ -1233,7 +1240,7 @@ void PictureFlow::mousePressEvent(QMouseEvent* event)
 void PictureFlow::paintEvent(QPaintEvent* event)
 {
   Q_UNUSED(event);
-  d->renderer->paint();ыполняется: git status -uыполняется: git status -u
+  d->renderer->paint();
 
 }
 
