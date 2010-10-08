@@ -48,6 +48,7 @@ QString Apps::getitem(int index)
     case 4:             return ui->comboBox->itemData(ui->comboBox->currentIndex(),32).toString();;break;
     default: break;
     }
+    return "";
 }
 
 void Apps::on_buttonBox_clicked(QAbstractButton* button)

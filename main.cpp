@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     w.showMaximized();
 #else
 
-    w.show();
+//    w.show();
 #endif
 
 

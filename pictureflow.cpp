@@ -739,7 +739,7 @@ QImage* PictureFlowSoftwareRenderer::surface(int slideIndex)
       QLinearGradient linearGrad(p1, p2);
       linearGrad.setColorAt(0, Qt::black);
       linearGrad.setColorAt(1, Qt::white);
-#if Q_OS_OS2 || Q_OS_OS2EMX
+#if defined(Q_OS_OS2)
       painter.setBrush(linearGrad);
       painter.fillRect(0, 0, sw, sh, QBrush(linearGrad));
 

@@ -31,6 +31,65 @@ LinkSaver::LinkSaver(QWidget *parent) :
     // move window to desired coordinates
     move ( x, y );
     ///
+    //check if dir exists
+    QDir dir;
+    dir.setPath(imgdir);
+    if(!dir.exists())
+    {
+        if(!dir.mkdir(imgdir))
+        {
+            msgBox.setText("Error creating directory:<br />"+imgdir);
+        }
+        else
+        {
+            QFile::setPermissions(imgdir,QFile::ReadOwner | QFile::WriteOwner |
+                                  QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
+                                  QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+        }
+    }
+    dir.setPath(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" ));
+    if(!dir.exists())
+    {
+        if(!dir.mkdir(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" )))
+        {
+            msgBox.setText("Error creating directory:<br />"+QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" ));
+        }
+        else
+        {
+            QFile::setPermissions(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" ),QFile::ReadOwner | QFile::WriteOwner |
+                                  QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
+                                  QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+        }
+    }
+    dir.setPath(appimgdir);
+    if(!dir.exists())
+    {
+        if(!dir.mkdir(appimgdir))
+        {
+            msgBox.setText("Error creating directory:<br />"+appimgdir);
+        }
+        else
+        {
+            QFile::setPermissions(appimgdir,QFile::ReadOwner | QFile::WriteOwner |
+                                  QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
+                                  QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+        }
+    }
+    dir.setPath(appicondir);
+    if(!dir.exists())
+    {
+        if(!dir.mkdir(appicondir))
+        {
+            msgBox.setText("Error creating directory:<br />"+appicondir);
+        }
+        else
+        {
+            QFile::setPermissions(appicondir,QFile::ReadOwner | QFile::WriteOwner |
+                                  QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
+                                  QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+        }
+    }
+    //end of check if dir exists
     trayIconMenu = new QMenu(this);
     trayIconMenu->addAction(ui->actionADD);
     trayIconMenu->addAction(ui->actionExit);
@@ -133,8 +192,7 @@ void LinkSaver::iconActivated(QSystemTrayIcon::ActivationReason reason)
     case QSystemTrayIcon::Trigger:
     case QSystemTrayIcon::DoubleClick:   show();     break;
     case QSystemTrayIcon::MiddleClick:
-        //  QSystemTrayIcon::MessageIcon icon = QSystemTrayIcon::MessageIcon(QSystemTrayIcon::Information);
-        trayIcon->showMessage("Link Saver","Simple Program to Save Links", QSystemTrayIcon::Information,
+           trayIcon->showMessage("Link Saver","Simple Program to Save Links", QSystemTrayIcon::Information,
                               5 * 1000);
         break;
     default: ;
@@ -142,6 +200,7 @@ void LinkSaver::iconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 void LinkSaver::closeEvent(QCloseEvent *event)
 {
+    Q_UNUSED(event);
     if (trayIcon->isVisible()) {
         trayIcon->showMessage("Link Saver", tr("The program will keep running\n in the system tray. To terminate the program, \n choose Quit in the context menu  \n of the system tray entry."),
                               QSystemTrayIcon::Information, 5 * 1000);
