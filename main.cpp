@@ -20,7 +20,7 @@ a.installTranslator(&translator);
     w.showMaximized();
 #else
 
-//    w.show();
+    w.show();
 #endif
 
 
