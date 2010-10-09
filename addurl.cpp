@@ -161,6 +161,7 @@ void AddUrl::Preview()
  resized.save(tmpdir+fname);
 
 ui->lineEdit->setText(websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()) ;
+title=ui->lineEdit->text();
        ui->preview->setPixmap(QPixmap::fromImage(QImage(tmpdir+fname)));
 }
 QVariant AddUrl::get_cat()
@@ -179,4 +180,9 @@ void AddUrl::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+void AddUrl::on_lineEdit_textChanged(QString )
+{
+    title=ui->lineEdit->text();
 }

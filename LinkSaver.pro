@@ -11,6 +11,8 @@ TEMPLATE = app
 win32 {
    RC_FILE = win2.rc
 }
+TRANSLATIONS = ./lang/linksaver_ru.ts \
+                ./lang/linksaver_def.ts
 include(qtsingleapplication/src/qtsingleapplication.pri)
 SOURCES += main.cpp\
         linksaver.cpp \
@@ -32,3 +34,6 @@ FORMS    += linksaver.ui \
 
 RESOURCES += \
     linkres.qrc
+
+OTHER_FILES += \
+    README

@@ -44,7 +44,7 @@
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -68,10 +68,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>250</x>
      <y>40</y>
-     <width>45</width>
-     <height>13</height>
+     <width>97</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">

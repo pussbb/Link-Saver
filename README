@@ -1,4 +1,14 @@
-Simple QT application for the manage links. Features: Background image generates site. to view the links of one category as a slide show. Need QT 4.6 libs or high
-
+Simple QT application for the manage links. Features: Background image generates site. to view the
+links of one category as a slide show. Need QT 4.6 libs or high.
+To create your lang file rename linksaver_def.ts to your locale for example:linksaver_en.ts or linksaver_ru.ts.
+Translate it in QLinguistic and compile.
+2010-10-08
+added :
+- if nessery dir's not exists it will create them automaticly
+- you can edit title of saved web page
+- added multilanguage support
+- app runner works in slide show mode
+- added fix for OS/2
+- app runner now in slide show mode works
 2010-10-06
 added ability to add applications. While only in Treeview mode - experimental

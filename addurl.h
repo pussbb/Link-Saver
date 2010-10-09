@@ -48,7 +48,8 @@ public:
     ~AddUrl();
 void load(QString url);
  WebCapture websnap;
-  QString fname;
+ QString fname;
+ QString title;
  QProgressDialog *p;
 void additem(QString name,int index);
 QVariant get_cat();
@@ -56,6 +57,7 @@ protected:
     void changeEvent(QEvent *e);
 
 private slots:
+    void on_lineEdit_textChanged(QString );
     void renderPreview(int percent);
     void Preview();
 private:

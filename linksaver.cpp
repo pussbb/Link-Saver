@@ -38,7 +38,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
     {
         if(!dir.mkdir(imgdir))
         {
-            msgBox.setText("Error creating directory:<br />"+imgdir);
+            msgBox.setText(tr("Error creating directory:<br />")+imgdir);
         }
         else
         {
@@ -52,7 +52,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
     {
         if(!dir.mkdir(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" )))
         {
-            msgBox.setText("Error creating directory:<br />"+QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" ));
+            msgBox.setText(tr("Error creating directory:<br />")+QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/" ));
         }
         else
         {
@@ -66,7 +66,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
     {
         if(!dir.mkdir(appimgdir))
         {
-            msgBox.setText("Error creating directory:<br />"+appimgdir);
+            msgBox.setText(tr("Error creating directory:<br />")+appimgdir);
         }
         else
         {
@@ -80,7 +80,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
     {
         if(!dir.mkdir(appicondir))
         {
-            msgBox.setText("Error creating directory:<br />"+appicondir);
+            msgBox.setText(tr("Error creating directory:<br />")+appicondir);
         }
         else
         {
@@ -327,9 +327,9 @@ void LinkSaver::on_actionADD_triggered()
                                   QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
                                   QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
             QDomElement elem=doc.createElement("bookmark");
-            //elem.setTagName("bookmark");
+            //elem.setTagName("bookmark");url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()
             elem.setAttribute("url",text);
-            QDomText elemlText =doc.createTextNode(QString(url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()));
+            QDomText elemlText =doc.createTextNode(QString(url->title));
             //elemlText.toElement().setAttribute();
             elem.setAttribute("image",url->fname);
             elem.appendChild(elemlText);
