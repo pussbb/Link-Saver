@@ -101,7 +101,7 @@ QMAKE_TARGET  = LinkSaver
 DESTDIR       = 
 TARGET        = LinkSaver
 
-first: all
+first: all clean
 ####### Implicit rules
 
 .SUFFIXES: .o .c .cpp .cc .cxx .C
@@ -123,7 +123,7 @@ first: all
 
 ####### Build rules
 
-all: Makefile $(TARGET)
+all:  Makefile $(TARGET)
 
 $(TARGET): ui_linksaver.h ui_addurl.h ui_about.h ui_apps.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
@@ -185,6 +185,7 @@ qtsingleapplication/src/qtsingleapplication.pri:
 /usr/lib/libQtCore.prl:
 qmake:  FORCE
 	@$(QMAKE) -spec /usr/share/qt4/mkspecs/linux-g++ -o Makefile LinkSaver.pro
+	
 
 dist: 
 	@$(CHK_DIR_EXISTS) .tmp/LinkSaver1.0.0 || $(MKDIR) .tmp/LinkSaver1.0.0 

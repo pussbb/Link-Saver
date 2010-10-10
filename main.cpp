@@ -12,8 +12,9 @@ int main(int argc, char *argv[])
     {      a.activateWindow();
         return 0;
     }
+    QString locale = QLocale::system().name();
 QTranslator translator;
-translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+"ru");
+translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+locale);
 a.installTranslator(&translator);
        QApplication::setQuitOnLastWindowClosed(false);
 #if defined(Q_WS_S60) || defined(Q_WS_MAEMO_5)
