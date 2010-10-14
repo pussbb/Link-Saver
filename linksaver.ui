@@ -140,6 +140,10 @@
    </property>
   </action>
   <action name="actionAdd_App">
+   <property name="icon">
+    <iconset resource="linkres.qrc">
+     <normaloff>:/appexec</normaloff>:/appexec</iconset>
+   </property>
    <property name="text">
     <string>Add App</string>
    </property>

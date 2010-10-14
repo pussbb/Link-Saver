@@ -92,6 +92,8 @@ LinkSaver::LinkSaver(QWidget *parent) :
     //end of check if dir exists
     trayIconMenu = new QMenu(this);
     trayIconMenu->addAction(ui->actionADD);
+    trayIconMenu->addAction(ui->actionAdd_App);
+    trayIconMenu->addAction(ui->actionAdd_Category);
     trayIconMenu->addAction(ui->actionExit);
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon(":/res/2globe_128.png"));
