@@ -70,52 +70,71 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AddUrl</name>
     <message>
-        <location filename="../addurl.ui" line="14"/>
+        <location filename="../addurl.ui" line="20"/>
         <source>Dialog</source>
         <translation>Диалог</translation>
     </message>
     <message>
-        <location filename="../addurl.ui" line="78"/>
+        <location filename="../addurl.ui" line="84"/>
         <source>Category</source>
         <translation>Категория</translation>
+    </message>
+    <message>
+        <location filename="../addurl.ui" line="110"/>
+        <source>URL</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../addurl.ui" line="123"/>
+        <source>Title</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../addurl.cpp" line="134"/>
+        <source>Generating image</source>
+        <translation>Генерация картинки</translation>
     </message>
 </context>
 <context>
     <name>Apps</name>
     <message>
-        <location filename="../apps.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Диалог</translation>
+        <translation type="obsolete">Диалог</translation>
     </message>
     <message>
-        <location filename="../apps.ui" line="26"/>
+        <location filename="../apps.ui" line="20"/>
+        <source>Add Application</source>
+        <translation>Добавить приложение</translation>
+    </message>
+    <message>
+        <location filename="../apps.ui" line="38"/>
         <source>Application</source>
         <translation>Приложение</translation>
     </message>
     <message>
-        <location filename="../apps.ui" line="38"/>
+        <location filename="../apps.ui" line="56"/>
         <source>Displayed Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../apps.ui" line="71"/>
+        <location filename="../apps.ui" line="89"/>
         <source>Executable</source>
         <translation>Exe файл</translation>
     </message>
     <message>
-        <location filename="../apps.ui" line="84"/>
+        <location filename="../apps.ui" line="102"/>
         <source>Icon</source>
         <translation>Иконка</translation>
     </message>
     <message>
-        <location filename="../apps.ui" line="107"/>
+        <location filename="../apps.ui" line="125"/>
         <source>Screenshot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../apps.ui" line="130"/>
-        <location filename="../apps.ui" line="143"/>
-        <location filename="../apps.ui" line="156"/>
+        <location filename="../apps.ui" line="148"/>
+        <location filename="../apps.ui" line="161"/>
+        <location filename="../apps.ui" line="174"/>
         <source>...</source>
         <translation></translation>
     </message>
@@ -162,7 +181,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="106"/>
-        <location filename="../linksaver.cpp" line="308"/>
+        <location filename="../linksaver.cpp" line="313"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
@@ -173,7 +192,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="120"/>
-        <location filename="../linksaver.cpp" line="253"/>
+        <location filename="../linksaver.cpp" line="256"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
@@ -198,6 +217,11 @@ p, li { white-space: pre-wrap; }
         <translation>Добавить Приложение</translation>
     </message>
     <message>
+        <location filename="../linksaver.ui" line="149"/>
+        <source>Edit</source>
+        <translation>Редактировать</translation>
+    </message>
+    <message>
         <location filename="../linksaver.cpp" line="41"/>
         <location filename="../linksaver.cpp" line="55"/>
         <location filename="../linksaver.cpp" line="69"/>
@@ -206,7 +230,7 @@ p, li { white-space: pre-wrap; }
         <translation>Ошыбка при создании папки&lt;br /&gt;</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="205"/>
+        <location filename="../linksaver.cpp" line="208"/>
         <source>The program will keep running
  in the system tray. To terminate the program, 
  choose Quit in the context menu  
@@ -216,17 +240,33 @@ p, li { white-space: pre-wrap; }
 программы выберете Выход в контексном меню.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="254"/>
+        <location filename="../linksaver.cpp" line="257"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="267"/>
-        <source>Cat menu</source>
-        <translation></translation>
+        <location filename="../linksaver.cpp" line="282"/>
+        <source>Are you sure want delete item.</source>
+        <translation>Вы уверены в том что
+хотите удалить елемент.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="309"/>
+        <location filename="../linksaver.cpp" line="283"/>
+        <source>All Link in this category will be deleted too</source>
+        <translation type="unfinished">Все ссылки которые находяться в этой категории будут тоже удалены</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="295"/>
+        <source>Are you sure want delete Bookmark.</source>
+        <translation>Вы уверены в том что хотите удалить закладку</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="296"/>
+        <source>Link  will be deleted </source>
+        <translation>Ссылка будет удалена</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="314"/>
         <source>URL:</source>
         <translation></translation>
     </message>

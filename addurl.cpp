@@ -119,10 +119,8 @@ AddUrl::AddUrl(QWidget *parent) :
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
      QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(Preview()));
      p=new QProgressDialog(this);
-     p->setModal(true);
-     p->setLabelText("Generating image");
-     p->setMaximum(100);
-p->show();
+     ui->preview->setScaledContents(true);
+     this->changed=false;
 }
 
 AddUrl::~AddUrl()
@@ -133,12 +131,56 @@ AddUrl::~AddUrl()
 void AddUrl::load(QString url)
 {
     fname=QString(QCryptographicHash::hash(url.toLocal8Bit(),QCryptographicHash::Md5).toHex())+".png";
+
+    p->setModal(true);
+    p->setLabelText(tr("Generating image"));
+    p->setMaximum(100);
+    p->show();
+    ui->url_edit->setText(url);
+    this->url=url;
+    this->changed=true;
     websnap.load( guessUrlFromString(url.toLatin1().data()), 100, tmpdir+fname, 1024);
+
 }
 
-void AddUrl::additem(QString name, int index)
+void AddUrl::additem(QString name, int index, bool current )
 {
     ui->comboBox->addItem(name,index);
+    if(current)
+    {
+        ui->comboBox->setCurrentIndex(ui->comboBox->count()-1);
+    }
+}
+
+void AddUrl::set_Data(QString str,int index)
+{
+    switch(index)
+    {
+    case 1:
+        {
+            ui->url_edit->setText(str);
+            break;
+        }
+    case 2:
+        {
+            ui->lineEdit->setText(str);
+            break;
+        }
+    case 3:
+        {
+            ui->preview->setPixmap(QPixmap::fromImage(QImage(str)));
+            break;
+        }
+    case 4:
+        {
+            this->fname=str;
+            break;
+        }
+    default:
+        {
+            break;
+        }
+    }
 }
 
 void AddUrl::renderPreview(int percent)
@@ -149,7 +191,7 @@ void AddUrl::renderPreview(int percent)
 void AddUrl::Preview()
 {p->close();
 
-    ui->preview->setScaledContents(true);
+
 
  QPixmap resized;
  QPixmap origin(tmpdir+fname);
@@ -186,3 +228,14 @@ void AddUrl::on_lineEdit_textChanged(QString )
 {
     title=ui->lineEdit->text();
 }
+
+void AddUrl::on_url_edit_textChanged(QString )
+{
+    this->url=ui->url_edit->text();
+    if(this->isVisible() && !p->isVisible())
+    {
+     this->load(ui->url_edit->text());
+    }
+
+}
+

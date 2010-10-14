@@ -34,6 +34,7 @@ private:
     Ui::LinkSaver *ui;
 
 private slots:
+void on_actionEdit_triggered();
 void on_actionAdd_App_triggered();
 void on_actionAbout_triggered();
 void on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column);

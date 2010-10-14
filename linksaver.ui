@@ -75,7 +75,7 @@
      <x>0</x>
      <y>0</y>
      <width>235</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -142,6 +142,11 @@
   <action name="actionAdd_App">
    <property name="text">
     <string>Add App</string>
+   </property>
+  </action>
+  <action name="actionEdit">
+   <property name="text">
+    <string>Edit</string>
    </property>
   </action>
  </widget>

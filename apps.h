@@ -14,8 +14,9 @@ class Apps : public QDialog
 public:
     explicit Apps(QWidget *parent = 0);
     bool valid;
-    void additem(QString name, int index);
+    void additem(QString name, int index,bool current = false);
     QString getitem(int index);
+    void setData(int index,QString str);
     ~Apps();
 
 private:

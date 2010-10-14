@@ -1,7 +1,8 @@
 #include <QtGui/QApplication>
 #include "linksaver.h"
-#include <qtsingleapplication/src/qtsingleapplication.h>
 #include <QTranslator>
+#include <qtsingleapplication/src/qtsingleapplication.h>
+
 int main(int argc, char *argv[])
 {
     QtSingleApplication a(argc, argv);

@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui xml webkit network
-
+include(qtsingleapplication/src/qtsingleapplication.pri)
 TARGET = LinkSaver
 TEMPLATE = app
 win32 {
@@ -13,7 +13,7 @@ win32 {
 }
 TRANSLATIONS = ./lang/linksaver_ru.ts \
                 ./lang/linksaver_def.ts
-include(qtsingleapplication/src/qtsingleapplication.pri)
+
 SOURCES += main.cpp\
         linksaver.cpp \
     addurl.cpp \

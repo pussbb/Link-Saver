@@ -50,13 +50,17 @@ void load(QString url);
  WebCapture websnap;
  QString fname;
  QString title;
+ QString url;
+ bool changed;
  QProgressDialog *p;
-void additem(QString name,int index);
+void additem(QString name,int index,bool current = false);
+void set_Data(QString str,int index);
 QVariant get_cat();
 protected:
     void changeEvent(QEvent *e);
 
 private slots:
+    void on_url_edit_textChanged(QString );
     void on_lineEdit_textChanged(QString );
     void renderPreview(int percent);
     void Preview();

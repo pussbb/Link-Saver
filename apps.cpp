@@ -33,9 +33,13 @@ void Apps::on_toolButton_3_clicked()
     ui->screenshot->setText(QFileDialog::getOpenFileName(this,
                                                          tr("Open Image"), "", tr("Image Files (*.png *.jpg *.svg)")));
 }
-void Apps::additem(QString name, int index)
+void Apps::additem(QString name, int index,bool current)
 {
     ui->comboBox->addItem(name,index);
+    if(current)
+    {
+        ui->comboBox->setCurrentIndex(ui->comboBox->count()-1);
+    }
 }
 QString Apps::getitem(int index)
 {
@@ -70,5 +74,16 @@ void Apps::on_buttonBox_clicked(QAbstractButton* button)
     else
     {
         this->close();
+    }
+}
+void Apps::setData(int index,QString str)
+{
+    //
+    switch(index){
+    case 0:{ui->appname->setText(str); break;}
+        case 1:{ui->appicon->setText(str); break;}
+            case 2:{ui->exepath->setText(str); break;}
+                case 3:{ui->screenshot->setText(str); break;}
+    default:{break;}
     }
 }

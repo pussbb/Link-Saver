@@ -159,25 +159,28 @@ void LinkSaver::init_items()
 
                     if(e.value()=="app")
                     {
-                         e=elem.childNodes().item(w).toElement().attributeNode("app");
+                        e=elem.childNodes().item(w).toElement().attributeNode("app");
                         child->setText(0,e.value());
-                         e=elem.childNodes().item(w).toElement().attributeNode("icon");
+                        e=elem.childNodes().item(w).toElement().attributeNode("icon");
 
-                         if(e.value().isEmpty()!=true && QFile::exists(appicondir+e.value())){
-                         child->setIcon(0,QIcon(appicondir+e.value()));
+                        if(e.value().isEmpty()!=true && QFile::exists(appicondir+e.value())){
+                            child->setIcon(0,QIcon(appicondir+e.value()));
+                            //child->setData(0,34,appicondir+e.value());
                         }
                         else
                         {
                             child->setIcon(0,QIcon(":appexec"));
+                            // child->setData(0,34,":appexec");
                         }
-
+                        child->setData(0,33,"app");
                     }
                     else{
-                    child->setText(0,elem.childNodes().item(w).toElement().text());
-                    child->setIcon(0,QIcon(":/res/link.png"));
-                }
+                        child->setText(0,elem.childNodes().item(w).toElement().text());
+                        child->setIcon(0,QIcon(":/res/link.png"));
+                        child->setData(0,33,"bookmark");
+                    }
                     child->setData(0,32,w);//elem.childNodes().item(w).lineNumber() );
-                    child->setData(0,33,"bookmark");
+
 
                     item->addChild(child);
                 }
@@ -264,18 +267,20 @@ void LinkSaver::on_actionAdd_Category_triggered()
 
 void LinkSaver::on_linkcat_customContextMenuRequested(QPoint pos)
 {if(ui->linkcat->currentItem()->isSelected()){
-        QMenu m(tr("Cat menu"),this);
-        m.addAction(ui->RemoveFolderItem);
-
-        m.exec(ui->linkcat->mapToGlobal(pos));
+        QMenu *m=new QMenu();
+        pos.setX(pos.x()-5);
+        pos.setY(pos.y()+25);
+        m->addAction(ui->RemoveFolderItem);
+        m->addAction(ui->actionEdit);
+        m->exec(ui->linkcat->mapToGlobal(pos));
     }
 }
 
 void LinkSaver::on_RemoveFolderItem_triggered()
 {  if(ui->linkcat->currentItem()->data(0,33).toString()=="folder")
     {
-        msgBox.setText(QString::fromUtf8("Are you sure want delete item."));
-        msgBox.setInformativeText(QString::fromUtf8("All Link in this category will be deleted too"));
+        msgBox.setText(tr("Are you sure want delete item."));
+        msgBox.setInformativeText(tr("All Link in this category will be deleted too"));
         msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setDefaultButton(QMessageBox::Cancel);
@@ -287,8 +292,8 @@ void LinkSaver::on_RemoveFolderItem_triggered()
     }
     else
     {
-        msgBox.setText(QString::fromUtf8("Are you sure want delete Bookmark."));
-        msgBox.setInformativeText(QString::fromUtf8("Link  will be deleted "));
+        msgBox.setText(tr("Are you sure want delete Bookmark."));
+        msgBox.setInformativeText(tr("Link  will be deleted "));
         msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setDefaultButton(QMessageBox::Cancel);
@@ -327,8 +332,7 @@ void LinkSaver::on_actionADD_triggered()
                                   QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
                                   QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
             QDomElement elem=doc.createElement("bookmark");
-            //elem.setTagName("bookmark");url->websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()
-            elem.setAttribute("url",text);
+            elem.setAttribute("url",url->url);
             QDomText elemlText =doc.createTextNode(QString(url->title));
             //elemlText.toElement().setAttribute();
             elem.setAttribute("image",url->fname);
@@ -414,10 +418,9 @@ void LinkSaver::on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column)
     }
     else
     {
-        item->data(0,32).toInt();
+        //item->data(0,32).toInt();
         QString urlgo=doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().attribute("url","not found");
-          qDebug()<<doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().text();
-        qDebug()<<urlgo;
+
         if(urlgo=="app")
         {
             QProcess *app= new QProcess();
@@ -463,4 +466,121 @@ void LinkSaver::on_actionAdd_App_triggered()
         docElem.childNodes().item(app->getitem(4).toInt()).toElement().appendChild(elem);
         save_to_file();
     }
+    delete app;
+}
+
+void LinkSaver::on_actionEdit_triggered()
+{   //ui->linkcat->currentItem()->data(0,33).toString();
+    QTreeWidgetItem *item=ui->linkcat->currentItem();
+    QDomNode node;
+    QDomElement elem;
+    if(ui->linkcat->currentItem()->data(0,33).toString()=="folder")
+    {
+        bool ok;
+        node= doc.documentElement().childNodes().item(item->data(0,32).toInt());
+        QString text = QInputDialog::getText(this, tr("Add Category"),
+                                             tr("Name:"), QLineEdit::Normal,
+                                             node.toElement().attribute("name",""), &ok);
+        if (ok && !text.isEmpty())
+        {
+            node.toElement().setAttribute("name",text);
+            //QDomElement elem=doc.createElement("folder");
+            //elem.setAttribute("name",text);
+            //doc.documentElement().appendChild(elem);
+            save_to_file();
+            return;
+        }
+    }
+    else
+    {
+        node= doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt());
+        elem=node.childNodes().item(item->data(0,32).toInt()).toElement();
+    }
+    if(ui->linkcat->currentItem()->data(0,33).toString()=="app")
+    {
+        Apps *app= new Apps(this);
+        QDomElement docElem = doc.documentElement();
+        for(int i=0;i<docElem.childNodes().count();i++)
+        {
+            if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
+                bool current=false;
+                if(item->parent()->data(0,32).toInt()==i)
+                {
+                                current=true;
+                }
+                app->additem(docElem.childNodes().item(i).toElement().attribute("name"),i,current);
+            }
+        }
+
+
+        app->setData(2,elem.text());
+        app->setData(1,elem.attribute("icon",":appexec"));
+        app->setData(0,elem.attribute("app",""));
+        app->setData(3,elem.attribute("image","no image"));
+        if(app->exec()==QDialog::Accepted)
+        {
+            QDomElement elem=doc.createElement("bookmark");
+            elem.setAttribute("url","app");
+            elem.setAttribute("app",app->getitem(0));
+            QDomText elemlText =doc.createTextNode(QString(app->getitem(2)));
+            QFileInfo fi(app->getitem(3));
+            QString img=fi.fileName();
+            QFile::copy(app->getitem(3),appimgdir+img);
+            elem.setAttribute("image",img);
+            fi.setFile(app->getitem(1));
+            QString icon=fi.fileName();
+            QFile::copy(app->getitem(1),appicondir+icon);
+            elem.setAttribute("icon",icon);
+            elem.appendChild(elemlText);
+            docElem.childNodes().item(app->getitem(4).toInt()).toElement().appendChild(elem);
+            node.removeChild(node.childNodes().item(item->data(0,32).toInt()));
+            save_to_file();
+        }
+        delete app;
+    }
+    if(ui->linkcat->currentItem()->data(0,33).toString()=="bookmark")
+    {
+        AddUrl* url=new AddUrl(this) ;
+        //url->load(text);
+        QDomElement docElem = doc.documentElement();
+        for(int i=0;i<docElem.childNodes().count();i++)
+        {
+            if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
+                bool current=false;
+                if(item->parent()->data(0,32).toInt()==i)
+                {
+                                current=true;
+                }
+                url->additem(docElem.childNodes().item(i).toElement().attribute("name"),i,current);
+            }
+        }
+        url->set_Data(item->text(0),2);
+        QString urls=doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().attribute("url","not found");
+        url->set_Data(urls,1);
+        url->set_Data(imgdir+elem.attribute("image",""),3);
+        url->set_Data(elem.attribute("image",""),4);
+        if(url->exec()==QDialog::Accepted)
+        {
+            if(url->changed)
+            {
+                QFile::remove(imgdir+elem.attribute("image",""));
+                QFile::copy(tmpdir+url->fname,imgdir+url->fname);
+                QFile::setPermissions(imgdir+url->fname,QFile::ReadOwner | QFile::WriteOwner |
+                                      QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
+                                      QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+            }
+
+            QDomElement elem=doc.createElement("bookmark");
+            elem.setAttribute("url",url->url);
+            QDomText elemlText =doc.createTextNode(QString(url->title));
+            //elemlText.toElement().setAttribute();
+            elem.setAttribute("image",url->fname);
+            elem.appendChild(elemlText);
+            docElem.childNodes().item(url->get_cat().toInt()).toElement().appendChild(elem);
+            node.removeChild(node.childNodes().item(item->data(0,32).toInt()));
+            save_to_file();
+        }
+
+    }
+
 }
