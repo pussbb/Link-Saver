@@ -521,10 +521,9 @@ void LinkSaver::on_actionEdit_triggered()
         app->setData(3,elem.attribute("image","no image"));
         if(app->exec()==QDialog::Accepted)
         {
-            QDomElement elem=doc.createElement("bookmark");
+
             elem.setAttribute("url","app");
             elem.setAttribute("app",app->getitem(0));
-            QDomText elemlText =doc.createTextNode(QString(app->getitem(2)));
             QFileInfo fi(app->getitem(3));
             QString img=fi.fileName();
             QFile::copy(app->getitem(3),appimgdir+img);
@@ -533,12 +532,11 @@ void LinkSaver::on_actionEdit_triggered()
             QString icon=fi.fileName();
             QFile::copy(app->getitem(1),appicondir+icon);
             elem.setAttribute("icon",icon);
-            elem.appendChild(elemlText);
-            docElem.childNodes().item(app->getitem(4).toInt()).toElement().appendChild(elem);
-            node.removeChild(node.childNodes().item(item->data(0,32).toInt()));
+            elem.setNodeValue(QString(app->getitem(2)));
             save_to_file();
         }
         delete app;
+        return;
     }
     if(ui->linkcat->currentItem()->data(0,33).toString()=="bookmark")
     {
@@ -572,14 +570,10 @@ void LinkSaver::on_actionEdit_triggered()
                                       QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
             }
 
-            QDomElement elem=doc.createElement("bookmark");
+
             elem.setAttribute("url",url->url);
-            QDomText elemlText =doc.createTextNode(QString(url->title));
-            //elemlText.toElement().setAttribute();
             elem.setAttribute("image",url->fname);
-            elem.appendChild(elemlText);
-            docElem.childNodes().item(url->get_cat().toInt()).toElement().appendChild(elem);
-            node.removeChild(node.childNodes().item(item->data(0,32).toInt()));
+            elem.setNodeValue(QString(url->title));
             save_to_file();
         }
 
