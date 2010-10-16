@@ -528,9 +528,17 @@ void LinkSaver::on_actionEdit_triggered()
             QString img=fi.fileName();
             QFile::copy(app->getitem(3),appimgdir+img);
             elem.setAttribute("image",img);
-            fi.setFile(app->getitem(1));
-            QString icon=fi.fileName();
-            QFile::copy(app->getitem(1),appicondir+icon);
+            QString icon;
+            if(app->getitem(1)!=":appexec")
+            {
+                fi.setFile(app->getitem(1));
+                icon=fi.fileName();
+                QFile::copy(app->getitem(1),appicondir+icon);
+            }
+            else
+            {
+                icon=":appexec";
+            }
             elem.setAttribute("icon",icon);
             elem.setNodeValue(QString(app->getitem(2)));
             save_to_file();
@@ -554,7 +562,7 @@ void LinkSaver::on_actionEdit_triggered()
                 url->additem(docElem.childNodes().item(i).toElement().attribute("name"),i,current);
             }
         }
-        url->set_Data(item->text(0),2);
+        url->set_Data(elem.text(),2);
         QString urls=doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().attribute("url","not found");
         url->set_Data(urls,1);
         url->set_Data(imgdir+elem.attribute("image",""),3);
@@ -571,12 +579,24 @@ void LinkSaver::on_actionEdit_triggered()
             }
 
 
-            elem.setAttribute("url",url->url);
-            elem.setAttribute("image",url->fname);
-            elem.setNodeValue(QString(url->title));
+            //elem.setAttribute("url",url->url);
+            //elem.setAttribute("image",url->fname);
+            //elem.setNodeValue("yyy");
+            //QDomText elemlText =doc.createTextNode(QString(url->title));
+            //elem.appendChild(elemlText);
+            //elem.setNodeValue();
+            QDomElement elem1=doc.createElement("bookmark");
+            elem1.setAttribute("url",url->url);
+            QDomText elemlText =doc.createTextNode(QString(url->title));
+            //elemlText.toElement().setAttribute();
+            elem1.setAttribute("image",url->fname);
+            elem1.appendChild(elemlText);
+            node.removeChild(node.childNodes().item(item->data(0,32).toInt()));
+            docElem.childNodes().item(url->get_cat().toInt()).toElement().appendChild(elem1);
+
             save_to_file();
         }
-
+        delete url;
     }
 
 }

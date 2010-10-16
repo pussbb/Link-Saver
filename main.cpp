@@ -1,21 +1,21 @@
 #include <QtGui/QApplication>
 #include "linksaver.h"
 #include <QTranslator>
-#if !defined(Q_OS_OS2)
+//#if !defined(Q_OS_OS2)
 #include <qtsingleapplication/src/qtsingleapplication.h>
-#endif
+//#endif
 int main(int argc, char *argv[])
 {
 
-#if !defined(Q_OS_OS2)
+//#if !defined(Q_OS_OS2)
     QtSingleApplication a(argc, argv);
     if (a.isRunning())
     {      a.activateWindow();
         return 0;
     }
-#else
-    QApplication a(argc, argv);
-#endif
+//#else
+//    QApplication a(argc, argv);
+//#endif
     LinkSaver w;
     QString locale = QLocale::system().name();
     QTranslator translator;
