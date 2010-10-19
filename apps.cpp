@@ -19,19 +19,19 @@ Apps::~Apps()
 
 void Apps::on_toolButton_clicked()
 {
-    ui->exepath->setText(QFileDialog::getOpenFileName(this,tr("Open Image"), "", tr("Executable(*.*)")));
+    ui->exepath->setText(QFileDialog::getOpenFileName(this,tr("Open Image"), "", "Executable(*.*)"));
 }
 
 void Apps::on_toolButton_2_clicked()
 {
     ui->appicon->setText(QFileDialog::getOpenFileName(this,
-                                                      tr("Open Image"), "", tr("Image Files (*.png *.jpg *.svg)")));
+                                                      tr("Open Image"), "", "Image Files (*.png *.jpg *.svg)"));
 }
 
 void Apps::on_toolButton_3_clicked()
 {
     ui->screenshot->setText(QFileDialog::getOpenFileName(this,
-                                                         tr("Open Image"), "", tr("Image Files (*.png *.jpg *.svg)")));
+                                                         tr("Open Image"), "", "Image Files (*.png *.jpg *.svg)"));
 }
 void Apps::additem(QString name, int index,bool current)
 {
