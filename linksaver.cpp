@@ -9,12 +9,31 @@
 #define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/images/" )
 #define appimgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/images/" )
 #define appicondir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/icons/" )
+
 LinkSaver::LinkSaver(QWidget *parent) :
-        QMainWindow(parent),
-        ui(new Ui::LinkSaver)
+    QMainWindow(parent),
+    ui(new Ui::LinkSaver)
 {
     ui->setupUi(this);
     QDesktopWidget *desktop = QApplication::desktop();
+    QMenuBar* bar=this->menuBar();
+    QMenu* trayIconMenu1 = new QMenu(this);
+    trayIconMenu1->addAction(ui->actionADD);
+    trayIconMenu1->addAction(ui->actionAdd_App);
+    trayIconMenu1->addAction(ui->actionAdd_Category);
+    trayIconMenu1->addAction(ui->actionExit);
+
+    QList<QAction *> actions = bar->actions();
+    QList<QAction *>::const_iterator it = actions.begin();
+    for(; it != actions.end(); it++)
+    {
+        QAction *action = *it;
+        if(action->menu()->objectName()=="menuOptions")
+        {
+            createLanguageMenu();
+            action->menu()->addMenu(languageMenu);
+        }
+    }
     int screenWidth, width;
     int screenHeight, height;
     int x, y;
@@ -25,7 +44,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
     width = windowSize.width();
     height = windowSize.height();
     // little computations
-     x = screenWidth - width;
+    x = screenWidth - width;
     y = screenHeight - height;
     y -= 50;
     // move window to desired coordinates
@@ -106,6 +125,35 @@ LinkSaver::LinkSaver(QWidget *parent) :
     init_links();
 }
 
+#include <QTranslator>
+void LinkSaver::createLanguageMenu()
+{
+    languageMenu = new QMenu(this);
+    QActionGroup *languageActionGroup = new QActionGroup(this);
+    connect(languageActionGroup, SIGNAL(triggered(QAction *)),
+            this, SLOT(switchLanguage(QAction *)));
+    QDir dir(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" ));
+    QStringList fileNames =
+            dir.entryList(QStringList("linksaver_*.qm"));
+    for (int i = 0; i < fileNames.size(); ++i) {
+        QString locale = fileNames[i];
+        qDebug()<<locale;
+        locale.remove(0, locale.indexOf('_') + 1);
+        locale.truncate(locale.lastIndexOf('.'));
+        QTranslator translator;
+        translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+fileNames[i]);
+        QString language = translator.translate("Language","English");
+        qDebug()<<language;
+        QAction *action = new QAction(tr("&%1 %2")
+                                      .arg(i + 1).arg(language), this);
+        action->setCheckable(true);
+        action->setData(locale);
+        languageMenu->addAction(action);
+        languageActionGroup->addAction(action);
+        if (language == "English")
+            action->setChecked(true);
+    }
+}
 void LinkSaver::init_links()
 { ///  QDir::toNativeSeparators ( QApplication::applicationDirPath()+"" )
     file.setFileName(QDir::toNativeSeparators ( QApplication::applicationDirPath()+"/" ) +"links.xml");
@@ -197,7 +245,7 @@ void LinkSaver::iconActivated(QSystemTrayIcon::ActivationReason reason)
     case QSystemTrayIcon::Trigger:
     case QSystemTrayIcon::DoubleClick:   show();     break;
     case QSystemTrayIcon::MiddleClick:
-           trayIcon->showMessage("Link Saver","Simple Program to Save Links", QSystemTrayIcon::Information,
+        trayIcon->showMessage("Link Saver","Simple Program to Save Links", QSystemTrayIcon::Information,
                               5 * 1000);
         break;
     default: ;
@@ -342,7 +390,7 @@ void LinkSaver::on_actionADD_triggered()
             docElem.childNodes().item(url->get_cat().toInt()).toElement().appendChild(elem);
             save_to_file();
         }
-       delete url;
+        delete url;
     }
 }
 #include <pictureflow.h>
@@ -357,7 +405,7 @@ public:
     void keyPressEvent(QKeyEvent* event)
     {
         if(event->key() == Qt::Key_Escape || event->key() == Qt::Key_Enter ||
-           event->key() == Qt::Key_Return)
+                event->key() == Qt::Key_Return)
         {
             event->accept();
             close();
@@ -370,17 +418,17 @@ public:
         if(event->key() == Qt::Key_F11)
             if(event->modifiers() == Qt::AltModifier)
             {
-            qDebug("changing reflection effect...");
-            switch(reflectionEffect())
-            {
+                qDebug("changing reflection effect...");
+                switch(reflectionEffect())
+                {
                 //case NoReflection:      setReflectionEffect(PlainReflection); break;
-            case PlainReflection:   setReflectionEffect(BlurredReflection); break;
-            case BlurredReflection: setReflectionEffect(PlainReflection); break;
-            default:                setReflectionEffect(PlainReflection); break;
+                case PlainReflection:   setReflectionEffect(BlurredReflection); break;
+                case BlurredReflection: setReflectionEffect(PlainReflection); break;
+                default:                setReflectionEffect(PlainReflection); break;
+                }
+                event->accept();
+                return;
             }
-            event->accept();
-            return;
-        }
 
         PictureFlow::keyPressEvent(event);
     }
@@ -408,13 +456,13 @@ void LinkSaver::on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column)
                     w->addSlide(QImage(imgdir+elem.childNodes().item(i).toElement().attribute("image","not found")),
                                 elem.childNodes().item(i).toElement().text(),elem.childNodes().item(i).toElement().attribute("url","not found"),"");
                 }
-                 }
+            }
 
             w->setCenterIndex(w->slideCount()/2);
             w->setReflectionEffect(PictureFlow::PlainReflection);
             w->setBackgroundColor(Qt::gray);
             w->showFullScreen();
-             while(w->isVisible()){qApp->processEvents(QEventLoop::WaitForMoreEvents );}
+            while(w->isVisible()){qApp->processEvents(QEventLoop::WaitForMoreEvents );}
             delete w;
         }
     }
@@ -427,17 +475,17 @@ void LinkSaver::on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column)
         {
             QProcess *app= new QProcess();
             app->start(doc.documentElement().childNodes().item(item->parent()->data(0,32).toInt()).childNodes().item(item->data(0,32).toInt()).toElement().text());
-       }
+        }
         else{
-        QDesktopServices::openUrl(QUrl(urlgo, QUrl::TolerantMode));
-           }
+            QDesktopServices::openUrl(QUrl(urlgo, QUrl::TolerantMode));
+        }
     }
 }
 #include "about.h"
 void LinkSaver::on_actionAbout_triggered()
 {
-About *about=new About(this);
-about->exec();
+    About *about=new About(this);
+    about->exec();
 }
 #include <QFileInfo>
 void LinkSaver::on_actionAdd_App_triggered()
@@ -508,7 +556,7 @@ void LinkSaver::on_actionEdit_triggered()
                 bool current=false;
                 if(item->parent()->data(0,32).toInt()==i)
                 {
-                                current=true;
+                    current=true;
                 }
                 app->additem(docElem.childNodes().item(i).toElement().attribute("name"),i,current);
             }
@@ -557,7 +605,7 @@ void LinkSaver::on_actionEdit_triggered()
                 bool current=false;
                 if(item->parent()->data(0,32).toInt()==i)
                 {
-                                current=true;
+                    current=true;
                 }
                 url->additem(docElem.childNodes().item(i).toElement().attribute("name"),i,current);
             }

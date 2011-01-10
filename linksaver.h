@@ -24,6 +24,7 @@ public:
     ~LinkSaver();
     QSystemTrayIcon *trayIcon;
      QMenu *trayIconMenu;
+     QMenu *languageMenu;
      QDomDocument doc;
      QFile file;
      QMessageBox msgBox;
@@ -34,6 +35,7 @@ private:
     Ui::LinkSaver *ui;
 
 private slots:
+void createLanguageMenu();
 void on_actionEdit_triggered();
 void on_actionAdd_App_triggered();
 void on_actionAbout_triggered();

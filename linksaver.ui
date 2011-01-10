@@ -75,7 +75,7 @@
      <x>0</x>
      <y>0</y>
      <width>235</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -94,7 +94,14 @@
     <addaction name="actionADD"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Option</string>
+    </property>
+    <addaction name="actionSettings"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionADD">
@@ -151,6 +158,11 @@
   <action name="actionEdit">
    <property name="text">
     <string>Edit</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>

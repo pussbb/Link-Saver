@@ -12,7 +12,7 @@ win32 {
    RC_FILE = win2.rc
 }
 TRANSLATIONS = ./lang/linksaver_ru.ts \
-                ./lang/linksaver_def.ts
+                ./lang/linksaver_def.ts \./lang/linksaver_en.ts
 
 SOURCES += main.cpp\
         linksaver.cpp \

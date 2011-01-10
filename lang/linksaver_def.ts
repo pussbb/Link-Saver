@@ -2,6 +2,11 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
+  <name>Language</name>
+    <message>
+        <source>English</source>
+        <translation>English</translation>
+    </message>
     <name>About</name>
     <message>
         <location filename="../about.ui" line="17"/>
