@@ -2,11 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
-  <name>Language</name>
-    <message>
-        <source>English</source>
-        <translation>English</translation>
-    </message>
     <name>About</name>
     <message>
         <location filename="../about.ui" line="17"/>
@@ -51,24 +46,29 @@ Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
 Contact: Qt Software Information (qt-info@nokia.com)
 
 WebSnap is part of the Graphics Dojo project on Qt Labs.
+***********************************************************************
+Single Application v2.6
+Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+Contact: Qt Software Information (qt-info@nokia.com)
 ***********************************************************************</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="87"/>
-        <source>License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../about.ui" line="99"/>
+        <location filename="../about.ui" line="103"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;table style=&quot;-qt-table-type: root; margin-top:4px; margin-bottom:4px; margin-left:4px; margin-right:4px;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;table border=&quot;0&quot; style=&quot;-qt-table-type: root; margin-top:4px; margin-bottom:4px; margin-left:4px; margin-right:4px;&quot;&gt;
 &lt;tr&gt;
 &lt;td style=&quot;border: none;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="91"/>
+        <source>License</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -95,7 +95,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="134"/>
+        <location filename="../addurl.cpp" line="136"/>
         <source>Generating image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -146,16 +146,13 @@ p, li { white-space: pre-wrap; }
         <source>Open Image</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>Language</name>
     <message>
-        <location filename="../apps.cpp" line="22"/>
-        <source>Executable(*.*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../apps.cpp" line="28"/>
-        <location filename="../apps.cpp" line="34"/>
-        <source>Image Files (*.png *.jpg *.svg)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../linksaver.cpp" line="148"/>
+        <source>English</source>
+        <translation>English</translation>
     </message>
 </context>
 <context>
@@ -181,57 +178,78 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="106"/>
-        <location filename="../linksaver.cpp" line="313"/>
+        <location filename="../linksaver.ui" line="99"/>
+        <source>Option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="113"/>
+        <location filename="../linksaver.cpp" line="365"/>
         <source>Add Url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="111"/>
+        <location filename="../linksaver.ui" line="118"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="120"/>
-        <location filename="../linksaver.cpp" line="256"/>
+        <location filename="../linksaver.ui" line="127"/>
+        <location filename="../linksaver.cpp" line="308"/>
+        <location filename="../linksaver.cpp" line="533"/>
         <source>Add Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="129"/>
+        <location filename="../linksaver.ui" line="136"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="134"/>
+        <location filename="../linksaver.ui" line="141"/>
         <source>About QT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="139"/>
+        <location filename="../linksaver.ui" line="146"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="144"/>
+        <location filename="../linksaver.ui" line="155"/>
         <source>Add App</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="149"/>
+        <location filename="../linksaver.ui" line="160"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="41"/>
-        <location filename="../linksaver.cpp" line="55"/>
-        <location filename="../linksaver.cpp" line="69"/>
-        <location filename="../linksaver.cpp" line="83"/>
+        <location filename="../linksaver.ui" line="165"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="60"/>
+        <location filename="../linksaver.cpp" line="74"/>
+        <location filename="../linksaver.cpp" line="88"/>
+        <location filename="../linksaver.cpp" line="102"/>
         <source>Error creating directory:&lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="208"/>
+        <location filename="../linksaver.cpp" line="132"/>
+        <source>langmenu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="150"/>
+        <source>&amp;%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="260"/>
         <source>The program will keep running
  in the system tray. To terminate the program, 
  choose Quit in the context menu  
@@ -239,32 +257,33 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="257"/>
+        <location filename="../linksaver.cpp" line="309"/>
+        <location filename="../linksaver.cpp" line="534"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="282"/>
+        <location filename="../linksaver.cpp" line="334"/>
         <source>Are you sure want delete item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="283"/>
+        <location filename="../linksaver.cpp" line="335"/>
         <source>All Link in this category will be deleted too</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="295"/>
+        <location filename="../linksaver.cpp" line="347"/>
         <source>Are you sure want delete Bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="296"/>
+        <location filename="../linksaver.cpp" line="348"/>
         <source>Link  will be deleted </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="314"/>
+        <location filename="../linksaver.cpp" line="366"/>
         <source>URL:</source>
         <translation type="unfinished"></translation>
     </message>

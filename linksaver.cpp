@@ -14,6 +14,15 @@ LinkSaver::LinkSaver(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LinkSaver)
 {
+    QString locale = QLocale::system().name();
+    QTranslator translator;
+    if(locale.length()>2)
+    {
+        locale.resize(2);
+    }
+    translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+locale);
+    QApplication::installTranslator(&translator);
+
     ui->setupUi(this);
     QDesktopWidget *desktop = QApplication::desktop();
     QMenuBar* bar=this->menuBar();
@@ -125,27 +134,29 @@ LinkSaver::LinkSaver(QWidget *parent) :
     init_links();
 }
 
-#include <QTranslator>
+
 void LinkSaver::createLanguageMenu()
 {
-    languageMenu = new QMenu(this);
+    languageMenu = new QMenu(tr("langmenu"),this);
+   // languageMenu->setTitle();
+    qDebug()<<translator.translate("Language","English");
     QActionGroup *languageActionGroup = new QActionGroup(this);
     connect(languageActionGroup, SIGNAL(triggered(QAction *)),
             this, SLOT(switchLanguage(QAction *)));
+
     QDir dir(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" ));
     QStringList fileNames =
             dir.entryList(QStringList("linksaver_*.qm"));
     for (int i = 0; i < fileNames.size(); ++i) {
         QString locale = fileNames[i];
-        qDebug()<<locale;
+        ///qDebug()<<locale;
         locale.remove(0, locale.indexOf('_') + 1);
         locale.truncate(locale.lastIndexOf('.'));
-        QTranslator translator;
-        translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+fileNames[i]);
-        QString language = translator.translate("Language","English");
-        qDebug()<<language;
-        QAction *action = new QAction(tr("&%1 %2")
-                                      .arg(i + 1).arg(language), this);
+        QTranslator translator1;
+        translator1.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+fileNames[i]);
+        QString language = translator1.translate("Language","English");
+        ///qDebug()<<language;
+        QAction *action = new QAction(tr("&%2").arg(language), this);
         action->setCheckable(true);
         action->setData(locale);
         languageMenu->addAction(action);
@@ -154,6 +165,14 @@ void LinkSaver::createLanguageMenu()
             action->setChecked(true);
     }
 }
+
+void LinkSaver::switchLanguage(QAction *action)
+{
+    QString locale = action->data().toString();
+    translator.load("linksaver_" + locale, QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/"));
+    QApplication::installTranslator(&translator);;
+}
+
 void LinkSaver::init_links()
 { ///  QDir::toNativeSeparators ( QApplication::applicationDirPath()+"" )
     file.setFileName(QDir::toNativeSeparators ( QApplication::applicationDirPath()+"/" ) +"links.xml");

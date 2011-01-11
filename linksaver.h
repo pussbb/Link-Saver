@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QTreeWidgetItem>
+#include <QTranslator>
 namespace Ui {
     class LinkSaver;
 }
@@ -25,31 +26,33 @@ public:
     QSystemTrayIcon *trayIcon;
      QMenu *trayIconMenu;
      QMenu *languageMenu;
+     QTranslator translator;
      QDomDocument doc;
      QFile file;
      QMessageBox msgBox;
 protected:
     void changeEvent(QEvent *e);
-void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);
 private:
     Ui::LinkSaver *ui;
 
 private slots:
-void createLanguageMenu();
-void on_actionEdit_triggered();
-void on_actionAdd_App_triggered();
-void on_actionAbout_triggered();
-void on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column);
-void on_actionADD_triggered();
-void save_to_file();
-void on_RemoveFolderItem_triggered();
-void on_linkcat_customContextMenuRequested(QPoint pos);
-void init_links();
-void init_items();
-void on_actionAdd_Category_triggered();
-void on_actionAbout_QT_triggered();
-void on_actionExit_triggered();
-void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    void switchLanguage(QAction *action);
+    void createLanguageMenu();
+    void on_actionEdit_triggered();
+    void on_actionAdd_App_triggered();
+    void on_actionAbout_triggered();
+    void on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column);
+    void on_actionADD_triggered();
+    void save_to_file();
+    void on_RemoveFolderItem_triggered();
+    void on_linkcat_customContextMenuRequested(QPoint pos);
+    void init_links();
+    void init_items();
+    void on_actionAdd_Category_triggered();
+    void on_actionAbout_QT_triggered();
+    void on_actionExit_triggered();
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
 };
 
 #endif // LINKSAVER_H
