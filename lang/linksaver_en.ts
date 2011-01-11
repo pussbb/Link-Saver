@@ -245,7 +245,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../linksaver.cpp" line="132"/>
         <source>langmenu</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Language</translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="150"/>
