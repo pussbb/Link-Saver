@@ -22,7 +22,5 @@ int main(int argc, char *argv[])
     if(settings.value("hideonstart",false)==false)    w.show();
    /// settings.~QSettings();
 #endif
-
-
     return a.exec();
 }

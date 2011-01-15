@@ -153,11 +153,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Executable(*.*)</source>
-        <translation type="obsolete">Выбрать исполняемый файл</translation>
+        <translation type="obsolete">Выбрать исполняемый файл(*.*)</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.svg)</source>
-        <translation type="obsolete">Выбрать Картинку</translation>
+        <translation type="obsolete">Выбрать Картинку(*.png *.jpg *.svg)</translation>
     </message>
 </context>
 <context>
