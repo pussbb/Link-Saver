@@ -14,7 +14,7 @@
    <string>LinkSaver</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="linkres.qrc">
     <normaloff>:/res/2globe_128.png</normaloff>:/res/2globe_128.png</iconset>
   </property>
   <property name="windowFilePath">
@@ -106,7 +106,7 @@
   </widget>
   <action name="actionADD">
    <property name="icon">
-    <iconset>
+    <iconset resource="linkres.qrc">
      <normaloff>:/res/link.png</normaloff>:/res/link.png</iconset>
    </property>
    <property name="text">
@@ -120,7 +120,7 @@
   </action>
   <action name="actionAdd_Category">
    <property name="icon">
-    <iconset>
+    <iconset resource="linkres.qrc">
      <normaloff>:/res/Blank-Map-64.png</normaloff>:/res/Blank-Map-64.png</iconset>
    </property>
    <property name="text">
@@ -129,7 +129,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
+    <iconset resource="linkres.qrc">
      <normaloff>:/res/2globe_128.png</normaloff>:/res/2globe_128.png</iconset>
    </property>
    <property name="text">
@@ -148,7 +148,7 @@
   </action>
   <action name="actionAdd_App">
    <property name="icon">
-    <iconset>
+    <iconset resource="linkres.qrc">
      <normaloff>:/appexec</normaloff>:/appexec</iconset>
    </property>
    <property name="text">
@@ -161,12 +161,18 @@
    </property>
   </action>
   <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="linkres.qrc">
+     <normaloff>:/res/applications-accessories.png</normaloff>:/res/applications-accessories.png</iconset>
+   </property>
    <property name="text">
     <string>Settings</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="linkres.qrc"/>
+ </resources>
  <connections/>
 </ui>

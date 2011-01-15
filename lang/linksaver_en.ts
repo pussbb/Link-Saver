@@ -62,6 +62,7 @@ p, li { white-space: pre-wrap; }
 &lt;table border=&quot;0&quot; style=&quot;-qt-table-type: root; margin-top:4px; margin-bottom:4px; margin-left:4px; margin-right:4px;&quot;&gt;
 &lt;tr&gt;
 &lt;td style=&quot;border: none;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
@@ -150,8 +151,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Language</name>
     <message>
-        <location filename="../linksaver.cpp" line="127"/>
-        <location filename="../linksaver.cpp" line="142"/>
+        <location filename="../linksaver.cpp" line="152"/>
         <source>English</source>
         <translation>English</translation>
     </message>
@@ -185,7 +185,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="113"/>
-        <location filename="../linksaver.cpp" line="376"/>
+        <location filename="../linksaver.cpp" line="479"/>
         <source>Add Url</source>
         <translation type="unfinished"></translation>
     </message>
@@ -196,8 +196,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="127"/>
-        <location filename="../linksaver.cpp" line="319"/>
-        <location filename="../linksaver.cpp" line="544"/>
+        <location filename="../linksaver.cpp" line="422"/>
+        <location filename="../linksaver.cpp" line="647"/>
         <source>Add Category</source>
         <translation type="unfinished"></translation>
     </message>
@@ -227,15 +227,15 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="165"/>
+        <location filename="../linksaver.ui" line="169"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="54"/>
-        <location filename="../linksaver.cpp" line="68"/>
-        <location filename="../linksaver.cpp" line="82"/>
-        <location filename="../linksaver.cpp" line="96"/>
+        <location filename="../linksaver.cpp" line="55"/>
+        <location filename="../linksaver.cpp" line="69"/>
+        <location filename="../linksaver.cpp" line="83"/>
+        <location filename="../linksaver.cpp" line="97"/>
         <source>Error creating directory:&lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -244,17 +244,19 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Language</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="125"/>
+        <location filename="../linksaver.cpp" line="131"/>
+        <location filename="../linksaver.cpp" line="178"/>
+        <location filename="../linksaver.cpp" line="190"/>
         <source>langmenu</source>
         <translation type="unfinished">Language</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="144"/>
+        <location filename="../linksaver.cpp" line="153"/>
         <source>&amp;%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="271"/>
+        <location filename="../linksaver.cpp" line="374"/>
         <source>The program will keep running
  in the system tray. To terminate the program, 
  choose Quit in the context menu  
@@ -262,33 +264,33 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="320"/>
-        <location filename="../linksaver.cpp" line="545"/>
+        <location filename="../linksaver.cpp" line="423"/>
+        <location filename="../linksaver.cpp" line="648"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="345"/>
+        <location filename="../linksaver.cpp" line="448"/>
         <source>Are you sure want delete item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="346"/>
+        <location filename="../linksaver.cpp" line="449"/>
         <source>All Link in this category will be deleted too</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="358"/>
+        <location filename="../linksaver.cpp" line="461"/>
         <source>Are you sure want delete Bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="359"/>
+        <location filename="../linksaver.cpp" line="462"/>
         <source>Link  will be deleted </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="377"/>
+        <location filename="../linksaver.cpp" line="480"/>
         <source>URL:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -297,7 +299,7 @@ p, li { white-space: pre-wrap; }
     <name>Settings</name>
     <message>
         <location filename="../settings.ui" line="14"/>
-        <source>Dialog</source>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

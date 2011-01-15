@@ -51,7 +51,7 @@ Single Application v2.6
 Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
 Contact: Qt Software Information (qt-info@nokia.com)
 ***********************************************************************</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="103"/>
@@ -62,9 +62,10 @@ p, li { white-space: pre-wrap; }
 &lt;table border=&quot;0&quot; style=&quot;-qt-table-type: root; margin-top:4px; margin-bottom:4px; margin-left:4px; margin-right:4px;&quot;&gt;
 &lt;tr&gt;
 &lt;td style=&quot;border: none;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="91"/>
@@ -162,8 +163,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Language</name>
     <message>
-        <location filename="../linksaver.cpp" line="127"/>
-        <location filename="../linksaver.cpp" line="142"/>
+        <location filename="../linksaver.cpp" line="152"/>
         <source>English</source>
         <translation>Русский</translation>
     </message>
@@ -197,7 +197,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="113"/>
-        <location filename="../linksaver.cpp" line="376"/>
+        <location filename="../linksaver.cpp" line="479"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
@@ -208,8 +208,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="127"/>
-        <location filename="../linksaver.cpp" line="319"/>
-        <location filename="../linksaver.cpp" line="544"/>
+        <location filename="../linksaver.cpp" line="422"/>
+        <location filename="../linksaver.cpp" line="647"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
@@ -239,15 +239,15 @@ p, li { white-space: pre-wrap; }
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="165"/>
+        <location filename="../linksaver.ui" line="169"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="54"/>
-        <location filename="../linksaver.cpp" line="68"/>
-        <location filename="../linksaver.cpp" line="82"/>
-        <location filename="../linksaver.cpp" line="96"/>
+        <location filename="../linksaver.cpp" line="55"/>
+        <location filename="../linksaver.cpp" line="69"/>
+        <location filename="../linksaver.cpp" line="83"/>
+        <location filename="../linksaver.cpp" line="97"/>
         <source>Error creating directory:&lt;br /&gt;</source>
         <translation>Ошыбка при создании папки&lt;br /&gt;</translation>
     </message>
@@ -256,17 +256,19 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Язык</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="125"/>
+        <location filename="../linksaver.cpp" line="131"/>
+        <location filename="../linksaver.cpp" line="178"/>
+        <location filename="../linksaver.cpp" line="190"/>
         <source>langmenu</source>
-        <translation type="unfinished">Язык</translation>
+        <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="144"/>
+        <location filename="../linksaver.cpp" line="153"/>
         <source>&amp;%2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="271"/>
+        <location filename="../linksaver.cpp" line="374"/>
         <source>The program will keep running
  in the system tray. To terminate the program, 
  choose Quit in the context menu  
@@ -276,34 +278,34 @@ p, li { white-space: pre-wrap; }
 программы выберете Выход в контексном меню.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="320"/>
-        <location filename="../linksaver.cpp" line="545"/>
+        <location filename="../linksaver.cpp" line="423"/>
+        <location filename="../linksaver.cpp" line="648"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="345"/>
+        <location filename="../linksaver.cpp" line="448"/>
         <source>Are you sure want delete item.</source>
         <translation>Вы уверены в том что
 хотите удалить елемент.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="346"/>
+        <location filename="../linksaver.cpp" line="449"/>
         <source>All Link in this category will be deleted too</source>
-        <translation type="unfinished">Все ссылки которые находяться в этой категории будут тоже удалены</translation>
+        <translation>Все ссылки которые находяться в этой категории будут тоже удалены</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="358"/>
+        <location filename="../linksaver.cpp" line="461"/>
         <source>Are you sure want delete Bookmark.</source>
         <translation>Вы уверены в том что хотите удалить закладку</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="359"/>
+        <location filename="../linksaver.cpp" line="462"/>
         <source>Link  will be deleted </source>
         <translation>Ссылка будет удалена</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="377"/>
+        <location filename="../linksaver.cpp" line="480"/>
         <source>URL:</source>
         <translation></translation>
     </message>
@@ -311,25 +313,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../settings.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Диалог</translation>
+        <translation type="obsolete">Диалог</translation>
+    </message>
+    <message>
+        <location filename="../settings.ui" line="14"/>
+        <source>Settings</source>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../settings.ui" line="42"/>
         <source>Hide to icon tray on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Спрятать окно 
+программы при запуске</translation>
     </message>
     <message>
         <location filename="../settings.ui" line="55"/>
         <source>Set language by default
 when select the language</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать язык 
+который Вы выбрали</translation>
     </message>
     <message>
         <location filename="../settings.ui" line="69"/>
         <source>Inset into tray icon menu all items</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить все закладки 
+в меню изображения в трее</translation>
     </message>
 </context>
 </TS>

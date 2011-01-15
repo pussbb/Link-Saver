@@ -3,8 +3,9 @@
 #include "apps.h"
 #include <QDebug>
 #include <QDesktopWidget>
+#include <QUrl>
+#include <QDesktopServices>
 #include <QProcess>
-
 #define tmpdir QDir::toNativeSeparators ( QDir::tempPath()+"/" )
 #define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/images/" )
 #define appimgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/apps/images/" )
@@ -128,6 +129,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
 void LinkSaver::createLanguageMenu()
 {
     languageMenu = new QMenu(tr("langmenu"),this);
+    languageMenu->setIcon(QIcon(":/res/config-language.png"));
     QActionGroup *languageActionGroup = new QActionGroup(this);
     connect(languageActionGroup, SIGNAL(triggered(QAction *)),
             this, SLOT(switchLanguage(QAction *)));
@@ -191,7 +193,6 @@ void LinkSaver::switchLanguage(QAction *action)
 void LinkSaver::totraymenu()
 {
 
-  //  trayIconMenu->addAction(ui->actionADD);
     QDomElement docElem = doc.documentElement();
     QString title;
     for(int i=0;i<docElem.childNodes().count();i++)
@@ -214,9 +215,9 @@ void LinkSaver::totraymenu()
                     userdata<<QString::number(i);
                     if(e.value()=="app")
                     {
-                       e=elem.childNodes().item(w).toElement().attributeNode("app");
-                       title=e.value();
-                       if(title.length()>25)
+                        e=elem.childNodes().item(w).toElement().attributeNode("app");
+                        title=e.value();
+                        if(title.length()>25)
                             title.resize(25);
                         action->setText(title);
                         e=elem.childNodes().item(w).toElement().attributeNode("icon");
@@ -231,7 +232,7 @@ void LinkSaver::totraymenu()
                     else{
                         title=elem.childNodes().item(w).toElement().text();
                         if(title.length()>25)
-                             title.resize(25);
+                            title.resize(25);
                         action->setText(title);
                         action->setIcon(QIcon(":/res/link.png"));
                         //action->setUserData(33,"bookmark");
@@ -249,9 +250,7 @@ void LinkSaver::totraymenu()
         }
     }
 }
-#include <QUrl>
-#include <QDesktopServices>
-#include <QProcess>
+
 void LinkSaver::traymenuaction(QAction *action)
 {
     QStringList userdata=action->data().toStringList();
@@ -259,15 +258,15 @@ void LinkSaver::traymenuaction(QAction *action)
     QDomElement elem=doc.documentElement().childNodes().item(userdata.at(0).toInt()).toElement();
     if(userdata.at(1)=="bookmark")
     {
-       QString url= elem.childNodes().item(userdata.at(2).toInt()).toElement().attribute("url","not found");
+        QString url= elem.childNodes().item(userdata.at(2).toInt()).toElement().attribute("url","not found");
         QDesktopServices::openUrl(QUrl(url, QUrl::TolerantMode));
     }
     else
-    if(userdata.at(1)=="app")
-    {
-        QProcess *app= new QProcess();
-        app->start(elem.childNodes().item(userdata.at(2).toInt()).toElement().text());
-    }
+        if(userdata.at(1)=="app")
+        {
+            QProcess *app= new QProcess();
+            app->start(elem.childNodes().item(userdata.at(2).toInt()).toElement().text());
+        }
 }
 
 void LinkSaver::init_links()

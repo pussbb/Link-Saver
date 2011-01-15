@@ -6,5 +6,7 @@
         <file>res/Info-64.png</file>
         <file>LICENSE.LGPL</file>
         <file alias="appexec">res/application-x-executable-script.png</file>
+        <file>res/applications-accessories.png</file>
+        <file>res/config-language.png</file>
     </qresource>
 </RCC>
