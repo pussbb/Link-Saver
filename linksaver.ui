@@ -98,7 +98,15 @@
     <property name="title">
      <string>Option</string>
     </property>
+    <widget class="QMenu" name="menuImport">
+     <property name="title">
+      <string>Import</string>
+     </property>
+     <addaction name="actionFrom_Firefox"/>
+     <addaction name="actionFrom_Chrome"/>
+    </widget>
     <addaction name="actionSettings"/>
+    <addaction name="menuImport"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
@@ -167,6 +175,16 @@
    </property>
    <property name="text">
     <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionFrom_Firefox">
+   <property name="text">
+    <string>From Firefox</string>
+   </property>
+  </action>
+  <action name="actionFrom_Chrome">
+   <property name="text">
+    <string>From Chromium</string>
    </property>
   </action>
  </widget>

@@ -21,20 +21,25 @@ SOURCES += main.cpp\
     pictureflow.cpp \
     about.cpp \
     apps.cpp \
-    settings.cpp
+    settings.cpp \
+    import.cpp \
+    qt-json/json.cpp
 
 HEADERS  += linksaver.h \
     addurl.h \
     pictureflow.h \
     about.h \
     apps.h \
-    settings.h
+    settings.h \
+    import.h \
+    qt-json/json.h
 
 FORMS    += linksaver.ui \
     addurl.ui \
     about.ui \
     apps.ui \
-    settings.ui
+    settings.ui \
+    import.ui
 
 RESOURCES += \
     linkres.qrc

@@ -58,6 +58,7 @@ private slots:
     void on_actionExit_triggered();
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
     void on_actionSettings_triggered();
+    void on_actionFrom_Firefox_triggered();
 };
 
 #endif // LINKSAVER_H

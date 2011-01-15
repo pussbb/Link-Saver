@@ -771,3 +771,10 @@ void LinkSaver::on_actionSettings_triggered()
     settings_ui->exec();
     //delete settings_ui;
 }
+#include "import.h"
+void LinkSaver::on_actionFrom_Firefox_triggered()
+{
+    Import *import=new Import(this);
+    import->firefox_profiles();
+    import->exec();
+}

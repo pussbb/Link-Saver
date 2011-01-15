@@ -161,6 +161,19 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Import</name>
+    <message>
+        <location filename="../import.ui" line="20"/>
+        <source>Import</source>
+        <translation>Импорт</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="68"/>
+        <source>Profile</source>
+        <translation>Профиль</translation>
+    </message>
+</context>
+<context>
     <name>Language</name>
     <message>
         <location filename="../linksaver.cpp" line="152"/>
@@ -196,52 +209,67 @@ p, li { white-space: pre-wrap; }
         <translation>Опции</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="113"/>
+        <location filename="../linksaver.ui" line="103"/>
+        <source>Import</source>
+        <translation>Импорт</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="121"/>
         <location filename="../linksaver.cpp" line="479"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="118"/>
+        <location filename="../linksaver.ui" line="126"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="127"/>
+        <location filename="../linksaver.ui" line="135"/>
         <location filename="../linksaver.cpp" line="422"/>
         <location filename="../linksaver.cpp" line="647"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="136"/>
+        <location filename="../linksaver.ui" line="144"/>
         <source>About</source>
         <translation>О ...</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="141"/>
+        <location filename="../linksaver.ui" line="149"/>
         <source>About QT</source>
         <translation>О QT</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="146"/>
+        <location filename="../linksaver.ui" line="154"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="155"/>
+        <location filename="../linksaver.ui" line="163"/>
         <source>Add App</source>
         <translation>Добавить Приложение</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="160"/>
+        <location filename="../linksaver.ui" line="168"/>
         <source>Edit</source>
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="169"/>
+        <location filename="../linksaver.ui" line="177"/>
         <source>Settings</source>
         <translation>Настройки</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="182"/>
+        <source>From Firefox</source>
+        <translation>Из Firefox&apos;a</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="187"/>
+        <source>From Chromium</source>
+        <translation>Из Chromium&apos;a</translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="55"/>
@@ -308,6 +336,51 @@ p, li { white-space: pre-wrap; }
         <location filename="../linksaver.cpp" line="480"/>
         <source>URL:</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../import.cpp" line="22"/>
+        <source>System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="22"/>
+        <source>Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="29"/>
+        <location filename="../import.cpp" line="34"/>
+        <location filename="../import.cpp" line="66"/>
+        <location filename="../import.cpp" line="91"/>
+        <location filename="../import.cpp" line="100"/>
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="29"/>
+        <location filename="../import.cpp" line="66"/>
+        <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
+        <translation>Похоже на то что у Вас неустановлен Firefox</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="34"/>
+        <source>Sorry but we could not find the profile of Firefox!</source>
+        <translation>Извините но мы не смогли
+найти профили для Firefox&apos;a</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="91"/>
+        <source>Could&apos;t open file for the reading</source>
+        <translation>Не удалось открфть файл для чтения</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="100"/>
+        <source>An error occurred during parsing</source>
+        <translation>Произошла ошибка при
+обработке файла</translation>
     </message>
 </context>
 <context>
