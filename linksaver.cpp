@@ -103,7 +103,13 @@ LinkSaver::LinkSaver(QWidget *parent) :
         }
     }
     //end of check if dir exists
+
+    init_links();
     trayIconMenu = new QMenu(this);
+    if(settings.value("toicontray",false)==true)
+    {
+        totraymenu();
+    }
     trayIconMenu->addAction(ui->actionADD);
     trayIconMenu->addAction(ui->actionAdd_App);
     trayIconMenu->addAction(ui->actionAdd_Category);
@@ -116,7 +122,6 @@ LinkSaver::LinkSaver(QWidget *parent) :
     ///
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
-    init_links();
 }
 
 
@@ -183,6 +188,88 @@ void LinkSaver::switchLanguage(QAction *action)
     languageMenu->setTitle(tr("langmenu"));
 }
 
+void LinkSaver::totraymenu()
+{
+
+  //  trayIconMenu->addAction(ui->actionADD);
+    QDomElement docElem = doc.documentElement();
+    QString title;
+    for(int i=0;i<docElem.childNodes().count();i++)
+    {
+        if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
+
+            QMenu *menuitem= new QMenu(docElem.childNodes().item(i).toElement().attribute("name"),this);
+            menuitem->setIcon(QIcon(":/res/Blank-Map-64.png"));
+            QActionGroup *items = new QActionGroup(this);
+            connect(items, SIGNAL(triggered(QAction *)),
+                    this, SLOT(traymenuaction(QAction *)));
+            QDomElement elem = docElem.childNodes().item(i).toElement();
+            if(elem.hasChildNodes())
+            {
+                for(int w=0;w<elem.childNodes().count();w++)
+                {
+                    QStringList userdata;
+                    QAction *action = new QAction( this);
+                    QDomAttr e=elem.childNodes().item(w).toElement().attributeNode("url");
+                    userdata<<QString::number(i);
+                    if(e.value()=="app")
+                    {
+                       e=elem.childNodes().item(w).toElement().attributeNode("app");
+                       title=e.value();
+                       if(title.length()>25)
+                            title.resize(25);
+                        action->setText(title);
+                        e=elem.childNodes().item(w).toElement().attributeNode("icon");
+
+                        if(e.value().isEmpty()!=true && QFile::exists(appicondir+e.value()))
+                            action->setIcon(QIcon(appicondir+e.value()));
+                        else
+                            action->setIcon(QIcon(":appexec"));
+                        //action->setUserData(33,"app");
+                        userdata<<"app";
+                    }
+                    else{
+                        title=elem.childNodes().item(w).toElement().text();
+                        if(title.length()>25)
+                             title.resize(25);
+                        action->setText(title);
+                        action->setIcon(QIcon(":/res/link.png"));
+                        //action->setUserData(33,"bookmark");
+                        userdata<<"bookmark";
+                    }
+                    //action->setUserData(32,w);//elem.childNodes().item(w).lineNumber() );
+                    userdata<<QString::number(w);
+                    action->setData(userdata);
+
+                    menuitem->addAction(action);
+                    items->addAction(action);
+                }
+            }
+            trayIconMenu->addMenu(menuitem);
+        }
+    }
+}
+#include <QUrl>
+#include <QDesktopServices>
+#include <QProcess>
+void LinkSaver::traymenuaction(QAction *action)
+{
+    QStringList userdata=action->data().toStringList();
+    qDebug()<<userdata.at(1);
+    QDomElement elem=doc.documentElement().childNodes().item(userdata.at(0).toInt()).toElement();
+    if(userdata.at(1)=="bookmark")
+    {
+       QString url= elem.childNodes().item(userdata.at(2).toInt()).toElement().attribute("url","not found");
+        QDesktopServices::openUrl(QUrl(url, QUrl::TolerantMode));
+    }
+    else
+    if(userdata.at(1)=="app")
+    {
+        QProcess *app= new QProcess();
+        app->start(elem.childNodes().item(userdata.at(2).toInt()).toElement().text());
+    }
+}
+
 void LinkSaver::init_links()
 { ///  QDir::toNativeSeparators ( QApplication::applicationDirPath()+"" )
     file.setFileName(QDir::toNativeSeparators ( QApplication::applicationDirPath()+"/" ) +"links.xml");
@@ -212,6 +299,7 @@ void LinkSaver::init_links()
     doc.setContent(&file);
     file.close();
     init_items();
+
 }
 void LinkSaver::init_items()
 {

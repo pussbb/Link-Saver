@@ -39,6 +39,8 @@ private:
     Ui::LinkSaver *ui;
 
 private slots:
+    void totraymenu();
+    void traymenuaction(QAction *action);
     void switchLanguage(QAction *action);
     void createLanguageMenu();
     void on_actionEdit_triggered();
