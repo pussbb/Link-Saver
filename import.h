@@ -9,6 +9,7 @@
 #include "qt-json/json.h"
 #include <qfile.h>
 #include <qtextstream.h>
+#include <QTreeWidgetItem>
 namespace Ui {
     class Import;
 }
@@ -27,6 +28,10 @@ public:
 private slots:
     void on_profillist_currentIndexChanged(int index);
     void build_tree(QString file);
+    void on_pushButton_clicked();
+
+    void on_itemsview_itemChanged(QTreeWidgetItem* item, int column);
+
 private:
     Ui::Import *ui;
 

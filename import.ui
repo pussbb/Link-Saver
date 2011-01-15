@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>284</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -35,7 +35,7 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QTreeView" name="treeView">
+  <widget class="QTreeWidget" name="itemsview">
    <property name="geometry">
     <rect>
      <x>6</x>
@@ -44,6 +44,15 @@
      <height>201</height>
     </rect>
    </property>
+   <column>
+    <property name="text">
+     <string>Links List</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/res/link.png</normaloff>:/res/link.png</iconset>
+    </property>
+   </column>
   </widget>
   <widget class="QComboBox" name="profillist">
    <property name="geometry">
@@ -66,6 +75,19 @@
    </property>
    <property name="text">
     <string>Profile</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>254</x>
+     <y>4</y>
+     <width>109</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select different</string>
    </property>
   </widget>
  </widget>
