@@ -123,8 +123,6 @@ LinkSaver::LinkSaver(QWidget *parent) :
 void LinkSaver::createLanguageMenu()
 {
     languageMenu = new QMenu(tr("langmenu"),this);
-   // languageMenu->setTitle();
-    qDebug()<<translator.translate("Language","English");
     QActionGroup *languageActionGroup = new QActionGroup(this);
     connect(languageActionGroup, SIGNAL(triggered(QAction *)),
             this, SLOT(switchLanguage(QAction *)));
@@ -132,39 +130,57 @@ void LinkSaver::createLanguageMenu()
     QDir dir(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" ));
     QStringList fileNames =
             dir.entryList(QStringList("linksaver_*.qm"));
+    QString syslocale = QLocale::system().name();
+    QString lang;
+    if(syslocale.length()>2)
+    {
+        syslocale.resize(2);
+    }
     for (int i = 0; i < fileNames.size(); ++i) {
         QString locale = fileNames[i];
-        ///qDebug()<<locale;
         locale.remove(0, locale.indexOf('_') + 1);
         locale.truncate(locale.lastIndexOf('.'));
         QTranslator translator1;
         translator1.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+fileNames[i]);
         QString language = translator1.translate("Language","English");
-        ///qDebug()<<language;
         QAction *action = new QAction(tr("&%2").arg(language), this);
         action->setCheckable(true);
         action->setData(locale);
         languageMenu->addAction(action);
         languageActionGroup->addAction(action);
-        ///QString locale = QLocale::system().name();
-        QTranslator translator;
-        if(locale.length()>2)
+        if(settings.value("locale","none")=="none")
         {
-            locale.resize(2);
+            if (locale== syslocale)
+            {
+                action->setChecked(true);
+                lang=locale;
+            }
         }
-        ///translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+locale);
-       /// QApplication::installTranslator(&translator);
-        ///
-        if (language == "English")
-            action->setChecked(true);
+        else
+        {
+            if (locale==settings.value("locale","none"))
+            {
+                action->setChecked(true);
+                lang=settings.value("locale","none").toString();
+            }
+        }
+
     }
+    translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+lang);
+    QApplication::installTranslator(&translator);
+    languageMenu->setTitle(tr("langmenu"));
 }
 
 void LinkSaver::switchLanguage(QAction *action)
 {
     QString locale = action->data().toString();
+    if(settings.value("langtodef",false)==true)
+        settings.setValue("locale",locale);
+    else
+        settings.remove("locale");
     translator.load("linksaver_" + locale, QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/"));
-    QApplication::installTranslator(&translator);;
+    QApplication::installTranslator(&translator);
+    languageMenu->setTitle(tr("langmenu"));
 }
 
 void LinkSaver::init_links()
@@ -660,4 +676,11 @@ void LinkSaver::on_actionEdit_triggered()
         delete url;
     }
 
+}
+#include "settings.h"
+void LinkSaver::on_actionSettings_triggered()
+{
+    Settings *settings_ui=new Settings(this);
+    settings_ui->exec();
+    //delete settings_ui;
 }

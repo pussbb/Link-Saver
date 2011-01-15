@@ -150,7 +150,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Language</name>
     <message>
-        <location filename="../linksaver.cpp" line="148"/>
+        <location filename="../linksaver.cpp" line="127"/>
+        <location filename="../linksaver.cpp" line="142"/>
         <source>English</source>
         <translation>English</translation>
     </message>
@@ -184,7 +185,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="113"/>
-        <location filename="../linksaver.cpp" line="365"/>
+        <location filename="../linksaver.cpp" line="376"/>
         <source>Add Url</source>
         <translation type="unfinished"></translation>
     </message>
@@ -195,8 +196,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="127"/>
-        <location filename="../linksaver.cpp" line="308"/>
-        <location filename="../linksaver.cpp" line="533"/>
+        <location filename="../linksaver.cpp" line="319"/>
+        <location filename="../linksaver.cpp" line="544"/>
         <source>Add Category</source>
         <translation type="unfinished"></translation>
     </message>
@@ -231,25 +232,25 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="60"/>
-        <location filename="../linksaver.cpp" line="74"/>
-        <location filename="../linksaver.cpp" line="88"/>
-        <location filename="../linksaver.cpp" line="102"/>
+        <location filename="../linksaver.cpp" line="54"/>
+        <location filename="../linksaver.cpp" line="68"/>
+        <location filename="../linksaver.cpp" line="82"/>
+        <location filename="../linksaver.cpp" line="96"/>
         <source>Error creating directory:&lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="132"/>
+        <location filename="../linksaver.cpp" line="125"/>
         <source>langmenu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="150"/>
+        <location filename="../linksaver.cpp" line="144"/>
         <source>&amp;%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="260"/>
+        <location filename="../linksaver.cpp" line="271"/>
         <source>The program will keep running
  in the system tray. To terminate the program, 
  choose Quit in the context menu  
@@ -257,34 +258,58 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="309"/>
-        <location filename="../linksaver.cpp" line="534"/>
+        <location filename="../linksaver.cpp" line="320"/>
+        <location filename="../linksaver.cpp" line="545"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="334"/>
+        <location filename="../linksaver.cpp" line="345"/>
         <source>Are you sure want delete item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="335"/>
+        <location filename="../linksaver.cpp" line="346"/>
         <source>All Link in this category will be deleted too</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="347"/>
+        <location filename="../linksaver.cpp" line="358"/>
         <source>Are you sure want delete Bookmark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="348"/>
+        <location filename="../linksaver.cpp" line="359"/>
         <source>Link  will be deleted </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="366"/>
+        <location filename="../linksaver.cpp" line="377"/>
         <source>URL:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Settings</name>
+    <message>
+        <location filename="../settings.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings.ui" line="42"/>
+        <source>Hide to icon tray on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings.ui" line="55"/>
+        <source>Set language by default
+when select the language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings.ui" line="69"/>
+        <source>Inset into tray icon menu all items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -20,18 +20,21 @@ SOURCES += main.cpp\
     addurl.cpp \
     pictureflow.cpp \
     about.cpp \
-    apps.cpp
+    apps.cpp \
+    settings.cpp
 
 HEADERS  += linksaver.h \
     addurl.h \
     pictureflow.h \
     about.h \
-    apps.h
+    apps.h \
+    settings.h
 
 FORMS    += linksaver.ui \
     addurl.ui \
     about.ui \
-    apps.ui
+    apps.ui \
+    settings.ui
 
 RESOURCES += \
     linkres.qrc

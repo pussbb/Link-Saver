@@ -14,6 +14,7 @@
 #include <QTextStream>
 #include <QTreeWidgetItem>
 #include <QTranslator>
+#include <QSettings>
 namespace Ui {
     class LinkSaver;
 }
@@ -30,6 +31,7 @@ public:
      QDomDocument doc;
      QFile file;
      QMessageBox msgBox;
+     QSettings settings;
 protected:
     void changeEvent(QEvent *e);
     void closeEvent(QCloseEvent *event);
@@ -53,6 +55,7 @@ private slots:
     void on_actionAbout_QT_triggered();
     void on_actionExit_triggered();
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    void on_actionSettings_triggered();
 };
 
 #endif // LINKSAVER_H

@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     {      a.activateWindow();
         return 0;
     }
-    QSettings settings("myapp.ini", QSettings::IniFormat);
+
     QCoreApplication::setOrganizationName("_pussbb");
     QCoreApplication::setOrganizationDomain("krabik.co.ua");
     QCoreApplication::setApplicationName("QLinkSaver");
@@ -18,8 +18,9 @@ int main(int argc, char *argv[])
 #if defined(Q_WS_S60) || defined(Q_WS_MAEMO_5)
     w.showMaximized();
 #else
-
-    w.show();
+    QSettings settings;
+    if(settings.value("hideonstart",false)==false)    w.show();
+   /// settings.~QSettings();
 #endif
 
 
