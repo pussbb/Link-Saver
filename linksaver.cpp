@@ -14,24 +14,9 @@ LinkSaver::LinkSaver(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LinkSaver)
 {
-    QString locale = QLocale::system().name();
-    QTranslator translator;
-    if(locale.length()>2)
-    {
-        locale.resize(2);
-    }
-    translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+locale);
-    QApplication::installTranslator(&translator);
-
     ui->setupUi(this);
     QDesktopWidget *desktop = QApplication::desktop();
     QMenuBar* bar=this->menuBar();
-    QMenu* trayIconMenu1 = new QMenu(this);
-    trayIconMenu1->addAction(ui->actionADD);
-    trayIconMenu1->addAction(ui->actionAdd_App);
-    trayIconMenu1->addAction(ui->actionAdd_Category);
-    trayIconMenu1->addAction(ui->actionExit);
-
     QList<QAction *> actions = bar->actions();
     QList<QAction *>::const_iterator it = actions.begin();
     for(; it != actions.end(); it++)
@@ -161,6 +146,15 @@ void LinkSaver::createLanguageMenu()
         action->setData(locale);
         languageMenu->addAction(action);
         languageActionGroup->addAction(action);
+        ///QString locale = QLocale::system().name();
+        QTranslator translator;
+        if(locale.length()>2)
+        {
+            locale.resize(2);
+        }
+        ///translator.load(QDir::toNativeSeparators (QApplication::applicationDirPath()+"/lang/" )+"linksaver_"+locale);
+       /// QApplication::installTranslator(&translator);
+        ///
         if (language == "English")
             action->setChecked(true);
     }
