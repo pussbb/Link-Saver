@@ -777,4 +777,5 @@ void LinkSaver::on_actionFrom_Firefox_triggered()
     Import *import=new Import(this);
     import->firefox_profiles();
     import->exec();
+    init_links();
 }

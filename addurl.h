@@ -2,8 +2,6 @@
 #define ADDURL_H
 
 #include <QDialog>
-#include <QtGui>
-#include <QtWebKit>
 // ==== WebSnap: capture a web page and create a thumbnail preview ====
 #include <QtGui>
 #include <QtWebKit>
@@ -35,6 +33,42 @@ private:
 //    int m_zoom;
 //    int m_percent;
 };
+
+
+// shamelessly copied from Qt Demo Browser
+static QUrl guessUrlFromString(const QString &string)
+{
+   QString urlStr = string.trimmed();
+   QRegExp test(QLatin1String("^[a-zA-Z]+\\:.*"));
+
+   // Check if it looks like a qualified URL. Try parsing it and see.
+   bool hasSchema = test.exactMatch(urlStr);
+   if (hasSchema) {
+       QUrl url(urlStr, QUrl::TolerantMode);
+       if (url.isValid())
+           return url;
+   }
+
+   // Might be a file.
+   if (QFile::exists(urlStr))
+       return QUrl::fromLocalFile(urlStr);
+
+   // Might be a shorturl - try to detect the schema.
+   if (!hasSchema) {
+       int dotIndex = urlStr.indexOf(QLatin1Char('.'));
+       if (dotIndex != -1) {
+           QString prefix = urlStr.left(dotIndex).toLower();
+           QString schema = (prefix == QLatin1String("ftp")) ? prefix : QLatin1String("http");
+           QUrl url(schema + QLatin1String("://") + urlStr, QUrl::TolerantMode);
+           if (url.isValid())
+               return url;
+       }
+   }
+
+   // Fall back to QUrl's own tolerant parser.
+   return QUrl(string, QUrl::TolerantMode);
+}
+////////////
 
 /////////////////////////////////////////////////////
 namespace Ui {
