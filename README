@@ -3,6 +3,11 @@ links of one category as a slide show. Need QT 4.6 libs or high.
 To create your lang file rename linksaver_def.ts to your locale for example:linksaver_en.ts or linksaver_ru.ts.
 Translate it in QLinguistic and compile.
 
+2011-01-16
+- added importing bookmarks from firefox for Linux
+- fix bug memory leek for page with big content
+- added check clipbord for valid url and insert it to the input of "Add bookmark" dialog
+
 2011-01-15
 - added menu for selecting language
 - added settings

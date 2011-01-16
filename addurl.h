@@ -14,6 +14,7 @@ public:
     QImage image;
     WebCapture();
     void load(const QUrl &url, int zoom, const QString &outputFileName, int width);
+    void finish();
         QWebPage m_page;
         QString m_fileName;
         int m_zoom;

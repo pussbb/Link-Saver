@@ -96,7 +96,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="136"/>
+        <location filename="../addurl.cpp" line="128"/>
         <source>Generating image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -156,8 +156,38 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.ui" line="68"/>
+        <location filename="../import.ui" line="67"/>
+        <source>Generating image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="80"/>
+        <source>Total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="121"/>
+        <source>Links List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="139"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="161"/>
         <source>Profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="184"/>
+        <source>Select different</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="147"/>
+        <source>Open Image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -203,7 +233,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="121"/>
-        <location filename="../linksaver.cpp" line="479"/>
+        <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation type="unfinished"></translation>
     </message>
@@ -215,7 +245,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../linksaver.ui" line="135"/>
         <location filename="../linksaver.cpp" line="422"/>
-        <location filename="../linksaver.cpp" line="647"/>
+        <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation type="unfinished"></translation>
     </message>
@@ -289,7 +319,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.cpp" line="423"/>
-        <location filename="../linksaver.cpp" line="648"/>
+        <location filename="../linksaver.cpp" line="655"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -314,7 +344,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="480"/>
+        <location filename="../linksaver.cpp" line="487"/>
         <source>URL:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -322,43 +352,56 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../import.cpp" line="22"/>
+        <location filename="../import.cpp" line="23"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="22"/>
+        <location filename="../import.cpp" line="23"/>
         <source>Windows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="29"/>
-        <location filename="../import.cpp" line="34"/>
-        <location filename="../import.cpp" line="66"/>
-        <location filename="../import.cpp" line="91"/>
-        <location filename="../import.cpp" line="100"/>
+        <location filename="../import.cpp" line="30"/>
+        <location filename="../import.cpp" line="35"/>
+        <location filename="../import.cpp" line="67"/>
+        <location filename="../import.cpp" line="94"/>
+        <location filename="../import.cpp" line="103"/>
+        <location filename="../import.cpp" line="293"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="29"/>
-        <location filename="../import.cpp" line="66"/>
+        <location filename="../import.cpp" line="30"/>
+        <location filename="../import.cpp" line="67"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="34"/>
+        <location filename="../import.cpp" line="35"/>
         <source>Sorry but we could not find the profile of Firefox!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="91"/>
+        <location filename="../import.cpp" line="94"/>
+        <location filename="../import.cpp" line="293"/>
         <source>Could&apos;t open file for the reading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="100"/>
+        <location filename="../import.cpp" line="103"/>
         <source>An error occurred during parsing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="791"/>
+        <source>Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="791"/>
+        <source>We recommend to restart the application
+ for better performance.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

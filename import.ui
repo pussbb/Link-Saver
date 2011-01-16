@@ -90,7 +90,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="curr_url">
@@ -103,16 +103,9 @@
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
-   <zorder>itemsall</zorder>
-   <zorder>image</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
-   <zorder>title</zorder>
-   <zorder>curr_url</zorder>
-   <zorder>itemsview</zorder>
   </widget>
   <widget class="QTreeWidget" name="itemsview">
    <property name="geometry">
@@ -136,8 +129,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>154</x>
-     <y>240</y>
+     <x>144</x>
+     <y>238</y>
      <width>78</width>
      <height>25</height>
     </rect>

@@ -6,12 +6,12 @@
     <message>
         <location filename="../about.ui" line="17"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="30"/>
         <source>HDA</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="42"/>
@@ -26,12 +26,12 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;version 2.0.0.5 alpha.(build 30.03.2010).&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Licence GNU LGPL v 2.0&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Author :_pussbb.&lt;/span&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://krabik.co.ua/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;Site&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;E-mail: pussbb@gmail.com  &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="58"/>
         <source>3rdparty</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="70"/>
@@ -51,7 +51,7 @@ Single Application v2.6
 Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
 Contact: Qt Software Information (qt-info@nokia.com)
 ***********************************************************************</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="103"/>
@@ -65,12 +65,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="91"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -78,27 +78,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../addurl.ui" line="20"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../addurl.ui" line="84"/>
         <source>Category</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../addurl.ui" line="110"/>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../addurl.ui" line="123"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="136"/>
+        <location filename="../addurl.cpp" line="128"/>
         <source>Generating image</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -106,46 +106,46 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../apps.ui" line="20"/>
         <source>Add Application</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.ui" line="38"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.ui" line="56"/>
         <source>Displayed Name</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.ui" line="89"/>
         <source>Executable</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.ui" line="102"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.ui" line="125"/>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.ui" line="148"/>
         <location filename="../apps.ui" line="161"/>
         <location filename="../apps.ui" line="174"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../apps.cpp" line="22"/>
         <location filename="../apps.cpp" line="28"/>
         <location filename="../apps.cpp" line="34"/>
         <source>Open Image</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -153,12 +153,42 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../import.ui" line="20"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.ui" line="68"/>
+        <location filename="../import.ui" line="67"/>
+        <source>Generating image</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="80"/>
+        <source>Total</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="121"/>
+        <source>Links List</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="139"/>
+        <source>Apply</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="161"/>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="184"/>
+        <source>Select different</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="147"/>
+        <source>Open Image</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -174,90 +204,90 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../linksaver.ui" line="14"/>
         <source>LinkSaver</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="65"/>
         <source>Links</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="83"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="90"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="99"/>
         <source>Option</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="103"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="121"/>
-        <location filename="../linksaver.cpp" line="479"/>
+        <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="126"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="135"/>
         <location filename="../linksaver.cpp" line="422"/>
-        <location filename="../linksaver.cpp" line="647"/>
+        <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="144"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="149"/>
         <source>About QT</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="154"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="163"/>
         <source>Add App</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="168"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="177"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="182"/>
         <source>From Firefox</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.ui" line="187"/>
         <source>From Chromium</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="55"/>
@@ -265,7 +295,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../linksaver.cpp" line="83"/>
         <location filename="../linksaver.cpp" line="97"/>
         <source>Error creating directory:&lt;br /&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>lang_menu</source>
@@ -276,12 +306,12 @@ p, li { white-space: pre-wrap; }
         <location filename="../linksaver.cpp" line="178"/>
         <location filename="../linksaver.cpp" line="190"/>
         <source>langmenu</source>
-        <translation type="unfinished">Language</translation>
+        <translation>Language</translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="153"/>
         <source>&amp;%2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="374"/>
@@ -289,81 +319,94 @@ p, li { white-space: pre-wrap; }
  in the system tray. To terminate the program, 
  choose Quit in the context menu  
  of the system tray entry.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="423"/>
-        <location filename="../linksaver.cpp" line="648"/>
+        <location filename="../linksaver.cpp" line="655"/>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="448"/>
         <source>Are you sure want delete item.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="449"/>
         <source>All Link in this category will be deleted too</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="461"/>
         <source>Are you sure want delete Bookmark.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="462"/>
         <source>Link  will be deleted </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="480"/>
+        <location filename="../linksaver.cpp" line="487"/>
         <source>URL:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../import.cpp" line="22"/>
+        <location filename="../import.cpp" line="23"/>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="22"/>
+        <location filename="../import.cpp" line="23"/>
         <source>Windows</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="29"/>
-        <location filename="../import.cpp" line="34"/>
-        <location filename="../import.cpp" line="66"/>
-        <location filename="../import.cpp" line="91"/>
-        <location filename="../import.cpp" line="100"/>
+        <location filename="../import.cpp" line="30"/>
+        <location filename="../import.cpp" line="35"/>
+        <location filename="../import.cpp" line="67"/>
+        <location filename="../import.cpp" line="94"/>
+        <location filename="../import.cpp" line="103"/>
+        <location filename="../import.cpp" line="293"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="29"/>
-        <location filename="../import.cpp" line="66"/>
+        <location filename="../import.cpp" line="30"/>
+        <location filename="../import.cpp" line="67"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="34"/>
+        <location filename="../import.cpp" line="35"/>
         <source>Sorry but we could not find the profile of Firefox!</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="91"/>
+        <location filename="../import.cpp" line="94"/>
+        <location filename="../import.cpp" line="293"/>
         <source>Could&apos;t open file for the reading</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="100"/>
+        <location filename="../import.cpp" line="103"/>
         <source>An error occurred during parsing</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="791"/>
+        <source>Info</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="791"/>
+        <source>We recommend to restart the application
+ for better performance.</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -371,23 +414,23 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../settings.ui" line="14"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../settings.ui" line="42"/>
         <source>Hide to icon tray on startup</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../settings.ui" line="55"/>
         <source>Set language by default
 when select the language</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../settings.ui" line="69"/>
         <source>Inset into tray icon menu all items</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 </TS>

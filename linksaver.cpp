@@ -473,12 +473,19 @@ void LinkSaver::on_RemoveFolderItem_triggered()
     }
 }
 #include "addurl.h"
+#include <QClipboard>
 void LinkSaver::on_actionADD_triggered()
 {
     bool ok;
+    QClipboard* clipboard;
+    qDebug()<<clipboard->text(QClipboard::Clipboard);
+    QUrl *uri= new QUrl(clipboard->text(QClipboard::Clipboard),QUrl::TolerantMode);
+    if(uri->scheme()!="http" && uri->scheme()!="https" && uri->scheme()!="ftp")
+         {  uri->setUrl("http://");}
+
     QString text = QInputDialog::getText(this, tr("Add Url"),
                                          tr("URL:"), QLineEdit::Normal,
-                                         "", &ok);
+                                         uri->toString(), &ok);
     if (ok && !text.isEmpty())
     {
         AddUrl* url=new AddUrl(this) ;
@@ -769,13 +776,19 @@ void LinkSaver::on_actionSettings_triggered()
 {
     Settings *settings_ui=new Settings(this);
     settings_ui->exec();
-    //delete settings_ui;
+    delete settings_ui;
 }
 #include "import.h"
 void LinkSaver::on_actionFrom_Firefox_triggered()
 {
     Import *import=new Import(this);
     import->firefox_profiles();
+    /* fixed
+      QMessageBox::warning(0, QObject::tr("Warning"), QObject::tr("Be careful using this function.\nSome big pages can may cause memory leak\n and high CPU load for a long time"));
+    */
     import->exec();
+    delete import;
+    QMessageBox::warning(0, QObject::tr("Info"), QObject::tr("We recommend to restart the application\n for better performance."));
+
     init_links();
 }

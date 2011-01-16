@@ -11,11 +11,23 @@ WebCapture::WebCapture(): QObject(), m_zoom(100), m_percent(0)
 
 void WebCapture::load(const QUrl &url, int zoom, const QString &outputFileName, int width)
 {
-   // std::cout << "Loading " << qPrintable(url.toString()) << std::endl;
+    // std::cout << "Loading " << qPrintable(url.toString()) << std::endl;
     m_zoom = zoom;
     m_percent = 0;
     m_fileName = outputFileName;
     image = QImage();
+
+    m_page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
+
+    m_page.settings()->setAttribute(QWebSettings::JavascriptCanOpenWindows, false);
+    m_page.settings()->setAttribute(QWebSettings::LocalStorageEnabled, false);
+    m_page.settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
+    m_page.settings()->setAttribute(QWebSettings::FrameFlatteningEnabled, false);
+    m_page.settings()->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+    m_page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
+    m_page.settings()->setAttribute(QWebSettings::SpatialNavigationEnabled, false);
+    m_page.settings()->setAttribute(QWebSettings::LocalContentCanAccessFileUrls, false);
+
     m_page.mainFrame()->load(url);
     m_page.mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
     m_page.mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
@@ -23,8 +35,8 @@ void WebCapture::load(const QUrl &url, int zoom, const QString &outputFileName, 
 #if QT_VERSION < 0x040500
     m_page.setViewportSize(QSize(width, 3 * width / 4) / factor);
 #else
-    m_page.mainFrame()->setZoomFactor(factor);
-    m_page.setViewportSize(QSize(width, 3 * width / 4));
+    m_page.mainFrame()->setZoomFactor(factor);///width, 3 * width / 4
+    m_page.setViewportSize(QSize(width, width / 2));
 #endif
 
 }
@@ -35,7 +47,12 @@ void WebCapture::showProgress(int percent)
         return;
 
     //while (m_percent++ < percent)
-       // std::cout << "#" << std::flush;
+    // std::cout << "#" << std::flush;
+}
+void WebCapture::finish()
+{
+   emit saveResult(true);
+    return;
 }
 
 void WebCapture::saveResult(bool ok)
@@ -51,7 +68,12 @@ void WebCapture::saveResult(bool ok)
 
     // create the image for the buffer
     QSize size = m_page.mainFrame()->contentsSize();
-    image = QImage(size, QImage::Format_ARGB32_Premultiplied);
+    //prevent memory leek when generating big page
+    if(size.height()>2000)
+        size.rheight()=2000;
+    if(size.width()>1500)
+        size.rwidth()=1500;
+    image = QImage(size, QImage::Format_RGB444);
     image.fill(Qt::transparent);
 
     // render the web page
@@ -59,7 +81,11 @@ void WebCapture::saveResult(bool ok)
     p.setRenderHint(QPainter::Antialiasing, true);
     p.setRenderHint(QPainter::TextAntialiasing, true);
     p.setRenderHint(QPainter::SmoothPixmapTransform, true);
-    m_page.setViewportSize(m_page.mainFrame()->contentsSize());
+    // size.rheight()=500;
+    //  size.rwidth()=1024;
+
+    qDebug()<<size;
+    m_page.setViewportSize(size);
     m_page.mainFrame()->render(&p);
     p.end();
 
@@ -70,6 +96,7 @@ void WebCapture::saveResult(bool ok)
 #endif
 
     image.save(m_fileName);
+    image = QImage();
     emit finished();
 }
 #define tmpdir QDir::toNativeSeparators ( QDir::tempPath()+"/" )
@@ -79,13 +106,13 @@ AddUrl::AddUrl(QWidget *parent) :
     ui(new Ui::AddUrl)
 {
     ui->setupUi(this);
-   //websnap = new WebCapture(this);
+    //websnap = new WebCapture(this);
     //connect(websnap, SIGNAL(progress(int)), this, SLOT(renderPreview(int)));
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
-     QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(Preview()));
-     p=new QProgressDialog(this);
-     ui->preview->setScaledContents(true);
-     this->changed=false;
+    QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(Preview()));
+    p=new QProgressDialog(this);
+    ui->preview->setScaledContents(true);
+    this->changed=false;
 }
 
 AddUrl::~AddUrl()
@@ -122,54 +149,53 @@ void AddUrl::set_Data(QString str,int index)
     switch(index)
     {
     case 1:
-        {
-            ui->url_edit->setText(str);
-            break;
-        }
+    {
+        ui->url_edit->setText(str);
+        break;
+    }
     case 2:
-        {
-            ui->lineEdit->setText(str);
-            break;
-        }
+    {
+        ui->lineEdit->setText(str);
+        break;
+    }
     case 3:
-        {
-            ui->preview->setPixmap(QPixmap::fromImage(QImage(str)));
-            break;
-        }
+    {
+        ui->preview->setPixmap(QPixmap::fromImage(QImage(str)));
+        break;
+    }
     case 4:
-        {
-            this->fname=str;
-            break;
-        }
+    {
+        this->fname=str;
+        break;
+    }
     default:
-        {
-            break;
-        }
+    {
+        break;
+    }
     }
 }
 
 void AddUrl::renderPreview(int percent)
 {
 
- p->setValue(percent);
+    p->setValue(percent);
 }
 void AddUrl::Preview()
-{p->close();
+{
+    p->close();
+    QPixmap resized;
+    QPixmap origin(tmpdir+fname);
+    if(origin.height()>=1600){
+        origin = origin.copy(0,0,origin.width(),origin.width()/1.2);
+        // origin.scaled(origin.width()/1.4,origin.width()/1.8,Qt::IgnoreAspectRatio,Qt::FastTransformation );
+    }
+    resized = origin.scaled(origin.width()/1.5,origin.width()/1.9,Qt::KeepAspectRatio,Qt::FastTransformation );
+    //scaledToWidth(origin.width()/1.4);//
+    resized.save(tmpdir+fname);
 
-
-
- QPixmap resized;
- QPixmap origin(tmpdir+fname);
- if(origin.height()>=1600){
- origin = origin.copy(0,0,origin.width(),origin.width()/1.2);// origin.scaled(origin.width()/1.4,origin.width()/1.8,Qt::IgnoreAspectRatio,Qt::FastTransformation );
-}
- resized = origin.scaled(origin.width()/1.5,origin.width()/1.9,Qt::KeepAspectRatio,Qt::FastTransformation );
-//scaledToWidth(origin.width()/1.4);//
- resized.save(tmpdir+fname);
-
-ui->lineEdit->setText(websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()) ;
-title=ui->lineEdit->text();
-       ui->preview->setPixmap(QPixmap::fromImage(QImage(tmpdir+fname)));
+    ui->lineEdit->setText(websnap.m_page.mainFrame()->evaluateJavaScript("document.title").toString()) ;
+    title=ui->lineEdit->text();
+    ui->preview->setPixmap(QPixmap::fromImage(QImage(tmpdir+fname)));
 }
 QVariant AddUrl::get_cat()
 {
@@ -199,7 +225,7 @@ void AddUrl::on_url_edit_textChanged(QString )
     this->url=ui->url_edit->text();
     if(this->isVisible() && !p->isVisible())
     {
-     this->load(ui->url_edit->text());
+        this->load(ui->url_edit->text());
     }
 
 }

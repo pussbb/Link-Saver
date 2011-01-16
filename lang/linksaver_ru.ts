@@ -96,7 +96,7 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="136"/>
+        <location filename="../addurl.cpp" line="128"/>
         <source>Generating image</source>
         <translation>Генерация картинки</translation>
     </message>
@@ -168,9 +168,39 @@ p, li { white-space: pre-wrap; }
         <translation>Импорт</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="68"/>
+        <location filename="../import.ui" line="67"/>
+        <source>Generating image</source>
+        <translation>Генерация картинки</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="80"/>
+        <source>Total</source>
+        <translation>Всего</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="121"/>
+        <source>Links List</source>
+        <translation>Список ссылок</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="139"/>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="161"/>
         <source>Profile</source>
         <translation>Профиль</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="184"/>
+        <source>Select different</source>
+        <translation>Выбрать другой</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="147"/>
+        <source>Open Image</source>
+        <translation>Открыть изображение</translation>
     </message>
 </context>
 <context>
@@ -215,7 +245,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.ui" line="121"/>
-        <location filename="../linksaver.cpp" line="479"/>
+        <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
@@ -227,7 +257,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../linksaver.ui" line="135"/>
         <location filename="../linksaver.cpp" line="422"/>
-        <location filename="../linksaver.cpp" line="647"/>
+        <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
@@ -307,7 +337,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../linksaver.cpp" line="423"/>
-        <location filename="../linksaver.cpp" line="648"/>
+        <location filename="../linksaver.cpp" line="655"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
@@ -333,7 +363,7 @@ p, li { white-space: pre-wrap; }
         <translation>Ссылка будет удалена</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="480"/>
+        <location filename="../linksaver.cpp" line="487"/>
         <source>URL:</source>
         <translation></translation>
     </message>
@@ -341,46 +371,60 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../import.cpp" line="22"/>
+        <location filename="../import.cpp" line="23"/>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>Система</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="22"/>
+        <location filename="../import.cpp" line="23"/>
         <source>Windows</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="29"/>
-        <location filename="../import.cpp" line="34"/>
-        <location filename="../import.cpp" line="66"/>
-        <location filename="../import.cpp" line="91"/>
-        <location filename="../import.cpp" line="100"/>
+        <location filename="../import.cpp" line="30"/>
+        <location filename="../import.cpp" line="35"/>
+        <location filename="../import.cpp" line="67"/>
+        <location filename="../import.cpp" line="94"/>
+        <location filename="../import.cpp" line="103"/>
+        <location filename="../import.cpp" line="293"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="29"/>
-        <location filename="../import.cpp" line="66"/>
+        <location filename="../import.cpp" line="30"/>
+        <location filename="../import.cpp" line="67"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation>Похоже на то что у Вас неустановлен Firefox</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="34"/>
+        <location filename="../import.cpp" line="35"/>
         <source>Sorry but we could not find the profile of Firefox!</source>
         <translation>Извините но мы не смогли
 найти профили для Firefox&apos;a</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="91"/>
+        <location filename="../import.cpp" line="94"/>
+        <location filename="../import.cpp" line="293"/>
         <source>Could&apos;t open file for the reading</source>
         <translation>Не удалось открфть файл для чтения</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="100"/>
+        <location filename="../import.cpp" line="103"/>
         <source>An error occurred during parsing</source>
         <translation>Произошла ошибка при
 обработке файла</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="791"/>
+        <source>Info</source>
+        <translation>Инфо</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="791"/>
+        <source>We recommend to restart the application
+ for better performance.</source>
+        <translation>Мы рекомендуем Вам перезапустить приложение 
+для лутчшей производительности.</translation>
     </message>
 </context>
 <context>

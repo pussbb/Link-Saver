@@ -159,7 +159,7 @@ void Import::on_itemsview_itemChanged(QTreeWidgetItem* item, int column)
     }
     else if(item->parent()!=NULL )
     {
-        qDebug()<<item->parent();
+
         if(item->parent()->checkState(column)!=Qt::Checked && item->checkState(column)==Qt::Checked)
         {
             chiled=true;
@@ -177,20 +177,25 @@ void Import::on_itemsview_itemChanged(QTreeWidgetItem* item, int column)
 void Import::renderPreview(int percent)
 {
     ui->image->setValue(percent);
-    qDebug()<<percent;
+    ///qDebug()<<percent;
 }
 void Import::saveimage()
 {
+    ///qDebug()<<"saveimage";
     finished=true;
-    QPixmap resized;
-    QPixmap origin(tmpdir+fname);
-    if(origin.height()>=1600){
-        origin = origin.copy(0,0,origin.width(),origin.width()/1.2);// origin.scaled(origin.width()/1.4,origin.width()/1.8,Qt::IgnoreAspectRatio,Qt::FastTransformation );
+    if(QFile::exists(tmpdir+fname))
+    {
+        QPixmap resized;
+        QPixmap origin(tmpdir+fname);
+        if(origin.height()>=1600){
+            origin = origin.copy(0,0,origin.width(),origin.width()/1.2);
+            // origin.scaled(origin.width()/1.4,origin.width()/1.8,Qt::IgnoreAspectRatio,Qt::FastTransformation );
+        }
+        resized = origin.scaled(origin.width()/1.5,origin.width()/1.9,Qt::KeepAspectRatio,Qt::FastTransformation );
+        resized.save(tmpdir+fname);
+        resized=QPixmap();
+        origin=QPixmap();
     }
-    resized = origin.scaled(origin.width()/1.5,origin.width()/1.9,Qt::KeepAspectRatio,Qt::FastTransformation );
-    resized.save(tmpdir+fname);
-
-    ///rui->image->setValue(percent);
 
 }
 
@@ -205,12 +210,16 @@ void Import::on_pushButton_2_clicked()
             i++;
         ++it;
     }
-    connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
-    QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
+
     ui->itemsall->setMaximum(i);
     ui->itemsview->hide();
     ui->widget->hide();
+    ui->pushButton_2->hide();
     this->open_bookmarks();
+
+    connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
+    QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
+    websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
     QTreeWidgetItemIterator items(ui->itemsview);
     while (*items) {
         if ((*items)->checkState(0)==Qt::Checked && (*items)->childCount()>0)
@@ -225,27 +234,34 @@ void Import::on_pushButton_2_clicked()
             ui->title->setText((*items)->text(0));
             ui->curr_url->setText((*items)->data(0,Qt::UserRole).toString());
             finished=false;
-            qDebug()<<(*items)->data(0,Qt::UserRole).toString().toLatin1().data();
+           ///qDebug()<<(*items)->data(0,Qt::UserRole).toString().toLatin1().data();
             fname=QString(QCryptographicHash::hash((*items)->data(0,Qt::UserRole).toString().toLocal8Bit(),QCryptographicHash::Md5).toHex())+".png";
-            websnap.load( guessUrlFromString( (*items)->data(0,Qt::UserRole).toString().toLatin1().data()), 100, tmpdir+fname, 1024);
-            while (!finished) { qApp->processEvents(QEventLoop::WaitForMoreEvents | QEventLoop::ExcludeUserInputEvents); }
-            QFile::copy(tmpdir+fname,imgdir+fname);
-            QFile::setPermissions(imgdir+fname,QFile::ReadOwner | QFile::WriteOwner |
-                                  QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
-                                  QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
+            websnap.load( guessUrlFromString( (*items)->data(0,Qt::UserRole).toString().toLatin1().data()), 100, tmpdir+fname,1024);
+            while (!finished) { qApp->processEvents(QEventLoop::WaitForMoreEvents); }
+            if(QFile::exists(tmpdir+fname))
+            {
+                QFile::copy(tmpdir+fname,imgdir+fname);
+                QFile::setPermissions(imgdir+fname,QFile::ReadOwner | QFile::WriteOwner |
+                                      QFile::ExeOwner |  QFile::ReadUser | QFile::WriteUser | QFile::ExeUser | QFile::ReadGroup |
+                                      QFile::WriteGroup | QFile::ExeGroup | QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
 
-            QDomElement  element=doc.createElement("bookmark");
-            element.setAttribute("url",(*items)->data(0,Qt::UserRole).toString());
-            QDomText elemlText =doc.createTextNode((*items)->text(0));
-            //elemlText.toElement().setAttribute();
-            element.setAttribute("image",fname);
-            element.appendChild(elemlText);
-            elem.appendChild(element);
-            //save_to_file();
+                QDomElement  element=doc.createElement("bookmark");
+                element.setAttribute("url",(*items)->data(0,Qt::UserRole).toString());
+                QDomText elemlText =doc.createTextNode((*items)->text(0));
+                //elemlText.toElement().setAttribute();
+                element.setAttribute("image",fname);
+                element.appendChild(elemlText);
+                elem.appendChild(element);
+                ///free(&websnap);
+                //save_to_file();
+                this->save_bookmarks();
+            }
+
         }
         ++items;
     }
     this->save_bookmarks();
+    this->close();
 }
 void Import::open_bookmarks()
 {
@@ -287,7 +303,7 @@ void Import::save_bookmarks()
     file.open(QIODevice::WriteOnly| QIODevice::Text);
     QTextStream out(&file);
     doc.save(out,0);
-    qDebug()<<doc.toString();
     file.close();
-    this->close();
+
 }
+

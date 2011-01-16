@@ -60,28 +60,27 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>0</y>
+         <x>2</x>
+         <y>-14</y>
          <width>381</width>
-         <height>221</height>
+         <height>249</height>
         </rect>
        </property>
        <property name="text">
         <string>***********************************************************************
  PictureFlow - animated image show
   http://pictureflow.googlecode.com
-  Copyright (C) 2007 Ariya Hidayat (ariya@kde.org)
   Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)
 ********************************************************************
 WebSnap
-Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
-Contact: Qt Software Information (qt-info@nokia.com)
-
+Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies). Contact: Qt Software Information (qt-info@nokia.com)
 WebSnap is part of the Graphics Dojo project on Qt Labs.
 ***********************************************************************
-Single Application v2.6
-Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+Single Application v2.6 Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
 Contact: Qt Software Information (qt-info@nokia.com)
+***********************************************************************
+Qt-JSON
+Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
 ***********************************************************************</string>
        </property>
       </widget>
@@ -107,6 +106,7 @@ p, li { white-space: pre-wrap; }
 &lt;table border=&quot;0&quot; style=&quot;-qt-table-type: root; margin-top:4px; margin-bottom:4px; margin-left:4px; margin-right:4px;&quot;&gt;
 &lt;tr&gt;
 &lt;td style=&quot;border: none;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DejaVu Sans'; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DejaVu Sans'; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
