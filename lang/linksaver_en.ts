@@ -50,7 +50,7 @@ Contact: Qt Software Information (qt-info@nokia.com)
 Qt-JSON
 Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
 ***********************************************************************</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="102"/>
@@ -65,7 +65,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../about.ui" line="90"/>
@@ -187,6 +187,16 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../import.cpp" line="168"/>
+        <source>Boormark bar</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="169"/>
+        <source>Other Boormark</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="268"/>
         <source>Open Image</source>
         <translation></translation>
     </message>
@@ -360,17 +370,19 @@ p, li { white-space: pre-wrap; }
         <location filename="../import.cpp" line="32"/>
         <location filename="../import.cpp" line="59"/>
         <location filename="../import.cpp" line="64"/>
-        <location filename="../import.cpp" line="98"/>
-        <location filename="../import.cpp" line="121"/>
+        <location filename="../import.cpp" line="97"/>
         <location filename="../import.cpp" line="131"/>
-        <location filename="../import.cpp" line="338"/>
+        <location filename="../import.cpp" line="136"/>
+        <location filename="../import.cpp" line="150"/>
+        <location filename="../import.cpp" line="160"/>
+        <location filename="../import.cpp" line="430"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../import.cpp" line="27"/>
         <location filename="../import.cpp" line="59"/>
-        <location filename="../import.cpp" line="98"/>
+        <location filename="../import.cpp" line="97"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation></translation>
     </message>
@@ -381,25 +393,33 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="121"/>
-        <location filename="../import.cpp" line="338"/>
+        <location filename="../import.cpp" line="131"/>
+        <source>It seem&apos;s to that you don&apos;t have installed Chromium!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="136"/>
+        <source>Sorry but we could not find the profile of Chromium!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="150"/>
+        <location filename="../import.cpp" line="430"/>
         <source>Could&apos;t open file for the reading</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="131"/>
+        <location filename="../import.cpp" line="160"/>
         <source>An error occurred during parsing</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="307"/>
-        <location filename="../linksaver.cpp" line="791"/>
+        <location filename="../import.cpp" line="399"/>
         <source>Info</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="307"/>
-        <location filename="../linksaver.cpp" line="791"/>
+        <location filename="../import.cpp" line="399"/>
         <source>We recommend to restart the application
  for better performance.</source>
         <translation></translation>

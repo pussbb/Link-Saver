@@ -25,6 +25,7 @@ class Import : public QDialog
 public:
     explicit Import(QWidget *parent = 0);
     void firefox_profiles();
+    void chromium_bookmaks();
     WebCapture websnap;
     QDir dir;
     QString fname;
@@ -40,6 +41,9 @@ public:
 private slots:
     void on_profillist_currentIndexChanged(int index);
     void build_tree(QString file);
+    void firefox_json(QVariantMap result);
+    void chromium_json(QVariantMap result,QString section,QString name);
+    void chromium_json(QVariant result,QString section,QString name);
     void on_pushButton_clicked();
     void on_itemsview_itemChanged(QTreeWidgetItem* item, int column);
     void renderPreview(int percent);

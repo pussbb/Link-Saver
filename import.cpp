@@ -2,8 +2,8 @@
 #include "ui_import.h"
 #include "QtDebug"
 
-#define tmpdir QDir::toNativeSeparators (QDir::tempPath()+"/" )
-#define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+"/images/" )
+#define tmpdir QDir::toNativeSeparators (QDir::tempPath()+QDir::toNativeSeparators("/") )
+#define imgdir QDir::toNativeSeparators (QApplication::applicationDirPath()+QDir::toNativeSeparators("/images/") )
 Import::Import(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Import)
@@ -92,7 +92,6 @@ void Import::on_profillist_currentIndexChanged(int index)
     if(this->import_from=="firefox" && !manual)
     {
         QDir bookmarkdir(ui->profillist->itemData(index).toString()+QDir::toNativeSeparators("bookmarkbackups/"));
-        qDebug()<<bookmarkdir.path();
         if(bookmarkdir.exists(bookmarkdir.path())==false)
         {
             QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
@@ -109,13 +108,43 @@ void Import::on_profillist_currentIndexChanged(int index)
 
         }
     }
+    else if(import_from=="chromium")
+    {
+        this->build_tree(ui->profillist->itemData(index).toString());
+    }
 }
+void Import::chromium_bookmaks()
+{
+    import_from="chromium";
+    manual=false;
+    QString chromium_path;
+
+#ifdef Q_OS_WIN32
+    chromium_path="ff";
+#endif
+
+#ifdef Q_OS_LINUX
+    chromium_path=QDir::homePath()+"/.config/chromium/Default/";
+#endif
+    if(dir.exists(chromium_path)==false)
+    {
+        QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Chromium!"));
+        return;
+    }
+    else{
+        if(QFile::exists(chromium_path+"Bookmarks")==false)
+            QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Sorry but we could not find the profile of Chromium!"));
+        else
+            ui->profillist->addItem("Default",chromium_path+"Bookmarks");
+    }
+}
+
 #include <QTreeWidgetItem>
 #include <QUrl>
 void Import::build_tree(QString file)
 {
     QFile file2(file);
-    QUrl url;
+
     if (!file2.open (QIODevice::ReadOnly | QIODevice::Text))
     {
         QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Could't open file for the reading"));
@@ -132,9 +161,79 @@ void Import::build_tree(QString file)
         return;
     }
     ui->itemsview->clear();
+    if(import_from=="firefox")
+        this->firefox_json(result);
+    else if(import_from=="chromium")
+    {
+        this->chromium_json(result["roots"].toMap(),"bookmark_bar",tr("Boormark bar"));
+        this->chromium_json(result["roots"].toMap(),"other",tr("Other Boormark"));
+    }
+}
+void Import::chromium_json(QVariantMap result,QString section,QString name)
+{
+    foreach(QVariant root, result[section].toMap()) {
+        QList<QVariant > items = root.toList();
+        if(items.size()>0)
+        {
+            QTreeWidgetItem *parent=new QTreeWidgetItem(ui->itemsview);
+            parent->setText(0,name);
+            parent->setIcon(0,QIcon(":folder"));
+            parent->setCheckState(0,Qt::Checked);
+            for (int i = 0; i < items.size(); ++i) {
+                QVariantMap map=items.at(i).toMap();
+                if(map["type"].toString()=="folder")
+                {
+                    chromium_json(items.at(i),"children",map["name"].toString());
+                }
+                else if (map["type"].toString()=="url") {
+                    QTreeWidgetItem *child=new QTreeWidgetItem(parent);
+                    child->setText(0,map["name"].toString());
+                    child->setCheckState(0,Qt::Checked);
+                    child->setToolTip(0,map["url"].toString());
+                    child->setData(0,Qt::UserRole,map["url"]);
+                    child->setIcon(0,QIcon(":link"));
+                    parent->addChild(child);
+                }
+            }
+        }
+
+
+    }
+}
+void Import::chromium_json(QVariant result,QString section,QString name)
+{
+
+    QList<QVariant > items = result.toMap()[section].toList();
+    if(items.size()>0)
+    {
+        QTreeWidgetItem *parent=new QTreeWidgetItem(ui->itemsview);
+        parent->setText(0,name);
+        parent->setIcon(0,QIcon(":folder"));
+        parent->setCheckState(0,Qt::Checked);
+        for (int i = 0; i < items.size(); ++i) {
+            ////if (items.at(i))
+            QVariantMap map=items.at(i).toMap();
+            if(map["type"].toString()=="folder")
+            {
+                chromium_json(items.at(i).toList(),"children",map["name"].toString());
+            }
+            else if (map["type"].toString()=="url") {
+                QTreeWidgetItem *child=new QTreeWidgetItem(parent);
+                child->setText(0,map["name"].toString());
+                child->setCheckState(0,Qt::Checked);
+                child->setToolTip(0,map["url"].toString());
+                child->setData(0,Qt::UserRole,map["url"]);
+                child->setIcon(0,QIcon(":link"));
+                parent->addChild(child);
+            }
+        }
+    }
+
+}
+void Import::firefox_json(QVariantMap result)
+{
+    QUrl url;
     foreach(QVariant plugin, result["children"].toList()) {
-
-
         QVariantMap nestedMap = plugin.toMap();
         if(!nestedMap["title"].toString().isEmpty() && nestedMap["children"].toList().size()>0)
         {
@@ -162,6 +261,7 @@ void Import::build_tree(QString file)
 
     }
 }
+
 #include <QFileDialog>
 void Import::on_pushButton_clicked()
 {
@@ -188,7 +288,6 @@ void Import::on_pushButton_clicked()
                 path=settings.value("Profile"+QString::number(i)+"/Path").toString()+QDir::toNativeSeparators("/");
             }
             ui->profillist->addItem(settings.value("Profile"+QString::number(i++)+"/Name",NULL).toString(),path);
-
         }
     }
 
@@ -218,17 +317,12 @@ void Import::on_itemsview_itemChanged(QTreeWidgetItem* item, int column)
     chiled=false;
 }
 #include<QTreeWidgetItemIterator>
-// shamelessly copied from Qt Demo Browser
-
-
 void Import::renderPreview(int percent)
 {
     ui->image->setValue(percent);
-    ///qDebug()<<percent;
 }
 void Import::saveimage()
 {
-    ///qDebug()<<"saveimage";
     finished=true;
     if(QFile::exists(tmpdir+fname))
     {
@@ -236,7 +330,6 @@ void Import::saveimage()
         QPixmap origin(tmpdir+fname);
         if(origin.height()>=1600){
             origin = origin.copy(0,0,origin.width(),origin.width()/1.2);
-            // origin.scaled(origin.width()/1.4,origin.width()/1.8,Qt::IgnoreAspectRatio,Qt::FastTransformation );
         }
         resized = origin.scaled(origin.width()/1.5,origin.width()/1.9,Qt::KeepAspectRatio,Qt::FastTransformation );
         resized.save(tmpdir+fname);
@@ -281,7 +374,6 @@ void Import::on_pushButton_2_clicked()
             ui->title->setText((*items)->text(0));
             ui->curr_url->setText((*items)->data(0,Qt::UserRole).toString());
             finished=false;
-           ///qDebug()<<(*items)->data(0,Qt::UserRole).toString().toLatin1().data();
             fname=QString(QCryptographicHash::hash((*items)->data(0,Qt::UserRole).toString().toLocal8Bit(),QCryptographicHash::Md5).toHex())+".png";
             websnap.load( guessUrlFromString( (*items)->data(0,Qt::UserRole).toString().toLatin1().data()), 100, tmpdir+fname,1024);
             while (!finished) { qApp->processEvents(QEventLoop::WaitForMoreEvents); }
@@ -344,7 +436,7 @@ void Import::open_bookmarks()
 }
 void Import::save_bookmarks()
 {
-    file.setFileName(QDir::toNativeSeparators ( QApplication::applicationDirPath()+"/" ) +"links.xml");
+    file.setFileName(QDir::toNativeSeparators ( QApplication::applicationDirPath()+QDir::toNativeSeparators("/") ) +"links.xml");
     file.open(QIODevice::WriteOnly| QIODevice::Text);
     QTextStream out(&file);
     doc.save(out,0);

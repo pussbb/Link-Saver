@@ -187,6 +187,16 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../import.cpp" line="168"/>
+        <source>Boormark bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="169"/>
+        <source>Other Boormark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="268"/>
         <source>Open Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -356,17 +366,19 @@ p, li { white-space: pre-wrap; }
         <location filename="../import.cpp" line="32"/>
         <location filename="../import.cpp" line="59"/>
         <location filename="../import.cpp" line="64"/>
-        <location filename="../import.cpp" line="98"/>
-        <location filename="../import.cpp" line="121"/>
+        <location filename="../import.cpp" line="97"/>
         <location filename="../import.cpp" line="131"/>
-        <location filename="../import.cpp" line="338"/>
+        <location filename="../import.cpp" line="136"/>
+        <location filename="../import.cpp" line="150"/>
+        <location filename="../import.cpp" line="160"/>
+        <location filename="../import.cpp" line="430"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../import.cpp" line="27"/>
         <location filename="../import.cpp" line="59"/>
-        <location filename="../import.cpp" line="98"/>
+        <location filename="../import.cpp" line="97"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -377,25 +389,33 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="121"/>
-        <location filename="../import.cpp" line="338"/>
+        <location filename="../import.cpp" line="131"/>
+        <source>It seem&apos;s to that you don&apos;t have installed Chromium!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="136"/>
+        <source>Sorry but we could not find the profile of Chromium!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="150"/>
+        <location filename="../import.cpp" line="430"/>
         <source>Could&apos;t open file for the reading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="131"/>
+        <location filename="../import.cpp" line="160"/>
         <source>An error occurred during parsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="307"/>
-        <location filename="../linksaver.cpp" line="791"/>
+        <location filename="../import.cpp" line="399"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="307"/>
-        <location filename="../linksaver.cpp" line="791"/>
+        <location filename="../import.cpp" line="399"/>
         <source>We recommend to restart the application
  for better performance.</source>
         <translation type="unfinished"></translation>

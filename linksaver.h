@@ -59,6 +59,7 @@ private slots:
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
     void on_actionSettings_triggered();
     void on_actionFrom_Firefox_triggered();
+    void on_actionFrom_Chrome_triggered();
 };
 
 #endif // LINKSAVER_H

@@ -783,12 +783,16 @@ void LinkSaver::on_actionFrom_Firefox_triggered()
 {
     Import *import=new Import(this);
     import->firefox_profiles();
-    /* fixed
-      QMessageBox::warning(0, QObject::tr("Warning"), QObject::tr("Be careful using this function.\nSome big pages can may cause memory leak\n and high CPU load for a long time"));
-    */
     import->exec();
     delete import;
-    QMessageBox::warning(0, QObject::tr("Info"), QObject::tr("We recommend to restart the application\n for better performance."));
+    init_links();
+}
 
+void LinkSaver::on_actionFrom_Chrome_triggered()
+{
+    Import *import=new Import(this);
+    import->chromium_bookmaks();
+    import->exec();
+    delete import;
     init_links();
 }
