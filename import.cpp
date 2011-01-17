@@ -20,7 +20,40 @@ void Import::firefox_profiles()
 {
     this->import_from="firefox";
 #ifdef Q_OS_WIN32
-    QMessageBox::warning(0, QObject::tr("System"), QObject::tr("Windows"));
+    ;
+    QString appdata=getenv("APPDATA");
+    qDebug()<<appdata;
+    qDebug()<<QDir(appdata+"\\Mozilla\\Firefox\\").entryList();
+   //// QMessageBox::warning(0, QObject::tr("System"), QObject::tr("Windows"));
+    if(dir.exists(appdata+"\\Mozilla\\Firefox\\")==false)
+    {
+        QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
+        return;
+    }
+    else{
+        if(QFile::exists(appdata+"\\Mozilla\\Firefox\\"+"profiles.ini")==false)
+            QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Sorry but we could not find the profile of Firefox!"));
+        else
+        {
+            QSettings settings(appdata+"\\Mozilla\\Firefox\\"+"profiles.ini",QSettings::IniFormat);
+            int i=0;
+            qDebug()<<settings.value("Profile"+QString::number(i)+"/Path","empty");
+            QString path;
+            while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
+            {
+                if(settings.value("Profile"+QString::number(i)+"/IsRelative",1)==1)
+                {
+                    path=appdata+"\\Mozilla\\Firefox\\"+settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                }
+                else
+                {
+                    path=settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                }
+                ui->profillist->addItem(settings.value("Profile"+QString::number(i++)+"/Name",NULL).toString(),path);
+
+            }
+        }
+    }
 #endif
 
 #ifdef Q_OS_LINUX
@@ -95,6 +128,7 @@ void Import::build_tree(QString file)
         return;
     }
     QTextStream stream ( &file2 );
+    stream.setCodec("UTF-8");
     bool ok;
     QVariantMap result = Json::parse(stream.readAll(), ok).toMap();
     file2.close();

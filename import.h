@@ -7,15 +7,11 @@
 #include <QFile>
 #include <QSettings>
 #include "qt-json/json.h"
-#include <qfile.h>
 #include <qtextstream.h>
 #include <QTreeWidgetItem>
-#include <QtGui>
-#include <QtWebKit>
 #include <QProgressDialog>
 #include <addurl.h>
 #include <QDomDocument>
-#include <QFile>
 #include <QDate>
 #include <QXmlStreamWriter>
 namespace Ui {
