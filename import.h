@@ -27,12 +27,13 @@ public:
     void firefox_profiles();
     WebCapture websnap;
     QDir dir;
-     QString fname;
+    QString fname;
     QDomDocument doc;
     QDomElement elem;
     QFile file;
     bool chiled;
     bool finished;
+    bool manual;
     QString import_from;
     ~Import();
 

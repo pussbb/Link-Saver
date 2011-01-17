@@ -38,23 +38,22 @@ p, li { white-space: pre-wrap; }
         <source>***********************************************************************
  PictureFlow - animated image show
   http://pictureflow.googlecode.com
-  Copyright (C) 2007 Ariya Hidayat (ariya@kde.org)
   Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)
 ********************************************************************
 WebSnap
-Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
-Contact: Qt Software Information (qt-info@nokia.com)
-
+Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies). Contact: Qt Software Information (qt-info@nokia.com)
 WebSnap is part of the Graphics Dojo project on Qt Labs.
 ***********************************************************************
-Single Application v2.6
-Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+Single Application v2.6 Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
 Contact: Qt Software Information (qt-info@nokia.com)
+***********************************************************************
+Qt-JSON
+Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
 ***********************************************************************</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="103"/>
+        <location filename="../about.ui" line="102"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -63,12 +62,13 @@ p, li { white-space: pre-wrap; }
 &lt;tr&gt;
 &lt;td style=&quot;border: none;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="91"/>
+        <location filename="../about.ui" line="90"/>
         <source>License</source>
         <translation type="unfinished"></translation>
     </message>
@@ -186,7 +186,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="147"/>
+        <location filename="../import.cpp" line="168"/>
         <source>Open Image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -352,53 +352,49 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../import.cpp" line="23"/>
-        <source>System</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../import.cpp" line="23"/>
-        <source>Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../import.cpp" line="30"/>
-        <location filename="../import.cpp" line="35"/>
-        <location filename="../import.cpp" line="67"/>
-        <location filename="../import.cpp" line="94"/>
-        <location filename="../import.cpp" line="103"/>
-        <location filename="../import.cpp" line="293"/>
+        <location filename="../import.cpp" line="27"/>
+        <location filename="../import.cpp" line="32"/>
+        <location filename="../import.cpp" line="59"/>
+        <location filename="../import.cpp" line="64"/>
+        <location filename="../import.cpp" line="98"/>
+        <location filename="../import.cpp" line="121"/>
+        <location filename="../import.cpp" line="131"/>
+        <location filename="../import.cpp" line="338"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="30"/>
-        <location filename="../import.cpp" line="67"/>
+        <location filename="../import.cpp" line="27"/>
+        <location filename="../import.cpp" line="59"/>
+        <location filename="../import.cpp" line="98"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="35"/>
+        <location filename="../import.cpp" line="32"/>
+        <location filename="../import.cpp" line="64"/>
         <source>Sorry but we could not find the profile of Firefox!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="94"/>
-        <location filename="../import.cpp" line="293"/>
+        <location filename="../import.cpp" line="121"/>
+        <location filename="../import.cpp" line="338"/>
         <source>Could&apos;t open file for the reading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="103"/>
+        <location filename="../import.cpp" line="131"/>
         <source>An error occurred during parsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../import.cpp" line="307"/>
         <location filename="../linksaver.cpp" line="791"/>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../import.cpp" line="307"/>
         <location filename="../linksaver.cpp" line="791"/>
         <source>We recommend to restart the application
  for better performance.</source>
