@@ -376,7 +376,7 @@ void Import::on_pushButton_2_clicked()
     this->open_bookmarks();
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
     connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
-    this->manual=false;
+
     websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
     ui->abort->show();
     QTreeWidgetItemIterator items(ui->itemsview);
