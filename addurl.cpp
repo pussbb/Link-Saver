@@ -1,5 +1,6 @@
 #include "addurl.h"
 #include "ui_addurl.h"
+#include <QTimer>
 /////////////
 
 WebCapture::WebCapture(): QObject(), m_zoom(100), m_percent(0)
@@ -11,14 +12,11 @@ WebCapture::WebCapture(): QObject(), m_zoom(100), m_percent(0)
 
 void WebCapture::load(const QUrl &url, int zoom, const QString &outputFileName, int width)
 {
-    // std::cout << "Loading " << qPrintable(url.toString()) << std::endl;
     m_zoom = zoom;
     m_percent = 0;
     m_fileName = outputFileName;
     image = QImage();
-
     m_page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
-
     m_page.settings()->setAttribute(QWebSettings::JavascriptCanOpenWindows, false);
     m_page.settings()->setAttribute(QWebSettings::LocalStorageEnabled, false);
     m_page.settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
@@ -44,14 +42,6 @@ void WebCapture::showProgress(int percent)
 {
     if (m_percent >= percent)
         return;
-
-    //while (m_percent++ < percent)
-    // std::cout << "#" << std::flush;
-}
-void WebCapture::finish()
-{
-   emit saveResult(true);
-    return;
 }
 
 void WebCapture::saveResult(bool ok)
@@ -105,8 +95,6 @@ AddUrl::AddUrl(QWidget *parent) :
     ui(new Ui::AddUrl)
 {
     ui->setupUi(this);
-    //websnap = new WebCapture(this);
-    //connect(websnap, SIGNAL(progress(int)), this, SLOT(renderPreview(int)));
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
     QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(Preview()));
     p=new QProgressDialog(this);

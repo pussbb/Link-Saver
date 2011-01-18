@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>269</height>
+    <height>256</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -106,14 +106,22 @@
      <string/>
     </property>
    </widget>
+   <zorder>itemsall</zorder>
+   <zorder>image</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>title</zorder>
+   <zorder>curr_url</zorder>
+   <zorder>widget</zorder>
+   <zorder>itemsview</zorder>
   </widget>
   <widget class="QTreeWidget" name="itemsview">
    <property name="geometry">
     <rect>
      <x>6</x>
-     <y>37</y>
+     <y>38</y>
      <width>389</width>
-     <height>201</height>
+     <height>184</height>
     </rect>
    </property>
    <column>
@@ -129,8 +137,8 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>144</x>
-     <y>238</y>
+     <x>142</x>
+     <y>226</y>
      <width>78</width>
      <height>25</height>
     </rect>
@@ -184,6 +192,23 @@
      <string>Select different</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="abort">
+   <property name="geometry">
+    <rect>
+     <x>114</x>
+     <y>224</y>
+     <width>145</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>If procces of generating site image 
+is too long you can canceled it </string>
+   </property>
+   <property name="text">
+    <string>Abort current</string>
+   </property>
   </widget>
  </widget>
  <resources>

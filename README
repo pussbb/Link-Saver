@@ -2,6 +2,10 @@ Simple QT application for the manage links. Features: Background image generates
 links of one category as a slide show. Need QT 4.6 libs or high.
 To create your lang file rename linksaver_def.ts to your locale for example:linksaver_en.ts or linksaver_ru.ts.
 Translate it in QLinguistic and compile.
+
+2011-01-18
+- added importing chromium win(tested on Win7)
+- added button "abort current" to cancel generating site image
 2011-01-17
 - added firefox importing for (win)
 - added importing bookmark for chromium (linux)

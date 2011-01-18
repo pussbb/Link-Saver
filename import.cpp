@@ -10,6 +10,7 @@ Import::Import(QWidget *parent) :
 {
     ui->setupUi(this);
     chiled=false;
+    ui->abort->hide();
 }
 
 Import::~Import()
@@ -266,30 +267,46 @@ void Import::firefox_json(QVariantMap result)
 #include <QFileDialog>
 void Import::on_pushButton_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), "", "profiles.ini(profiles.ini)");
+    QString file_find;
+    if(import_from=="firefox")
+        file_find="profiles.ini(profiles.ini)";
+    else if(import_from=="chromium")
+        file_find="Bookmarks(Bookmarks)";///
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), "",file_find );
     if(!fileName.isEmpty())
     {
-        QSettings settings(fileName,QSettings::IniFormat);
-        QFileInfo file(fileName);
-        file.absoluteDir();
-        int i=0;
-        manual=true;
-        ui->profillist->clear();
-        manual=false;
-        QString path;
-        while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
+        if(import_from=="firefox")
         {
-            if(settings.value("Profile"+QString::number(i)+"/IsRelative",1)==1)
+            QSettings settings(fileName,QSettings::IniFormat);
+            QFileInfo file(fileName);
+            file.absoluteDir();
+            int i=0;
+            manual=true;
+            ui->profillist->clear();
+            manual=false;
+            QString path;
+            while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
             {
-                path=file.absoluteDir().path();
-                path+=QDir::toNativeSeparators("/Mozilla/Firefox/")+settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                if(settings.value("Profile"+QString::number(i)+"/IsRelative",1)==1)
+                {
+                    path=file.absoluteDir().path();
+                    path+=QDir::toNativeSeparators("/Mozilla/Firefox/")+settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                }
+                else
+                {
+                    path=settings.value("Profile"+QString::number(i)+"/Path").toString()+QDir::toNativeSeparators("/");
+                }
+                ui->profillist->addItem(settings.value("Profile"+QString::number(i++)+"/Name",NULL).toString(),path);
             }
-            else
-            {
-                path=settings.value("Profile"+QString::number(i)+"/Path").toString()+QDir::toNativeSeparators("/");
-            }
-            ui->profillist->addItem(settings.value("Profile"+QString::number(i++)+"/Name",NULL).toString(),path);
         }
+        else if(import_from=="chromium")
+        {
+            manual=true;
+            ui->profillist->clear();
+            manual=false;
+            ui->profillist->addItem("Default",fileName);
+        }
+
     }
 
 }
@@ -324,7 +341,7 @@ void Import::renderPreview(int percent)
 }
 void Import::saveimage()
 {
-    finished=true;
+
     if(QFile::exists(tmpdir+fname))
     {
         QPixmap resized;
@@ -337,17 +354,17 @@ void Import::saveimage()
         resized=QPixmap();
         origin=QPixmap();
     }
-
+finished=true;
 }
 
 
-
+ #include <QTimer>
 void Import::on_pushButton_2_clicked()
 {
     int i=0;
     QTreeWidgetItemIterator it(ui->itemsview);
-    while (*it) {
-        if ((*it)->checkState(0)==Qt::Checked && (*it)->childCount()==0)
+    while (*it) {//i++;
+        ///if ((*it)->checkState(0)==Qt::Checked && (*it)->childCount()==0)
             i++;
         ++it;
     }
@@ -357,10 +374,11 @@ void Import::on_pushButton_2_clicked()
     ui->widget->hide();
     ui->pushButton_2->hide();
     this->open_bookmarks();
-
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
-    QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
-   /// websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
+    connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
+    this->manual=false;
+    websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
+    ui->abort->show();
     QTreeWidgetItemIterator items(ui->itemsview);
     while (*items) {
         if ((*items)->checkState(0)==Qt::Checked && (*items)->childCount()>0)
@@ -374,10 +392,12 @@ void Import::on_pushButton_2_clicked()
             ui->itemsall->setValue(ui->itemsall->value()+1);
             ui->title->setText((*items)->text(0));
             ui->curr_url->setText((*items)->data(0,Qt::UserRole).toString());
+
+
             finished=false;
             fname=QString(QCryptographicHash::hash((*items)->data(0,Qt::UserRole).toString().toLocal8Bit(),QCryptographicHash::Md5).toHex())+".png";
             websnap.load( guessUrlFromString( (*items)->data(0,Qt::UserRole).toString().toLatin1().data()), 100, tmpdir+fname,1024);
-            while (!finished) { qApp->processEvents(QEventLoop::WaitForMoreEvents); }
+            while (finished!=true) { qApp->processEvents(QEventLoop::WaitForMoreEvents); }
             if(QFile::exists(tmpdir+fname))
             {
                 QFile::copy(tmpdir+fname,imgdir+fname);
@@ -445,3 +465,10 @@ void Import::save_bookmarks()
 
 }
 
+void Import::on_abort_clicked()
+{
+    websnap.m_page.action(websnap.m_page.Stop);
+    websnap.m_fileName="blabla_not_found.png";
+    websnap.m_page.mainFrame()->setHtml("<h1>not found</h1>");
+    finished=true;
+}

@@ -96,7 +96,7 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="128"/>
+        <location filename="../addurl.cpp" line="115"/>
         <source>Generating image</source>
         <translation>Генерация картинки</translation>
     </message>
@@ -178,37 +178,50 @@ p, li { white-space: pre-wrap; }
         <translation>Всего</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="121"/>
+        <location filename="../import.ui" line="129"/>
         <source>Links List</source>
         <translation>Список ссылок</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="139"/>
+        <location filename="../import.ui" line="147"/>
         <source>Apply</source>
         <translation>Применить</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="161"/>
+        <location filename="../import.ui" line="169"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="184"/>
+        <location filename="../import.ui" line="192"/>
         <source>Select different</source>
         <translation>Выбрать другой</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="168"/>
+        <location filename="../import.ui" line="206"/>
+        <source>If procces of generating site image 
+is too long you can canceled it </source>
+        <translation>Если процес генерации миниатюры сайта
+занимает продолжительное время
+Вы можете пропустить этот сайт</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="210"/>
+        <source>Abort current</source>
+        <translation>Отменит текущий</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="170"/>
         <source>Boormark bar</source>
         <translation>Панель закладок</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="169"/>
+        <location filename="../import.cpp" line="171"/>
         <source>Other Boormark</source>
         <translation>Другие закладки</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="268"/>
+        <location filename="../import.cpp" line="275"/>
         <source>Open Image</source>
         <translation>Открыть изображение</translation>
     </message>
@@ -385,63 +398,63 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Система</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="27"/>
-        <location filename="../import.cpp" line="32"/>
-        <location filename="../import.cpp" line="59"/>
-        <location filename="../import.cpp" line="64"/>
-        <location filename="../import.cpp" line="97"/>
-        <location filename="../import.cpp" line="131"/>
-        <location filename="../import.cpp" line="136"/>
-        <location filename="../import.cpp" line="150"/>
-        <location filename="../import.cpp" line="160"/>
-        <location filename="../import.cpp" line="430"/>
+        <location filename="../import.cpp" line="28"/>
+        <location filename="../import.cpp" line="33"/>
+        <location filename="../import.cpp" line="60"/>
+        <location filename="../import.cpp" line="65"/>
+        <location filename="../import.cpp" line="98"/>
+        <location filename="../import.cpp" line="133"/>
+        <location filename="../import.cpp" line="138"/>
+        <location filename="../import.cpp" line="152"/>
+        <location filename="../import.cpp" line="162"/>
+        <location filename="../import.cpp" line="451"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="27"/>
-        <location filename="../import.cpp" line="59"/>
-        <location filename="../import.cpp" line="97"/>
+        <location filename="../import.cpp" line="28"/>
+        <location filename="../import.cpp" line="60"/>
+        <location filename="../import.cpp" line="98"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation>Похоже на то что у Вас неустановлен Firefox</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="32"/>
-        <location filename="../import.cpp" line="64"/>
+        <location filename="../import.cpp" line="33"/>
+        <location filename="../import.cpp" line="65"/>
         <source>Sorry but we could not find the profile of Firefox!</source>
         <translation>Извините но мы не смогли
 найти профили для Firefox&apos;a</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="131"/>
+        <location filename="../import.cpp" line="133"/>
         <source>It seem&apos;s to that you don&apos;t have installed Chromium!</source>
         <translation>Похоже на то что у Вас неустановлен Chromium</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="136"/>
+        <location filename="../import.cpp" line="138"/>
         <source>Sorry but we could not find the profile of Chromium!</source>
         <translation>Извините но мы не смогли
 найти профили для Chromium&apos;a</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="150"/>
-        <location filename="../import.cpp" line="430"/>
+        <location filename="../import.cpp" line="152"/>
+        <location filename="../import.cpp" line="451"/>
         <source>Could&apos;t open file for the reading</source>
         <translation>Не удалось открфть файл для чтения</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="160"/>
+        <location filename="../import.cpp" line="162"/>
         <source>An error occurred during parsing</source>
         <translation>Произошла ошибка при
 обработке файла</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="399"/>
+        <location filename="../import.cpp" line="420"/>
         <source>Info</source>
         <translation>Инфо</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="399"/>
+        <location filename="../import.cpp" line="420"/>
         <source>We recommend to restart the application
  for better performance.</source>
         <translation>Мы рекомендуем Вам перезапустить приложение 

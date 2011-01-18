@@ -52,6 +52,8 @@ private slots:
     void save_bookmarks();
     void on_pushButton_2_clicked();
 
+    void on_abort_clicked();
+
 private:
     Ui::Import *ui;
 

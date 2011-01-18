@@ -1,2 +1,38 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<lsbook version="0.1" created="Вс янв. 16 2011"/>
+<lsbook version="0.1" created="Вт янв. 18 2011">
+<folder name="Панель закладок">
+<bookmark image="fa0d18022c89cafb6bc71461e46517db.png" url="http://vkontakte.ru/id44384706">В Контакте | Алексей _pussbb Бобырь</bookmark>
+<bookmark image="6e54628e1af2984fcc106cf44e3d7d12.png" url="http://wg201.odnoklassniki.ru/dk;jsessionid=E78A84D717BA8D5925FE8DD2CFE7BC4D.wg201?st.cmd=userMain&amp;tkn=1646#st.cmd=userMain">Одноклассники.ru</bookmark>
+<bookmark image="87468c07c02e370ef84d4b7e3a668589.png" url="http://www.facebook.com/">Facebook</bookmark>
+<bookmark image="fe07ef940a81a78985cbe5b613009e34.png" url="http://filmix.net/serialy/6860-klinika-2001-09.html">Смотреть онлайн Клиника 9 сезон (2001-09) все сезоны</bookmark>
+</folder>
+<folder name="pdf">
+<bookmark image="c0a9c2a09ab9044fba9814f0195315fa.png" url="http://www.webmonkey.com/2010/02/generate_pdfs_dynamically_with_php/">Generate PDFs Dynamically With PHP | Webmonkey | Wired.com</bookmark>
+<bookmark image="197fbf7c22c793e0f2a810fa29fd691f.png" url="http://www.opensourcetutorials.com/phpmanual/ref.pdf.html">Open Source Development Tutorials - PDF functions</bookmark>
+<bookmark image="1116114529a744ce0240c1f9624c5a02.png" url="http://snapshotmedia.co.uk/blog/jspdf">jsPDF | Snapshot Media</bookmark>
+<bookmark image="4defb203dc0e9d826e23406323504cf5.png" url="http://code.google.com/p/jspdf/">jspdf - Project Hosting on Google Code</bookmark>
+<bookmark image="22f57b58f15d8e5e236559d67ba7e5c8.png" url="http://www.fpdf.org/">FPDF</bookmark>
+<bookmark image="a0992f23fa6d180dba61dcb4d0285823.png" url="http://www.nihilogic.dk/labs/canvas2image/">Nihilogic : Canvas2Image : Saving Canvas data to image file</bookmark>
+<bookmark image="33d37eafa7128f3664bc46e0d3afd3db.png" url="http://www.htm2pdf.co.uk/">Convert HTML to PDF | htm2pdf.co.uk</bookmark>
+<bookmark image="eb097a6599876c7f4ad2c19fa46a2771.png" url="http://www.tecnick.com/pagefiles/tcpdf/example_011.phps">www.tecnick.com/pagefiles/tcpdf/example_011.phps</bookmark>
+<bookmark image="0f7726d18289dca14481614ae2c2cc67.png" url="http://teethgrinder.co.uk/open-flash-chart-2/bar-chart.php">Open Flash Chart - Charts - &lt;a href="bar-charts-menu.php">Bar Charts Menu&lt;/a> - Bar Chart</bookmark>
+<bookmark image="a3d768f8d3dba7a55d115398608c61d3.png" url="http://teethgrinder.co.uk/open-flash-chart-2/line-hollow.php">Open Flash Chart - Charts - &lt;a href="line-charts-menu.php">Line Charts Menu&lt;/a> - Hollow Line</bookmark>
+</folder>
+<folder name="jquery">
+<bookmark image="0938eb62a84c3e7ba78037c5b6c249a7.png" url="http://code.google.com/p/flot/">flot - Project Hosting on Google Code</bookmark>
+<bookmark image="e2ee2d2741d28fb35efdc14a49aaf1f3.png" url="http://twablet.com/docs.html?p=jstore">Eric Garside</bookmark>
+<bookmark image="9236bf20992dbb47d9fb924895aaab76.png" url="http://code.google.com/p/opensocial-jquery/">opensocial-jquery - Project Hosting on Google Code</bookmark>
+<bookmark image="8e26f88af3c1356835dd2a00f5039a00.png" url="http://code.google.com/p/editease/">editease - Project Hosting on Google Code</bookmark>
+<bookmark image="68b4bb4f2e1ce47fb861f793aa784ca6.png" url="http://code.google.com/p/jquerycurvycorners/">jquerycurvycorners - Project Hosting on Google Code</bookmark>
+<bookmark image="5015376395873d83834f06d159fddf1c.png" url="http://code.google.com/p/jquery-utils/">jquery-utils - Project Hosting on Google Code</bookmark>
+<bookmark image="0eec2ba37e764fc7c6ac0da4c5f6881c.png" url="https://launchpad.net/~ubuntu-wine/+archive/ppa">PPA for Ubuntu Wine Team : “Ubuntu Wine Team” team</bookmark>
+</folder>
+<folder name="Панель закладок">
+<bookmark image="fa0d18022c89cafb6bc71461e46517db.png" url="http://vkontakte.ru/id44384706">В Контакте | Алексей _pussbb Бобырь</bookmark>
+</folder>
+<folder name="Панель закладок">
+<bookmark image="fa0d18022c89cafb6bc71461e46517db.png" url="http://vkontakte.ru/id44384706">В Контакте | Алексей _pussbb Бобырь</bookmark>
+<bookmark image="6e54628e1af2984fcc106cf44e3d7d12.png" url="http://wg201.odnoklassniki.ru/dk;jsessionid=E78A84D717BA8D5925FE8DD2CFE7BC4D.wg201?st.cmd=userMain&amp;tkn=1646#st.cmd=userMain">Одноклассники.ru</bookmark>
+<bookmark image="87468c07c02e370ef84d4b7e3a668589.png" url="http://www.facebook.com/">Facebook</bookmark>
+</folder>
+</lsbook>
