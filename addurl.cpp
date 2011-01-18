@@ -27,7 +27,6 @@ void WebCapture::load(const QUrl &url, int zoom, const QString &outputFileName, 
     m_page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
     m_page.settings()->setAttribute(QWebSettings::SpatialNavigationEnabled, false);
     m_page.settings()->setAttribute(QWebSettings::LocalContentCanAccessFileUrls, false);
-
     m_page.mainFrame()->load(url);
     m_page.mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
     m_page.mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);

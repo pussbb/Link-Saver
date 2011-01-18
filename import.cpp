@@ -21,7 +21,7 @@ void Import::firefox_profiles()
     this->import_from="firefox";
     manual=false;
 #ifdef Q_OS_WIN32
-
+    QString appdata=getenv("APPDATA");
     if(dir.exists(appdata+"\\Mozilla\\Firefox\\")==false)
     {
         QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
@@ -120,7 +120,8 @@ void Import::chromium_bookmaks()
     QString chromium_path;
 
 #ifdef Q_OS_WIN32
-    chromium_path="ff";
+    chromium_path=getenv("LOCALAPPDATA");
+    chromium_path+="\\Chromium\\User Data\\Default\\";
 #endif
 
 #ifdef Q_OS_LINUX
@@ -350,7 +351,7 @@ void Import::on_pushButton_2_clicked()
             i++;
         ++it;
     }
-
+    qDebug()<<i;
     ui->itemsall->setMaximum(i);
     ui->itemsview->hide();
     ui->widget->hide();
@@ -359,7 +360,7 @@ void Import::on_pushButton_2_clicked()
 
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
     QObject::connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
-    websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
+   /// websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
     QTreeWidgetItemIterator items(ui->itemsview);
     while (*items) {
         if ((*items)->checkState(0)==Qt::Checked && (*items)->childCount()>0)
@@ -391,7 +392,7 @@ void Import::on_pushButton_2_clicked()
                 element.appendChild(elemlText);
                 elem.appendChild(element);
             }
-
+            this->save_bookmarks();
         }
         ++items;
     }
