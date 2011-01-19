@@ -14,6 +14,8 @@
 #include <QDomDocument>
 #include <QDate>
 #include <QXmlStreamWriter>
+#include <QTime>
+#include <QTimer>
 namespace Ui {
     class Import;
 }
@@ -27,6 +29,8 @@ public:
     void firefox_profiles();
     void chromium_bookmaks();
     WebCapture websnap;
+    QTime time;
+    QTimer timer;
     QDir dir;
     QString fname;
     QDomDocument doc;
@@ -51,7 +55,7 @@ private slots:
     void open_bookmarks();
     void save_bookmarks();
     void on_pushButton_2_clicked();
-
+    void updateDisplay();
     void on_abort_clicked();
 
 private:

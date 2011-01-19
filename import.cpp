@@ -11,12 +11,27 @@ Import::Import(QWidget *parent) :
     ui->setupUi(this);
     chiled=false;
     ui->abort->hide();
+    updateDisplay();
+    connect(&timer, SIGNAL(timeout()), this, SLOT(updateDisplay()));
+    timer.start(1000); // twice per second
 }
 
 Import::~Import()
 {
     delete ui;
 }
+void Import::updateDisplay()
+{
+    int secs = time.elapsed() / 1000;
+    int mins = (secs / 60) % 60;
+    int hours = (secs / 3600);
+    secs = secs % 60;
+    ui->total_time->setText(QString("%1:%2:%3")
+    .arg(hours, 2, 10, QLatin1Char('0'))
+    .arg(mins, 2, 10, QLatin1Char('0'))
+    .arg(secs, 2, 10, QLatin1Char('0')) );
+}
+
 void Import::firefox_profiles()
 {
     this->import_from="firefox";
@@ -338,6 +353,23 @@ void Import::on_itemsview_itemChanged(QTreeWidgetItem* item, int column)
 void Import::renderPreview(int percent)
 {
     ui->image->setValue(percent);
+    quint64 recived=websnap.m_page.bytesReceived();
+    quint64 B=1;
+    QString f;
+    quint64  KB = 1024 * B; //kilobyte
+    quint64  MB = 1024 * KB; //megabyte
+    quint64  GB = 1024 * MB; //gigabyte
+    if (recived>GB)
+        ui->received->setText(f.sprintf("%1.2f GB",QVariant(recived/GB).toDouble())) ;
+      else
+        if (recived> MB)
+         ui->received->setText(f.sprintf("%1.2f MB",QVariant(recived/MB).toDouble()));
+        else
+          if (recived> KB)
+             ui->received->setText(f.sprintf("%1.2f KB",QVariant(recived/KB).toDouble()));
+          else
+            ui->received->setText(f.sprintf("%1.2f bytes",QVariant(recived).toDouble()));
+
 }
 void Import::saveimage()
 {
@@ -358,17 +390,18 @@ finished=true;
 }
 
 
- #include <QTimer>
+
 void Import::on_pushButton_2_clicked()
 {
     int i=0;
+
     QTreeWidgetItemIterator it(ui->itemsview);
     while (*it) {//i++;
         ///if ((*it)->checkState(0)==Qt::Checked && (*it)->childCount()==0)
             i++;
         ++it;
     }
-    qDebug()<<i;
+
     ui->itemsall->setMaximum(i);
     ui->itemsview->hide();
     ui->widget->hide();
@@ -412,7 +445,7 @@ void Import::on_pushButton_2_clicked()
                 element.appendChild(elemlText);
                 elem.appendChild(element);
             }
-            this->save_bookmarks();
+           /// this->save_bookmarks();
         }
         ++items;
     }
