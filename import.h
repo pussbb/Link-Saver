@@ -30,6 +30,7 @@ public:
     void chromium_bookmaks();
     WebCapture websnap;
     QTime time;
+    QTime itemtime;
     QTimer timer;
     QDir dir;
     QString fname;

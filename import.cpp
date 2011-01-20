@@ -11,9 +11,7 @@ Import::Import(QWidget *parent) :
     ui->setupUi(this);
     chiled=false;
     ui->abort->hide();
-    updateDisplay();
-    connect(&timer, SIGNAL(timeout()), this, SLOT(updateDisplay()));
-    timer.start(1000); // twice per second
+
 }
 
 Import::~Import()
@@ -27,6 +25,14 @@ void Import::updateDisplay()
     int hours = (secs / 3600);
     secs = secs % 60;
     ui->total_time->setText(QString("%1:%2:%3")
+    .arg(hours, 2, 10, QLatin1Char('0'))
+    .arg(mins, 2, 10, QLatin1Char('0'))
+    .arg(secs, 2, 10, QLatin1Char('0')) );
+     secs = itemtime.elapsed() / 1000;
+     mins = (secs / 60) % 60;
+     hours = (secs / 3600);
+    secs = secs % 60;
+    ui->time->setText(QString("%1:%2:%3")
     .arg(hours, 2, 10, QLatin1Char('0'))
     .arg(mins, 2, 10, QLatin1Char('0'))
     .arg(secs, 2, 10, QLatin1Char('0')) );
@@ -397,14 +403,18 @@ void Import::on_pushButton_2_clicked()
 
     QTreeWidgetItemIterator it(ui->itemsview);
     while (*it) {//i++;
-        ///if ((*it)->checkState(0)==Qt::Checked && (*it)->childCount()==0)
+        if ((*it)->checkState(0)==Qt::Checked )
             i++;
         ++it;
     }
+    time.start();
 
+    updateDisplay();
+    connect(&timer, SIGNAL(timeout()), this, SLOT(updateDisplay()));
+    timer.start(1000);
     ui->itemsall->setMaximum(i);
-    ui->itemsview->hide();
-    ui->widget->hide();
+    ui->select->hide();
+    ui->progress->show();
     ui->pushButton_2->hide();
     this->open_bookmarks();
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
@@ -422,6 +432,7 @@ void Import::on_pushButton_2_clicked()
         }
         if ((*items)->checkState(0)==Qt::Checked && (*items)->childCount()==0)
         {
+            itemtime.start();
             ui->itemsall->setValue(ui->itemsall->value()+1);
             ui->title->setText((*items)->text(0));
             ui->curr_url->setText((*items)->data(0,Qt::UserRole).toString());

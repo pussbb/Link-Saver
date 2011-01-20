@@ -6,280 +6,299 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>256</height>
+    <width>411</width>
+    <height>290</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>411</width>
+    <height>290</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>400</width>
-    <height>300</height>
+    <width>411</width>
+    <height>290</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Import</string>
   </property>
-  <widget class="QWidget" name="process" native="true">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>373</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <widget class="QProgressBar" name="itemsall">
-    <property name="geometry">
-     <rect>
-      <x>18</x>
-      <y>24</y>
-      <width>343</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="image">
-    <property name="geometry">
-     <rect>
-      <x>16</x>
-      <y>130</y>
-      <width>339</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>0</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>14</x>
-      <y>106</y>
-      <width>161</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Generating image</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>6</y>
-      <width>56</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Total</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="title">
-    <property name="geometry">
-     <rect>
-      <x>16</x>
-      <y>58</y>
-      <width>349</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="curr_url">
-    <property name="geometry">
-     <rect>
-      <x>16</x>
-      <y>82</y>
-      <width>353</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>160</y>
-      <width>61</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Received:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="received">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>160</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>160</y>
-      <width>61</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Time:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="time">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>160</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>195</x>
-      <y>6</y>
-      <width>61</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Time</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="total_time">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>5</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QTreeWidget" name="itemsview">
-   <property name="geometry">
-    <rect>
-     <x>4</x>
-     <y>39</y>
-     <width>389</width>
-     <height>184</height>
-    </rect>
-   </property>
-   <column>
-    <property name="text">
-     <string>Links List</string>
-    </property>
-    <property name="icon">
-     <iconset resource="linkres.qrc">
-      <normaloff>:/res/link.png</normaloff>:/res/link.png</iconset>
-    </property>
-   </column>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>142</x>
-     <y>226</y>
-     <width>78</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Apply</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>4</x>
-     <y>0</y>
-     <width>395</width>
-     <height>37</height>
-    </rect>
-   </property>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>8</y>
-      <width>61</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Profile</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="profillist">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>6</y>
-      <width>167</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>264</x>
-      <y>4</y>
-      <width>109</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Select different</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QPushButton" name="abort">
-   <property name="geometry">
-    <rect>
-     <x>114</x>
-     <y>224</y>
-     <width>145</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>If procces of generating site image 
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="select">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>240</y>
+         <width>78</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Apply</string>
+       </property>
+      </widget>
+      <widget class="QTreeWidget" name="itemsview">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>50</y>
+         <width>389</width>
+         <height>184</height>
+        </rect>
+       </property>
+       <column>
+        <property name="text">
+         <string>Links List</string>
+        </property>
+        <property name="icon">
+         <iconset resource="linkres.qrc">
+          <normaloff>:/res/link.png</normaloff>:/res/link.png</iconset>
+        </property>
+       </column>
+      </widget>
+      <widget class="QWidget" name="widget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>395</width>
+         <height>37</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>61</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Profile</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="profillist">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>6</y>
+          <width>167</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>264</x>
+          <y>4</y>
+          <width>109</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Select different</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="progress">
+      <widget class="QWidget" name="process" native="true">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>373</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <widget class="QProgressBar" name="itemsall">
+        <property name="geometry">
+         <rect>
+          <x>18</x>
+          <y>24</y>
+          <width>343</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="image">
+        <property name="geometry">
+         <rect>
+          <x>16</x>
+          <y>130</y>
+          <width>339</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>14</x>
+          <y>106</y>
+          <width>161</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Generating image</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>6</y>
+          <width>56</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="title">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>349</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="curr_url">
+        <property name="geometry">
+         <rect>
+          <x>16</x>
+          <y>82</y>
+          <width>353</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>160</y>
+          <width>61</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Received:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="received">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>160</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>160</y>
+          <width>61</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Time:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="time">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>160</y>
+          <width>101</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>195</x>
+          <y>6</y>
+          <width>61</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Time</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="total_time">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>5</y>
+          <width>101</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="abort">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>230</y>
+         <width>145</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>If procces of generating site image 
 is too long you can canceled it </string>
-   </property>
-   <property name="text">
-    <string>Abort current</string>
-   </property>
-  </widget>
+       </property>
+       <property name="text">
+        <string>Abort current</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="linkres.qrc"/>
