@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("_pussbb");
     QCoreApplication::setOrganizationDomain("krabik.co.ua");
     QCoreApplication::setApplicationName("QLinkSaver");
+    QApplication::setApplicationName("QLinkSaver");
+    QApplication::setApplicationVersion("2.1.1.5");
     LinkSaver w;
     QApplication::setQuitOnLastWindowClosed(false);
 #if defined(Q_WS_S60) || defined(Q_WS_MAEMO_5)
