@@ -16,15 +16,7 @@ void WebCapture::load(const QUrl &url, int zoom, const QString &outputFileName, 
     m_percent = 0;
     m_fileName = outputFileName;
     image = QImage();
-    m_page.settings()->setAttribute(QWebSettings::JavaEnabled, false);
-    m_page.settings()->setAttribute(QWebSettings::JavascriptCanOpenWindows, false);
-    m_page.settings()->setAttribute(QWebSettings::LocalStorageEnabled, false);
-    m_page.settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
-    m_page.settings()->setAttribute(QWebSettings::FrameFlatteningEnabled, false);
-    m_page.settings()->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
-    m_page.settings()->setAttribute(QWebSettings::PluginsEnabled, false);
-    m_page.settings()->setAttribute(QWebSettings::SpatialNavigationEnabled, false);
-    m_page.settings()->setAttribute(QWebSettings::LocalContentCanAccessFileUrls, false);
+
     m_page.mainFrame()->load(url);
     m_page.mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
     m_page.mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);

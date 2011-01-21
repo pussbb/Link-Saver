@@ -144,7 +144,6 @@ void Import::on_profillist_currentIndexChanged(int index)
     if(this->import_from=="firefox" && !manual)
     {
         QDir bookmarkdir(ui->profillist->itemData(index).toString()+QDir::toNativeSeparators("bookmarkbackups/"));
-        qDebug()<<bookmarkdir.path();
         if(bookmarkdir.exists(bookmarkdir.path())==false)
         {
             QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
@@ -451,8 +450,6 @@ void Import::on_pushButton_2_clicked()
     this->open_bookmarks();
     connect(&websnap.m_page, SIGNAL(loadProgress(int)), this, SLOT(renderPreview(int)));
     connect(&websnap, SIGNAL(finished()), this, SLOT(saveimage()));
-
-    websnap.m_page.settings()->setAttribute(QWebSettings::JavascriptEnabled, false);
     ui->abort->show();
     QTreeWidgetItemIterator items(ui->itemsview);
     while (*items) {
