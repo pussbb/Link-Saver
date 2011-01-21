@@ -74,7 +74,37 @@ void Import::firefox_profiles()
         }
     }
 #endif
+#ifdef Q_OS_OS2
+    QString appdata=QDir::homePath();
+   // QString appdata="C:\HOME\DEFAULT\";
+    if(dir.exists(appdata+QDir::toNativeSeparators("\\Mozilla\\Firefox\\"))==false)
+    {
+        QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
+        return;
+    }
+    else{
+        if(QFile::exists(appdata+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")+"profiles.ini")==false)
+            QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Sorry but we could not find the profile of Firefox!"));
+        else
+        {
+            QSettings settings(appdata+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")+"profiles.ini",QSettings::IniFormat);
+            int i=0;
+            while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
+            {
+                if(settings.value("Profile"+QString::number(i)+"/IsRelative",1)==1)
+                {
+                    path=appdata+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")+settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                }
+                else
+                {
+                    path=settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                }            ///QDir bookmarkdir(ui->profillist->itemData(index).toString()+"bookmarkbackups/");
+                ui->profillist->addItem(settings.value("Profile"+QString::number(i++)+"/Name",NULL).toString(),path);
 
+            }
+        }
+    }
+#endif
 #ifdef Q_OS_LINUX
     if(dir.exists(QDir::homePath()+"/.mozilla/firefox/")==false)
     {
@@ -114,6 +144,7 @@ void Import::on_profillist_currentIndexChanged(int index)
     if(this->import_from=="firefox" && !manual)
     {
         QDir bookmarkdir(ui->profillist->itemData(index).toString()+QDir::toNativeSeparators("bookmarkbackups/"));
+        qDebug()<<bookmarkdir.path();
         if(bookmarkdir.exists(bookmarkdir.path())==false)
         {
             QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
@@ -130,7 +161,7 @@ void Import::on_profillist_currentIndexChanged(int index)
 
         }
     }
-    else if(import_from=="chromium")
+    else if(import_from=="chromium" && !manual)
     {
         this->build_tree(ui->profillist->itemData(index).toString());
     }
@@ -311,7 +342,7 @@ void Import::on_pushButton_clicked()
                 if(settings.value("Profile"+QString::number(i)+"/IsRelative",1)==1)
                 {
                     path=file.absoluteDir().path();
-                    path+=QDir::toNativeSeparators("/Mozilla/Firefox/")+settings.value("Profile"+QString::number(i)+"/Path").toString()+"/";
+                    path+=QDir::toNativeSeparators("/")+QDir::toNativeSeparators(settings.value("Profile"+QString::number(i)+"/Path").toString())+QDir::toNativeSeparators("/");
                 }
                 else
                 {
@@ -325,6 +356,7 @@ void Import::on_pushButton_clicked()
             manual=true;
             ui->profillist->clear();
             manual=false;
+            qDebug()<<fileName;
             ui->profillist->addItem("Default",fileName);
         }
 
