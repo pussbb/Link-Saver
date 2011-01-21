@@ -56,7 +56,6 @@ void Import::firefox_profiles()
         {
             QSettings settings(appdata+"\\Mozilla\\Firefox\\"+"profiles.ini",QSettings::IniFormat);
             int i=0;
-            qDebug()<<settings.value("Profile"+QString::number(i)+"/Path","empty");
             QString path;
             while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
             {
@@ -89,6 +88,7 @@ void Import::firefox_profiles()
         {
             QSettings settings(appdata+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")+"profiles.ini",QSettings::IniFormat);
             int i=0;
+            QString path;
             while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
             {
                 if(settings.value("Profile"+QString::number(i)+"/IsRelative",1)==1)
