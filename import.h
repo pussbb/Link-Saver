@@ -44,6 +44,7 @@ public:
     ~Import();
 
 private slots:
+    QString firefox_profiles_file(QString filename);
     void on_profillist_currentIndexChanged(int index);
     void build_tree(QString file);
     void firefox_json(QVariantMap result);

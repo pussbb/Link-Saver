@@ -25,17 +25,40 @@ void Import::updateDisplay()
     int hours = (secs / 3600);
     secs = secs % 60;
     ui->total_time->setText(QString("%1:%2:%3")
-    .arg(hours, 2, 10, QLatin1Char('0'))
-    .arg(mins, 2, 10, QLatin1Char('0'))
-    .arg(secs, 2, 10, QLatin1Char('0')) );
-     secs = itemtime.elapsed() / 1000;
-     mins = (secs / 60) % 60;
-     hours = (secs / 3600);
+                            .arg(hours, 2, 10, QLatin1Char('0'))
+                            .arg(mins, 2, 10, QLatin1Char('0'))
+                            .arg(secs, 2, 10, QLatin1Char('0')) );
+    secs = itemtime.elapsed() / 1000;
+    mins = (secs / 60) % 60;
+    hours = (secs / 3600);
     secs = secs % 60;
     ui->time->setText(QString("%1:%2:%3")
-    .arg(hours, 2, 10, QLatin1Char('0'))
-    .arg(mins, 2, 10, QLatin1Char('0'))
-    .arg(secs, 2, 10, QLatin1Char('0')) );
+                      .arg(hours, 2, 10, QLatin1Char('0'))
+                      .arg(mins, 2, 10, QLatin1Char('0'))
+                      .arg(secs, 2, 10, QLatin1Char('0')) );
+}
+QString Import::firefox_profiles_file(QString filename)
+{
+    file.setFileName(filename);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Could't open file for the reading"));
+        return filename;
+    }
+    QTextStream stream ( &file );
+    stream.setCodec("UTF-8");
+    QString content=stream.readAll();
+    file.close();
+    content.replace("\\","\\\\");
+    QFile file2;
+    filename=tmpdir+"profiles_win"+".ini";
+    file2.setFileName(filename);
+    file2.open(QIODevice::WriteOnly | QIODevice::Text);
+    file2.write(content.toLocal8Bit());
+    file2.close();
+    qDebug()<<filename;
+    return filename;
 }
 
 void Import::firefox_profiles()
@@ -54,7 +77,9 @@ void Import::firefox_profiles()
             QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Sorry but we could not find the profile of Firefox!"));
         else
         {
-            QSettings settings(appdata+"\\Mozilla\\Firefox\\"+"profiles.ini",QSettings::IniFormat);
+            QTextCodec *codec = QTextCodec::codecForName("Windows-1251");
+            QSettings settings(firefox_profiles_file(appdata+"\\Mozilla\\Firefox\\"+"profiles.ini"),QSettings::IniFormat);
+            settings.setIniCodec(codec);
             int i=0;
             QString path;
             while(settings.value("Profile"+QString::number(i)+"/Path",NULL)!=NULL)
@@ -75,7 +100,7 @@ void Import::firefox_profiles()
 #endif
 #ifdef Q_OS_OS2
     QString appdata=QDir::homePath();
-   // QString appdata="C:\HOME\DEFAULT\";
+    // QString appdata="C:\HOME\DEFAULT\";
     if(dir.exists(appdata+QDir::toNativeSeparators("\\Mozilla\\Firefox\\"))==false)
     {
         QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Firefox!"));
@@ -328,7 +353,13 @@ void Import::on_pushButton_clicked()
     {
         if(import_from=="firefox")
         {
+#ifdef Q_OS_WIN32
+            QSettings settings(firefox_profiles_file(fileName),QSettings::IniFormat);
+            QTextCodec *codec = QTextCodec::codecForName("Windows-1251");
+            settings.setIniCodec(codec);
+#else
             QSettings settings(fileName,QSettings::IniFormat);
+#endif
             QFileInfo file(fileName);
             file.absoluteDir();
             int i=0;
@@ -355,7 +386,6 @@ void Import::on_pushButton_clicked()
             manual=true;
             ui->profillist->clear();
             manual=false;
-            qDebug()<<fileName;
             ui->profillist->addItem("Default",fileName);
         }
 
@@ -398,14 +428,14 @@ void Import::renderPreview(int percent)
     quint64  GB = 1024 * MB; //gigabyte
     if (recived>GB)
         ui->received->setText(f.sprintf("%1.2f GB",QVariant(recived/GB).toDouble())) ;
-      else
+    else
         if (recived> MB)
-         ui->received->setText(f.sprintf("%1.2f MB",QVariant(recived/MB).toDouble()));
+            ui->received->setText(f.sprintf("%1.2f MB",QVariant(recived/MB).toDouble()));
         else
-          if (recived> KB)
-             ui->received->setText(f.sprintf("%1.2f KB",QVariant(recived/KB).toDouble()));
-          else
-            ui->received->setText(f.sprintf("%1.2f bytes",QVariant(recived).toDouble()));
+            if (recived> KB)
+                ui->received->setText(f.sprintf("%1.2f KB",QVariant(recived/KB).toDouble()));
+            else
+                ui->received->setText(f.sprintf("%1.2f bytes",QVariant(recived).toDouble()));
 
 }
 void Import::saveimage()
@@ -423,7 +453,7 @@ void Import::saveimage()
         resized=QPixmap();
         origin=QPixmap();
     }
-finished=true;
+    finished=true;
 }
 
 
@@ -485,7 +515,7 @@ void Import::on_pushButton_2_clicked()
                 element.appendChild(elemlText);
                 elem.appendChild(element);
             }
-           /// this->save_bookmarks();
+            /// this->save_bookmarks();
         }
         ++items;
     }
@@ -525,7 +555,6 @@ void Import::open_bookmarks()
         return;
     }
     doc.setContent(&file);
-    qDebug()<<doc.toString();
     file.close();
 }
 void Import::save_bookmarks()
