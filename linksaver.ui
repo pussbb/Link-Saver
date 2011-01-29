@@ -105,8 +105,15 @@
      <addaction name="actionFrom_Firefox"/>
      <addaction name="actionFrom_Chrome"/>
     </widget>
+    <widget class="QMenu" name="menuExport">
+     <property name="title">
+      <string>Export</string>
+     </property>
+     <addaction name="actionXBel"/>
+    </widget>
     <addaction name="actionSettings"/>
     <addaction name="menuImport"/>
+    <addaction name="menuExport"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
@@ -185,6 +192,11 @@
   <action name="actionFrom_Chrome">
    <property name="text">
     <string>From Chromium</string>
+   </property>
+  </action>
+  <action name="actionXBel">
+   <property name="text">
+    <string>XBel</string>
    </property>
   </action>
  </widget>

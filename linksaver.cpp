@@ -796,3 +796,27 @@ void LinkSaver::on_actionFrom_Chrome_triggered()
     delete import;
     init_links();
 }
+#include "xbel/xbelgenerator.h"
+
+void LinkSaver::on_actionXBel_triggered()
+{
+    QString fileName =
+            QFileDialog::getSaveFileName(this, tr("Save Bookmark File"),
+                                         QDir::currentPath(),
+                                         tr("XBEL Files (*.xbel *.xml)"));
+    if (fileName.isEmpty())
+        return;
+
+    QFile file(fileName);
+    if (!file.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("SAX Bookmarks"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(fileName)
+                             .arg(file.errorString()));
+        return;
+    }
+
+    XbelGenerator generator(&doc);
+    generator.write(&file);
+       /// statusBar()->showMessage(tr("File saved"), 2000);
+}
