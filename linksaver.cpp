@@ -200,7 +200,7 @@ void LinkSaver::totraymenu()
         if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
 
             QMenu *menuitem= new QMenu(docElem.childNodes().item(i).toElement().attribute("name"),this);
-            menuitem->setIcon(QIcon(":/res/Blank-Map-64.png"));
+            menuitem->setIcon(QIcon(":/folder"));
             QActionGroup *items = new QActionGroup(this);
             connect(items, SIGNAL(triggered(QAction *)),
                     this, SLOT(traymenuaction(QAction *)));
@@ -234,7 +234,7 @@ void LinkSaver::totraymenu()
                         if(title.length()>25)
                             title.resize(25);
                         action->setText(title);
-                        action->setIcon(QIcon(":/res/link.png"));
+                        action->setIcon(QIcon(":link"));
                         //action->setUserData(33,"bookmark");
                         userdata<<"bookmark";
                     }
@@ -312,7 +312,7 @@ void LinkSaver::init_items()
             item->setText(0,docElem.childNodes().item(i).toElement().attribute("name"));
             item->setData(0,32,i);
             item->setData(0,33,"folder");
-            item->setIcon(0,QIcon(":/res/Blank-Map-64.png"));
+            item->setIcon(0,QIcon(":/folder"));
             ui->linkcat->addTopLevelItem(item);
             // ui->linkcat->addItem(docElem.childNodes().item(i).toElement().attribute("name"));
             QDomElement elem = docElem.childNodes().item(i).toElement();
@@ -342,7 +342,7 @@ void LinkSaver::init_items()
                     }
                     else{
                         child->setText(0,elem.childNodes().item(w).toElement().text());
-                        child->setIcon(0,QIcon(":/res/link.png"));
+                        child->setIcon(0,QIcon(":/link"));
                         child->setData(0,33,"bookmark");
                     }
                     child->setData(0,32,w);//elem.childNodes().item(w).lineNumber() );
@@ -481,7 +481,7 @@ void LinkSaver::on_actionADD_triggered()
     qDebug()<<clipboard->text(QClipboard::Clipboard);
     QUrl *uri= new QUrl(clipboard->text(QClipboard::Clipboard),QUrl::TolerantMode);
     if(uri->scheme()!="http" && uri->scheme()!="https" && uri->scheme()!="ftp")
-         {  uri->setUrl("http://");}
+    {  uri->setUrl("http://");}
 
     QString text = QInputDialog::getText(this, tr("Add Url"),
                                          tr("URL:"), QLineEdit::Normal,
@@ -796,6 +796,7 @@ void LinkSaver::on_actionFrom_Chrome_triggered()
     delete import;
     init_links();
 }
+
 #include "xbel/xbelgenerator.h"
 
 void LinkSaver::on_actionXBel_triggered()
@@ -818,5 +819,5 @@ void LinkSaver::on_actionXBel_triggered()
 
     XbelGenerator generator(&doc);
     generator.write(&file);
-       /// statusBar()->showMessage(tr("File saved"), 2000);
+    /// statusBar()->showMessage(tr("File saved"), 2000);
 }

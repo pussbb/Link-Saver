@@ -266,6 +266,7 @@ void Import::chromium_json(QVariantMap result,QString section,QString name)
                 else if (map["type"].toString()=="url") {
                     QTreeWidgetItem *child=new QTreeWidgetItem(parent);
                     child->setText(0,map["name"].toString());
+                    child->setText(1,map["url"].toString());
                     child->setCheckState(0,Qt::Checked);
                     child->setToolTip(0,map["url"].toString());
                     child->setData(0,Qt::UserRole,map["url"]);
@@ -298,6 +299,7 @@ void Import::chromium_json(QVariant result,QString section,QString name)
             else if (map["type"].toString()=="url") {
                 QTreeWidgetItem *child=new QTreeWidgetItem(parent);
                 child->setText(0,map["name"].toString());
+                child->setText(1,map["url"].toString());
                 child->setCheckState(0,Qt::Checked);
                 child->setToolTip(0,map["url"].toString());
                 child->setData(0,Qt::UserRole,map["url"]);
@@ -327,6 +329,8 @@ void Import::firefox_json(QVariantMap result)
                 {
                     QTreeWidgetItem *child=new QTreeWidgetItem(parent);
                     child->setText(0,item["title"].toString());
+                    child->setText(1,item["uri"].toString());
+                    qDebug()<<item["uri"].toString();
                     child->setCheckState(0,Qt::Checked);
                     child->setToolTip(0,item["uri"].toString());
                     child->setData(0,Qt::UserRole,item["uri"]);

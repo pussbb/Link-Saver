@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/link.png</file>
+        <file alias="link">res/link.png</file>
         <file>res/2globe_128.png</file>
-        <file>res/Blank-Map-64.png</file>
+        <file alias="folder">res/Blank-Map-64.png</file>
         <file>res/Info-64.png</file>
         <file>LICENSE.LGPL</file>
         <file alias="appexec">res/application-x-executable-script.png</file>

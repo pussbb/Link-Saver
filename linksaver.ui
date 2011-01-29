@@ -122,7 +122,7 @@
   <action name="actionADD">
    <property name="icon">
     <iconset resource="linkres.qrc">
-     <normaloff>:/res/link.png</normaloff>:/res/link.png</iconset>
+     <normaloff>:/link</normaloff>:/link</iconset>
    </property>
    <property name="text">
     <string>Add Url</string>
@@ -136,7 +136,7 @@
   <action name="actionAdd_Category">
    <property name="icon">
     <iconset resource="linkres.qrc">
-     <normaloff>:/res/Blank-Map-64.png</normaloff>:/res/Blank-Map-64.png</iconset>
+     <normaloff>:/folder</normaloff>:/folder</iconset>
    </property>
    <property name="text">
     <string>Add Category</string>
