@@ -11,7 +11,7 @@ Import::Import(QWidget *parent) :
     ui->setupUi(this);
     chiled=false;
     ui->abort->hide();
-
+ui->itemsall->setValue(0);
 }
 
 Import::~Import()
@@ -577,4 +577,73 @@ void Import::on_abort_clicked()
     websnap.m_fileName="blabla_not_found.png";
     websnap.m_page.mainFrame()->setHtml("<h1>not found</h1>");
     finished=true;
+}
+
+
+bool Import::from_xbel(QString filename)
+{
+    QFile saxfile(filename);
+    if (!saxfile.open(QFile::ReadOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("SAX Bookmarks"),
+                             tr("Cannot read file %1:\n%2.")
+                             .arg(filename)
+                             .arg(saxfile.errorString()));
+        return false;
+    }
+    QDomDocument saxdoc;
+    saxdoc.setContent(&saxfile);
+    QDomElement docElem = saxdoc.documentElement();
+    if (saxdoc.doctype().name()!= "xbel") {
+        QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("The file is not an XBEL file."));
+        return false ;
+    }
+    else {
+
+       QString version = saxdoc.documentElement().attributeNode("version").value();
+        if (!version.isEmpty() && version != "1.0") {
+                QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("The file is not an XBEL version 1.0 file."));
+                return false;
+        }
+
+    }
+    ui->widget->setDisabled(true);
+    for(int i=0;i<docElem.childNodes().count();i++)
+    {
+
+        parseSaxItems(docElem.childNodes().item(i).toElement());
+
+    }
+
+}
+
+void Import::parseSaxItems(QDomElement item)
+{
+    QString tagName = item.tagName();
+    QString tagType = item.attributeNode("url").value();
+    QTreeWidgetItem *parent=new QTreeWidgetItem(ui->itemsview);
+    parent->setIcon(0,QIcon(":folder"));
+    parent->setCheckState(0,Qt::Checked);
+    for(int i=0;i<item.childNodes().count();i++)
+    {
+        QDomElement element=item.childNodes().item(i).toElement();
+        if (element.tagName() == "folder") {
+           parseSaxItems(item.childNodes().item(i).toElement());
+        }
+        else if(element.tagName() == "title")
+                    parent->setText(0,element.text());
+        else if(element.tagName()=="bookmark")
+        {
+            QTreeWidgetItem *child=new QTreeWidgetItem(parent);
+            child->setText(0,element.text());
+            child->setText(1,element.attributeNode("href").value());
+            child->setCheckState(0,Qt::Checked);
+            child->setToolTip(0,element.attributeNode("href").value());
+            child->setData(0,Qt::UserRole,element.attributeNode("href").value());
+            child->setIcon(0,QIcon(":link"));
+            parent->addChild(child);
+        }
+
+
+    }
+
 }

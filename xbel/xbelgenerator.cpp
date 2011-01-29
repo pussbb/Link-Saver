@@ -56,7 +56,7 @@ bool XbelGenerator::write(QIODevice *device)
         << "<xbel version=\"1.0\">\n";
 
     QDomElement docElem = doc->documentElement();
-    QString title;
+
     for(int i=0;i<docElem.childNodes().count();i++)
     {
         generateItem(docElem.childNodes().item(i).toElement(), 1);

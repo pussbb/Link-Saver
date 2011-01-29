@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     apps.cpp \
     settings.cpp \
     import.cpp \
-    qt-json/json.cpp
+    qt-json/json.cpp \
+    xbel/xbelgenerator.cpp
 
 HEADERS  += linksaver.h \
     addurl.h \
@@ -32,7 +33,8 @@ HEADERS  += linksaver.h \
     apps.h \
     settings.h \
     import.h \
-    qt-json/json.h
+    qt-json/json.h \
+    xbel/xbelgenerator.h
 
 FORMS    += linksaver.ui \
     addurl.ui \

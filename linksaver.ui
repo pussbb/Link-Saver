@@ -104,6 +104,7 @@
      </property>
      <addaction name="actionFrom_Firefox"/>
      <addaction name="actionFrom_Chrome"/>
+     <addaction name="actionFrom_Xbel_Sax"/>
     </widget>
     <widget class="QMenu" name="menuExport">
      <property name="title">
@@ -197,6 +198,11 @@
   <action name="actionXBel">
    <property name="text">
     <string>XBel</string>
+   </property>
+  </action>
+  <action name="actionFrom_Xbel_Sax">
+   <property name="text">
+    <string>From Xbel(Sax)</string>
    </property>
   </action>
  </widget>

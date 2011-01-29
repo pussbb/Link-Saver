@@ -29,6 +29,7 @@ public:
     void firefox_profiles();
     void chromium_bookmaks();
     WebCapture websnap;
+    bool from_xbel(QString filename);
     QTime time;
     QTime itemtime;
     QTimer timer;
@@ -39,11 +40,13 @@ public:
     QFile file;
     bool chiled;
     bool finished;
+    bool  metXbelTag ;
     bool manual;
     QString import_from;
     ~Import();
 
 private slots:
+    void parseSaxItems(QDomElement item);
     QString firefox_profiles_file(QString filename);
     void on_profillist_currentIndexChanged(int index);
     void build_tree(QString file);
