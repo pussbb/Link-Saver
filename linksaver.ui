@@ -112,6 +112,7 @@
       <string>Export</string>
      </property>
      <addaction name="actionXBel"/>
+     <addaction name="actionHtml_simple"/>
     </widget>
     <addaction name="actionSettings"/>
     <addaction name="menuImport"/>
@@ -209,6 +210,11 @@
   <action name="actionFrom_Opera">
    <property name="text">
     <string>From Opera</string>
+   </property>
+  </action>
+  <action name="actionHtml_simple">
+   <property name="text">
+    <string>Html simple</string>
    </property>
   </action>
  </widget>

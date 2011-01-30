@@ -842,3 +842,60 @@ void LinkSaver::on_actionFrom_Opera_triggered()
     delete import;
     init_links();
 }
+
+void LinkSaver::on_actionHtml_simple_triggered()
+{
+    QString fileName =
+            QFileDialog::getSaveFileName(this, tr("Save Bookmark File"),
+                                         QDir::currentPath(),
+                                         tr("Html Files (*.html)"));
+
+
+    QFile htmlfile(fileName);
+    if (!htmlfile.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("Html Bookmarks"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(fileName)
+                             .arg(htmlfile.errorString()));
+        return;
+    }
+
+    QTextStream html;
+    html.setDevice(&htmlfile);
+#ifdef Q_OS_WIN32
+    html.setCodec("Windows-1251");
+#endif
+
+#ifdef Q_OS_LINUX
+    html.setCodec("UTF-8");
+#endif
+    html<<"<!DOCTYPE NETSCAPE-Bookmark-file-1>\n";
+    html<<"<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">\n";
+    html<<"<TITLE>"+tr("Bookmarks")+"</TITLE>\n<H1>"+tr("Bookmarks Menu")+"</H1>\n\n\n";
+    html<<"<DL><p>\n";
+    QDomElement docElem = doc.documentElement();
+    for(int i=0;i<docElem.childNodes().count();i++)
+    {
+        if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
+            docElem.childNodes().item(i).toElement().attribute("name"),
+                    html<<"\t<DT><H3>"+docElem.childNodes().item(i).toElement().attribute("name")+"</H3>\n";
+            QDomElement elem = docElem.childNodes().item(i).toElement();
+            if(elem.hasChildNodes())
+            {
+                html<<"\t\t<DL><p>\n";
+                for(int w=0;w<elem.childNodes().count();w++)
+                {
+                    QStringList userdata;
+                    QDomAttr e=elem.childNodes().item(w).toElement().attributeNode("url");
+                    if(e.value()!="app")
+                    {
+                        html<<"\t\t\t<DT><A HREF=\""+e.value()+"\">"+elem.childNodes().item(w).toElement().text()+"</A>\n";
+                    }
+                }
+                html<<"\t\t</DL>\n";
+            }
+            html<<"\t</DL><p>\n";
+        }
+    }
+    html<<"</DL><p>\n";
+}

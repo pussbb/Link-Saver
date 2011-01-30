@@ -47,7 +47,7 @@ public:
     ~Import();
 
 private slots:
-    int parseOpera(QStringList list,int pos);
+    void parseOpera(QStringList list,int pos);
     void parseSaxItems(QDomElement item);
     QString firefox_profiles_file(QString filename);
     void on_profillist_currentIndexChanged(int index);

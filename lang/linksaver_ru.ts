@@ -311,77 +311,82 @@ is too long you can canceled it </source>
         <translation>Експортировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="130"/>
+        <location filename="../linksaver.ui" line="131"/>
         <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="135"/>
+        <location filename="../linksaver.ui" line="136"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="144"/>
+        <location filename="../linksaver.ui" line="145"/>
         <location filename="../linksaver.cpp" line="422"/>
         <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="153"/>
+        <location filename="../linksaver.ui" line="154"/>
         <source>About</source>
         <translation>О ...</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="158"/>
+        <location filename="../linksaver.ui" line="159"/>
         <source>About QT</source>
         <translation>О QT</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="163"/>
+        <location filename="../linksaver.ui" line="164"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="172"/>
+        <location filename="../linksaver.ui" line="173"/>
         <source>Add App</source>
         <translation>Добавить Приложение</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="177"/>
+        <location filename="../linksaver.ui" line="178"/>
         <source>Edit</source>
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="186"/>
+        <location filename="../linksaver.ui" line="187"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="191"/>
+        <location filename="../linksaver.ui" line="192"/>
         <source>From Firefox</source>
         <translation>Из Firefox&apos;a</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="196"/>
+        <location filename="../linksaver.ui" line="197"/>
         <source>From Chromium</source>
         <translation>Из Chromium&apos;a</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="201"/>
+        <location filename="../linksaver.ui" line="202"/>
         <source>XBel</source>
         <translation>XBel(SAX)</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="206"/>
+        <location filename="../linksaver.ui" line="207"/>
         <source>From Xbel(Sax)</source>
         <translation>Из Xbel(Sax)</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="211"/>
+        <location filename="../linksaver.ui" line="212"/>
         <source>From Opera</source>
         <translation>Из Opera</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="217"/>
+        <source>Html simple</source>
+        <translation>В простой Html</translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="55"/>
@@ -451,6 +456,7 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="804"/>
+        <location filename="../linksaver.cpp" line="849"/>
         <source>Save Bookmark File</source>
         <translation>Сохранить файл закладок</translation>
     </message>
@@ -467,6 +473,7 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="812"/>
+        <location filename="../linksaver.cpp" line="857"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
@@ -476,6 +483,26 @@ is too long you can canceled it </source>
         <location filename="../linksaver.cpp" line="825"/>
         <source>Open Bookmark File</source>
         <translation>Открыть файл с закладками</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="851"/>
+        <source>Html Files (*.html)</source>
+        <translation>Html файлы (*.html)</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="856"/>
+        <source>Html Bookmarks</source>
+        <translation>Html закладки</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="874"/>
+        <source>Bookmarks</source>
+        <translation>Закладки</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="874"/>
+        <source>Bookmarks Menu</source>
+        <translation>Меню закладок</translation>
     </message>
 </context>
 <context>

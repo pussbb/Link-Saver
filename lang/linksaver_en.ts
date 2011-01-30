@@ -296,76 +296,81 @@ is too long you can canceled it </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="130"/>
+        <location filename="../linksaver.ui" line="131"/>
         <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="135"/>
+        <location filename="../linksaver.ui" line="136"/>
         <source>Exit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="144"/>
+        <location filename="../linksaver.ui" line="145"/>
         <location filename="../linksaver.cpp" line="422"/>
         <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="153"/>
+        <location filename="../linksaver.ui" line="154"/>
         <source>About</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="158"/>
+        <location filename="../linksaver.ui" line="159"/>
         <source>About QT</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="163"/>
+        <location filename="../linksaver.ui" line="164"/>
         <source>Remove</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="172"/>
+        <location filename="../linksaver.ui" line="173"/>
         <source>Add App</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="177"/>
+        <location filename="../linksaver.ui" line="178"/>
         <source>Edit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="186"/>
+        <location filename="../linksaver.ui" line="187"/>
         <source>Settings</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="191"/>
+        <location filename="../linksaver.ui" line="192"/>
         <source>From Firefox</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="196"/>
+        <location filename="../linksaver.ui" line="197"/>
         <source>From Chromium</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="201"/>
+        <location filename="../linksaver.ui" line="202"/>
         <source>XBel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="206"/>
+        <location filename="../linksaver.ui" line="207"/>
         <source>From Xbel(Sax)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="211"/>
+        <location filename="../linksaver.ui" line="212"/>
         <source>From Opera</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="217"/>
+        <source>Html simple</source>
         <translation></translation>
     </message>
     <message>
@@ -433,6 +438,7 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="804"/>
+        <location filename="../linksaver.cpp" line="849"/>
         <source>Save Bookmark File</source>
         <translation></translation>
     </message>
@@ -449,6 +455,7 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="812"/>
+        <location filename="../linksaver.cpp" line="857"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation></translation>
@@ -456,6 +463,26 @@ is too long you can canceled it </source>
     <message>
         <location filename="../linksaver.cpp" line="825"/>
         <source>Open Bookmark File</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="851"/>
+        <source>Html Files (*.html)</source>
+        <translation>Html Files (*.html)</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="856"/>
+        <source>Html Bookmarks</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="874"/>
+        <source>Bookmarks</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="874"/>
+        <source>Bookmarks Menu</source>
         <translation></translation>
     </message>
 </context>

@@ -687,7 +687,7 @@ bool Import::from_opera()
     parseOpera(list,0);
 }
 
-int Import::parseOpera(QStringList list,int pos)
+void Import::parseOpera(QStringList list,int pos)
 {
     //   int found=0;
     QTreeWidgetItem *parent=new QTreeWidgetItem(ui->itemsview);
