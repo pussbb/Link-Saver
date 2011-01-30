@@ -296,81 +296,86 @@ is too long you can canceled it </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="131"/>
+        <location filename="../linksaver.ui" line="132"/>
         <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="136"/>
+        <location filename="../linksaver.ui" line="137"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="145"/>
+        <location filename="../linksaver.ui" line="146"/>
         <location filename="../linksaver.cpp" line="422"/>
         <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="154"/>
+        <location filename="../linksaver.ui" line="155"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="159"/>
+        <location filename="../linksaver.ui" line="160"/>
         <source>About QT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="164"/>
+        <location filename="../linksaver.ui" line="165"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="173"/>
+        <location filename="../linksaver.ui" line="174"/>
         <source>Add App</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="178"/>
+        <location filename="../linksaver.ui" line="179"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="187"/>
+        <location filename="../linksaver.ui" line="188"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="192"/>
+        <location filename="../linksaver.ui" line="193"/>
         <source>From Firefox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="197"/>
+        <location filename="../linksaver.ui" line="198"/>
         <source>From Chromium</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="202"/>
+        <location filename="../linksaver.ui" line="203"/>
         <source>XBel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="207"/>
+        <location filename="../linksaver.ui" line="208"/>
         <source>From Xbel(Sax)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="212"/>
+        <location filename="../linksaver.ui" line="213"/>
         <source>From Opera</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="217"/>
+        <location filename="../linksaver.ui" line="218"/>
         <source>Html simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="223"/>
+        <source>Html CoverFlow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -451,7 +456,9 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="812"/>
-        <location filename="../linksaver.cpp" line="857"/>
+        <location filename="../linksaver.cpp" line="855"/>
+        <location filename="../linksaver.cpp" line="919"/>
+        <location filename="../linksaver.cpp" line="985"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation type="unfinished"></translation>
@@ -467,18 +474,58 @@ is too long you can canceled it </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="856"/>
+        <location filename="../linksaver.cpp" line="854"/>
         <source>Html Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="874"/>
+        <location filename="../linksaver.cpp" line="872"/>
         <source>Bookmarks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="874"/>
+        <location filename="../linksaver.cpp" line="872"/>
+        <location filename="../linksaver.cpp" line="991"/>
         <source>Bookmarks Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="903"/>
+        <source>Choose folder to save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="910"/>
+        <location filename="../linksaver.cpp" line="918"/>
+        <location filename="../linksaver.cpp" line="934"/>
+        <location filename="../linksaver.cpp" line="961"/>
+        <location filename="../linksaver.cpp" line="976"/>
+        <location filename="../linksaver.cpp" line="984"/>
+        <source>Html CoverFlow Bookmarks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="911"/>
+        <source>Cannot open file bookmark.js:
+%1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="935"/>
+        <source>Cannot create directory %1:
+.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="962"/>
+        <source>Cannot copy image %1:
+to %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="977"/>
+        <source>Cannot open file index.html:
+%1.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -311,82 +311,87 @@ is too long you can canceled it </source>
         <translation>Експортировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="131"/>
+        <location filename="../linksaver.ui" line="132"/>
         <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="136"/>
+        <location filename="../linksaver.ui" line="137"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="145"/>
+        <location filename="../linksaver.ui" line="146"/>
         <location filename="../linksaver.cpp" line="422"/>
         <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="154"/>
+        <location filename="../linksaver.ui" line="155"/>
         <source>About</source>
         <translation>О ...</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="159"/>
+        <location filename="../linksaver.ui" line="160"/>
         <source>About QT</source>
         <translation>О QT</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="164"/>
+        <location filename="../linksaver.ui" line="165"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="173"/>
+        <location filename="../linksaver.ui" line="174"/>
         <source>Add App</source>
         <translation>Добавить Приложение</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="178"/>
+        <location filename="../linksaver.ui" line="179"/>
         <source>Edit</source>
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="187"/>
+        <location filename="../linksaver.ui" line="188"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="192"/>
+        <location filename="../linksaver.ui" line="193"/>
         <source>From Firefox</source>
         <translation>Из Firefox&apos;a</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="197"/>
+        <location filename="../linksaver.ui" line="198"/>
         <source>From Chromium</source>
         <translation>Из Chromium&apos;a</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="202"/>
+        <location filename="../linksaver.ui" line="203"/>
         <source>XBel</source>
         <translation>XBel(SAX)</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="207"/>
+        <location filename="../linksaver.ui" line="208"/>
         <source>From Xbel(Sax)</source>
         <translation>Из Xbel(Sax)</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="212"/>
+        <location filename="../linksaver.ui" line="213"/>
         <source>From Opera</source>
         <translation>Из Opera</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="217"/>
+        <location filename="../linksaver.ui" line="218"/>
         <source>Html simple</source>
         <translation>В простой Html</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="223"/>
+        <source>Html CoverFlow</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="55"/>
@@ -473,7 +478,9 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="812"/>
-        <location filename="../linksaver.cpp" line="857"/>
+        <location filename="../linksaver.cpp" line="855"/>
+        <location filename="../linksaver.cpp" line="919"/>
+        <location filename="../linksaver.cpp" line="985"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
@@ -490,19 +497,63 @@ is too long you can canceled it </source>
         <translation>Html файлы (*.html)</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="856"/>
+        <location filename="../linksaver.cpp" line="854"/>
         <source>Html Bookmarks</source>
         <translation>Html закладки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="874"/>
+        <location filename="../linksaver.cpp" line="872"/>
         <source>Bookmarks</source>
         <translation>Закладки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="874"/>
+        <location filename="../linksaver.cpp" line="872"/>
+        <location filename="../linksaver.cpp" line="991"/>
         <source>Bookmarks Menu</source>
         <translation>Меню закладок</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="903"/>
+        <source>Choose folder to save</source>
+        <translation>Выберете папку </translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="910"/>
+        <location filename="../linksaver.cpp" line="918"/>
+        <location filename="../linksaver.cpp" line="934"/>
+        <location filename="../linksaver.cpp" line="961"/>
+        <location filename="../linksaver.cpp" line="976"/>
+        <location filename="../linksaver.cpp" line="984"/>
+        <source>Html CoverFlow Bookmarks</source>
+        <translation>Html CoverFlow закладки</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="911"/>
+        <source>Cannot open file bookmark.js:
+%1.</source>
+        <translation>Невозможно открыть bookmark.js:
+%1.</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="935"/>
+        <source>Cannot create directory %1:
+.</source>
+        <translation>Не удалось содать папку
+%1.</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="962"/>
+        <source>Cannot copy image %1:
+to %2.</source>
+        <translation>Невозможно скопировать %1:
+в %2.</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="977"/>
+        <source>Cannot open file index.html:
+%1.</source>
+        <translation>Невозможно открыть index.html:
+%1.</translation>
     </message>
 </context>
 <context>

@@ -613,7 +613,7 @@ bool Import::from_xbel(QString filename)
         parseSaxItems(docElem.childNodes().item(i).toElement());
 
     }
-
+    return true;
 }
 
 void Import::parseSaxItems(QDomElement item)
@@ -685,6 +685,7 @@ bool Import::from_opera()
     operaBookmarksFile.close();
     ui->widget->setDisabled(true);
     parseOpera(list,0);
+    return true;
 }
 
 void Import::parseOpera(QStringList list,int pos)

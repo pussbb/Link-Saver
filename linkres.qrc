@@ -8,5 +8,7 @@
         <file alias="appexec">res/application-x-executable-script.png</file>
         <file>res/applications-accessories.png</file>
         <file>res/config-language.png</file>
+        <file>res/htmlcoverflow/bookmark.js</file>
+        <file>res/htmlcoverflow/index.html</file>
     </qresource>
 </RCC>

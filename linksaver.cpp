@@ -849,8 +849,6 @@ void LinkSaver::on_actionHtml_simple_triggered()
             QFileDialog::getSaveFileName(this, tr("Save Bookmark File"),
                                          QDir::currentPath(),
                                          tr("Html Files (*.html)"));
-
-
     QFile htmlfile(fileName);
     if (!htmlfile.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, tr("Html Bookmarks"),
@@ -885,7 +883,6 @@ void LinkSaver::on_actionHtml_simple_triggered()
                 html<<"\t\t<DL><p>\n";
                 for(int w=0;w<elem.childNodes().count();w++)
                 {
-                    QStringList userdata;
                     QDomAttr e=elem.childNodes().item(w).toElement().attributeNode("url");
                     if(e.value()!="app")
                     {
@@ -898,4 +895,103 @@ void LinkSaver::on_actionHtml_simple_triggered()
         }
     }
     html<<"</DL><p>\n";
+}
+
+void LinkSaver::on_actionHtml_CoverFlow_triggered()
+{
+    QString dir =
+            QFileDialog::getExistingDirectory(this, tr("Choose folder to save"),
+                                              QDir::currentPath());
+    if (dir.isEmpty())
+        return;
+    QFile jsres(":/res/htmlcoverflow/bookmark.js");
+    if (!jsres.open(QIODevice::ReadOnly))
+    {
+           QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                                tr("Cannot open file bookmark.js:\n%1.")
+                                .arg(jsres.errorString()));
+           return;
+    }
+    QFile jsdest(dir+QDir::toNativeSeparators("/")+"bookmark.js");
+    if (!jsdest.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(dir+QDir::toNativeSeparators("/")+"bookmark.js")
+                             .arg(jsdest.errorString()));
+        return;
+    }
+    jsdest.write(jsres.readAll());
+    jsres.close();
+    jsdest.close();
+
+    QDomElement docElem = doc.documentElement();
+    QString menu;
+    QString catitems;
+    QDir directory;
+    if(!directory.mkdir(dir+QDir::toNativeSeparators("/")+"images"))
+    {
+        QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                             tr("Cannot create directory %1:\n.")
+                             .arg(dir+QDir::toNativeSeparators("/")+"images")
+                             );
+        return;
+    }
+    QString imagefile;
+    for(int i=0;i<docElem.childNodes().count();i++)
+    {
+        if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
+            docElem.childNodes().item(i).toElement().attribute("name"),
+            menu+="<li><a class=\"catview\" href=\"#\" number=\""+QString::number(i)+"\">"+docElem.childNodes().item(i).toElement().attribute("name")+"</a></li> ";
+            QDomElement elem = docElem.childNodes().item(i).toElement();
+            if(elem.hasChildNodes())
+            {
+                catitems+="<ul id=\"flip"+QString::number(i)+"\" style=\"display:none;\" class=\"catitems\">";
+                for(int w=0;w<elem.childNodes().count();w++)
+                {
+                    QDomAttr e=elem.childNodes().item(w).toElement().attributeNode("url");
+                    if(e.value()!="app")
+                    {
+                       imagefile=elem.childNodes().item(w).toElement().attributeNode("image").value();
+                       catitems+="<li><a href=\""+e.value()+"\"><img src=\"images/"+imagefile+"\"><span class=\"title\">"+
+                               elem.childNodes().item(w).toElement().text()+"</span></a></li>";
+
+                       if(QFile::copy(imgdir+imagefile,dir+QDir::toNativeSeparators("/")+"images/"+imagefile))
+                       {
+                               QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                                                    tr("Cannot copy image %1:\nto %2.")
+                                                    .arg(imgdir+imagefile)
+                                                    .arg(dir+QDir::toNativeSeparators("/")+"images/"+imagefile)
+                                                    );
+                       }
+                    }
+                }
+                catitems+="</ul>";
+            }
+        }
+    }
+    QFile htmlres(":/res/htmlcoverflow/index.html");
+    if (!htmlres.open(QIODevice::ReadOnly))
+    {
+           QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                                tr("Cannot open file index.html:\n%1.")
+                                .arg(htmlres.errorString()));
+           return;
+    }
+    QFile htmldest(dir+QDir::toNativeSeparators("/")+"index.html");
+    if (!htmldest.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+           QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                                tr("Cannot write file %1:\n%2.")
+                                .arg(dir+QDir::toNativeSeparators("/")+"index.html")
+                                .arg(htmldest.errorString()));
+           return;
+    }
+    QString content=htmlres.readAll();
+    content.replace("{bookmarkmenu}",tr("Bookmarks Menu"));
+    content.replace("{menuitems}",menu);
+    content.replace("{cat_items}",catitems);
+    htmldest.write(content.toLocal8Bit());
+    htmlres.close();
+    htmldest.close();
 }

@@ -113,6 +113,7 @@
      </property>
      <addaction name="actionXBel"/>
      <addaction name="actionHtml_simple"/>
+     <addaction name="actionHtml_CoverFlow"/>
     </widget>
     <addaction name="actionSettings"/>
     <addaction name="menuImport"/>
@@ -215,6 +216,11 @@
   <action name="actionHtml_simple">
    <property name="text">
     <string>Html simple</string>
+   </property>
+  </action>
+  <action name="actionHtml_CoverFlow">
+   <property name="text">
+    <string>Html CoverFlow</string>
    </property>
   </action>
  </widget>
