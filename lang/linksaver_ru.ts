@@ -97,7 +97,7 @@ Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
         <translation></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="115"/>
+        <location filename="../addurl.cpp" line="107"/>
         <source>Generating image</source>
         <translation>Генерация картинки</translation>
     </message>
@@ -169,52 +169,57 @@ Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
         <translation>Импорт</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="160"/>
+        <location filename="../import.ui" line="190"/>
         <source>Generating image</source>
         <translation>Генерация картинки</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="173"/>
+        <location filename="../import.ui" line="203"/>
         <source>Total</source>
         <translation>Всего</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="59"/>
+        <location filename="../import.ui" line="84"/>
         <source>Links List</source>
         <translation>Список ссылок</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="45"/>
+        <location filename="../import.ui" line="55"/>
         <source>Apply</source>
         <translation>Применить</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="86"/>
+        <location filename="../import.ui" line="93"/>
+        <source>Url</source>
+        <translation>Url</translation>
+    </message>
+    <message>
+        <location filename="../import.ui" line="116"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="109"/>
+        <location filename="../import.ui" line="139"/>
         <source>Select different</source>
         <translation>Выбрать другой</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="212"/>
+        <location filename="../import.ui" line="242"/>
         <source>Received:</source>
         <translation>Получено:</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="238"/>
+        <location filename="../import.ui" line="268"/>
         <source>Time:</source>
         <translation>Время:</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="264"/>
+        <location filename="../import.ui" line="294"/>
         <source>Time</source>
         <translation>Время:</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="291"/>
+        <location filename="../import.ui" line="321"/>
         <source>If procces of generating site image 
 is too long you can canceled it </source>
         <translation>Если процес генерации миниатюры сайта
@@ -222,24 +227,42 @@ is too long you can canceled it </source>
 Вы можете пропустить этот сайт</translation>
     </message>
     <message>
-        <location filename="../import.ui" line="295"/>
+        <location filename="../import.ui" line="325"/>
         <source>Abort current</source>
         <translation>Отменит текущий</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="191"/>
+        <location filename="../import.cpp" line="246"/>
         <source>Boormark bar</source>
         <translation>Панель закладок</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="192"/>
+        <location filename="../import.cpp" line="247"/>
         <source>Other Boormark</source>
         <translation>Другие закладки</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="296"/>
+        <location filename="../import.cpp" line="355"/>
         <source>Open Image</source>
         <translation>Открыть изображение</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="587"/>
+        <source>SAX Bookmarks</source>
+        <translation>SAX закладки</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="588"/>
+        <source>Cannot read file %1:
+%2.</source>
+        <translation>Невозможно прочитать файл %1:
+%2.</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="662"/>
+        <location filename="../import.cpp" line="669"/>
+        <source>Error</source>
+        <translation>Ошибка</translation>
     </message>
 </context>
 <context>
@@ -283,62 +306,82 @@ is too long you can canceled it </source>
         <translation>Импорт</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="121"/>
+        <location filename="../linksaver.ui" line="112"/>
+        <source>Export</source>
+        <translation>Експортировать</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="130"/>
         <location filename="../linksaver.cpp" line="486"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="126"/>
+        <location filename="../linksaver.ui" line="135"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="135"/>
+        <location filename="../linksaver.ui" line="144"/>
         <location filename="../linksaver.cpp" line="422"/>
         <location filename="../linksaver.cpp" line="654"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="144"/>
+        <location filename="../linksaver.ui" line="153"/>
         <source>About</source>
         <translation>О ...</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="149"/>
+        <location filename="../linksaver.ui" line="158"/>
         <source>About QT</source>
         <translation>О QT</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="154"/>
+        <location filename="../linksaver.ui" line="163"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="163"/>
+        <location filename="../linksaver.ui" line="172"/>
         <source>Add App</source>
         <translation>Добавить Приложение</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="168"/>
+        <location filename="../linksaver.ui" line="177"/>
         <source>Edit</source>
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="177"/>
+        <location filename="../linksaver.ui" line="186"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="182"/>
+        <location filename="../linksaver.ui" line="191"/>
         <source>From Firefox</source>
         <translation>Из Firefox&apos;a</translation>
     </message>
     <message>
-        <location filename="../linksaver.ui" line="187"/>
+        <location filename="../linksaver.ui" line="196"/>
         <source>From Chromium</source>
         <translation>Из Chromium&apos;a</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="201"/>
+        <source>XBel</source>
+        <translation>XBel(SAX)</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="206"/>
+        <source>From Xbel(Sax)</source>
+        <translation>Из Xbel(Sax)</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.ui" line="211"/>
+        <source>From Opera</source>
+        <translation>Из Opera</translation>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="55"/>
@@ -406,6 +449,34 @@ is too long you can canceled it </source>
         <source>URL:</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../linksaver.cpp" line="804"/>
+        <source>Save Bookmark File</source>
+        <translation>Сохранить файл закладок</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="806"/>
+        <location filename="../linksaver.cpp" line="827"/>
+        <source>XBEL Files (*.xbel *.xml)</source>
+        <translation>XBEL файлы (*.xbel *.xml)</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="811"/>
+        <source>SAX Bookmarks</source>
+        <translation>SAX Закладки</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="812"/>
+        <source>Cannot write file %1:
+%2.</source>
+        <translation>Невозможно прочитать файл %1:
+%2.</translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="825"/>
+        <source>Open Bookmark File</source>
+        <translation>Открыть файл с закладками</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -414,63 +485,81 @@ is too long you can canceled it </source>
         <translation type="obsolete">Система</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="49"/>
-        <location filename="../import.cpp" line="54"/>
-        <location filename="../import.cpp" line="81"/>
-        <location filename="../import.cpp" line="86"/>
-        <location filename="../import.cpp" line="119"/>
-        <location filename="../import.cpp" line="154"/>
-        <location filename="../import.cpp" line="159"/>
-        <location filename="../import.cpp" line="173"/>
-        <location filename="../import.cpp" line="183"/>
-        <location filename="../import.cpp" line="495"/>
+        <location filename="../import.cpp" line="46"/>
+        <location filename="../import.cpp" line="72"/>
+        <location filename="../import.cpp" line="77"/>
+        <location filename="../import.cpp" line="106"/>
+        <location filename="../import.cpp" line="111"/>
+        <location filename="../import.cpp" line="136"/>
+        <location filename="../import.cpp" line="141"/>
+        <location filename="../import.cpp" line="174"/>
+        <location filename="../import.cpp" line="209"/>
+        <location filename="../import.cpp" line="214"/>
+        <location filename="../import.cpp" line="228"/>
+        <location filename="../import.cpp" line="238"/>
+        <location filename="../import.cpp" line="558"/>
+        <location filename="../import.cpp" line="597"/>
+        <location filename="../import.cpp" line="604"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="49"/>
-        <location filename="../import.cpp" line="81"/>
-        <location filename="../import.cpp" line="119"/>
+        <location filename="../import.cpp" line="72"/>
+        <location filename="../import.cpp" line="106"/>
+        <location filename="../import.cpp" line="136"/>
+        <location filename="../import.cpp" line="174"/>
         <source>It seem&apos;s to that you don&apos;t have installed Firefox!</source>
         <translation>Похоже на то что у Вас неустановлен Firefox</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="54"/>
-        <location filename="../import.cpp" line="86"/>
+        <location filename="../import.cpp" line="77"/>
+        <location filename="../import.cpp" line="111"/>
+        <location filename="../import.cpp" line="141"/>
         <source>Sorry but we could not find the profile of Firefox!</source>
         <translation>Извините но мы не смогли
 найти профили для Firefox&apos;a</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="154"/>
+        <location filename="../import.cpp" line="209"/>
         <source>It seem&apos;s to that you don&apos;t have installed Chromium!</source>
         <translation>Похоже на то что у Вас неустановлен Chromium</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="159"/>
+        <location filename="../import.cpp" line="214"/>
         <source>Sorry but we could not find the profile of Chromium!</source>
         <translation>Извините но мы не смогли
 найти профили для Chromium&apos;a</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="173"/>
-        <location filename="../import.cpp" line="495"/>
+        <location filename="../import.cpp" line="597"/>
+        <source>The file is not an XBEL file.</source>
+        <translation>Неправильный формат XBEL файла.</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="604"/>
+        <source>The file is not an XBEL version 1.0 file.</source>
+        <translation>Файл XBEL не версии 1.0 .</translation>
+    </message>
+    <message>
+        <location filename="../import.cpp" line="46"/>
+        <location filename="../import.cpp" line="228"/>
+        <location filename="../import.cpp" line="558"/>
         <source>Could&apos;t open file for the reading</source>
         <translation>Не удалось открфть файл для чтения</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="183"/>
+        <location filename="../import.cpp" line="238"/>
         <source>An error occurred during parsing</source>
         <translation>Произошла ошибка при
 обработке файла</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="464"/>
+        <location filename="../import.cpp" line="527"/>
         <source>Info</source>
         <translation>Инфо</translation>
     </message>
     <message>
-        <location filename="../import.cpp" line="464"/>
+        <location filename="../import.cpp" line="527"/>
         <source>We recommend to restart the application
  for better performance.</source>
         <translation>Мы рекомендуем Вам перезапустить приложение 
