@@ -30,6 +30,7 @@ public:
     void chromium_bookmaks();
     WebCapture websnap;
     bool from_xbel(QString filename);
+    bool from_opera();
     QTime time;
     QTime itemtime;
     QTimer timer;
@@ -46,6 +47,7 @@ public:
     ~Import();
 
 private slots:
+    int parseOpera(QStringList list,int pos);
     void parseSaxItems(QDomElement item);
     QString firefox_profiles_file(QString filename);
     void on_profillist_currentIndexChanged(int index);

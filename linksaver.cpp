@@ -833,3 +833,12 @@ void LinkSaver::on_actionFrom_Xbel_Sax_triggered()
     delete import;
     init_links();
 }
+
+void LinkSaver::on_actionFrom_Opera_triggered()
+{
+    Import *import=new Import(this);
+    if(import->from_opera())
+        import->exec();
+    delete import;
+    init_links();
+}

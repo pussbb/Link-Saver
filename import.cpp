@@ -11,7 +11,7 @@ Import::Import(QWidget *parent) :
     ui->setupUi(this);
     chiled=false;
     ui->abort->hide();
-ui->itemsall->setValue(0);
+    ui->itemsall->setValue(0);
 }
 
 Import::~Import()
@@ -599,10 +599,10 @@ bool Import::from_xbel(QString filename)
     }
     else {
 
-       QString version = saxdoc.documentElement().attributeNode("version").value();
+        QString version = saxdoc.documentElement().attributeNode("version").value();
         if (!version.isEmpty() && version != "1.0") {
-                QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("The file is not an XBEL version 1.0 file."));
-                return false;
+            QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("The file is not an XBEL version 1.0 file."));
+            return false;
         }
 
     }
@@ -627,10 +627,10 @@ void Import::parseSaxItems(QDomElement item)
     {
         QDomElement element=item.childNodes().item(i).toElement();
         if (element.tagName() == "folder") {
-           parseSaxItems(item.childNodes().item(i).toElement());
+            parseSaxItems(item.childNodes().item(i).toElement());
         }
         else if(element.tagName() == "title")
-                    parent->setText(0,element.text());
+            parent->setText(0,element.text());
         else if(element.tagName()=="bookmark")
         {
             QTreeWidgetItem *child=new QTreeWidgetItem(parent);
@@ -645,5 +645,79 @@ void Import::parseSaxItems(QDomElement item)
 
 
     }
+}
+bool Import::from_opera()
+{
+#ifdef Q_OS_WIN32
+   QString path=getenv("PROGRAMFILES");
+   QString operaBookmarksFilePath = path + "\\Opera\\profile\\bookmarks.adr";
+#endif
 
+#ifdef Q_OS_LINUX
+    QString operaBookmarksFilePath = QDir::homePath() + "/.opera/bookmarks.adr";
+#endif
+
+    QFile operaBookmarksFile(operaBookmarksFilePath);
+    if (!operaBookmarksFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, tr("Error"),
+                             "Could not open Operas Bookmark File " + operaBookmarksFilePath);
+        return false;
+    }
+
+    QString firstLine = operaBookmarksFile.readLine();
+    if (firstLine.compare("Opera Hotlist version 2.0\n")) {
+        QMessageBox::warning(this, tr("Error"),
+                             "Format of Opera Bookmarks File might have changed.");
+        return false;
+    }
+    operaBookmarksFile.readLine(); // skip options line ("Options: encoding = utf8, version=3")
+    operaBookmarksFile.readLine(); // skip empty line
+    QTextStream stream ( &operaBookmarksFile );
+#ifdef Q_OS_WIN32
+    stream.setCodec("Windows-1251");
+#endif
+
+#ifdef Q_OS_LINUX
+    stream.setCodec("UTF-8");
+#endif
+    QString contents=stream.readAll();
+    QStringList list=contents.split("\n", QString::SkipEmptyParts);
+    operaBookmarksFile.close();
+    ui->widget->setDisabled(true);
+    parseOpera(list,0);
+}
+
+int Import::parseOpera(QStringList list,int pos)
+{
+    //   int found=0;
+    QTreeWidgetItem *parent=new QTreeWidgetItem(ui->itemsview);
+    parent->setIcon(0,QIcon(":folder"));
+    parent->setCheckState(0,Qt::Checked);
+    parent->setText(0,"Opera Bookmarks");
+    for(int i=pos;i<list.count();i++)
+    {
+        //            if(list.at(i).toLocal8Bit()=="#FOLDER")
+        //            {
+        //               //parent->setText(0,list.at(i+2).toUtf8().replace("\tNAME=",""));
+        //             }
+        //            if(list.at(i).toLocal8Bit()=="-")
+        //            {
+        //            }
+        if(list.at(i).toLocal8Bit().contains("\tURL"))
+        {
+            QString url=list.at(i);
+            url.replace("\tURL=","");
+            QString name=list.at(i-1);
+            name.replace("\tNAME=","");
+            QTreeWidgetItem *child=new QTreeWidgetItem(parent);
+            child->setText(0,name);
+            child->setText(1,url);
+            child->setCheckState(0,Qt::Checked);
+            child->setToolTip(0,url);
+            child->setData(0,Qt::UserRole,url);
+            child->setIcon(0,QIcon(":link"));
+            parent->addChild(child);
+        }
+
+    }
 }

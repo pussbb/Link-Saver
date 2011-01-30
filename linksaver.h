@@ -62,6 +62,7 @@ private slots:
     void on_actionFrom_Chrome_triggered();
     void on_actionXBel_triggered();
     void on_actionFrom_Xbel_Sax_triggered();
+    void on_actionFrom_Opera_triggered();
 };
 
 #endif // LINKSAVER_H
