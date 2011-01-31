@@ -15,7 +15,10 @@ LinkSaver::LinkSaver(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LinkSaver)
 {
+
     ui->setupUi(this);
+    connect(ui->linkcat,SIGNAL(dropted(int,int,int)),this,SLOT(handleDroped(int ,int,int)));
+
     QDesktopWidget *desktop = QApplication::desktop();
     QMenuBar* bar=this->menuBar();
     QList<QAction *> actions = bar->actions();
@@ -125,6 +128,15 @@ LinkSaver::LinkSaver(QWidget *parent) :
             this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
+void LinkSaver::handleDroped(int from, int to,int item)
+{
+    QDomNode fromnode= doc.documentElement().childNodes().item(from);
+
+    QDomNode tonode= doc.documentElement().childNodes().item(to);
+    tonode.appendChild(fromnode.childNodes().item(item));
+    //fromnode.removeChild(fromnode.childNodes().item(item));
+    save_to_file(false);
+}
 
 void LinkSaver::createLanguageMenu()
 {
@@ -406,14 +418,15 @@ void LinkSaver::on_actionAbout_QT_triggered()
 {
     QApplication::aboutQt();
 }
-void LinkSaver::save_to_file()
+void LinkSaver::save_to_file(bool reload)
 {
     file.open(QIODevice::WriteOnly| QIODevice::Text);
     QTextStream out(&file);
     doc.save(out,0);
     file.close();
     //delete &out;
-    init_items();
+    if(reload)
+        init_items();
 }
 
 void LinkSaver::on_actionAdd_Category_triggered()
@@ -907,10 +920,10 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
     QFile jsres(":/res/htmlcoverflow/bookmark.js");
     if (!jsres.open(QIODevice::ReadOnly))
     {
-           QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
-                                tr("Cannot open file bookmark.js:\n%1.")
-                                .arg(jsres.errorString()));
-           return;
+        QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                             tr("Cannot open file bookmark.js:\n%1.")
+                             .arg(jsres.errorString()));
+        return;
     }
     QFile jsdest(dir+QDir::toNativeSeparators("/")+"bookmark.js");
     if (!jsdest.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -945,7 +958,7 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
     {
         if(docElem.childNodes().item(i).toElement().tagName()=="folder") {
             docElem.childNodes().item(i).toElement().attribute("name"),
-            menu+="<li><a class=\"catview\" href=\"#\" number=\""+QString::number(i)+"\">"+docElem.childNodes().item(i).toElement().attribute("name")+"</a></li> ";
+                    menu+="<li><a class=\"catview\" href=\"#\" number=\""+QString::number(i)+"\">"+docElem.childNodes().item(i).toElement().attribute("name")+"</a></li> ";
             QDomElement elem = docElem.childNodes().item(i).toElement();
             if(elem.hasChildNodes())
             {
@@ -955,18 +968,18 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
                     QDomAttr e=elem.childNodes().item(w).toElement().attributeNode("url");
                     if(e.value()!="app")
                     {
-                       imagefile=elem.childNodes().item(w).toElement().attributeNode("image").value();
-                       catitems+="<li><a href=\""+e.value()+"\"><img src=\"images/"+imagefile+"\"><span class=\"title\">"+
-                               elem.childNodes().item(w).toElement().text()+"</span></a></li>\n";
+                        imagefile=elem.childNodes().item(w).toElement().attributeNode("image").value();
+                        catitems+="<li><a href=\""+e.value()+"\"><img src=\"images/"+imagefile+"\"><span class=\"title\">"+
+                                elem.childNodes().item(w).toElement().text()+"</span></a></li>\n";
 
-                       if(QFile::copy(imgdir+imagefile,dir+QDir::toNativeSeparators("/")+"images"+QDir::toNativeSeparators("/")+imagefile))
-                       {
-                               QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
-                                                    tr("Cannot copy image %1:\nto %2.")
-                                                    .arg(imgdir+imagefile)
-                                                    .arg(dir+QDir::toNativeSeparators("/")+"images/"+imagefile)
-                                                    );
-                       }
+                        if(QFile::copy(imgdir+imagefile,dir+QDir::toNativeSeparators("/")+"images"+QDir::toNativeSeparators("/")+imagefile))
+                        {
+                            QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                                                 tr("Cannot copy image %1:\nto %2.")
+                                                 .arg(imgdir+imagefile)
+                                                 .arg(dir+QDir::toNativeSeparators("/")+"images/"+imagefile)
+                                                 );
+                        }
                     }
                 }
                 catitems+="</ul>";
@@ -976,19 +989,19 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
     QFile htmlres(":/res/htmlcoverflow/index.html");
     if (!htmlres.open(QIODevice::ReadOnly))
     {
-           QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
-                                tr("Cannot open file index.html:\n%1.")
-                                .arg(htmlres.errorString()));
-           return;
+        QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                             tr("Cannot open file index.html:\n%1.")
+                             .arg(htmlres.errorString()));
+        return;
     }
     QFile htmldest(dir+QDir::toNativeSeparators("/")+"index.html");
     if (!htmldest.open(QIODevice::WriteOnly | QIODevice::Text))
     {
-           QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
-                                tr("Cannot write file %1:\n%2.")
-                                .arg(dir+QDir::toNativeSeparators("/")+"index.html")
-                                .arg(htmldest.errorString()));
-           return;
+        QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(dir+QDir::toNativeSeparators("/")+"index.html")
+                             .arg(htmldest.errorString()));
+        return;
     }
     QString content=htmlres.readAll();
     content.replace("{bookmarkmenu}",tr("Bookmarks Menu"));

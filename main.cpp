@@ -9,7 +9,6 @@ int main(int argc, char *argv[])
     {      a.activateWindow();
         return 0;
     }
-
     QCoreApplication::setOrganizationName("_pussbb");
     QCoreApplication::setOrganizationDomain("krabik.co.ua");
     QCoreApplication::setApplicationName("QLinkSaver");
@@ -21,8 +20,8 @@ int main(int argc, char *argv[])
     w.showMaximized();
 #else
     QSettings settings;
-    if(settings.value("hideonstart",false)==false)    w.show();
-   /// settings.~QSettings();
+    if(settings.value("hideonstart",false)==false)
+        w.show();
 #endif
     return a.exec();
 }

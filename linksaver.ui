@@ -29,7 +29,7 @@
      <number>1</number>
     </property>
     <item row="0" column="0">
-     <widget class="QTreeWidget" name="linkcat">
+     <widget class="QDragTree" name="linkcat">
       <property name="contextMenuPolicy">
        <enum>Qt::CustomContextMenu</enum>
       </property>
@@ -44,6 +44,24 @@
       </property>
       <property name="showDropIndicator" stdset="0">
        <bool>false</bool>
+      </property>
+      <property name="dragEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="dragDropOverwriteMode">
+       <bool>false</bool>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::DragDrop</enum>
+      </property>
+      <property name="defaultDropAction">
+       <enum>Qt::MoveAction</enum>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
       </property>
       <property name="iconSize">
        <size>
@@ -225,6 +243,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QDragTree</class>
+   <extends>QTreeWidget</extends>
+   <header location="global">qdragtree.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="linkres.qrc"/>
  </resources>

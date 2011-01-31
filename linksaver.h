@@ -32,6 +32,8 @@ public:
      QFile file;
      QMessageBox msgBox;
      QSettings settings;
+public slots:
+   void  handleDroped(int from ,int to,int item);
 protected:
     void changeEvent(QEvent *e);
     void closeEvent(QCloseEvent *event);
@@ -48,7 +50,7 @@ private slots:
     void on_actionAbout_triggered();
     void on_linkcat_itemDoubleClicked(QTreeWidgetItem* item, int column);
     void on_actionADD_triggered();
-    void save_to_file();
+    void save_to_file(bool reload = true);
     void on_RemoveFolderItem_triggered();
     void on_linkcat_customContextMenuRequested(QPoint pos);
     void init_links();

@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     settings.cpp \
     import.cpp \
     qt-json/json.cpp \
-    xbel/xbelgenerator.cpp
+    xbel/xbelgenerator.cpp \
+    qdragtree.cpp
 
 HEADERS  += linksaver.h \
     addurl.h \
@@ -34,7 +35,8 @@ HEADERS  += linksaver.h \
     settings.h \
     import.h \
     qt-json/json.h \
-    xbel/xbelgenerator.h
+    xbel/xbelgenerator.h \
+    qdragtree.h
 
 FORMS    += linksaver.ui \
     addurl.ui \
