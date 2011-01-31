@@ -473,7 +473,7 @@ void Import::on_pushButton_2_clicked()
         ++it;
     }
     time.start();
-
+    ui->total_items->setText(QString::number(i));
     updateDisplay();
     connect(&timer, SIGNAL(timeout()), this, SLOT(updateDisplay()));
     timer.start(1000);
@@ -499,8 +499,7 @@ void Import::on_pushButton_2_clicked()
             ui->itemsall->setValue(ui->itemsall->value()+1);
             ui->title->setText((*items)->text(0));
             ui->curr_url->setText((*items)->data(0,Qt::UserRole).toString());
-
-
+            qDebug()<<(*items)->data(0,Qt::UserRole).toString();
             finished=false;
             fname=QString(QCryptographicHash::hash((*items)->data(0,Qt::UserRole).toString().toLocal8Bit(),QCryptographicHash::Md5).toHex())+".png";
             websnap.load( guessUrlFromString( (*items)->data(0,Qt::UserRole).toString().toLatin1().data()), 100, tmpdir+fname,1024);

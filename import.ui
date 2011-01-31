@@ -307,6 +307,19 @@
          <string/>
         </property>
        </widget>
+       <widget class="QLabel" name="total_items">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>6</y>
+          <width>46</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QPushButton" name="abort">
        <property name="geometry">

@@ -929,13 +929,16 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
     QString menu;
     QString catitems;
     QDir directory;
-    if(!directory.mkdir(dir+QDir::toNativeSeparators("/")+"images"))
+    if(!directory.exists(dir+QDir::toNativeSeparators("/")+"images"))
     {
-        QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
-                             tr("Cannot create directory %1:\n.")
-                             .arg(dir+QDir::toNativeSeparators("/")+"images")
-                             );
-        return;
+        if(!directory.mkdir(dir+QDir::toNativeSeparators("/")+"images"))
+        {
+            QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
+                                 tr("Cannot create directory %1:\n.")
+                                 .arg(dir+QDir::toNativeSeparators("/")+"images")
+                                 );
+            return;
+        }
     }
     QString imagefile;
     for(int i=0;i<docElem.childNodes().count();i++)
@@ -954,9 +957,9 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
                     {
                        imagefile=elem.childNodes().item(w).toElement().attributeNode("image").value();
                        catitems+="<li><a href=\""+e.value()+"\"><img src=\"images/"+imagefile+"\"><span class=\"title\">"+
-                               elem.childNodes().item(w).toElement().text()+"</span></a></li>";
+                               elem.childNodes().item(w).toElement().text()+"</span></a></li>\n";
 
-                       if(QFile::copy(imgdir+imagefile,dir+QDir::toNativeSeparators("/")+"images/"+imagefile))
+                       if(QFile::copy(imgdir+imagefile,dir+QDir::toNativeSeparators("/")+"images"+QDir::toNativeSeparators("/")+imagefile))
                        {
                                QMessageBox::warning(this, tr("Html CoverFlow Bookmarks"),
                                                     tr("Cannot copy image %1:\nto %2.")
@@ -991,7 +994,7 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
     content.replace("{bookmarkmenu}",tr("Bookmarks Menu"));
     content.replace("{menuitems}",menu);
     content.replace("{cat_items}",catitems);
-    htmldest.write(content.toLocal8Bit());
+    htmldest.write(content.toUtf8());
     htmlres.close();
     htmldest.close();
 }
