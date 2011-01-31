@@ -649,8 +649,8 @@ void Import::parseSaxItems(QDomElement item)
 bool Import::from_opera()
 {
 #ifdef Q_OS_WIN32
-   QString path=getenv("PROGRAMFILES");
-   QString operaBookmarksFilePath = path + "\\Opera\\profile\\bookmarks.adr";
+   QString path=getenv("APPDATA");
+   QString operaBookmarksFilePath = path + "\\Opera\\Opera\\bookmarks.adr";
 #endif
 
 #ifdef Q_OS_LINUX
@@ -673,13 +673,7 @@ bool Import::from_opera()
     operaBookmarksFile.readLine(); // skip options line ("Options: encoding = utf8, version=3")
     operaBookmarksFile.readLine(); // skip empty line
     QTextStream stream ( &operaBookmarksFile );
-#ifdef Q_OS_WIN32
-    stream.setCodec("Windows-1251");
-#endif
-
-#ifdef Q_OS_LINUX
     stream.setCodec("UTF-8");
-#endif
     QString contents=stream.readAll();
     QStringList list=contents.split("\n", QString::SkipEmptyParts);
     operaBookmarksFile.close();
