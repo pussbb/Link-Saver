@@ -47,8 +47,10 @@ void WebCapture::saveResult(bool ok)
 
     // crude error-checking
     if (!ok) {
-        ///std::cerr << "Failed loading " << qPrintable(m_page.mainFrame()->url().toString()) << std::endl;
-        emit finished();
+        //emit finished();
+       m_page.action(QWebPage::Stop);
+        m_fileName="blabla_not_found.png";
+       m_page.mainFrame()->setHtml("<h1>not found</h1>");
         return;
     }
 
