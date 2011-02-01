@@ -715,3 +715,16 @@ void Import::parseOpera(QStringList list,int pos)
 
     }
 }
+bool Import::from_arora()
+{
+#ifdef Q_OS_WIN32
+   QString path=getenv("LOCALAPPDATA");;
+   QString aroraBookmarksFile = path + "\\Arora\\bookmarks.xbel";
+#endif
+
+#ifdef Q_OS_LINUX
+    QString aroraBookmarksFile = QDir::homePath() + "/.arora/bookmarks.adr";
+#endif
+   return from_xbel(aroraBookmarksFile);
+
+}

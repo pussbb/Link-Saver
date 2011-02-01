@@ -31,6 +31,7 @@ public:
     WebCapture websnap;
     bool from_xbel(QString filename);
     bool from_opera();
+    bool from_arora();
     QTime time;
     QTime itemtime;
     QTimer timer;

@@ -1011,3 +1011,12 @@ void LinkSaver::on_actionHtml_CoverFlow_triggered()
     htmlres.close();
     htmldest.close();
 }
+
+void LinkSaver::on_actionFrom_Arora_triggered()
+{
+    Import *import=new Import(this);
+    if(import->from_arora())
+        import->exec();
+    delete import;
+    init_links();
+}
