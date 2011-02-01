@@ -352,9 +352,14 @@ void Import::on_pushButton_clicked()
         file_find="profiles.ini(profiles.ini)";
     else if(import_from=="chromium")
         file_find="Bookmarks(Bookmarks)";///
-    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), "",file_find );
+    else if(import_from=="arora")
+        file_find="Bookmarks(*.xbel)";
+    else if(import_from=="opera")
+        file_find="Bookmarks(*.adr)";
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open "), "",file_find );
     if(!fileName.isEmpty())
     {
+        ui->itemsview->clear();
         if(import_from=="firefox")
         {
 #ifdef Q_OS_WIN32
@@ -392,7 +397,22 @@ void Import::on_pushButton_clicked()
             manual=false;
             ui->profillist->addItem("Default",fileName);
         }
-
+        else if(import_from=="arora")
+        {
+            manual=true;
+            ui->profillist->clear();
+            manual=false;
+            ui->profillist->addItem("Default",fileName);
+            from_xbel(fileName);
+        }
+        else if(import_from=="opera")
+        {
+            manual=true;
+            ui->profillist->clear();
+            manual=false;
+            ui->profillist->addItem("Default",fileName);
+            from_opera(fileName);
+        }
     }
 
 }
@@ -605,7 +625,8 @@ bool Import::from_xbel(QString filename)
         }
 
     }
-    ui->widget->setDisabled(true);
+    if(import_from!="arora")
+        ui->widget->setDisabled(true);
     for(int i=0;i<docElem.childNodes().count();i++)
     {
 
@@ -645,16 +666,20 @@ void Import::parseSaxItems(QDomElement item)
 
     }
 }
-bool Import::from_opera()
+bool Import::from_opera(QString operaBookmarksFilePath)
 {
+    if(operaBookmarksFilePath.isEmpty())
+    {
 #ifdef Q_OS_WIN32
-   QString path=getenv("APPDATA");
-   QString operaBookmarksFilePath = path + "\\Opera\\Opera\\bookmarks.adr";
+        QString path=getenv("APPDATA");
+        operaBookmarksFilePath = path + "\\Opera\\Opera\\bookmarks.adr";
 #endif
 
 #ifdef Q_OS_LINUX
-    QString operaBookmarksFilePath = QDir::homePath() + "/.opera/bookmarks.adr";
+        operaBookmarksFilePath = QDir::homePath() + "/.opera/bookmarks.adr";
 #endif
+    }
+    import_from="opera";
 
     QFile operaBookmarksFile(operaBookmarksFilePath);
     if (!operaBookmarksFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -676,7 +701,6 @@ bool Import::from_opera()
     QString contents=stream.readAll();
     QStringList list=contents.split("\n", QString::SkipEmptyParts);
     operaBookmarksFile.close();
-    ui->widget->setDisabled(true);
     parseOpera(list,0);
     return true;
 }
@@ -717,14 +741,20 @@ void Import::parseOpera(QStringList list,int pos)
 }
 bool Import::from_arora()
 {
-#ifdef Q_OS_WIN32
-   QString path=getenv("LOCALAPPDATA");;
-   QString aroraBookmarksFile = path + "\\Arora\\bookmarks.xbel";
-#endif
+    import_from="arora";
 
-#ifdef Q_OS_LINUX
-    QString aroraBookmarksFile = QDir::homePath() + "/.arora/bookmarks.adr";
+#ifdef Q_OS_WIN32
+    QString path=getenv("LOCALAPPDATA");;
+    QString aroraBookmarksFile = path + "\\Arora\\bookmarks.xbel";
 #endif
-   return from_xbel(aroraBookmarksFile);
+#ifdef Q_OS_OS2
+    QString aroraBookmarksFile = QDir::homePath() + "\\.local\\share\\\data\\Arora\\bookmarks.xbel";
+#endif
+#ifdef Q_OS_LINUX
+    QString aroraBookmarksFile = QDir::homePath() + "/.local/share/data/Arora/bookmarks.xbel";
+#endif
+    ui->profillist->addItem("Default");
+    return from_xbel(aroraBookmarksFile);
+
 
 }

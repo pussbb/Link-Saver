@@ -841,6 +841,7 @@ void LinkSaver::on_actionFrom_Xbel_Sax_triggered()
     if (fileName.isEmpty())
         return;
     Import *import=new Import(this);
+
     if(import->from_xbel(fileName)==true)
         import->exec();
     delete import;

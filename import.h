@@ -30,7 +30,7 @@ public:
     void chromium_bookmaks();
     WebCapture websnap;
     bool from_xbel(QString filename);
-    bool from_opera();
+    bool from_opera(QString operaBookmarksFilePath = "");
     bool from_arora();
     QTime time;
     QTime itemtime;
