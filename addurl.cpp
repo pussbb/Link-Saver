@@ -38,8 +38,13 @@ void WebCapture::showProgress(int percent)
 
 void WebCapture::saveResult(bool ok)
 {
-    //std::cout << std::endl;
-    m_page.action(QWebPage::StopScheduledPageRefresh);
+    //std::cout << std::endl
+#if QT_VERSION >= 0x040700
+      m_page.action(QWebPage::StopScheduledPageRefresh);
+#else
+      m_page.action(QWebPage::Stop);
+#endif
+
     // crude error-checking
     if (!ok) {
         ///std::cerr << "Failed loading " << qPrintable(m_page.mainFrame()->url().toString()) << std::endl;
