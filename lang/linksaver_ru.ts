@@ -9,12 +9,12 @@
         <translation>О програме</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="30"/>
+        <location filename="../about.ui" line="40"/>
         <source>HDA</source>
         <translation>QLinkSaver</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="42"/>
+        <location filename="../about.ui" line="52"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -29,7 +29,40 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="102"/>
+        <location filename="../about.ui" line="80"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Ubuntu&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; PictureFlow - animated image show&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  http://pictureflow.googlecode.com&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;WebSnap , XbelGenerator&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies). Contact: Qt Software Information (qt-info@nokia.com)&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;WebSnap is part of the Graphics Dojo project on Qt Labs.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Single Application v2.6 Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Contact: Qt Software Information (qt-info@nokia.com)&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Qt-JSON&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Eeli Reilin &amp;lt;eeli@nilier.org&amp;gt;,  Mikko Ahonen &amp;lt;mikko.j.ahonen@jyu.fi&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;jCoverflip - Present your featured content elegantly.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Version: 1.0.2&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;GNU General Public License&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.jcoverflip.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.jcoverflip.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;jQuery and jQuery UI.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright (c) 2009 John Resig&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Dual licensed under the MIT and GPL licenses.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;http://docs.jquery.com/License&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;**********************************************************&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="126"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -40,36 +73,35 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:8pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="58"/>
+        <location filename="../about.ui" line="144"/>
+        <source>Translations</source>
+        <translation>Переводы</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="156"/>
+        <source>Languages:
+
+English - 	_pussbb(_pussbb@gmail.com),
+	Elbert Pol (elbert.pol@gmail.com)
+
+Russian-	_pussbb(_pussbb@gmail.com)
+
+Nederlands -	Elbert Pol (elbert.pol@gmail.com)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="68"/>
         <source>3rdparty</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="70"/>
-        <source>***********************************************************************
- PictureFlow - animated image show
-  http://pictureflow.googlecode.com
-  Copyright (C) 2008 Ariya Hidayat (ariya@kde.org)
-********************************************************************
-WebSnap
-Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies). Contact: Qt Software Information (qt-info@nokia.com)
-WebSnap is part of the Graphics Dojo project on Qt Labs.
-***********************************************************************
-Single Application v2.6 Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
-Contact: Qt Software Information (qt-info@nokia.com)
-***********************************************************************
-Qt-JSON
-Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
-***********************************************************************</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../about.ui" line="90"/>
+        <location filename="../about.ui" line="114"/>
         <source>License</source>
         <translation>Лицензия</translation>
     </message>
@@ -327,7 +359,7 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.ui" line="151"/>
-        <location filename="../linksaver.cpp" line="499"/>
+        <location filename="../linksaver.cpp" line="500"/>
         <source>Add Url</source>
         <translation>Добавить ссылку</translation>
     </message>
@@ -339,7 +371,7 @@ is too long you can canceled it </source>
     <message>
         <location filename="../linksaver.ui" line="165"/>
         <location filename="../linksaver.cpp" line="435"/>
-        <location filename="../linksaver.cpp" line="667"/>
+        <location filename="../linksaver.cpp" line="668"/>
         <source>Add Category</source>
         <translation>Добавить категорию</translation>
     </message>
@@ -461,127 +493,127 @@ is too long you can canceled it </source>
     </message>
     <message>
         <location filename="../linksaver.cpp" line="436"/>
-        <location filename="../linksaver.cpp" line="668"/>
+        <location filename="../linksaver.cpp" line="669"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="461"/>
+        <location filename="../linksaver.cpp" line="462"/>
         <source>Are you sure want delete item.</source>
         <translation>Вы уверены в том что
 хотите удалить елемент.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="462"/>
+        <location filename="../linksaver.cpp" line="463"/>
         <source>All Link in this category will be deleted too</source>
         <translation>Все ссылки которые находяться в этой категории будут тоже удалены</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="474"/>
+        <location filename="../linksaver.cpp" line="475"/>
         <source>Are you sure want delete Bookmark.</source>
         <translation>Вы уверены в том что хотите удалить закладку</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="475"/>
+        <location filename="../linksaver.cpp" line="476"/>
         <source>Link  will be deleted </source>
         <translation>Ссылка будет удалена</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="500"/>
+        <location filename="../linksaver.cpp" line="501"/>
         <source>URL:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="817"/>
-        <location filename="../linksaver.cpp" line="863"/>
+        <location filename="../linksaver.cpp" line="818"/>
+        <location filename="../linksaver.cpp" line="864"/>
         <source>Save Bookmark File</source>
         <translation>Сохранить файл закладок</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="819"/>
-        <location filename="../linksaver.cpp" line="840"/>
+        <location filename="../linksaver.cpp" line="820"/>
+        <location filename="../linksaver.cpp" line="841"/>
         <source>XBEL Files (*.xbel *.xml)</source>
         <translation>XBEL файлы (*.xbel *.xml)</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="824"/>
+        <location filename="../linksaver.cpp" line="825"/>
         <source>SAX Bookmarks</source>
         <translation>SAX Закладки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="825"/>
-        <location filename="../linksaver.cpp" line="869"/>
-        <location filename="../linksaver.cpp" line="933"/>
-        <location filename="../linksaver.cpp" line="1002"/>
+        <location filename="../linksaver.cpp" line="826"/>
+        <location filename="../linksaver.cpp" line="870"/>
+        <location filename="../linksaver.cpp" line="934"/>
+        <location filename="../linksaver.cpp" line="1003"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="838"/>
+        <location filename="../linksaver.cpp" line="839"/>
         <source>Open Bookmark File</source>
         <translation>Открыть файл с закладками</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="865"/>
+        <location filename="../linksaver.cpp" line="866"/>
         <source>Html Files (*.html)</source>
         <translation>Html файлы (*.html)</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="868"/>
+        <location filename="../linksaver.cpp" line="869"/>
         <source>Html Bookmarks</source>
         <translation>Html закладки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="886"/>
+        <location filename="../linksaver.cpp" line="887"/>
         <source>Bookmarks</source>
         <translation>Закладки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="886"/>
-        <location filename="../linksaver.cpp" line="1008"/>
+        <location filename="../linksaver.cpp" line="887"/>
+        <location filename="../linksaver.cpp" line="1009"/>
         <source>Bookmarks Menu</source>
         <translation>Меню закладок</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="917"/>
+        <location filename="../linksaver.cpp" line="918"/>
         <source>Choose folder to save</source>
         <translation>Выберете папку </translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="924"/>
-        <location filename="../linksaver.cpp" line="932"/>
-        <location filename="../linksaver.cpp" line="950"/>
-        <location filename="../linksaver.cpp" line="978"/>
-        <location filename="../linksaver.cpp" line="993"/>
-        <location filename="../linksaver.cpp" line="1001"/>
+        <location filename="../linksaver.cpp" line="925"/>
+        <location filename="../linksaver.cpp" line="933"/>
+        <location filename="../linksaver.cpp" line="951"/>
+        <location filename="../linksaver.cpp" line="979"/>
+        <location filename="../linksaver.cpp" line="994"/>
+        <location filename="../linksaver.cpp" line="1002"/>
         <source>Html CoverFlow Bookmarks</source>
         <translation>Html CoverFlow закладки</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="925"/>
+        <location filename="../linksaver.cpp" line="926"/>
         <source>Cannot open file bookmark.js:
 %1.</source>
         <translation>Невозможно открыть bookmark.js:
 %1.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="951"/>
+        <location filename="../linksaver.cpp" line="952"/>
         <source>Cannot create directory %1:
 .</source>
         <translation>Не удалось содать папку
 %1.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="979"/>
+        <location filename="../linksaver.cpp" line="980"/>
         <source>Cannot copy image %1:
 to %2.</source>
         <translation>Невозможно скопировать %1:
 в %2.</translation>
     </message>
     <message>
-        <location filename="../linksaver.cpp" line="994"/>
+        <location filename="../linksaver.cpp" line="995"/>
         <source>Cannot open file index.html:
 %1.</source>
         <translation>Невозможно открыть index.html:

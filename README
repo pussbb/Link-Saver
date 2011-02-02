@@ -11,6 +11,7 @@ Translate it in QLinguistic and compile.
 - added to import dialog one column to show the url on against boorkmark title
 - added internal Drag and Drop (now you can drag and drop bookmarks to different folders)
 - some small fixes.
+- added Nederlands lang . thanks to Elbert Pol.
 
 2011-01-18
 - added importing chromium win(tested on Win7)

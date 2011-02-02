@@ -13,7 +13,8 @@ win32 {
 }
 TRANSLATIONS = ./lang/linksaver_ru.ts \
                 ./lang/linksaver_def.ts \
-                ./lang/linksaver_en.ts
+                ./lang/linksaver_en.ts \
+                ./lang/linksaver_nl.ts
 
 SOURCES += main.cpp\
         linksaver.cpp \
