@@ -45,7 +45,7 @@
          <x>10</x>
          <y>10</y>
          <width>373</width>
-         <height>191</height>
+         <height>183</height>
         </rect>
        </property>
        <property name="text">
@@ -59,7 +59,9 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/res/2globe_128.png&quot; style=&quot;float: left;&quot; /&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:14pt; font-weight:600;&quot;&gt;Link Saver 2.1 &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;version 2.1.1.5 .(build 20.02.2012).&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;Licence GNU LGPL v 2.0&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;Author :_pussbb.&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:14pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://krabik.co.ua/&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:8pt; text-decoration: underline; color:#0057ae;&quot;&gt;Site&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:14pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;E-mail: pussbb@gmail.com  &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;Author :_pussbb.&lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:14pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://krabik.co.ua/&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:8pt; text-decoration: underline; color:#0057ae;&quot;&gt;Site&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:14pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;E-mail: pussbb@gmail.com  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DejaVu Sans'; font-size:10pt;&quot;&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </widget>
