@@ -5,7 +5,7 @@
 #include "QSettings"
 
 namespace Ui {
-    class Settings;
+class Settings;
 }
 
 class Settings : public QDialog

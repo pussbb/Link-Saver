@@ -16,7 +16,7 @@
 #include <QTranslator>
 #include <QSettings>
 namespace Ui {
-    class LinkSaver;
+class LinkSaver;
 }
 
 class LinkSaver : public QMainWindow {
@@ -25,15 +25,15 @@ public:
     explicit LinkSaver(QWidget *parent = 0);
     ~LinkSaver();
     QSystemTrayIcon *trayIcon;
-     QMenu *trayIconMenu;
-     QMenu *languageMenu;
-     QTranslator translator;
-     QDomDocument doc;
-     QFile file;
-     QMessageBox msgBox;
-     QSettings settings;
+    QMenu *trayIconMenu;
+    QMenu *languageMenu;
+    QTranslator translator;
+    QDomDocument doc;
+    QFile file;
+    QMessageBox msgBox;
+    QSettings settings;
 public slots:
-   void  handleDroped(int from ,int to,int item);
+    void  handleDroped(int from ,int to,int item);
 protected:
     void changeEvent(QEvent *e);
     void closeEvent(QCloseEvent *event);

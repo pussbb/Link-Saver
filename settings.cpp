@@ -18,7 +18,6 @@ Settings::~Settings()
 
 void Settings::on_buttonBox_accepted()
 {
-
     if(ui->hideonstartup->isChecked())    settings.setValue("hideonstart",true);
     else settings.setValue("hideonstart",false);
     if(ui->langtodef->isChecked())    settings.setValue("langtodef",true);

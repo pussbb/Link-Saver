@@ -5,8 +5,8 @@
 
 
 Apps::Apps(QWidget *parent) :
-        QDialog(parent),
-        ui(new Ui::Apps)
+    QDialog(parent),
+    ui(new Ui::Apps)
 {
     ui->setupUi(this);
     this->valid=false;
@@ -57,16 +57,16 @@ QString Apps::getitem(int index)
 
 void Apps::on_buttonBox_clicked(QAbstractButton* button)
 {
-    if(ui->buttonBox->buttonRole(button)==0 ){//ui->appicon->text().isEmpty()!=true
+    if(ui->buttonBox->buttonRole(button)==0 ){
         if( !ui->appname->text().isEmpty()
-            || !ui->exepath->text().isEmpty() || !ui->screenshot->text().isEmpty())
+                || !ui->exepath->text().isEmpty() || !ui->screenshot->text().isEmpty())
         {
             this->valid=true;this->accept();
         }
         else
         {
             QMessageBox msgBox;
-            msgBox.setText("Please fill al filieds.");
+            msgBox.setText(tr("Please fill al fields."));
             msgBox.exec();
 
         }
@@ -81,9 +81,9 @@ void Apps::setData(int index,QString str)
     //
     switch(index){
     case 0:{ui->appname->setText(str); break;}
-        case 1:{ui->appicon->setText(str); break;}
-            case 2:{ui->exepath->setText(str); break;}
-                case 3:{ui->screenshot->setText(str); break;}
+    case 1:{ui->appicon->setText(str); break;}
+    case 2:{ui->exepath->setText(str); break;}
+    case 3:{ui->screenshot->setText(str); break;}
     default:{break;}
     }
 }

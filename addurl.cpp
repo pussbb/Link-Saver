@@ -40,17 +40,17 @@ void WebCapture::saveResult(bool ok)
 {
     //std::cout << std::endl
 #if QT_VERSION >= 0x040700
-      m_page.action(QWebPage::StopScheduledPageRefresh);
+    m_page.action(QWebPage::StopScheduledPageRefresh);
 #else
-      m_page.action(QWebPage::Stop);
+    m_page.action(QWebPage::Stop);
 #endif
 
     // crude error-checking
     if (!ok) {
         //emit finished();
-       m_page.action(QWebPage::Stop);
+        m_page.action(QWebPage::Stop);
         m_fileName="blabla_not_found.png";
-       m_page.mainFrame()->setHtml("<h1>not found</h1>");
+        m_page.mainFrame()->setHtml("<h1>not found</h1>");
         return;
     }
 

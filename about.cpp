@@ -11,18 +11,17 @@ About::About(QWidget *parent) :
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-       // qDebug()<<"canot open the file";
+        // qDebug()<<"canot open the file";
     }
     QTextStream in(&file);
-   ///QString string= ;
-   ui->textBrowser->setText(in.readAll());
+    ui->textBrowser->setText(in.readAll());
 }
 
 About::~About()
 {
     delete ui;
 }
-///file:///media/OldHome/pussbb/qt_projets/HelpWorld/HW/3thd/LICENSE.LGPL
+
 void About::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);

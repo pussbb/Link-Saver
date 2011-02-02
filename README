@@ -3,9 +3,19 @@ links of one category as a slide show. Need QT 4.6 libs or high.
 To create your lang file rename linksaver_def.ts to your locale for example:linksaver_en.ts or linksaver_ru.ts.
 Translate it in QLinguistic and compile.
 
+2011-02-02
+- fix bug when generating image of the url now if site not response for 2 minits it's skip them
+  or some network issues etc.
+- added import from SAX format(Xbel file), Arora browser, and Opera(added only url, folders ignores).
+- added exporting to SAX format(Xbel file), to Html (NETSCAPE-Bookmark-file), and to Html with CoverFlow (JQuery)
+- added to import dialog one column to show the url on against boorkmark title
+- added internal Drag and Drop (now you can drag and drop bookmarks to different folders)
+- some small fixes.
+
 2011-01-18
 - added importing chromium win(tested on Win7)
 - added button "abort current" to cancel generating site image
+
 2011-01-17
 - added firefox importing for (win)
 - added importing bookmark for chromium (linux)

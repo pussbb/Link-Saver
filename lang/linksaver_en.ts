@@ -97,7 +97,7 @@ Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
         <translation></translation>
     </message>
     <message>
-        <location filename="../addurl.cpp" line="112"/>
+        <location filename="../addurl.cpp" line="114"/>
         <source>Generating image</source>
         <translation></translation>
     </message>
@@ -146,6 +146,11 @@ Eeli Reilin &lt;eeli@nilier.org&gt;,  Mikko Ahonen &lt;mikko.j.ahonen@jyu.fi&gt;
         <location filename="../apps.cpp" line="28"/>
         <location filename="../apps.cpp" line="34"/>
         <source>Open Image</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../apps.cpp" line="69"/>
+        <source>Please fill al fields.</source>
         <translation></translation>
     </message>
 </context>
@@ -410,6 +415,17 @@ is too long you can canceled it </source>
     <message>
         <location filename="../linksaver.cpp" line="165"/>
         <source>&amp;%2</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="376"/>
+        <location filename="../linksaver.cpp" line="386"/>
+        <source>Link Saver</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../linksaver.cpp" line="376"/>
+        <source>Simple Program to Save Links</source>
         <translation></translation>
     </message>
     <message>

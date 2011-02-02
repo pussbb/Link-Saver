@@ -17,7 +17,7 @@
 #include <QTime>
 #include <QTimer>
 namespace Ui {
-    class Import;
+class Import;
 }
 
 class Import : public QDialog

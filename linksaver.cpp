@@ -373,7 +373,7 @@ void LinkSaver::iconActivated(QSystemTrayIcon::ActivationReason reason)
     case QSystemTrayIcon::Trigger:
     case QSystemTrayIcon::DoubleClick:   show();     break;
     case QSystemTrayIcon::MiddleClick:
-        trayIcon->showMessage("Link Saver","Simple Program to Save Links", QSystemTrayIcon::Information,
+        trayIcon->showMessage(tr("Link Saver"),tr("Simple Program to Save Links"), QSystemTrayIcon::Information,
                               5 * 1000);
         break;
     default: ;
@@ -383,7 +383,7 @@ void LinkSaver::closeEvent(QCloseEvent *event)
 {
     Q_UNUSED(event);
     if (trayIcon->isVisible()) {
-        trayIcon->showMessage("Link Saver", tr("The program will keep running\n in the system tray. To terminate the program, \n choose Quit in the context menu  \n of the system tray entry."),
+        trayIcon->showMessage(tr("Link Saver"), tr("The program will keep running\n in the system tray. To terminate the program, \n choose Quit in the context menu  \n of the system tray entry."),
                               QSystemTrayIcon::Information, 5 * 1000);
         hide();
 
@@ -445,7 +445,8 @@ void LinkSaver::on_actionAdd_Category_triggered()
 }
 
 void LinkSaver::on_linkcat_customContextMenuRequested(QPoint pos)
-{if(ui->linkcat->currentItem()->isSelected()){
+{
+    if(ui->linkcat->currentIndex().isValid() && ui->linkcat->currentItem()->isSelected()){
         QMenu *m=new QMenu();
         pos.setX(pos.x()-5);
         pos.setY(pos.y()+25);
