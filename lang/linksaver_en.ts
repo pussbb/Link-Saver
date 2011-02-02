@@ -660,7 +660,8 @@ when select the language</source>
     <message>
         <location filename="../settings.ui" line="69"/>
         <source>Inset into tray icon menu all items</source>
-        <translation></translation>
+        <translation type="unfinished">Inset intosystem tray 
+icon menu all items </translation>
     </message>
 </context>
 </TS>

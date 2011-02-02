@@ -704,7 +704,7 @@ when select the language</source>
         <location filename="../settings.ui" line="69"/>
         <source>Inset into tray icon menu all items</source>
         <translation>Добавить все закладки 
-в меню изображения в трее</translation>
+в меню значка в системном лотке</translation>
     </message>
 </context>
 </TS>
