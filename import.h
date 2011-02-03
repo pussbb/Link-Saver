@@ -32,6 +32,7 @@ public:
     bool from_xbel(QString filename);
     bool from_opera(QString operaBookmarksFilePath = "");
     bool from_arora();
+    void chrome_bookmaks();
     QTime time;
     QTime itemtime;
     QTimer timer;

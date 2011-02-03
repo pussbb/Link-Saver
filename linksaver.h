@@ -41,6 +41,7 @@ private:
     Ui::LinkSaver *ui;
 
 private slots:
+    void on_actionFrom_Chrome_2_triggered();
     void on_actionFrom_Arora_triggered();
     void totraymenu();
     void traymenuaction(QAction *action);

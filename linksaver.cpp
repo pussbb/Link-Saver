@@ -1022,3 +1022,12 @@ void LinkSaver::on_actionFrom_Arora_triggered()
     delete import;
     init_links();
 }
+
+void LinkSaver::on_actionFrom_Chrome_2_triggered()
+{
+    Import *import=new Import(this);
+    import->chrome_bookmaks();
+    import->exec();
+    delete import;
+    init_links();
+}

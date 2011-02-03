@@ -93,7 +93,7 @@
      <x>0</x>
      <y>0</y>
      <width>235</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -125,6 +125,7 @@
      <addaction name="actionFrom_Xbel_Sax"/>
      <addaction name="actionFrom_Opera"/>
      <addaction name="actionFrom_Arora"/>
+     <addaction name="actionFrom_Chrome_2"/>
     </widget>
     <widget class="QMenu" name="menuExport">
      <property name="title">
@@ -245,6 +246,11 @@
   <action name="actionFrom_Arora">
    <property name="text">
     <string>From Arora</string>
+   </property>
+  </action>
+  <action name="actionFrom_Chrome_2">
+   <property name="text">
+    <string>From Chrome</string>
    </property>
   </action>
  </widget>

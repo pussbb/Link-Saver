@@ -216,7 +216,28 @@ void Import::chromium_bookmaks()
             ui->profillist->addItem("Default",chromium_path+"Bookmarks");
     }
 }
+void Import::chrome_bookmaks()
+{
+    import_from="chromium";
+    manual=false;
+    QString chromium_path;
 
+#ifdef Q_OS_WIN32
+    chromium_path=getenv("LOCALAPPDATA");
+    chromium_path+="\\Google\\Chrome\\User Data\\Default\\";
+#endif
+    if(dir.exists(chromium_path)==false)
+    {
+        QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("It seem's to that you don't have installed Chromium!"));
+        return;
+    }
+    else{
+        if(QFile::exists(chromium_path+"Bookmarks")==false)
+            QMessageBox::warning(0, QObject::tr("Error"), QObject::tr("Sorry but we could not find the profile of Chromium!"));
+        else
+            ui->profillist->addItem("Default",chromium_path+"Bookmarks");
+    }
+}
 #include <QTreeWidgetItem>
 #include <QUrl>
 void Import::build_tree(QString file)
