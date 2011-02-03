@@ -6,7 +6,7 @@ Translate it in QLinguistic and compile.
 2011-02-02
 - fix bug when generating image of the url now if site not response for 2 minits it's skip them
   or some network issues etc.
-- added import from SAX format(Xbel file), Arora browser, and Opera(added only url, folders ignores).
+- added import from SAX format(Xbel file), Arora browser, and Opera(added only url, folders ignores), Chrome.
 - added exporting to SAX format(Xbel file), to Html (NETSCAPE-Bookmark-file), and to Html with CoverFlow (JQuery)
 - added to import dialog one column to show the url on against boorkmark title
 - added internal Drag and Drop (now you can drag and drop bookmarks to different folders)
