@@ -1,0 +1,82 @@
+* d201a86 (HEAD, tag: v2.1.5, origin/master, origin/HEAD, origin/2.1.5, master, 2.1.5) gui up
+* b41855f gui fix
+* f038c15 readme update
+* 4bc3670 about dialog update
+* 56934b4 added import from chrome
+* 808fe27 foggot ...
+* 8a7c528 about update
+* deb06b8 update lang. change about dialog
+* 9095980 lang update
+* d21c157 lang update. format source. Change log update
+* 1f577bb ___
+* cfd46cd ____
+* e0319d5 import big bug fix
+* 232e6e2 update lang files
+* 48d0d63 some fixes importing tool
+* d63e07c added import from arora(win only for now)
+* 9258968 fix different versions of qt
+* 4458d19 added drag and drop support for bookmark tree
+* 0d6226d redirection fixed(if page redirect to another page we stop)
+* 208f0b4 some fixes
+* dbbe667 opera for win fix
+* 5cc12c8 add edexport to html with CoverFlow
+* e4d204a added exporting to simple html >> <!DOCTYPE NETSCAPE-Bookmark-file-1>
+* a4087a8 lang files update
+* 145dc0c added import from Opera(folders ignores)
+* 8663e08 added import from SAX(xbel)
+* 902a2f1 redesign import dialog and some fixes
+* 8be67c0 added export to xbel (SAX boomark)
+* 09bd562 fix parsing firefox profiles.ini (path and cp-1251 folder names)
+* 1bec2c7 remove QWebSettings no effect
+* ca2fe4f os/2 fixes
+* 2449205 os/2 compobility , small fixes
+* 815f399 lang file update, etc
+* 038cf1b added elapced time
+* f274b13 added how much bytes load time execution
+* 8f9093a ???
+* 2220e13 added button "abort current" prevent long time genenerating site image
+* 74ac504 chromium windows
+* ff45ae5 added importing bookmark for chromium (linux)
+* 84d7b82 bug fixes firefox importing
+* d9b1c9a added firefox import for windows
+* 592bbe7 added firefox importing(linux),fix memory leek
+* c03c5c5 added importing for firefox(linux)
+* c6699b9 added tree viewr for importing links
+* 1e76efe started import function
+* 89245e9 
+* d969fcf lang update
+* 1342f93 added icons. some fixes. update tranlations
+* 8563da7 items in tray icon menu
+* ae76d49 lang update. added settings
+* a1267ab lang update
+* b94ef8c eng lang
+* c2000e9 ?
+* 576a499 lang menu update and fix
+* a25732b lang menu added
+* 73ec75e apps module
+* 31b319a bug fix eiditing title
+* 1b48185 fix lang id identifire
+* 49a218a bug fix for editing
+* 9baff01 ???
+* b99ce52 added actions to contex menu in tray icon
+* fc0da59 added new future "editing" and updated lang file
+* d405d56 fix lang support
+* e0f1815 return to prev
+* bbecb4a added multilang support
+* 4760e43 added multilang. and some bug fix
+* 561e3fe dummy file
+* 8865835 added some checks
+* 426323f fix for OS/2
+* 7ba0361 some fix
+* 031e6c7 folders for app icon and thumbs
+*   9682e70 Merge branch 'HEAD' of git@github.com:pussbb/Link-Saver.git
+|\  
+| * 2f1c6a5 
+* | 5e38021 updated app runner
+|/  
+* fb48a1e bug fix
+* 88fedb3 application luncher temporary solution
+* f9f94e7 add application runner temprory solution
+* 4aad443 read me
+* 114bc3e '_'
+* 3199570 'readme'
