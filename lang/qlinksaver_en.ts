@@ -5,7 +5,7 @@
     <name>Language</name>
     <message>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>English</translation>
     </message>
 </context>
 <context>
@@ -31,7 +31,7 @@
     <name>QCoreWindow</name>
     <message>
         <source>langmenu</source>
-        <translation type="unfinished"></translation>
+        <translation>Languages</translation>
     </message>
     <message>
         <source>&amp;%2</source>

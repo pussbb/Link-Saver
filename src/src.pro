@@ -7,6 +7,7 @@
 QT       += core gui
 
 include(../lib/qcorewindow/qcorewindow.pri)
+include(../lib/qtsingleapplication/src/qtsingleapplication.pri)
 
 TARGET = QLinkSaver
 TEMPLATE = app
