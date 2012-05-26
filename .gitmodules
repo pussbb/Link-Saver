@@ -1,0 +1,3 @@
+[submodule "lib/qcorewindow"]
+	path = lib/qcorewindow
+	url = git@github.com:pussbb/QCoreWindow.git

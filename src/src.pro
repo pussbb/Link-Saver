@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+include(../lib/qcorewindow/qcorewindow.pri)
+
 TARGET = QLinkSaver
 TEMPLATE = app
 
@@ -16,15 +18,9 @@ unix{
     UI_DIR = ./obj/
 }
 
-TRANSLATIONS = ../lang/qlinksaver_ru.ts \
-                ../lang/qlinksaver_def.ts \
-                ../lang/qlinksaver_en.ts
-
 SOURCES += main.cpp\
-        linksaver.cpp \
-        qcorewindow.cpp
+        linksaver.cpp
 
 HEADERS  += linksaver.h \
-	  qcorewindow.h
 
 FORMS    += linksaver.ui

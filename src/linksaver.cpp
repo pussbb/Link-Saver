@@ -6,6 +6,9 @@ LinkSaver::LinkSaver(QWidget *parent) :
     ui(new Ui::LinkSaver)
 {
     ui->setupUi(this);
+
+    buildLangMenu("qlinksaver");
+    langMenuToMenuBar("menuOptions");
 }
 
 LinkSaver::~LinkSaver()
