@@ -15,6 +15,9 @@ public:
     explicit LinkSaver(QWidget *parent = 0);
     ~LinkSaver();
     
+private slots:
+    void on_actionAbout_Qt_triggered();
+
 private:
     Ui::LinkSaver *ui;
 };

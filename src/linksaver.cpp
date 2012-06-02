@@ -9,9 +9,15 @@ LinkSaver::LinkSaver(QWidget *parent) :
 
     buildLangMenu("qlinksaver");
     langMenuToMenuBar("menuOptions");
+
 }
 
 LinkSaver::~LinkSaver()
 {
     delete ui;
+}
+
+void LinkSaver::on_actionAbout_Qt_triggered()
+{
+    QApplication::aboutQt();
 }

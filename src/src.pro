@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui xml
 
 include(../lib/qcorewindow/qcorewindow.pri)
 include(../lib/qtsingleapplication/src/qtsingleapplication.pri)
@@ -20,8 +20,10 @@ unix{
 }
 
 SOURCES += main.cpp\
-        linksaver.cpp
+        linksaver.cpp \
+    engine.cpp
 
 HEADERS  += linksaver.h \
+    engine.h
 
 FORMS    += linksaver.ui

@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     QApplication::setApplicationName("QLinkSaver");
     QApplication::setApplicationVersion("2.5.1.5");
     QApplication::setQuitOnLastWindowClosed(false);
+
     LinkSaver w;
 
     QSettings settings;
