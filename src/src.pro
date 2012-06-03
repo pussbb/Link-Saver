@@ -21,9 +21,12 @@ unix{
 
 SOURCES += main.cpp\
         linksaver.cpp \
-    engine.cpp
+    engine.cpp \
+    newlist.cpp
 
 HEADERS  += linksaver.h \
-    engine.h
+    engine.h \
+    newlist.h
 
-FORMS    += linksaver.ui
+FORMS    += linksaver.ui \
+    newlist.ui

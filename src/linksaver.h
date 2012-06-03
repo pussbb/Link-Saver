@@ -2,6 +2,7 @@
 #define LINKSAVER_H
 
 #include <qcorewindow.h>
+#include <engine.h>
 
 namespace Ui {
   class LinkSaver;
@@ -18,8 +19,13 @@ public:
 private slots:
     void on_actionAbout_Qt_triggered();
 
+    void on_actionExit_triggered();
+
+    void on_actionNewLinkList_triggered();
+
 private:
     Ui::LinkSaver *ui;
+    Engine *m_engine;
 };
 
 #endif // LINKSAVER_H
