@@ -6,3 +6,6 @@ qrc*.cpp
 *~
 *.pro.user
 *Makefile
+
+bin/QLinkSaver
+/bin/data/*

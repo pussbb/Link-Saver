@@ -16,7 +16,7 @@ class Engine : public QObject
 public:
     explicit Engine(QObject *parent = 0, QString storeDir = "");
     QDomDocument document(const QString &name);
-    QDomDocument openDocument(const QString &dir);
+    QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
 signals:
     

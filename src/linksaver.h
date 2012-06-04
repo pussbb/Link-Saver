@@ -3,6 +3,7 @@
 
 #include <qcorewindow.h>
 #include <engine.h>
+#include <QComboBox>
 
 namespace Ui {
   class LinkSaver;
@@ -18,14 +19,15 @@ public:
     
 private slots:
     void on_actionAbout_Qt_triggered();
-
     void on_actionExit_triggered();
-
     void on_actionNewLinkList_triggered();
-
+    void linkListChangedIndex(int index);
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;
+    QComboBox *linksList;
+    QSettings m_settings;
+    void initLinksList();
 };
 
 #endif // LINKSAVER_H
