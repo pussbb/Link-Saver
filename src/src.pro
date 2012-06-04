@@ -22,11 +22,16 @@ unix{
 SOURCES += main.cpp\
         linksaver.cpp \
     engine.cpp \
-    newlist.cpp
+    newlist.cpp \
+    linkstree.cpp
 
 HEADERS  += linksaver.h \
     engine.h \
-    newlist.h
+    newlist.h \
+    linkstree.h
 
 FORMS    += linksaver.ui \
     newlist.ui
+
+RESOURCES += \
+    resource/res.qrc

@@ -13,7 +13,25 @@
   <property name="windowTitle">
    <string>Link Saver</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="horizontalSpacing">
+     <number>-1</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="LinksTree" name="linksTree">
+      <column>
+       <property name="text">
+        <string/>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -55,6 +73,15 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -63,6 +90,10 @@
    </attribute>
   </widget>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/delete.png</normaloff>:/tool/delete.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
@@ -78,22 +109,70 @@
    </property>
   </action>
   <action name="actionNewLinkList">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/add_page.png</normaloff>:/tool/add_page.png</iconset>
+   </property>
    <property name="text">
     <string>Link list</string>
    </property>
   </action>
   <action name="actionNewCategory">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/add_to_folder.png</normaloff>:/tool/add_to_folder.png</iconset>
+   </property>
    <property name="text">
     <string>Category</string>
    </property>
   </action>
   <action name="actionNewLink">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/add.png</normaloff>:/tool/add.png</iconset>
+   </property>
    <property name="text">
     <string>Link</string>
    </property>
   </action>
+  <action name="actionDeleteList">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/delete_page.png</normaloff>:/tool/delete_page.png</iconset>
+   </property>
+   <property name="text">
+    <string>delete List</string>
+   </property>
+  </action>
+  <action name="actionDeleteCategory">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/delete_folder.png</normaloff>:/tool/delete_folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>deleteCategory</string>
+   </property>
+  </action>
+  <action name="actionDeleteLink">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/delete.png</normaloff>:/tool/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>deleteLink</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>LinksTree</class>
+   <extends>QTreeWidget</extends>
+   <header location="global">linkstree.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resource/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>tool/add.png</file>
+        <file>tool/add_page.png</file>
+        <file>tool/add_to_folder.png</file>
+        <file>tool/delete_folder.png</file>
+        <file>tool/delete_page.png</file>
+        <file>tool/delete.png</file>
+    </qresource>
+</RCC>

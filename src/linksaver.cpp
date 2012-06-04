@@ -1,7 +1,7 @@
 #include "linksaver.h"
 #include "ui_linksaver.h"
 #include "newlist.h"
-
+#include "QToolButton"
 
 LinkSaver::LinkSaver(QWidget *parent) :
     QCoreWindow(parent),
@@ -13,10 +13,34 @@ LinkSaver::LinkSaver(QWidget *parent) :
     langMenuToMenuBar("menuOptions");
 
     m_engine = new Engine(this, appDir + QDir::toNativeSeparators("/links/"));
+
+    ui->linksTree->setEngine(m_engine);
+
     linksList = new  QComboBox();
     linksList->setEditable(false);
+
+    ui->actionNewCategory->setEnabled(false);
+    ui->actionNewLink->setEnabled(false);
     initLinksList();
+
+    QToolButton *newButton = new QToolButton();
+    newButton->setPopupMode(QToolButton::InstantPopup);
+    newButton->setIcon(QIcon(":/tool/add.png"));
+    newButton->addAction(ui->actionNewLinkList);
+    newButton->addAction(ui->actionNewCategory);
+    newButton->addAction(ui->actionNewLink);
+
+    QToolButton *removeButton = new QToolButton();
+    removeButton->setPopupMode(QToolButton::InstantPopup);
+    removeButton->setIcon(QIcon(":/tool/delete.png"));
+    removeButton->addAction(ui->actionDeleteList);
+    removeButton->addAction(ui->actionDeleteCategory);
+    removeButton->addAction(ui->actionDeleteLink);
+
+    ui->mainToolBar->addWidget(newButton);
+    ui->mainToolBar->addWidget(removeButton);
     ui->mainToolBar->addWidget(linksList);
+
 }
 
 LinkSaver::~LinkSaver()
@@ -61,6 +85,9 @@ void LinkSaver::linkListChangedIndex(int index)
     if (index == -1)
         return;
 
+    ui->actionNewCategory->setEnabled(true);
+    ui->actionNewLink->setEnabled(true);
+    ui->linksTree->buildTree(linksList->currentText());
 }
 
 void LinkSaver::initLinksList()

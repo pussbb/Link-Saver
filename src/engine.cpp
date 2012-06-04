@@ -37,10 +37,6 @@ QDomDocument Engine::create(const QString &name, const QString &dirName)
     stream.writeAttribute("version","1.1");
     stream.writeAttribute("name", name);
     stream.writeEndElement();
-
-    stream.writeStartElement("links");
-    stream.writeEndElement();
-
     stream.writeEndDocument();
     f.close();
     return openDocument(f.fileName());
