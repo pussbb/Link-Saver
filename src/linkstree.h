@@ -3,6 +3,8 @@
 
 #include <QTreeWidget>
 #include <engine.h>
+#include <QDomNode>
+
 
 class LinksTree : public QTreeWidget
 {
@@ -11,9 +13,9 @@ public:
     explicit LinksTree(QWidget *parent = 0);
     inline void setEngine(Engine *engine){ m_engine = engine;}
     void buildTree(const QString &name);
+    void refresh();
 private:
     Engine *m_engine;
-    QDomDocument m_doc;
 };
 
 #endif // LINKSTREE_H

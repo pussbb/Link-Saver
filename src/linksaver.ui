@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Link Saver</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resource/res.qrc">
+    <normaloff>:/app.png</normaloff>:/app.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="margin">
@@ -23,9 +27,29 @@
     </property>
     <item row="0" column="0">
      <widget class="LinksTree" name="linksTree">
+      <property name="styleSheet">
+       <string notr="true">.linksTree {
+	background: #EDF1FF;
+}</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="headerHidden">
+       <bool>true</bool>
+      </property>
       <column>
        <property name="text">
-        <string/>
+        <string>Links List</string>
        </property>
       </column>
      </widget>
@@ -60,6 +84,7 @@
     <property name="title">
      <string>Options</string>
     </property>
+    <addaction name="actionSettings"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -160,6 +185,11 @@
    </property>
    <property name="text">
     <string>deleteLink</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>

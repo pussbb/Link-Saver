@@ -18,13 +18,22 @@ public:
     QDomDocument document(const QString &name);
     QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
+    ///void updateDocument(const QString &name, const QDomDocument &doc);
+    QDomElement documentRoot() const;
+    QDomElement documentRoot(const QString &docName) const;
+    void setCurrent(const QString &name);
+    void addFolder(const QString &name);
+    void addFolder(const QString &name, const QString &docName);
+    bool save(const QString &name);
 signals:
     
 public slots:
     
 private:
     QMap<QString, QDomDocument > docs;
+    QMap<QString, QString > files;
     QString m_storeDir;
+    QString currentName;
 };
 
 #endif // ENGINE_H

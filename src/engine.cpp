@@ -13,7 +13,9 @@ QDomDocument Engine::openDocument(const QString &file)
     QDomDocument doc;
     doc.setContent(&f);
     f.close();
-    docs.insert( doc.documentElement().attribute("name"), doc);
+    QString name =  doc.documentElement().attribute("name");
+    docs.insert(name, doc);
+    files.insert(name, file);
     return doc;
 }
 
@@ -41,6 +43,62 @@ QDomDocument Engine::create(const QString &name, const QString &dirName)
     f.close();
     return openDocument(f.fileName());
 }
+
+QDomElement Engine::documentRoot() const
+{
+    return documentRoot(currentName);
+}
+
+QDomElement Engine::documentRoot(const QString &docName) const
+{
+    QDomDocument doc = docs.value(docName);
+    return doc.documentElement();
+}
+
+/*
+void Engine::updateDocument(const QString &name, const QDomDocument &doc)
+{
+    if ( docs.contains(name))
+        docs.remove(name);
+    docs.insert(name, doc);
+}*/
+
+void Engine::setCurrent(const QString &name)
+{
+    if (docs.contains(name))
+        currentName = name;
+    else
+        currentName = "";
+}
+
+void Engine::addFolder(const QString &name)
+{
+    addFolder(name, currentName);
+}
+
+void Engine::addFolder(const QString &name, const QString &docName)
+{
+    QDomDocument doc = document(docName);
+    QDomElement elem = doc.createElement("folder");;
+    elem.setAttribute("name", name);
+    doc.documentElement().appendChild(elem);
+    ///updateDocument(docName, doc);
+    save(docName);
+}
+
+bool Engine::save(const QString &name)
+{
+
+    QFile f (files.value(name,""));
+    if ( ! f.open(QIODevice::Text | QIODevice::WriteOnly))
+        return false;
+    QTextStream out(&f);
+    out.setCodec("UTF-8");
+    document(name).save(out, 0);
+    f.close();
+    return true;
+}
+
 
 QDomDocument Engine::document(const QString &name)
 {

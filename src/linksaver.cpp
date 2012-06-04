@@ -2,6 +2,8 @@
 #include "ui_linksaver.h"
 #include "newlist.h"
 #include "QToolButton"
+#include "QInputDialog"
+
 
 LinkSaver::LinkSaver(QWidget *parent) :
     QCoreWindow(parent),
@@ -88,6 +90,7 @@ void LinkSaver::linkListChangedIndex(int index)
     ui->actionNewCategory->setEnabled(true);
     ui->actionNewLink->setEnabled(true);
     ui->linksTree->buildTree(linksList->currentText());
+    settings.setValue("general.lastopened", linksList->currentText());
 }
 
 void LinkSaver::initLinksList()
@@ -119,3 +122,15 @@ void LinkSaver::initLinksList()
     linksList->setCurrentIndex(lastOpened);
 }
 
+
+void LinkSaver::on_actionNewCategory_triggered()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Add Category"),
+                                             tr("Name:"), QLineEdit::Normal,
+                                             "", &ok);
+    if (ok && !text.isEmpty())
+    {
+        m_engine->addFolder(text);
+    }
+}

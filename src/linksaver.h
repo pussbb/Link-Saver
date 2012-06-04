@@ -22,6 +22,8 @@ private slots:
     void on_actionExit_triggered();
     void on_actionNewLinkList_triggered();
     void linkListChangedIndex(int index);
+    void on_actionNewCategory_triggered();
+
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;

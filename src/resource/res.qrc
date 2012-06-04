@@ -6,5 +6,9 @@
         <file>tool/delete_folder.png</file>
         <file>tool/delete_page.png</file>
         <file>tool/delete.png</file>
+        <file>app.png</file>
+        <file alias="app">tree/exe.png</file>
+        <file alias="folder">tree/folder.png</file>
+        <file alias="link">tree/link.png</file>
     </qresource>
 </RCC>
