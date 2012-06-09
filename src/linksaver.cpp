@@ -134,3 +134,52 @@ void LinkSaver::on_actionNewCategory_triggered()
         m_engine->addFolder(text);
     }
 }
+
+void LinkSaver::on_actionDeleteList_triggered()
+{
+    QString dir = m_engine->documentDir(linksList->currentText());
+    QMessageBox msgBox;
+    msgBox.setWindowTitle(tr("Delete list"));
+    msgBox.setText(
+                tr("Do you realy what to delete %1")
+                               .arg(linksList->currentText())
+                             );
+    msgBox.setInformativeText(tr("It will be removed whole directory %1").arg(dir));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if (msgBox.exec() == QMessageBox::Yes) {
+        if ( removeDir(dir)) {
+            linksList->removeItem(linksList->currentIndex());
+        }
+        else {
+            QMessageBox::warning(0,  QObject::tr("Deleting list"),
+                                 QObject::tr("Could not delete folder and files.")
+                                 .arg(dir));
+        }
+    }
+}
+bool LinkSaver::removeDir(const QString &dirName)
+{
+    bool result = true;
+    QDir dir(dirName);
+
+    if (dir.exists(dirName)) {
+        Q_FOREACH(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::System | QDir::Hidden
+                                                    | QDir::AllDirs | QDir::Files, QDir::DirsFirst)) {
+            if (info.isDir()) {
+                result = removeDir(info.absoluteFilePath());
+            }
+            else {
+                result = QFile::remove(info.absoluteFilePath());
+            }
+
+            if (!result) {
+                return result;
+            }
+        }
+        result = dir.rmdir(dirName);
+    }
+
+    return result;
+}
+

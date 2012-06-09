@@ -24,12 +24,16 @@ private slots:
     void linkListChangedIndex(int index);
     void on_actionNewCategory_triggered();
 
+    void on_actionDeleteList_triggered();
+    bool removeDir(const QString &dirName);
+
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;
     QComboBox *linksList;
     QSettings m_settings;
     void initLinksList();
+
 };
 
 #endif // LINKSAVER_H

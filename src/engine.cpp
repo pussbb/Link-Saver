@@ -99,6 +99,15 @@ bool Engine::save(const QString &name)
     return true;
 }
 
+QString Engine::documentDir(const QString &docName) const
+{
+    QString file = files.value(docName);
+    if ( file.isNull())
+        return QString();
+    QFileInfo fi(file);
+    return fi.absolutePath();
+}
+
 
 QDomDocument Engine::document(const QString &name)
 {

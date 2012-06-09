@@ -46,7 +46,6 @@ void NewList::on_selectDir_clicked()
         }
 }
 
-#include <QDebug>
 void NewList::accept()
 {
     QFileInfo d(ui->folder->text());
@@ -66,7 +65,7 @@ void NewList::accept()
     }
 
     QFileInfo f(d.absoluteFilePath() + QDir::toNativeSeparators("/links.xml"));
-    qDebug()<<f.absoluteFilePath();
+
     if ( f.exists()) {
 
         QMessageBox::warning(0,  QObject::tr("Directory already contains link list"),

@@ -25,6 +25,7 @@ public:
     void addFolder(const QString &name);
     void addFolder(const QString &name, const QString &docName);
     bool save(const QString &name);
+    QString documentDir(const QString &docName) const;
 signals:
     
 public slots:
