@@ -23,15 +23,18 @@ SOURCES += main.cpp\
         linksaver.cpp \
     engine.cpp \
     newlist.cpp \
-    linkstree.cpp
+    linkstree.cpp \
+    linkdialog.cpp
 
 HEADERS  += linksaver.h \
     engine.h \
     newlist.h \
-    linkstree.h
+    linkstree.h \
+    linkdialog.h
 
 FORMS    += linksaver.ui \
-    newlist.ui
+    newlist.ui \
+    linkdialog.ui
 
 RESOURCES += \
     resource/res.qrc

@@ -249,3 +249,14 @@ void LinkSaver::treeCustomMenu(QPoint pos)
 
     m->exec(ui->linksTree->mapToGlobal(pos));
 }
+
+#include "linkdialog.h"
+void LinkSaver::on_actionNewLink_triggered()
+{
+    LinkDialog *dialog = new LinkDialog(this);
+    if(dialog->exec() == QDialog::Accepted)
+    {
+
+    }
+    dialog->deleteLater();
+}

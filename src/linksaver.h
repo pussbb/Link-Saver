@@ -31,6 +31,8 @@ private slots:
     void folderSelected();
     void linkSelected();
     void treeCustomMenu(QPoint pos);
+    void on_actionNewLink_triggered();
+
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;

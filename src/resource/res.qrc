@@ -10,5 +10,6 @@
         <file alias="app">tree/exe.png</file>
         <file alias="folder">tree/folder.png</file>
         <file alias="link">tree/link.png</file>
+        <file alias="refresh">refresh.png</file>
     </qresource>
 </RCC>
