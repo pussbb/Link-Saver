@@ -97,12 +97,12 @@ void LinkSaver::initLinksList()
 {
 
     QDirIterator directory_walker(appDir + "data", QStringList("links.xml"), QDir::Files | QDir::NoSymLinks
-                                      |QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+                                  |QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     while(directory_walker.hasNext()) {
-            directory_walker.next();
-            QDomDocument doc = m_engine->openDocument(directory_walker.filePath());
-            QString name = doc.documentElement().attribute("name");
-            linksList->addItem(name);
+        directory_walker.next();
+        QDomDocument doc = m_engine->openDocument(directory_walker.filePath());
+        QString name = doc.documentElement().attribute("name");
+        linksList->addItem(name);
     }
 
     QString lastOpenedName = settings.value("general.lastopened", "").toString();
@@ -127,11 +127,12 @@ void LinkSaver::on_actionNewCategory_triggered()
 {
     bool ok;
     QString text = QInputDialog::getText(this, tr("Add Category"),
-                                             tr("Name:"), QLineEdit::Normal,
-                                             "", &ok);
+                                         tr("Name:"), QLineEdit::Normal,
+                                         "", &ok);
     if (ok && !text.isEmpty())
     {
         m_engine->addFolder(text);
+        ui->linksTree->refresh();
     }
 }
 
@@ -142,9 +143,9 @@ void LinkSaver::on_actionDeleteList_triggered()
     msgBox.setWindowTitle(tr("Delete list"));
     msgBox.setText(
                 tr("Do you realy what to delete %1")
-                               .arg(linksList->currentText())
-                             );
-    msgBox.setInformativeText(tr("It will be removed whole directory %1").arg(dir));
+                .arg(linksList->currentText())
+                );
+    msgBox.setInformativeText(tr("It will be removed whole directory \n%1").arg(dir));
     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::No);
     if (msgBox.exec() == QMessageBox::Yes) {
@@ -153,7 +154,7 @@ void LinkSaver::on_actionDeleteList_triggered()
         }
         else {
             QMessageBox::warning(0,  QObject::tr("Deleting list"),
-                                 QObject::tr("Could not delete folder and files.")
+                                 QObject::tr("Could not delete folder and files.\n%1")
                                  .arg(dir));
         }
     }
