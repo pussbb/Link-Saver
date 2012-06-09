@@ -27,6 +27,10 @@ private slots:
     void on_actionDeleteList_triggered();
     bool removeDir(const QString &dirName);
 
+    void on_actionDeleteCategory_triggered();
+    void folderSelected();
+    void linkSelected();
+    void treeCustomMenu(QPoint pos);
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;

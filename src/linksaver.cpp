@@ -43,6 +43,15 @@ LinkSaver::LinkSaver(QWidget *parent) :
     ui->mainToolBar->addWidget(removeButton);
     ui->mainToolBar->addWidget(linksList);
 
+    ui->actionDeleteLink->setEnabled(false);
+    ui->actionDeleteCategory->setEnabled(false);
+
+    connect(ui->linksTree, SIGNAL(folderSelected()),
+            this, SLOT(folderSelected()));
+    connect(ui->linksTree, SIGNAL(linkSelected()),
+            this, SLOT(linkSelected()));
+    connect(ui->linksTree, SIGNAL(customContextMenuRequested(QPoint)),
+            this, SLOT(treeCustomMenu(QPoint)));
 }
 
 LinkSaver::~LinkSaver()
@@ -184,3 +193,59 @@ bool LinkSaver::removeDir(const QString &dirName)
     return result;
 }
 
+
+void LinkSaver::on_actionDeleteCategory_triggered()
+{
+
+    QMessageBox msgBox;
+    msgBox.setWindowTitle(tr("Delete category"));
+    msgBox.setText(
+                tr("Do you realy what to category \n %1")
+                .arg(ui->linksTree->currentText())
+                );
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if (msgBox.exec() == QMessageBox::Yes) {
+        if ( m_engine->deleteDocumentFolder(ui->linksTree->selectedItemDomIndex())) {
+            ui->linksTree->refresh();
+        }
+        else {
+            QMessageBox::warning(0,  QObject::tr("Deleting category"),
+                                 QObject::tr("Could not delete category.\n%1")
+                                 .arg(ui->linksTree->currentText()));
+        }
+    }
+}
+
+void LinkSaver::folderSelected()
+{
+    ui->actionDeleteLink->setEnabled(false);
+    ui->actionDeleteCategory->setEnabled(true);
+}
+
+void LinkSaver::linkSelected()
+{
+    ui->actionDeleteLink->setEnabled(true);
+    ui->actionDeleteCategory->setEnabled(false);
+}
+
+void LinkSaver::treeCustomMenu(QPoint pos)
+{
+    QMenu *m = new QMenu();
+
+    switch(ui->linksTree->selectedItemType()) {
+        case LinksTree::Folder :
+            m->addAction(ui->actionNewLink);
+            m->addAction(ui->actionDeleteCategory);
+            break;
+        case LinksTree::Link :
+            m->addAction(ui->actionDeleteLink);
+            break;
+        default:
+            m->addAction(ui->actionNewLink);
+            m->addAction(ui->actionNewCategory);
+            break;
+    }
+
+    m->exec(ui->linksTree->mapToGlobal(pos));
+}

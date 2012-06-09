@@ -26,6 +26,8 @@ public:
     void addFolder(const QString &name, const QString &docName);
     bool save(const QString &name);
     QString documentDir(const QString &docName) const;
+    bool deleteDocumentFolder(int pos);
+    bool deleteDocumentFolder(const QString &docName, int pos);
 signals:
     
 public slots:

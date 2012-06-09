@@ -108,6 +108,18 @@ QString Engine::documentDir(const QString &docName) const
     return fi.absolutePath();
 }
 
+bool Engine::deleteDocumentFolder(int pos)
+{
+    return deleteDocumentFolder(currentName, pos);
+}
+
+bool Engine::deleteDocumentFolder(const QString &docName, int pos)
+{
+    QDomDocument doc = document(docName);
+    doc.documentElement().removeChild(doc.documentElement().childNodes().item(pos));
+    return save(docName);
+}
+
 
 QDomDocument Engine::document(const QString &name)
 {
