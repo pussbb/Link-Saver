@@ -1,2 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<lsbook created="Sun Jun 3 2012" version="0.1" name="test"/>
+<?xml version='1.0' encoding='UTF-8'?>
+<lsbook version="1.1" created="Sat Jun 9 2012" name="test">
+<folder name="test"/>
+</lsbook>

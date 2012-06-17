@@ -37,7 +37,11 @@
     <number>0</number>
    </property>
    <item row="0" column="1" colspan="2">
-    <widget class="QLineEdit" name="url"/>
+    <widget class="QLineEdit" name="url">
+     <property name="text">
+      <string>http://</string>
+     </property>
+    </widget>
    </item>
    <item row="1" column="1" colspan="2">
     <widget class="QLineEdit" name="lineEdit"/>
@@ -59,7 +63,7 @@
    <item row="2" column="0" colspan="3">
     <widget class="QProgressBar" name="progress">
      <property name="value">
-      <number>24</number>
+      <number>0</number>
      </property>
     </widget>
    </item>
@@ -120,7 +124,7 @@
      <widget class="QToolButton" name="toolButton">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>190</x>
         <y>10</y>
         <width>26</width>
         <height>25</height>
@@ -140,8 +144,8 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>40</y>
+        <x>230</x>
+        <y>10</y>
         <width>54</width>
         <height>15</height>
        </rect>
@@ -150,35 +154,64 @@
        <string>Width</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox">
+     <widget class="QSpinBox" name="width">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>60</y>
-        <width>101</width>
+        <x>230</x>
+        <y>30</y>
+        <width>83</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="maximum">
+       <number>1900</number>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>90</y>
+        <x>230</x>
+        <y>58</y>
         <width>54</width>
         <height>15</height>
        </rect>
       </property>
       <property name="text">
-       <string>Hieght</string>
+       <string>Height</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_2">
+     <widget class="QSpinBox" name="height">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>110</y>
-        <width>101</width>
+        <x>230</x>
+        <y>76</y>
+        <width>83</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>1900</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>102</y>
+        <width>54</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Zoom</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="zoom">
+      <property name="geometry">
+       <rect>
+        <x>228</x>
+        <y>120</y>
+        <width>85</width>
         <height>22</height>
        </rect>
       </property>

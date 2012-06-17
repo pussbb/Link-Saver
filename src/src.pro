@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml
+QT       += core gui xml webkit
 
 include(../lib/qcorewindow/qcorewindow.pri)
 include(../lib/qtsingleapplication/src/qtsingleapplication.pri)
@@ -24,13 +24,17 @@ SOURCES += main.cpp\
     engine.cpp \
     newlist.cpp \
     linkstree.cpp \
-    linkdialog.cpp
+    linkdialog.cpp \
+    webpage.cpp \
+    webcapture.cpp
 
 HEADERS  += linksaver.h \
     engine.h \
     newlist.h \
     linkstree.h \
-    linkdialog.h
+    linkdialog.h \
+    webpage.h \
+    webcapture.h
 
 FORMS    += linksaver.ui \
     newlist.ui \
