@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <webcapture.h>
+#include <QWebFrame>
+#include <QWebElement>
 
 namespace Ui {
 class LinkDialog;

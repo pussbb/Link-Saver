@@ -44,7 +44,7 @@
     </widget>
    </item>
    <item row="1" column="1" colspan="2">
-    <widget class="QLineEdit" name="lineEdit"/>
+    <widget class="QLineEdit" name="title"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
@@ -214,6 +214,9 @@
         <width>85</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="maximum">
+       <number>100</number>
       </property>
      </widget>
     </widget>

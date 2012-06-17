@@ -3,9 +3,8 @@
 #include <QSettings>
 #include <QClipboard>
 #include <QMessageBox>
-
-#include <QDebug>
-
+#include <QCryptographicHash>
+#include <QDir>
 
 LinkDialog::LinkDialog(QWidget *parent) :
     QDialog(parent),
@@ -50,9 +49,6 @@ void LinkDialog::on_toolButton_clicked()
     capture->load(ui->url->text());
 }
 
-#include <QCryptographicHash>
-#include <QDir>
-
 void LinkDialog::saveImave(bool)
 {
     fileName = QCryptographicHash::hash(ui->url->text().toLocal8Bit(),QCryptographicHash::Md5).toHex() + ".png";
@@ -66,4 +62,10 @@ void LinkDialog::saveImave(bool)
     pixmap = pixmap.scaledToHeight(ui->preview->height());
     pixmap = pixmap.scaledToWidth(ui->preview->width());
     ui->preview->setPixmap(pixmap);
+
+    if (ui->title->text().isEmpty())
+    {
+        QString title = capture->frame()->documentElement().findFirst("title").toPlainText();
+        ui->title->setText(title);
+    }
 }

@@ -3,6 +3,7 @@
 
 #include <qglobal.h>
 
+
 QList<QString> webPage::agentList_ = QList<QString> ()
     <<"Opera/9.63 (Windows NT 6.0; U; ru) Presto/2.1.1"
     << "Opera/9.80 (X11; Linux i686; U; ru) Presto/2.6.30 Version/10.61"

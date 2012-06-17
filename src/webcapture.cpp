@@ -133,7 +133,6 @@ bool WebCapture::validUrl(const QString &string)
 
 void WebCapture::saveResult(bool ok)
 {
-
     if (progress && progress->isVisible())
         progress->setVisible(false);
 

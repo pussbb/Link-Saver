@@ -18,6 +18,7 @@ public:
     static QUrl guessUrlFromString(const QString &string);
     static bool validUrl(const QString &string);
     inline void setProgressBar(QProgressBar *bar) { progress = bar;}
+
 signals:
     void finished(bool);
 

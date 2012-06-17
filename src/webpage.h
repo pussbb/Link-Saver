@@ -8,9 +8,7 @@ class webPage : public QWebPage
     public:
         webPage();
         QString userAgentForUrl(const QUrl &url ) const;
-
         void resetUserAgent();
-
     private:
         QString currentAgent_;
         static QList<QString> agentList_;
