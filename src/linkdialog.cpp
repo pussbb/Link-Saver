@@ -38,6 +38,16 @@ LinkDialog::~LinkDialog()
     delete ui;
 }
 
+QVariantMap LinkDialog::getData() const
+{
+    QVariantMap result;
+    result.insert("url", ui->url->text());
+    result.insert("title", ui->title->text());
+    result.insert("absoluteFileName", QDir::tempPath() +"/"+ fileName );
+    result.insert("screenshort", fileName);
+    return result;
+}
+
 void LinkDialog::on_toolButton_clicked()
 {
     if ( ! WebCapture::validUrl(ui->url->text())) {

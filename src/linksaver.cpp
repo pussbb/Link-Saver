@@ -100,6 +100,7 @@ void LinkSaver::linkListChangedIndex(int index)
     ui->actionNewLink->setEnabled(true);
     ui->linksTree->buildTree(linksList->currentText());
     settings.setValue("general.lastopened", linksList->currentText());
+
 }
 
 void LinkSaver::initLinksList()
@@ -256,7 +257,7 @@ void LinkSaver::on_actionNewLink_triggered()
     LinkDialog *dialog = new LinkDialog(this);
     if(dialog->exec() == QDialog::Accepted)
     {
-
+        m_engine->addLink(ui->linksTree->selectedItemDomIndex(), dialog->getData());
     }
     dialog->deleteLater();
 }

@@ -86,6 +86,49 @@ void Engine::addFolder(const QString &name, const QString &docName)
     save(docName);
 }
 
+void Engine::addLink(int pos, QVariantMap items)
+{
+    addLink(pos, items, currentName);
+}
+
+void Engine::addLink(int pos, QVariantMap items, const QString &docName)
+{
+
+    QDomDocument doc = document(docName);
+
+    QDomElement elem = doc.createElement("bookmark");
+    elem.setAttribute("type", "link");
+
+    if (items.contains("absoluteFileName")) {
+        QString file = items.value("absoluteFileName").toString();
+        items.remove("absoluteFileName");
+        QString resultFile = documentDir(docName)
+                + QDir::toNativeSeparators("/images/")
+                + items.value("screenshort").toString();
+        QFile::copy(file, resultFile);
+        QFile::setPermissions(resultFile, QFile::ReadOwner | QFile::WriteOwner
+                              | QFile::ExeOwner | QFile::ReadUser
+                              | QFile::WriteUser | QFile::ExeUser
+                              | QFile::ReadGroup | QFile::WriteGroup
+                              | QFile::ExeGroup | QFile::ReadOther
+                              | QFile::WriteOther | QFile::ExeOther
+                             );
+    }
+
+    foreach(QString key, items.keys())
+    {
+        QDomElement item =doc.createElement(key);
+        item.appendChild(doc.createTextNode(items.value(key).toString()));
+        elem.appendChild(item);
+    }
+    if ( pos >= 0 )
+        findNode(pos).toElement().appendChild(elem);
+    else
+        doc.documentElement().appendChild(elem);
+
+    save(docName);
+}
+
 bool Engine::save(const QString &name)
 {
 
@@ -94,7 +137,7 @@ bool Engine::save(const QString &name)
         return false;
     QTextStream out(&f);
     out.setCodec("UTF-8");
-    document(name).save(out, 0);
+    document(name).save(out, 4);
     f.close();
     return true;
 }
@@ -120,6 +163,15 @@ bool Engine::deleteDocumentFolder(const QString &docName, int pos)
     return save(docName);
 }
 
+QDomNode Engine::findNode(int pos)
+{
+    return findNode(currentName, pos);
+}
+
+QDomNode Engine::findNode(const QString &docName, int pos)
+{
+    return document(docName).documentElement().childNodes().item(pos);
+}
 
 QDomDocument Engine::document(const QString &name)
 {

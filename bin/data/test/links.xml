@@ -1,4 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <lsbook version="1.1" created="Sat Jun 9 2012" name="test">
-<folder name="test"/>
+    <folder name="test">
+        <bookmark type="link">
+            <absoluteFileName>/tmp/5a1d9ba9013cc0b485f721c3f1b1274e.png</absoluteFileName>
+            <screenshort>5a1d9ba9013cc0b485f721c3f1b1274e.png</screenshort>
+            <title>Добро пожаловать</title>
+            <url>http://vk.com/</url>
+        </bookmark>
+    </folder>
+    <bookmark type="link">
+        <screenshort>392e14628bd379517cd233a61c2054a1.png</screenshort>
+        <title>Google</title>
+        <url>http://www.google.com.ua</url>
+    </bookmark>
 </lsbook>

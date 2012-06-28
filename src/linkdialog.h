@@ -17,7 +17,8 @@ class LinkDialog : public QDialog
 public:
     explicit LinkDialog(QWidget *parent = 0);
     ~LinkDialog();
-    
+    QVariantMap getData() const;
+
 private slots:
     void on_toolButton_clicked();
     void saveImave(bool);
