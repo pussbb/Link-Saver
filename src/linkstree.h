@@ -4,7 +4,7 @@
 #include <QTreeWidget>
 #include <engine.h>
 #include <QDomNode>
-
+#include <QTreeWidgetItem>
 
 class LinksTree : public QTreeWidget
 {
@@ -27,6 +27,9 @@ private slots:
     void itemClicked(QTreeWidgetItem *item, int column);
 private:
     Engine *m_engine;
+    void addFolder(const QDomNode &node, int &pos, QTreeWidgetItem *item);
+    void addLink(const QDomNode &node, int &pos, QTreeWidgetItem *item);
+    void addItem(const QDomNode &node, int &pos,QTreeWidgetItem *item );
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(LinksTree::Types)
