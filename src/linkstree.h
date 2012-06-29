@@ -28,7 +28,7 @@ public:
     { return isSelectionValid() ? itemDomIndex(currentItem()) : -1;}
 
     inline int itemType(QTreeWidgetItem *item)
-    { return item->data(0, 32).toInt();}
+    { return item->data(0, 33).toInt();}
 
     inline int itemDomIndex(QTreeWidgetItem *item)
     { return item->data(0, 32).toInt();}

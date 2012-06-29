@@ -49,7 +49,7 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 
     QDomElement elem = m_engine->documentRoot() ;
     for (int i = parents.count() - 1; i >= 0; --i){
-        elem = m_engine->findNode(parents.at(i)->data(0, 32).toInt(), elem).toElement();
+        elem = m_engine->findNode(itemDomIndex(parents.at(i)), elem).toElement();
     }
 
     return elem;
