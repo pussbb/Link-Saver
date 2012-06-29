@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     LinkSaver w;
 
     QSettings settings;
-    if( settings.value("hideonstart",false) == false)
+    if( ! settings.value("hideonstart",false).toBool())
         w.show();
 
     return a.exec();

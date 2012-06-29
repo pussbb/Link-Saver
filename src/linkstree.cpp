@@ -43,16 +43,18 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
     QList<QTreeWidgetItem*> parents;
     QTreeWidgetItem *parent = item->parent();
     parents.append(parent);
-    while(parent->parent() != NULL){
-        parents.append(parent->parent());
+    while((parent = parent->parent()) != NULL){
+        parents.append(parent);
     }
 
     QDomElement elem = m_engine->documentRoot() ;
+    qDebug()<<parents;
     for (int i = parents.count() - 1; i >= 0; --i){
+        qDebug()<<i;
         elem = m_engine->findNode(itemDomIndex(parents.at(i)), elem).toElement();
     }
 
-    return m_engine->findNode(itemDomIndex(item), elem).toElement();
+    return elem;
 }
 
 bool LinksTree::removeItem(QTreeWidgetItem *item)
@@ -68,6 +70,13 @@ bool LinksTree::removeItem(QTreeWidgetItem *item)
     if (ok)
         delete item;
     return ok;
+}
+
+QDomElement LinksTree::selectedDomItem()
+{
+    if ( ! isSelectionValid())
+        return m_engine->documentRoot();
+    return m_engine->findNode(itemDomIndex(currentItem()), parentDomItem(currentItem())).toElement();
 }
 
 void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
