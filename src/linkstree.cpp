@@ -35,20 +35,36 @@ QString LinksTree::currentText() const
     return QString();
 }
 
-int LinksTree::selectedItemType()
+QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 {
-    if ( currentIndex().isValid() && currentItem()->isSelected())
-        return currentItem()->data(0, 33).toInt();
-    return -1;
+    if ( ! currentIndex().isValid() && ! currentItem()->isSelected())
+        return QDomElement();
+
+    if (currentItem()->parent() == NULL)
+        return m_engine->documentRoot();
+
+    QList<QTreeWidgetItem*> parents;
+    QTreeWidgetItem *parent = currentItem()->parent();
+    parents.append(parent);
+    while(parent->parent() != NULL){
+        parents.append(parent->parent());
+    }
+
+    QDomElement elem = m_engine->documentRoot() ;
+    for (int i = parents.count() - 1; i >= 0; --i){
+        elem = m_engine->findNode(parents.at(i)->data(0, 32).toInt(), elem).toElement();
+    }
+
+    return elem;
 }
 
-int LinksTree::selectedItemDomIndex()
+bool LinksTree::removeItem(QTreeWidgetItem *item)
 {
-    if ( currentIndex().isValid() && currentItem()->isSelected())
-        return currentItem()->data(0, 32).toInt();
-    return -1;
+    bool ok = m_engine->deleteDocumentFolder(itemDomIndex(item),parentDomItem(item));
+    if (ok)
+        delete item;
+    return ok;
 }
-
 
 void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
 {
@@ -63,9 +79,8 @@ void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
     }
 }
 
-void LinksTree::addFolder(const QDomNode &node, int &pos, QTreeWidgetItem *item)
+void LinksTree::addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
-
     QTreeWidgetItem *_item = new QTreeWidgetItem();
     _item->setText(0, node.toElement().attribute("name"));
     _item->setData(0, 32, pos);
@@ -87,7 +102,7 @@ void LinksTree::addFolder(const QDomNode &node, int &pos, QTreeWidgetItem *item)
     }
 }
 
-void LinksTree::addLink(const QDomNode &node, int &pos, QTreeWidgetItem *item)
+void LinksTree::addLink(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
     QTreeWidgetItem *_item=new QTreeWidgetItem();
     _item->setText(0, node.firstChildElement("title").toElement().text());
@@ -102,7 +117,7 @@ void LinksTree::addLink(const QDomNode &node, int &pos, QTreeWidgetItem *item)
         addTopLevelItem(_item);
 }
 
-void LinksTree::addItem(const QDomNode &node, int &pos, QTreeWidgetItem *item)
+void LinksTree::addItem(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
     if ( node.nodeName() == "folder")
     {

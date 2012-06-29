@@ -22,16 +22,17 @@ public:
     QDomElement documentRoot() const;
     QDomElement documentRoot(const QString &docName) const;
     void setCurrent(const QString &name);
-    void addFolder(const QString &name);
-    void addFolder(const QString &name, const QString &docName);
+    void addFolder(int pos,const QString &name);
+    void addFolder(int pos,const QString &name, const QString &docName);
     void addLink(int pos, QVariantMap items);
     void addLink(int pos, QVariantMap items, const QString &docName);
     bool save(const QString &name);
     QString documentDir(const QString &docName) const;
-    bool deleteDocumentFolder(int pos);
-    bool deleteDocumentFolder(const QString &docName, int pos);
+    bool deleteDocumentFolder(int pos, QDomElement parentNode);
+    bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
     QDomNode findNode(int pos);
     QDomNode findNode(const QString &docName, int pos);
+    QDomNode findNode(int pos, QDomElement node);
 signals:
     
 public slots:

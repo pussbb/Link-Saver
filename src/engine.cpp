@@ -71,18 +71,22 @@ void Engine::setCurrent(const QString &name)
         currentName = "";
 }
 
-void Engine::addFolder(const QString &name)
+void Engine::addFolder(int pos,const QString &name)
 {
-    addFolder(name, currentName);
+    addFolder(pos, name, currentName);
 }
 
-void Engine::addFolder(const QString &name, const QString &docName)
+void Engine::addFolder(int pos,const QString &name, const QString &docName)
 {
     QDomDocument doc = document(docName);
-    QDomElement elem = doc.createElement("folder");;
+    QDomElement elem = doc.createElement("folder");
     elem.setAttribute("name", name);
-    doc.documentElement().appendChild(elem);
-    ///updateDocument(docName, doc);
+
+    if ( pos >= 0 )
+        findNode(pos).toElement().appendChild(elem);
+    else
+        doc.documentElement().appendChild(elem);
+
     save(docName);
 }
 
@@ -151,15 +155,14 @@ QString Engine::documentDir(const QString &docName) const
     return fi.absolutePath();
 }
 
-bool Engine::deleteDocumentFolder(int pos)
+bool Engine::deleteDocumentFolder(int pos, QDomElement parentNode)
 {
-    return deleteDocumentFolder(currentName, pos);
+    return deleteDocumentFolder(currentName, pos, parentNode);
 }
 
-bool Engine::deleteDocumentFolder(const QString &docName, int pos)
+bool Engine::deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode)
 {
-    QDomDocument doc = document(docName);
-    doc.documentElement().removeChild(doc.documentElement().childNodes().item(pos));
+    parentNode.removeChild(findNode(pos, parentNode));
     return save(docName);
 }
 
@@ -170,7 +173,14 @@ QDomNode Engine::findNode(int pos)
 
 QDomNode Engine::findNode(const QString &docName, int pos)
 {
-    return document(docName).documentElement().childNodes().item(pos);
+    return findNode(pos, documentRoot(docName));
+}
+
+QDomNode Engine::findNode(int pos, QDomElement node)
+{
+    if ( node.isNull())
+        return QDomNode();
+    return node.childNodes().item(pos);
 }
 
 QDomDocument Engine::document(const QString &name)

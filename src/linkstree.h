@@ -17,8 +17,28 @@ public:
     void buildTree(const QString &name);
     void refresh();
     QString currentText() const;
-    int selectedItemType();
-    int selectedItemDomIndex();
+
+    QDomElement parentDomItem(QTreeWidgetItem *item);
+    bool removeItem(QTreeWidgetItem *item);
+
+    inline int selectedItemType()
+    { return isSelectionValid() ? itemType(currentItem()) : -1;}
+
+    inline int selectedItemDomIndex()
+    { return isSelectionValid() ? itemDomIndex(currentItem()) : -1;}
+
+    inline int itemType(QTreeWidgetItem *item)
+    { return item->data(0, 32).toInt();}
+
+    inline int itemDomIndex(QTreeWidgetItem *item)
+    { return item->data(0, 32).toInt();}
+
+    inline bool removeSelectedItem()
+    { return isSelectionValid() ? removeItem(currentItem()) : false; }
+
+    inline bool isSelectionValid()
+    { return (currentIndex().isValid() && currentItem()->isSelected());}
+
 signals:
     void folderSelected();//QTreeWidgetItem *item, int column
     void linkSelected();//QTreeWidgetItem *item, int column
@@ -27,9 +47,9 @@ private slots:
     void itemClicked(QTreeWidgetItem *item, int column);
 private:
     Engine *m_engine;
-    void addFolder(const QDomNode &node, int &pos, QTreeWidgetItem *item);
-    void addLink(const QDomNode &node, int &pos, QTreeWidgetItem *item);
-    void addItem(const QDomNode &node, int &pos,QTreeWidgetItem *item );
+    void addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item);
+    void addLink(const QDomNode &node, int pos, QTreeWidgetItem *item);
+    void addItem(const QDomNode &node, int pos,QTreeWidgetItem *item );
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(LinksTree::Types)

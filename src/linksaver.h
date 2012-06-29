@@ -33,6 +33,8 @@ private slots:
     void treeCustomMenu(QPoint pos);
     void on_actionNewLink_triggered();
 
+    void on_actionDeleteLink_triggered();
+
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;

@@ -132,7 +132,6 @@ void LinkSaver::initLinksList()
     linksList->setCurrentIndex(lastOpened);
 }
 
-
 void LinkSaver::on_actionNewCategory_triggered()
 {
     bool ok;
@@ -141,7 +140,7 @@ void LinkSaver::on_actionNewCategory_triggered()
                                          "", &ok);
     if (ok && !text.isEmpty())
     {
-        m_engine->addFolder(text);
+        m_engine->addFolder(ui->linksTree->selectedItemDomIndex(), text);
         ui->linksTree->refresh();
     }
 }
@@ -207,10 +206,7 @@ void LinkSaver::on_actionDeleteCategory_triggered()
     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::No);
     if (msgBox.exec() == QMessageBox::Yes) {
-        if ( m_engine->deleteDocumentFolder(ui->linksTree->selectedItemDomIndex())) {
-            ui->linksTree->refresh();
-        }
-        else {
+        if ( ! ui->linksTree->removeSelectedItem() ) {
             QMessageBox::warning(0,  QObject::tr("Deleting category"),
                                  QObject::tr("Could not delete category.\n%1")
                                  .arg(ui->linksTree->currentText()));
@@ -260,4 +256,10 @@ void LinkSaver::on_actionNewLink_triggered()
         m_engine->addLink(ui->linksTree->selectedItemDomIndex(), dialog->getData());
     }
     dialog->deleteLater();
+}
+
+void LinkSaver::on_actionDeleteLink_triggered()
+{
+    int index = ui->linksTree->selectedItemDomIndex();
+    qDebug()<<m_engine->findNode(index).toElement().text();
 }
