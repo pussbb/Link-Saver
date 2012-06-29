@@ -64,7 +64,6 @@ void Engine::addFolder(QDomElement parentNode, const QString &name, const QStrin
         doc.documentElement().appendChild(elem);
 
     save(docName);
-//    return elem;
 }
 
 void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &docName)
@@ -103,7 +102,6 @@ void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &d
         doc.documentElement().appendChild(elem);
 
     save(docName);
-//    return elem;
 }
 
 bool Engine::save(const QString &name)

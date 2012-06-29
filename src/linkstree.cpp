@@ -18,7 +18,7 @@ void LinksTree::buildTree(const QString &name)
 void LinksTree::refresh()
 {
     clear();
-    QDomNodeList nodes=  m_engine->documentRoot().childNodes();
+    QDomNodeList nodes = m_engine->documentRoot().childNodes();
     if ( nodes.count() == 0)
         return;
 
@@ -35,6 +35,24 @@ QString LinksTree::currentText() const
     return QString();
 }
 
+void LinksTree::refreshSelected()
+{
+    if ( ! isSelectionValid())
+        return refresh();
+
+    qDeleteAll(currentItem()->takeChildren());
+    QDomNodeList nodes = m_engine->findNode(itemDomIndex(currentItem()),
+                                            parentDomItem(currentItem())).childNodes();
+
+    if ( nodes.count() == 0)
+        return;
+
+    for(int i=0; i < nodes.count(); ++i)
+    {
+        addItem(nodes.at(i), i, currentItem());
+    }
+}
+
 QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 {
     if (item->parent() == NULL)
@@ -48,9 +66,7 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
     }
 
     QDomElement elem = m_engine->documentRoot() ;
-    qDebug()<<parents;
     for (int i = parents.count() - 1; i >= 0; --i){
-        qDebug()<<i;
         elem = m_engine->findNode(itemDomIndex(parents.at(i)), elem).toElement();
     }
 

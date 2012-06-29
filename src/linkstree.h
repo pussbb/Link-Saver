@@ -18,6 +18,8 @@ public:
     void refresh();
     QString currentText() const;
 
+    void refreshSelected();
+
     QDomElement parentDomItem(QTreeWidgetItem *item);
     bool removeItem(QTreeWidgetItem *item);
 

@@ -141,7 +141,7 @@ void LinkSaver::on_actionNewCategory_triggered()
     if (ok && !text.isEmpty())
     {
         m_engine->addFolder(ui->linksTree->selectedDomItem(), text);
-        ui->linksTree->refresh();
+        ui->linksTree->refreshSelected();
     }
 }
 
@@ -254,6 +254,7 @@ void LinkSaver::on_actionNewLink_triggered()
     if(dialog->exec() == QDialog::Accepted)
     {
         m_engine->addLink(ui->linksTree->selectedDomItem(), dialog->getData());
+        ui->linksTree->refreshSelected();
     }
     dialog->deleteLater();
 }
