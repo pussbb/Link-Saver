@@ -19,20 +19,39 @@ public:
     QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
     ///void updateDocument(const QString &name, const QDomDocument &doc);
-    QDomElement documentRoot() const;
-    QDomElement documentRoot(const QString &docName) const;
-    void setCurrent(const QString &name);
-    void addFolder(int pos,const QString &name);
-    void addFolder(int pos,const QString &name, const QString &docName);
-    void addLink(int pos, QVariantMap items);
-    void addLink(int pos, QVariantMap items, const QString &docName);
     bool save(const QString &name);
-    QString documentDir(const QString &docName) const;
-    bool deleteDocumentFolder(int pos, QDomElement parentNode);
+    void setCurrent(const QString &name);
+    void addFolder(int pos,const QString &name, const QString &docName);
+    void addLink(int pos, QVariantMap items, const QString &docName);
+
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
-    QDomNode findNode(int pos);
-    QDomNode findNode(const QString &docName, int pos);
-    QDomNode findNode(int pos, QDomElement node);
+
+    inline QDomElement documentRoot() const
+    { return documentRoot(currentName);}
+
+    inline QDomElement documentRoot(const QString &docName) const
+    { return docs.value(docName).documentElement();}
+
+    inline void addFolder(int pos,const QString &name)
+    { addFolder(pos, name, currentName);}
+
+    inline void addLink(int pos, QVariantMap items)
+    { addLink(pos, items, currentName);}
+
+    inline QDomNode findNode(int pos, QDomElement node)
+    { return node.isNull() ? QDomNode() : node.childNodes().item(pos);}
+
+    inline QDomNode findNode(int pos)
+    { return findNode(currentName, pos);}
+
+    inline QDomNode findNode(const QString &docName, int pos)
+    { return findNode(pos, documentRoot(docName));}
+
+    inline bool deleteDocumentFolder(int pos, QDomElement parentNode)
+    { return deleteDocumentFolder(currentName, pos, parentNode);}
+
+    inline QString documentDir(const QString &docName) const
+    { return docs.value(name, QDomDocument ());}
 signals:
     
 public slots:

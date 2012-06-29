@@ -64,6 +64,7 @@ bool LinksTree::removeItem(QTreeWidgetItem *item)
     if ( itemType(item) == LinksTree::Link) {
 
     }
+
     if (ok)
         delete item;
     return ok;
@@ -131,3 +132,4 @@ void LinksTree::addItem(const QDomNode &node, int pos, QTreeWidgetItem *item)
         addLink(node, pos, item);
     }
 }
+

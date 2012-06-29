@@ -44,17 +44,6 @@ QDomDocument Engine::create(const QString &name, const QString &dirName)
     return openDocument(f.fileName());
 }
 
-QDomElement Engine::documentRoot() const
-{
-    return documentRoot(currentName);
-}
-
-QDomElement Engine::documentRoot(const QString &docName) const
-{
-    QDomDocument doc = docs.value(docName);
-    return doc.documentElement();
-}
-
 /*
 void Engine::updateDocument(const QString &name, const QDomDocument &doc)
 {
@@ -71,11 +60,6 @@ void Engine::setCurrent(const QString &name)
         currentName = "";
 }
 
-void Engine::addFolder(int pos,const QString &name)
-{
-    addFolder(pos, name, currentName);
-}
-
 void Engine::addFolder(int pos,const QString &name, const QString &docName)
 {
     QDomDocument doc = document(docName);
@@ -88,11 +72,6 @@ void Engine::addFolder(int pos,const QString &name, const QString &docName)
         doc.documentElement().appendChild(elem);
 
     save(docName);
-}
-
-void Engine::addLink(int pos, QVariantMap items)
-{
-    addLink(pos, items, currentName);
 }
 
 void Engine::addLink(int pos, QVariantMap items, const QString &docName)
@@ -155,36 +134,9 @@ QString Engine::documentDir(const QString &docName) const
     return fi.absolutePath();
 }
 
-bool Engine::deleteDocumentFolder(int pos, QDomElement parentNode)
-{
-    return deleteDocumentFolder(currentName, pos, parentNode);
-}
-
 bool Engine::deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode)
 {
     parentNode.removeChild(findNode(pos, parentNode));
     return save(docName);
-}
-
-QDomNode Engine::findNode(int pos)
-{
-    return findNode(currentName, pos);
-}
-
-QDomNode Engine::findNode(const QString &docName, int pos)
-{
-    return findNode(pos, documentRoot(docName));
-}
-
-QDomNode Engine::findNode(int pos, QDomElement node)
-{
-    if ( node.isNull())
-        return QDomNode();
-    return node.childNodes().item(pos);
-}
-
-QDomDocument Engine::document(const QString &name)
-{
-    return docs.value(name, QDomDocument ());
 }
 
