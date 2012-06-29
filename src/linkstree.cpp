@@ -37,8 +37,8 @@ QString LinksTree::currentText() const
 
 QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 {
-    if (currentItem()->parent() == NULL)
-        return m_engine->documentRoot();
+    if (item->parent() == NULL)
+        return  m_engine->findNode(itemDomIndex(item), m_engine->documentRoot()).toElement();
 
     QList<QTreeWidgetItem*> parents;
     QTreeWidgetItem *parent = item->parent();
@@ -52,7 +52,7 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
         elem = m_engine->findNode(itemDomIndex(parents.at(i)), elem).toElement();
     }
 
-    return elem;
+    return m_engine->findNode(itemDomIndex(item), elem).toElement();
 }
 
 bool LinksTree::removeItem(QTreeWidgetItem *item)

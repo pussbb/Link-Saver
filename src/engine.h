@@ -15,14 +15,15 @@ class Engine : public QObject
     Q_OBJECT
 public:
     explicit Engine(QObject *parent = 0, QString storeDir = "");
+
     QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
     QString documentDir(const QString &docName) const;
-    ///void updateDocument(const QString &name, const QDomDocument &doc);
+
     bool save(const QString &name);
     void setCurrent(const QString &name);
-    void addFolder(int pos,const QString &name, const QString &docName);
-    void addLink(int pos, QVariantMap items, const QString &docName);
+    void addFolder(QDomElement parentNode,const QString &name, const QString &docName);
+    void addLink(QDomElement parentNode, QVariantMap items, const QString &docName);
 
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
 
@@ -32,11 +33,11 @@ public:
     inline QDomElement documentRoot(const QString &docName) const
     { return docs.value(docName).documentElement();}
 
-    inline void addFolder(int pos,const QString &name)
-    { addFolder(pos, name, currentName);}
+    inline void addFolder(QDomElement parentNode,const QString &name)
+    { addFolder(parentNode, name, currentName);}
 
-    inline void addLink(int pos, QVariantMap items)
-    { addLink(pos, items, currentName);}
+    inline void addLink(QDomElement parentNode, QVariantMap items)
+    { addLink(parentNode, items, currentName);}
 
     inline QDomNode findNode(int pos, QDomElement node)
     { return node.isNull() ? QDomNode() : node.childNodes().item(pos);}

@@ -44,14 +44,6 @@ QDomDocument Engine::create(const QString &name, const QString &dirName)
     return openDocument(f.fileName());
 }
 
-/*
-void Engine::updateDocument(const QString &name, const QDomDocument &doc)
-{
-    if ( docs.contains(name))
-        docs.remove(name);
-    docs.insert(name, doc);
-}*/
-
 void Engine::setCurrent(const QString &name)
 {
     if (docs.contains(name))
@@ -60,21 +52,22 @@ void Engine::setCurrent(const QString &name)
         currentName = "";
 }
 
-void Engine::addFolder(int pos,const QString &name, const QString &docName)
+void Engine::addFolder(QDomElement parentNode, const QString &name, const QString &docName)
 {
     QDomDocument doc = document(docName);
     QDomElement elem = doc.createElement("folder");
     elem.setAttribute("name", name);
 
-    if ( pos >= 0 )
-        findNode(pos).toElement().appendChild(elem);
+    if ( ! parentNode.isNull() )
+        parentNode.appendChild(elem);
     else
         doc.documentElement().appendChild(elem);
 
     save(docName);
+//    return elem;
 }
 
-void Engine::addLink(int pos, QVariantMap items, const QString &docName)
+void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &docName)
 {
 
     QDomDocument doc = document(docName);
@@ -104,12 +97,13 @@ void Engine::addLink(int pos, QVariantMap items, const QString &docName)
         item.appendChild(doc.createTextNode(items.value(key).toString()));
         elem.appendChild(item);
     }
-    if ( pos >= 0 )
-        findNode(pos).toElement().appendChild(elem);
+    if ( ! parentNode.isNull() )
+        parentNode.appendChild(elem);
     else
         doc.documentElement().appendChild(elem);
 
     save(docName);
+//    return elem;
 }
 
 bool Engine::save(const QString &name)

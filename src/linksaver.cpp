@@ -140,7 +140,7 @@ void LinkSaver::on_actionNewCategory_triggered()
                                          "", &ok);
     if (ok && !text.isEmpty())
     {
-        m_engine->addFolder(ui->linksTree->selectedItemDomIndex(), text);
+        m_engine->addFolder(ui->linksTree->selectedParentDomItem(), text);
         ui->linksTree->refresh();
     }
 }
@@ -253,7 +253,7 @@ void LinkSaver::on_actionNewLink_triggered()
     LinkDialog *dialog = new LinkDialog(this);
     if(dialog->exec() == QDialog::Accepted)
     {
-        m_engine->addLink(ui->linksTree->selectedItemDomIndex(), dialog->getData());
+        m_engine->addLink(ui->linksTree->selectedParentDomItem(), dialog->getData());
     }
     dialog->deleteLater();
 }

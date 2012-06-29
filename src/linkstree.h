@@ -27,6 +27,9 @@ public:
     inline int selectedItemDomIndex()
     { return isSelectionValid() ? itemDomIndex(currentItem()) : -1;}
 
+    inline QDomElement selectedParentDomItem()
+    { return isSelectionValid() ? parentDomItem(currentItem()) : m_engine->documentRoot();}
+
     inline int itemType(QTreeWidgetItem *item)
     { return item->data(0, 33).toInt();}
 
