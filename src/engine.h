@@ -15,9 +15,9 @@ class Engine : public QObject
     Q_OBJECT
 public:
     explicit Engine(QObject *parent = 0, QString storeDir = "");
-    QDomDocument document(const QString &name);
     QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
+    QString documentDir(const QString &docName) const;
     ///void updateDocument(const QString &name, const QDomDocument &doc);
     bool save(const QString &name);
     void setCurrent(const QString &name);
@@ -50,7 +50,7 @@ public:
     inline bool deleteDocumentFolder(int pos, QDomElement parentNode)
     { return deleteDocumentFolder(currentName, pos, parentNode);}
 
-    inline QString documentDir(const QString &docName) const
+    inline QDomDocument document(const QString &name)
     { return docs.value(name, QDomDocument ());}
 signals:
     

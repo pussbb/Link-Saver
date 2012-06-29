@@ -41,7 +41,7 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
         return m_engine->documentRoot();
 
     QList<QTreeWidgetItem*> parents;
-    QTreeWidgetItem *parent = currentItem()->parent();
+    QTreeWidgetItem *parent = item->parent();
     parents.append(parent);
     while(parent->parent() != NULL){
         parents.append(parent->parent());
