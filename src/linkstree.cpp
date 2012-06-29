@@ -37,9 +37,6 @@ QString LinksTree::currentText() const
 
 QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 {
-    if ( ! currentIndex().isValid() && ! currentItem()->isSelected())
-        return QDomElement();
-
     if (currentItem()->parent() == NULL)
         return m_engine->documentRoot();
 
@@ -60,7 +57,13 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 
 bool LinksTree::removeItem(QTreeWidgetItem *item)
 {
-    bool ok = m_engine->deleteDocumentFolder(itemDomIndex(item),parentDomItem(item));
+    bool ok;
+    if ( itemType(item) == LinksTree::Folder) {
+        ok = m_engine->deleteDocumentFolder(itemDomIndex(item), parentDomItem(item));
+    }
+    if ( itemType(item) == LinksTree::Link) {
+
+    }
     if (ok)
         delete item;
     return ok;
@@ -70,11 +73,11 @@ void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
 
-    if ( item->data(0, 33).toInt() == LinksTree::Folder) {
+    if ( itemType(item) == LinksTree::Folder) {
         emit(folderSelected());//item, column
         return;
     }
-    if ( item->data(0, 33).toInt() == LinksTree::Link) {
+    if ( itemType(item) == LinksTree::Link) {
         emit(linkSelected());//item, column
     }
 }
