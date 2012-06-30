@@ -261,6 +261,19 @@ void LinkSaver::on_actionNewLink_triggered()
 
 void LinkSaver::on_actionDeleteLink_triggered()
 {
-    int index = ui->linksTree->selectedItemDomIndex();
-    qDebug()<<m_engine->findNode(index).toElement().text();
+    QMessageBox msgBox;
+    msgBox.setWindowTitle(tr("Delete link"));
+    msgBox.setText(
+                tr("Do you realy what to delete link \n %1")
+                .arg(ui->linksTree->currentText())
+                );
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    if (msgBox.exec() == QMessageBox::Yes) {
+        if ( ! ui->linksTree->removeSelectedItem() ) {
+            QMessageBox::warning(0,  QObject::tr("Deleting link"),
+                                 QObject::tr("Could not delete link.\n%1")
+                                 .arg(ui->linksTree->currentText()));
+        }
+    }
 }

@@ -134,7 +134,32 @@ QString Engine::documentDir(const QString &docName) const
 
 bool Engine::deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode)
 {
-    parentNode.removeChild(findNode(pos, parentNode));
+    QDomNode node = findNode(pos, parentNode);
+    for(int i = 0; i > node.childNodes().count(); ++i) {
+        QDomNode _node = node.childNodes().at(i);
+        if ( _node.nodeName() == "folder")
+        {
+            deleteDocumentFolder(docName, pos, _node.toElement());
+        }
+        if ( _node.nodeName() == "bookmark"
+             && _node.toElement().attribute("type") == "link") {
+            deleteDocumentLink(docName, pos, _node.toElement());
+        }
+    }
+    parentNode.removeChild(node);
+    return save(docName);
+}
+
+bool Engine::deleteDocumentLink(const QString &docName, int pos, QDomElement parentNode)
+{
+    QDomNode node = findNode(pos, parentNode);
+    QString file = documentDir(docName)
+            + QDir::toNativeSeparators("/images/")
+            + node.firstChildElement("screenshort").text();
+
+    QFile::remove(file);
+
+    parentNode.removeChild(node);
     return save(docName);
 }
 

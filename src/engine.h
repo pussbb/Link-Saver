@@ -27,6 +27,7 @@ public:
     void moveItem(QDomElement toNode, QDomElement node, const QString &docName);
 
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
+    bool deleteDocumentLink(const QString &docName, int pos, QDomElement parentNode);
 
     inline void moveItem(QDomElement toNode, QDomElement node)
     { moveItem(toNode, node, currentName);}
@@ -54,6 +55,9 @@ public:
 
     inline bool deleteDocumentFolder(int pos, QDomElement parentNode)
     { return deleteDocumentFolder(currentName, pos, parentNode);}
+
+    inline bool deleteDocumentLink(int pos, QDomElement parentNode)
+    { return deleteDocumentLink(currentName, pos, parentNode);}
 
     inline QDomDocument document(const QString &name)
     { return docs.value(name, QDomDocument ());}

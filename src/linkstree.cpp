@@ -70,7 +70,7 @@ void LinksTree::dragMoveEvent(QDragMoveEvent *e)
 void LinksTree::dropEvent(QDropEvent *e)
 {
     QTreeWidgetItem *item = itemAt(e->pos());
-qDebug()<<itemDomIndex(item)<<m_engine->findNode(itemDomIndex(item), parentDomItem(item)).isNull() << item->text(0);
+
     if (item != NULL)
         m_engine->moveItem(itemDomElement(item), itemDomElement(currentItem()));
     else
@@ -106,7 +106,7 @@ bool LinksTree::removeItem(QTreeWidgetItem *item)
         ok = m_engine->deleteDocumentFolder(itemDomIndex(item), parentDomItem(item));
     }
     if ( itemType(item) == LinksTree::Link) {
-
+        ok = m_engine->deleteDocumentLink(itemDomIndex(item), parentDomItem(item));
     }
 
     if (ok)
@@ -124,7 +124,7 @@ QDomElement LinksTree::selectedDomItem()
 void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
-qDebug()<<itemDomIndex(item)<< parentDomItem(item).tagName();
+
     if ( itemType(item) == LinksTree::Folder) {
         emit(folderSelected());//item, column
         return;
