@@ -7,6 +7,11 @@ LinksTree::LinksTree(QWidget *parent) :
     connect(this, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
             this, SLOT(itemClicked(QTreeWidgetItem*,int)));
     setContextMenuPolicy( Qt::CustomContextMenu);
+    setDragEnabled(true);
+    setAcceptDrops(true);
+    setDefaultDropAction(Qt::MoveAction);
+    setDragDropMode(QAbstractItemView::DragDrop);
+    setDropIndicatorShown(true);
 }
 
 void LinksTree::buildTree(const QString &name)
@@ -41,8 +46,7 @@ void LinksTree::refreshSelected()
         return refresh();
 
     qDeleteAll(currentItem()->takeChildren());
-    QDomNodeList nodes = m_engine->findNode(itemDomIndex(currentItem()),
-                                            parentDomItem(currentItem())).childNodes();
+    QDomNodeList nodes = itemDomElement(currentItem()).childNodes();
 
     if ( nodes.count() == 0)
         return;
@@ -53,10 +57,32 @@ void LinksTree::refreshSelected()
     }
 }
 
+void LinksTree::dragMoveEvent(QDragMoveEvent *e)
+{
+    QTreeWidgetItem *item = itemAt(e->pos());
+    if ( ! item)
+        return e->accept();
+
+    if ( itemType(item) == LinksTree::Link)
+        return e->ignore();
+}
+
+void LinksTree::dropEvent(QDropEvent *e)
+{
+    QTreeWidgetItem *item = itemAt(e->pos());
+qDebug()<<itemDomIndex(item)<<m_engine->findNode(itemDomIndex(item), parentDomItem(item)).isNull() << item->text(0);
+    if (item != NULL)
+        m_engine->moveItem(itemDomElement(item), itemDomElement(currentItem()));
+    else
+        m_engine->moveItem(m_engine->documentRoot(), itemDomElement(currentItem()));
+
+    QTreeWidget::dropEvent(e);
+}
+
 QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 {
     if (item->parent() == NULL)
-        return  m_engine->findNode(itemDomIndex(item), m_engine->documentRoot()).toElement();
+        return m_engine->documentRoot();
 
     QList<QTreeWidgetItem*> parents;
     QTreeWidgetItem *parent = item->parent();
@@ -92,13 +118,13 @@ QDomElement LinksTree::selectedDomItem()
 {
     if ( ! isSelectionValid())
         return m_engine->documentRoot();
-    return m_engine->findNode(itemDomIndex(currentItem()), parentDomItem(currentItem())).toElement();
+    return itemDomElement(currentItem());
 }
 
 void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
-
+qDebug()<<itemDomIndex(item)<< parentDomItem(item).tagName();
     if ( itemType(item) == LinksTree::Folder) {
         emit(folderSelected());//item, column
         return;

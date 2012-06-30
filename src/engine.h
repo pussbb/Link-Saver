@@ -24,8 +24,12 @@ public:
     void setCurrent(const QString &name);
     void addFolder(QDomElement parentNode,const QString &name, const QString &docName);
     void addLink(QDomElement parentNode, QVariantMap items, const QString &docName);
+    void moveItem(QDomElement toNode, QDomElement node, const QString &docName);
 
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
+
+    inline void moveItem(QDomElement toNode, QDomElement node)
+    { moveItem(toNode, node, currentName);}
 
     inline QDomElement documentRoot() const
     { return documentRoot(currentName);}

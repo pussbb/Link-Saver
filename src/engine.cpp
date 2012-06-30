@@ -52,6 +52,12 @@ void Engine::setCurrent(const QString &name)
         currentName = "";
 }
 
+void Engine::moveItem(QDomElement toNode, QDomElement node, const QString &docName)
+{
+    toNode.appendChild(node);
+    save(docName);
+}
+
 void Engine::addFolder(QDomElement parentNode, const QString &name, const QString &docName)
 {
     QDomDocument doc = document(docName);

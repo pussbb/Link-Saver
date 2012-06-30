@@ -5,6 +5,7 @@
 #include <engine.h>
 #include <QDomNode>
 #include <QTreeWidgetItem>
+#include <QDropEvent>
 
 class LinksTree : public QTreeWidget
 {
@@ -19,16 +20,10 @@ public:
     QString currentText() const;
 
     void refreshSelected();
-
+    void dragMoveEvent(QDragMoveEvent *e);
+    void dropEvent( QDropEvent *e );
     QDomElement parentDomItem(QTreeWidgetItem *item);
     bool removeItem(QTreeWidgetItem *item);
-
-    inline int selectedItemType()
-    { return isSelectionValid() ? itemType(currentItem()) : -1;}
-
-    inline int selectedItemDomIndex()
-    { return isSelectionValid() ? itemDomIndex(currentItem()) : -1;}
-
     QDomElement selectedDomItem();
 
     inline int itemType(QTreeWidgetItem *item)
@@ -37,11 +32,20 @@ public:
     inline int itemDomIndex(QTreeWidgetItem *item)
     { return item->data(0, 32).toInt();}
 
-    inline bool removeSelectedItem()
-    { return isSelectionValid() ? removeItem(currentItem()) : false; }
-
     inline bool isSelectionValid()
     { return (currentIndex().isValid() && currentItem()->isSelected());}
+
+    inline int selectedItemType()
+    { return isSelectionValid() ? itemType(currentItem()) : -1;}
+
+    inline int selectedItemDomIndex()
+    { return isSelectionValid() ? itemDomIndex(currentItem()) : -1;}
+
+    inline QDomElement itemDomElement(QTreeWidgetItem *item)
+    { return m_engine->findNode(itemDomIndex(item), parentDomItem(item)).toElement();}
+
+    inline bool removeSelectedItem()
+    { return isSelectionValid() ? removeItem(currentItem()) : false; }
 
 signals:
     void folderSelected();//QTreeWidgetItem *item, int column
