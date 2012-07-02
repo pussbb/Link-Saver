@@ -15,19 +15,23 @@ class Engine : public QObject
     Q_OBJECT
 public:
     explicit Engine(QObject *parent = 0, QString storeDir = "");
-
+    enum LinkAttribute{ Url, Title, Screenshort, AbsoluteFilePathScreenshort};
+    Q_DECLARE_FLAGS(LinkAttributes, LinkAttribute)
     QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
     QString documentDir(const QString &docName) const;
-
+    QString linkAttribute(QDomNode node, Engine::LinkAttribute attr);
     bool save(const QString &name);
     void setCurrent(const QString &name);
     void addFolder(QDomElement parentNode,const QString &name, const QString &docName);
     void addLink(QDomElement parentNode, QVariantMap items, const QString &docName);
     void moveItem(QDomElement toNode, QDomElement node, const QString &docName);
 
+
+
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
     bool deleteDocumentLink(const QString &docName, int pos, QDomElement parentNode);
+
 
     inline void moveItem(QDomElement toNode, QDomElement node)
     { moveItem(toNode, node, currentName);}
@@ -61,6 +65,13 @@ public:
 
     inline QDomDocument document(const QString &name)
     { return docs.value(name, QDomDocument ());}
+
+    inline QString documentImagesPath(const QString &docName) const
+    { return documentDir(docName) + QDir::toNativeSeparators("/images/");}
+
+    inline QString documentImagesPath() const
+    { return documentImagesPath(currentName);}
+
 signals:
     
 public slots:
@@ -72,4 +83,5 @@ private:
     QString currentName;
 };
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(Engine::LinkAttributes)
 #endif // ENGINE_H

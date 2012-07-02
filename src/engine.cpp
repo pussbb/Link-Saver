@@ -83,9 +83,7 @@ void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &d
     if (items.contains("absoluteFileName")) {
         QString file = items.value("absoluteFileName").toString();
         items.remove("absoluteFileName");
-        QString resultFile = documentDir(docName)
-                + QDir::toNativeSeparators("/images/")
-                + items.value("screenshort").toString();
+        QString resultFile = documentImagesPath(currentName) + items.value("screenshort").toString();
         QFile::copy(file, resultFile);
         QFile::setPermissions(resultFile, QFile::ReadOwner | QFile::WriteOwner
                               | QFile::ExeOwner | QFile::ReadUser
@@ -153,9 +151,7 @@ bool Engine::deleteDocumentFolder(const QString &docName, int pos, QDomElement p
 bool Engine::deleteDocumentLink(const QString &docName, int pos, QDomElement parentNode)
 {
     QDomNode node = findNode(pos, parentNode);
-    QString file = documentDir(docName)
-            + QDir::toNativeSeparators("/images/")
-            + node.firstChildElement("screenshort").text();
+    QString file = linkAttribute(node, Engine::AbsoluteFilePathScreenshort);
 
     QFile::remove(file);
 
@@ -163,3 +159,17 @@ bool Engine::deleteDocumentLink(const QString &docName, int pos, QDomElement par
     return save(docName);
 }
 
+QString Engine::linkAttribute(QDomNode node, Engine::LinkAttribute attr){
+    switch(attr){
+        case Engine::Title :
+            return node.firstChildElement("title").toElement().text();
+        case Engine::Url:
+            return node.firstChildElement("url").toElement().text();
+        case Engine::Screenshort:
+            return node.firstChildElement("screenshort").toElement().text();
+        case Engine::AbsoluteFilePathScreenshort:
+            return documentImagesPath() + linkAttribute(node, Engine::Screenshort);
+        default:
+            return QString();
+    }
+}

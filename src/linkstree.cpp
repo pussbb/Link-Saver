@@ -215,12 +215,14 @@ void LinksTree::addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item)
 void LinksTree::addLink(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
     QTreeWidgetItem *_item=new QTreeWidgetItem();
-    _item->setText(0, node.firstChildElement("title").toElement().text());
+    _item->setText(0, m_engine->linkAttribute(node, Engine::Title));
     _item->setData(0, 32, pos);
     _item->setData(0, 33, LinksTree::Link);
-    _item->setData(0, 34, node.firstChildElement("url").toElement().text());
+    _item->setData(0, 34, m_engine->linkAttribute(node, Engine::Url));
     _item->setIcon(0, QIcon(":/link"));
-
+    QString tooltip = QString("<img src=\"file://%1\" width=\"500\" ></img>").arg(m_engine->linkAttribute(node, Engine::AbsoluteFilePathScreenshort));
+    qDebug()<<tooltip;
+    _item->setToolTip(0, tooltip);
     if ( item != NULL)
         item->addChild(_item);
     else
