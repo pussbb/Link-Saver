@@ -25,6 +25,9 @@ public:
     QDomElement parentDomItem(QTreeWidgetItem *item);
     bool removeItem(QTreeWidgetItem *item);
     QDomElement selectedDomItem();
+    void addFolder(const QString &name);
+    void addLink(QVariantMap items);
+    void refreshItem(QTreeWidgetItem *item);
 
     inline int itemType(QTreeWidgetItem *item)
     { return item->data(0, 33).toInt();}

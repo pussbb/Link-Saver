@@ -138,10 +138,9 @@ void LinkSaver::on_actionNewCategory_triggered()
     QString text = QInputDialog::getText(this, tr("Add Category"),
                                          tr("Name:"), QLineEdit::Normal,
                                          "", &ok);
-    if (ok && !text.isEmpty())
+    if (ok && ! text.isEmpty())
     {
-        m_engine->addFolder(ui->linksTree->selectedDomItem(), text);
-        ui->linksTree->refreshSelected();
+        ui->linksTree->addFolder(text);
     }
 }
 
@@ -253,8 +252,7 @@ void LinkSaver::on_actionNewLink_triggered()
     LinkDialog *dialog = new LinkDialog(this);
     if(dialog->exec() == QDialog::Accepted)
     {
-        m_engine->addLink(ui->linksTree->selectedDomItem(), dialog->getData());
-        ui->linksTree->refreshSelected();
+        ui->linksTree->addLink(dialog->getData());
     }
     dialog->deleteLater();
 }

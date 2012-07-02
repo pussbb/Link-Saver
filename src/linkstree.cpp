@@ -45,16 +45,7 @@ void LinksTree::refreshSelected()
     if ( ! isSelectionValid())
         return refresh();
 
-    qDeleteAll(currentItem()->takeChildren());
-    QDomNodeList nodes = itemDomElement(currentItem()).childNodes();
-
-    if ( nodes.count() == 0)
-        return;
-
-    for(int i=0; i < nodes.count(); ++i)
-    {
-        addItem(nodes.at(i), i, currentItem());
-    }
+    refreshItem(currentItem());
 }
 
 void LinksTree::dragMoveEvent(QDragMoveEvent *e)
@@ -121,6 +112,68 @@ QDomElement LinksTree::selectedDomItem()
     if ( ! isSelectionValid())
         return m_engine->documentRoot();
     return itemDomElement(currentItem());
+}
+
+void LinksTree::addFolder(const QString &name)
+{
+    if ( isSelectionValid() && itemType(currentItem()) != LinksTree::Folder) {
+        QTreeWidgetItem *parent;
+        if ( (parent = currentItem()->parent()) != NULL
+             && itemType(parent) == LinksTree::Folder) {
+            m_engine->addFolder(itemDomElement(parent), name);
+            refreshItem(parent);
+        }
+        else {
+            m_engine->addFolder( m_engine->documentRoot(), name);
+            refresh();
+        }
+        return;
+    }
+    else if (isSelectionValid()){
+        m_engine->addFolder(selectedDomItem(), name);
+        refreshSelected();
+        return;
+    }
+    m_engine->addFolder( m_engine->documentRoot(), name);
+    refresh();
+}
+
+void LinksTree::addLink(QVariantMap items)
+{
+    if ( isSelectionValid() && itemType(currentItem()) != LinksTree::Folder) {
+        QTreeWidgetItem *parent;
+        if ( (parent = currentItem()->parent()) != NULL
+             && itemType(parent) == LinksTree::Folder) {
+            m_engine->addLink(itemDomElement(parent), items);
+            refreshItem(parent);
+        }
+        else {
+            m_engine->addLink( m_engine->documentRoot(), items);
+            refresh();
+        }
+        return;
+    }
+    else if (isSelectionValid()){
+        m_engine->addLink(selectedDomItem(), items);
+        refreshSelected();
+        return;
+    }
+    m_engine->addLink( m_engine->documentRoot(), items);
+    refresh();
+}
+
+void LinksTree::refreshItem(QTreeWidgetItem *item)
+{
+    qDeleteAll(item->takeChildren());
+    QDomNodeList nodes = itemDomElement(item).childNodes();
+
+    if ( nodes.count() == 0)
+        return;
+
+    for(int i=0; i < nodes.count(); ++i)
+    {
+        addItem(nodes.at(i), i, item);
+    }
 }
 
 void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
