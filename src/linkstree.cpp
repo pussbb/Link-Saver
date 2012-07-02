@@ -65,6 +65,8 @@ void LinksTree::dragMoveEvent(QDragMoveEvent *e)
 
     if ( itemType(item) == LinksTree::Link)
         return e->ignore();
+
+    return e->accept();
 }
 
 void LinksTree::dropEvent(QDropEvent *e)
@@ -101,7 +103,7 @@ QDomElement LinksTree::parentDomItem(QTreeWidgetItem *item)
 
 bool LinksTree::removeItem(QTreeWidgetItem *item)
 {
-    bool ok;
+    bool ok = true;
     if ( itemType(item) == LinksTree::Folder) {
         ok = m_engine->deleteDocumentFolder(itemDomIndex(item), parentDomItem(item));
     }
