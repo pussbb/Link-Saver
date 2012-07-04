@@ -3,7 +3,7 @@
 #include "newlist.h"
 #include "QToolButton"
 #include "QInputDialog"
-
+#include "QDesktopWidget"
 
 LinkSaver::LinkSaver(QWidget *parent) :
     QCoreWindow(parent),
@@ -67,6 +67,23 @@ LinkSaver::LinkSaver(QWidget *parent) :
 
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                 this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
+
+    int screenWidth, width;
+    int screenHeight, height;
+    int x, y;
+    QSize windowSize;
+    QDesktopWidget *desktop = QApplication::desktop();
+    screenWidth = desktop->width(); // get width of screen
+    screenHeight = desktop->height(); // get height of screen
+    windowSize = size(); // size of our application window
+    width = windowSize.width();
+    height = windowSize.height();
+    // little computations
+    x = screenWidth - width;
+    y = screenHeight - height;
+    y -= 50;
+    // move window to desired coordinates
+    move ( x, y );
 }
 
 LinkSaver::~LinkSaver()
