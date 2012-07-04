@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("QLinkSaver");
     QApplication::setApplicationName("QLinkSaver");
     QApplication::setApplicationVersion("2.5.1.5");
-    QApplication::setQuitOnLastWindowClosed(false);
+    //QApplication::setQuitOnLastWindowClosed(false);
 
     LinkSaver w;
 
     QSettings settings;
-    if( ! settings.value("hideonstart",false).toBool())
+    if( ! settings.value("App/hideOnStart", false).toBool())
         w.show();
 
     return a.exec();

@@ -6,6 +6,8 @@
 #include <QComboBox>
 #include <QTreeWidgetItem>
 #include <QDesktopServices>
+#include <QSystemTrayIcon>
+
 namespace Ui {
   class LinkSaver;
 }
@@ -37,13 +39,17 @@ private slots:
     void on_actionDeleteLink_triggered();
     void itemDoubleClicked(QTreeWidgetItem* item,int column);
 
+    void on_actionSettings_triggered();
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;
     QComboBox *linksList;
     QSettings m_settings;
     void initLinksList();
-
+    QSystemTrayIcon *trayIcon;
+    QMenu *trayIconMenu;
 };
 
 #endif // LINKSAVER_H

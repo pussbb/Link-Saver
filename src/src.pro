@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     linkstree.cpp \
     linkdialog.cpp \
     webpage.cpp \
-    webcapture.cpp
+    webcapture.cpp \
+    settings.cpp
 
 HEADERS  += linksaver.h \
     engine.h \
@@ -34,11 +35,13 @@ HEADERS  += linksaver.h \
     linkstree.h \
     linkdialog.h \
     webpage.h \
-    webcapture.h
+    webcapture.h \
+    settings.h
 
 FORMS    += linksaver.ui \
     newlist.ui \
-    linkdialog.ui
+    linkdialog.ui \
+    settings.ui
 
 RESOURCES += \
     resource/res.qrc

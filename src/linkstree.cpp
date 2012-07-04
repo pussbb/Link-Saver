@@ -20,9 +20,13 @@ void LinksTree::buildTree(const QString &name)
     refresh();
 }
 
+#include <QSettings>
 void LinksTree::refresh()
 {
     clear();
+    QSettings settings;
+    screenshortInToolTip = settings.value("App/screenshortInToolTip").toBool();
+
     QDomNodeList nodes = m_engine->documentRoot().childNodes();
     if ( nodes.count() == 0)
         return;
@@ -220,14 +224,17 @@ void LinksTree::addLink(const QDomNode &node, int pos, QTreeWidgetItem *item)
     _item->setData(0, 33, LinksTree::Link);
     _item->setData(0, 34, m_engine->linkAttribute(node, Engine::Url));
     _item->setIcon(0, QIcon(":/link"));
-    QImage image(m_engine->linkAttribute(node, Engine::AbsoluteFilePathScreenshort));
-    QByteArray ba;
-    QBuffer buffer(&ba);
-    buffer.open(QIODevice::WriteOnly);
-    image.save(&buffer, "PNG");
-    QString tooltip = QString("<img src=\"data:image/png;base64,%1\" width=\"250\" height=\"150\"></img>").arg(QString(buffer.data().toBase64()));
+    if (screenshortInToolTip) {
+        QImage image(m_engine->linkAttribute(node, Engine::AbsoluteFilePathScreenshort));
+        QByteArray ba;
+        QBuffer buffer(&ba);
+        buffer.open(QIODevice::WriteOnly);
+        image.save(&buffer, "PNG");
+        QString tooltip = QString("<img src=\"data:image/png;base64,%1\" width=\"250\" height=\"150\"></img>").arg(QString(buffer.data().toBase64()));
 
-    _item->setToolTip(0, tooltip);
+        _item->setToolTip(0, tooltip);
+    }
+
     if ( item != NULL)
         item->addChild(_item);
     else

@@ -61,6 +61,7 @@ private:
     void addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item);
     void addLink(const QDomNode &node, int pos, QTreeWidgetItem *item);
     void addItem(const QDomNode &node, int pos,QTreeWidgetItem *item );
+    bool screenshortInToolTip;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(LinksTree::Types)

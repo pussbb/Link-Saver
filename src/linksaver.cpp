@@ -54,11 +54,37 @@ LinkSaver::LinkSaver(QWidget *parent) :
             this, SLOT(treeCustomMenu(QPoint)));
     connect(ui->linksTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
             this, SLOT(itemDoubleClicked(QTreeWidgetItem*,int)));
+
+    trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(ui->actionNewLinkList);
+    trayIconMenu->addAction(ui->actionNewCategory);
+    trayIconMenu->addAction(ui->actionNewLink);
+    trayIconMenu->addAction(ui->actionExit);
+    trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QIcon(":/app.png"));
+    trayIcon->show();
+    trayIcon->setContextMenu(trayIconMenu);
+
+    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 LinkSaver::~LinkSaver()
 {
     delete ui;
+}
+
+void LinkSaver::iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+    case QSystemTrayIcon::Trigger:
+    case QSystemTrayIcon::DoubleClick:   show();     break;
+    case QSystemTrayIcon::MiddleClick:
+        trayIcon->showMessage(tr("Link Saver"),tr("Simple Program to Save Links"), QSystemTrayIcon::Information,
+                              5 * 1000);
+        break;
+    default: ;
+    }
 }
 
 void LinkSaver::on_actionAbout_Qt_triggered()
@@ -286,4 +312,15 @@ void LinkSaver::itemDoubleClicked(QTreeWidgetItem *item, int column)
         QDomElement elem = ui->linksTree->itemDomElement(item);
         QDesktopServices::openUrl(QUrl(m_engine->linkAttribute(elem, Engine::Url), QUrl::TolerantMode));
     }
+}
+
+#include <settings.h>
+void LinkSaver::on_actionSettings_triggered()
+{
+    Settings *dialog = new Settings(this);
+    if(dialog->exec())
+    {
+        dialog->deleteLater();
+    }
+
 }
