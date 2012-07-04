@@ -52,6 +52,8 @@ LinkSaver::LinkSaver(QWidget *parent) :
             this, SLOT(linkSelected()));
     connect(ui->linksTree, SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(treeCustomMenu(QPoint)));
+    connect(ui->linksTree, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
+            this, SLOT(itemDoubleClicked(QTreeWidgetItem*,int)));
 }
 
 LinkSaver::~LinkSaver()
@@ -273,5 +275,15 @@ void LinkSaver::on_actionDeleteLink_triggered()
                                  QObject::tr("Could not delete link.\n%1")
                                  .arg(ui->linksTree->currentText()));
         }
+    }
+}
+
+void LinkSaver::itemDoubleClicked(QTreeWidgetItem *item, int column)
+{
+    Q_UNUSED(column);
+    if ( ui->linksTree->itemType(item) == LinksTree::Link)
+    {
+        QDomElement elem = ui->linksTree->itemDomElement(item);
+        QDesktopServices::openUrl(QUrl(m_engine->linkAttribute(elem, Engine::Url), QUrl::TolerantMode));
     }
 }

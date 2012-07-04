@@ -4,7 +4,8 @@
 #include <qcorewindow.h>
 #include <engine.h>
 #include <QComboBox>
-
+#include <QTreeWidgetItem>
+#include <QDesktopServices>
 namespace Ui {
   class LinkSaver;
 }
@@ -12,11 +13,11 @@ namespace Ui {
 class LinkSaver : public QCoreWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit LinkSaver(QWidget *parent = 0);
     ~LinkSaver();
-    
+
 private slots:
     void on_actionAbout_Qt_triggered();
     void on_actionExit_triggered();
@@ -34,6 +35,7 @@ private slots:
     void on_actionNewLink_triggered();
 
     void on_actionDeleteLink_triggered();
+    void itemDoubleClicked(QTreeWidgetItem* item,int column);
 
 private:
     Ui::LinkSaver *ui;
