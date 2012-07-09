@@ -7,6 +7,7 @@
 #include <QTreeWidgetItem>
 #include <QDesktopServices>
 #include <QSystemTrayIcon>
+#include <linksflow.h>
 
 namespace Ui {
   class LinkSaver;
@@ -50,6 +51,7 @@ private:
     void initLinksList();
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
+    LinksFlow *flow;
 };
 
 #endif // LINKSAVER_H

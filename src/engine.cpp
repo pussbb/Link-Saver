@@ -151,7 +151,7 @@ bool Engine::deleteDocumentFolder(const QString &docName, int pos, QDomElement p
 bool Engine::deleteDocumentLink(const QString &docName, int pos, QDomElement parentNode)
 {
     QDomNode node = findNode(pos, parentNode);
-    QString file = linkAttribute(node, Engine::AbsoluteFilePathScreenshort);
+    QString file = documentImagesPath(docName) + Engine::nodeData(node, Engine::Screenshort);
 
     QFile::remove(file);
 
@@ -159,17 +159,27 @@ bool Engine::deleteDocumentLink(const QString &docName, int pos, QDomElement par
     return save(docName);
 }
 
-QString Engine::linkAttribute(QDomNode node, Engine::LinkAttribute attr){
+QString Engine::nodeData(QDomNode node, Engine::LinkAttribute attr){
     switch(attr){
         case Engine::Title :
+            if (Engine::nodeType(node) == Engine::Folder)
+                return node.toElement().attribute("name");
             return node.firstChildElement("title").toElement().text();
         case Engine::Url:
             return node.firstChildElement("url").toElement().text();
         case Engine::Screenshort:
             return node.firstChildElement("screenshort").toElement().text();
-        case Engine::AbsoluteFilePathScreenshort:
-            return documentImagesPath() + linkAttribute(node, Engine::Screenshort);
         default:
             return QString();
     }
+}
+
+Engine::documentElement Engine::nodeType(QDomNode node)
+{
+    if (node.nodeName() == "folder")
+        return Engine::Folder;
+    if ( node.nodeName() == "bookmark"
+         && node.toElement().attribute("type") == "link")
+        return Engine::Link;
+    return Engine::Nothing;
 }

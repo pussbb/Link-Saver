@@ -219,19 +219,19 @@ void LinksTree::addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item)
 void LinksTree::addLink(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
     QTreeWidgetItem *_item=new QTreeWidgetItem();
-    _item->setText(0, m_engine->linkAttribute(node, Engine::Title));
+    _item->setText(0, m_engine->nodeData(node, Engine::Title));
     _item->setData(0, 32, pos);
     _item->setData(0, 33, LinksTree::Link);
-    _item->setData(0, 34, m_engine->linkAttribute(node, Engine::Url));
+    _item->setData(0, 34, m_engine->nodeData(node, Engine::Url));
     _item->setIcon(0, QIcon(":/link"));
     if (screenshortInToolTip) {
-        QImage image(m_engine->linkAttribute(node, Engine::AbsoluteFilePathScreenshort));
+        QImage image(m_engine->documentImagesPath() + Engine::nodeData(node, Engine::Screenshort));
         QByteArray ba;
         QBuffer buffer(&ba);
         buffer.open(QIODevice::WriteOnly);
         image.save(&buffer, "PNG");
-        QString tooltip = QString("<img src=\"data:image/png;base64,%1\" width=\"250\" height=\"150\"></img>").arg(QString(buffer.data().toBase64()));
-
+        QString tooltip = QString("<img src=\"data:image/png;base64,%1\" width=\"250\" height=\"150\"></img>")
+                .arg(QString(buffer.data().toBase64()));
         _item->setToolTip(0, tooltip);
     }
 
@@ -243,12 +243,11 @@ void LinksTree::addLink(const QDomNode &node, int pos, QTreeWidgetItem *item)
 
 void LinksTree::addItem(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
-    if ( node.nodeName() == "folder")
+    if ( Engine::nodeType(node) == Engine::Folder)
     {
         addFolder(node, pos, item);
     }
-    if ( node.nodeName() == "bookmark"
-         && node.toElement().attribute("type") == "link") {
+    if ( Engine::nodeType(node) == Engine::Link) {
         addLink(node, pos, item);
     }
 }

@@ -15,6 +15,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
     langMenuToMenuBar("menuOptions");
 
     m_engine = new Engine(this, appDir + QDir::toNativeSeparators("/links/"));
+    flow = new LinksFlow();
 
     ui->linksTree->setEngine(m_engine);
 
@@ -321,13 +322,18 @@ void LinkSaver::on_actionDeleteLink_triggered()
     }
 }
 
+
+
 void LinkSaver::itemDoubleClicked(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
     if ( ui->linksTree->itemType(item) == LinksTree::Link)
     {
         QDomElement elem = ui->linksTree->itemDomElement(item);
-        QDesktopServices::openUrl(QUrl(m_engine->linkAttribute(elem, Engine::Url), QUrl::TolerantMode));
+        QDesktopServices::openUrl(QUrl(m_engine->nodeData(elem, Engine::Url), QUrl::TolerantMode));
+    }
+    else if (ui->linksTree->itemType(item) == LinksTree::Folder){
+        flow->show(ui->linksTree->itemDomNode(item), m_engine->documentImagesPath());
     }
 }
 

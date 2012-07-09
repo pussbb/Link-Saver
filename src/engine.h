@@ -15,12 +15,14 @@ class Engine : public QObject
     Q_OBJECT
 public:
     explicit Engine(QObject *parent = 0, QString storeDir = "");
-    enum LinkAttribute{ Url, Title, Screenshort, AbsoluteFilePathScreenshort};
+    enum LinkAttribute{ Url, Title, Screenshort};
+    enum documentElement{Nothing, Link, Folder};
     Q_DECLARE_FLAGS(LinkAttributes, LinkAttribute)
+    Q_DECLARE_FLAGS(documentElements, documentElement)
     QDomDocument openDocument(const QString &file);
     QDomDocument create(const QString &name, const QString &dirName);
     QString documentDir(const QString &docName) const;
-    QString linkAttribute(QDomNode node, Engine::LinkAttribute attr);
+
     bool save(const QString &name);
     void setCurrent(const QString &name);
     void addFolder(QDomElement parentNode,const QString &name, const QString &docName);
@@ -32,6 +34,8 @@ public:
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
     bool deleteDocumentLink(const QString &docName, int pos, QDomElement parentNode);
 
+    static Engine::documentElement nodeType(QDomNode node);
+    static QString nodeData(QDomNode node, Engine::LinkAttribute attr);
 
     inline void moveItem(QDomElement toNode, QDomElement node)
     { moveItem(toNode, node, currentName);}
@@ -63,6 +67,8 @@ public:
     inline bool deleteDocumentLink(int pos, QDomElement parentNode)
     { return deleteDocumentLink(currentName, pos, parentNode);}
 
+
+
     inline QDomDocument document(const QString &name)
     { return docs.value(name, QDomDocument ());}
 
@@ -73,9 +79,9 @@ public:
     { return documentImagesPath(currentName);}
 
 signals:
-    
+
 public slots:
-    
+
 private:
     QMap<QString, QDomDocument > docs;
     QMap<QString, QString > files;
@@ -83,5 +89,6 @@ private:
     QString currentName;
 };
 
+Q_DECLARE_OPERATORS_FOR_FLAGS(Engine::documentElements)
 Q_DECLARE_OPERATORS_FOR_FLAGS(Engine::LinkAttributes)
 #endif // ENGINE_H

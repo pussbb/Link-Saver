@@ -27,7 +27,9 @@ SOURCES += main.cpp\
     linkdialog.cpp \
     webpage.cpp \
     webcapture.cpp \
-    settings.cpp
+    settings.cpp \
+    pictureflow/pictureflow.cpp \
+    linksflow.cpp
 
 HEADERS  += linksaver.h \
     engine.h \
@@ -36,7 +38,9 @@ HEADERS  += linksaver.h \
     linkdialog.h \
     webpage.h \
     webcapture.h \
-    settings.h
+    settings.h \
+    pictureflow/pictureflow.h \
+    linksflow.h
 
 FORMS    += linksaver.ui \
     newlist.ui \

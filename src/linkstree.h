@@ -45,8 +45,10 @@ public:
     { return isSelectionValid() ? itemDomIndex(currentItem()) : -1;}
 
     inline QDomElement itemDomElement(QTreeWidgetItem *item)
-    { return m_engine->findNode(itemDomIndex(item), parentDomItem(item)).toElement();}
+    { return itemDomNode(item).toElement();}
 
+    inline QDomNode itemDomNode(QTreeWidgetItem *item)
+    { return m_engine->findNode(itemDomIndex(item), parentDomItem(item));}
     inline bool removeSelectedItem()
     { return isSelectionValid() ? removeItem(currentItem()) : false; }
 

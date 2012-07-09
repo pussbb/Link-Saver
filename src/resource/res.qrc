@@ -11,5 +11,6 @@
         <file alias="folder">tree/folder.png</file>
         <file alias="link">tree/link.png</file>
         <file alias="refresh">refresh.png</file>
+        <file alias="folder_up">folder_up.png</file>
     </qresource>
 </RCC>
