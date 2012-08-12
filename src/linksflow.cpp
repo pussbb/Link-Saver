@@ -43,7 +43,9 @@ void LinksFlow::show(QDomNode node, const QString &imagePath)
     _imagePath = imagePath;
     clear();
     buildFlow(node);
-    showFullScreen();
+    QWidget::show();
+
+    //showFullScreen();
 }
 
 void LinksFlow::folderClicked(QDomNode node)
@@ -54,6 +56,10 @@ void LinksFlow::folderClicked(QDomNode node)
 
 void LinksFlow::buildFlow(QDomNode node)
 {
+
+    if ( node.isNull())
+        return;
+
     QImage img;
     QDomNode parent = node.parentNode();
     if ( ! parent.isNull() && parent.nodeName() != "lsbook")
@@ -62,8 +68,10 @@ void LinksFlow::buildFlow(QDomNode node)
         addSlide(img, parent, true);
     }
     QDomNodeList nodes = node.childNodes();
-    for(int i = 0; i < nodes.count(); ++i) {
-        QDomNode _node = nodes.at(i);
+    for(int i = 0; i < nodes.count(); i++) {
+        QDomNode _node = nodes.item(i);
+        if (_node.isNull())
+            return;
         bool isFolder = (Engine::nodeType(_node) == Engine::Folder);
         if (isFolder) {
             img.load(":folder_up");

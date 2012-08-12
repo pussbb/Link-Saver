@@ -455,7 +455,7 @@ void PictureFlowSoftwareRenderer::paint()
     QPainter painter(widget);
     painter.drawImage(QPoint(0, 0), buffer);
 
-    ItemInfo info = state->items[state->centerIndex];
+    ItemInfo info = state->items.value(state->centerIndex);
     QString title = Engine::nodeData(info.node, Engine::Title);
     painter.setFont(QFont(painter.font().family(), 18, QFont::Bold));
     int titleWidth = painter.fontMetrics().width(title);
@@ -1059,19 +1059,25 @@ void PictureFlow::keyPressEvent(QKeyEvent* event)
 void PictureFlow::mousePressEvent(QMouseEvent* event)
 {
     int x = (width() / 2) - d->state->slideWidth / 2;
+
     if(event->x() >= x && event->x() <= (x + d->state->slideWidth))
     {
-        if(event->type()==QEvent::MouseButtonDblClick)
+        if(event->type() == QEvent::MouseButtonDblClick
+                && d->state->items.count() > 0)
         {
-            ItemInfo info = d->state->items[d->state->centerIndex];
+            ItemInfo info = d->state->items.value(d->state->centerIndex);
+            if (info.node.isNull())
+                return;
+
             if (info.isFolder){
+                clear();
                 emit(folderClicked(info.node));
                 return;
             }
             QString url = Engine::nodeData(info.node, Engine::Url);
             QDesktopServices::openUrl(QUrl(url, QUrl::TolerantMode));
-            clear();
             close();
+            clear();
             return;
         }
 
