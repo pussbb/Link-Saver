@@ -207,6 +207,30 @@
     <string>Settings</string>
    </property>
   </action>
+  <action name="actionEdit">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/edit_folder.png</normaloff>:/tool/edit_folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Folder</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit folder</string>
+   </property>
+  </action>
+  <action name="actionEdit_Link">
+   <property name="icon">
+    <iconset resource="resource/res.qrc">
+     <normaloff>:/tool/edit_page.png</normaloff>:/tool/edit_page.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Link</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit Link</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

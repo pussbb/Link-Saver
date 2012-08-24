@@ -196,7 +196,7 @@ void LinksTree::itemClicked(QTreeWidgetItem *item, int column)
 void LinksTree::addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
     QTreeWidgetItem *_item = new QTreeWidgetItem();
-    _item->setText(0, node.toElement().attribute("name"));
+    _item->setText(0, Engine::nodeData(node, Engine::Title));
     _item->setData(0, 32, pos);
     _item->setData(0, 33, LinksTree::Folder);
     _item->setIcon(0, QIcon(":/folder"));
@@ -219,10 +219,10 @@ void LinksTree::addFolder(const QDomNode &node, int pos, QTreeWidgetItem *item)
 void LinksTree::addLink(const QDomNode &node, int pos, QTreeWidgetItem *item)
 {
     QTreeWidgetItem *_item=new QTreeWidgetItem();
-    _item->setText(0, m_engine->nodeData(node, Engine::Title));
+    _item->setText(0, Engine::nodeData(node, Engine::Title));
     _item->setData(0, 32, pos);
     _item->setData(0, 33, LinksTree::Link);
-    _item->setData(0, 34, m_engine->nodeData(node, Engine::Url));
+    _item->setData(0, 34, Engine::nodeData(node, Engine::Url));
     _item->setIcon(0, QIcon(":/link"));
     if (screenshortInToolTip) {
         QImage image(m_engine->documentImagesPath() + Engine::nodeData(node, Engine::Screenshort));

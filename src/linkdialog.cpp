@@ -48,6 +48,13 @@ QVariantMap LinkDialog::getData() const
     return result;
 }
 
+void LinkDialog::setElement(const QDomElement element)
+{
+    ui->url->setText(Engine::nodeData(element,Engine::Url));
+    ui->title->setText(Engine::nodeData(element,Engine::Title));
+
+}
+
 void LinkDialog::on_toolButton_clicked()
 {
     if ( ! WebCapture::validUrl(ui->url->text())) {

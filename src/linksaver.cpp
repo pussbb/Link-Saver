@@ -274,18 +274,18 @@ void LinkSaver::linkSelected()
 void LinkSaver::treeCustomMenu(QPoint pos)
 {
     QMenu *m = new QMenu();
-
+    m->addAction(ui->actionNewLink);
+    m->addAction(ui->actionNewCategory);
     switch(ui->linksTree->selectedItemType()) {
         case LinksTree::Folder :
-            m->addAction(ui->actionNewLink);
+            m->addAction(ui->actionEdit);
             m->addAction(ui->actionDeleteCategory);
             break;
         case LinksTree::Link :
+            m->addAction(ui->actionEdit_Link);
             m->addAction(ui->actionDeleteLink);
             break;
         default:
-            m->addAction(ui->actionNewLink);
-            m->addAction(ui->actionNewCategory);
             break;
     }
 
@@ -345,5 +345,31 @@ void LinkSaver::on_actionSettings_triggered()
     {
         dialog->deleteLater();
     }
+}
 
+void LinkSaver::on_actionEdit_triggered()
+{
+    QDomElement elem = ui->linksTree->selectedDomItem();
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Add Category"),
+                                         tr("Name:"), QLineEdit::Normal,
+                                         Engine::nodeData(elem, Engine::Title), &ok);
+    if (ok && ! text.isEmpty())
+    {
+        elem.setAttribute("name", text);
+        m_engine->save();
+        ui->linksTree->currentItem()->setText(0, text);
+    }
+}
+
+void LinkSaver::on_actionEdit_Link_triggered()
+{
+    QDomElement elem = ui->linksTree->selectedDomItem();
+    LinkDialog *dialog = new LinkDialog(this);
+    dialog->setElement(elem);
+    if(dialog->exec() == QDialog::Accepted)
+    {
+        ///ui->linksTree->addLink(dialog->getData());
+    }
+    dialog->deleteLater();
 }

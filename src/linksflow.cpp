@@ -45,7 +45,7 @@ void LinksFlow::show(QDomNode node, const QString &imagePath)
     buildFlow(node);
     QWidget::show();
 
-    showFullScreen();
+   showFullScreen();
 }
 
 void LinksFlow::folderClicked(QDomNode node)

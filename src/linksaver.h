@@ -43,6 +43,10 @@ private slots:
     void on_actionSettings_triggered();
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
 
+    void on_actionEdit_triggered();
+
+    void on_actionEdit_Link_triggered();
+
 private:
     Ui::LinkSaver *ui;
     Engine *m_engine;

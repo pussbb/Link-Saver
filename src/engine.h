@@ -37,6 +37,10 @@ public:
     static Engine::documentElement nodeType(QDomNode node);
     static QString nodeData(QDomNode node, Engine::LinkAttribute attr);
 
+
+    inline bool save()
+    { return save(currentName);}
+
     inline void moveItem(QDomElement toNode, QDomElement node)
     { moveItem(toNode, node, currentName);}
 
