@@ -8,7 +8,7 @@ LinksFlow::LinksFlow() :
     int dim = (ww > wh) ? wh : ww;
     dim = dim * 3 / 4;
     setSlideSize(QSize(3*dim / 5, dim));
-    setBackgroundColor(Qt::white);
+    setBackgroundColor(QColor(88,84,84,125));
     connect(this,SIGNAL(folderClicked(QDomNode)),
              this, SLOT(folderClicked(QDomNode)));
 }
@@ -45,11 +45,14 @@ void LinksFlow::show(QDomNode node, const QString &imagePath)
     buildFlow(node);
     QWidget::show();
 
-    //showFullScreen();
+    showFullScreen();
 }
 
 void LinksFlow::folderClicked(QDomNode node)
 {
+
+    if ( node.isNull())
+        return;
     clear();
     buildFlow(node);
 }
@@ -71,7 +74,7 @@ void LinksFlow::buildFlow(QDomNode node)
     for(int i = 0; i < nodes.count(); i++) {
         QDomNode _node = nodes.item(i);
         if (_node.isNull())
-            return;
+            continue;
         bool isFolder = (Engine::nodeType(_node) == Engine::Folder);
         if (isFolder) {
             img.load(":folder_up");

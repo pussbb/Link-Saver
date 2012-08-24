@@ -454,7 +454,7 @@ void PictureFlowSoftwareRenderer::paint()
 
     QPainter painter(widget);
     painter.drawImage(QPoint(0, 0), buffer);
-
+    painter.setPen(QColor(210,208,208));
     ItemInfo info = state->items.value(state->centerIndex);
     QString title = Engine::nodeData(info.node, Engine::Title);
     painter.setFont(QFont(painter.font().family(), 18, QFont::Bold));
