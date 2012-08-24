@@ -152,6 +152,22 @@
  %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Edit Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple Program to Save Links</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewList</name>
@@ -260,6 +276,30 @@ Please choose another directory.</source>
     </message>
     <message>
         <source>Please type your name of list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Settings</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remeber application language </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide application to tray on start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show screenshort for link for tree
+ item in tooltip(more memory usage)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create menu with links in tray menu</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

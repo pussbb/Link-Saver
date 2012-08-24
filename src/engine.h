@@ -41,6 +41,9 @@ public:
     inline bool save()
     { return save(currentName);}
 
+    inline QString documentDir() const
+    { return documentDir(currentName);}
+
     inline void moveItem(QDomElement toNode, QDomElement node)
     { moveItem(toNode, node, currentName);}
 

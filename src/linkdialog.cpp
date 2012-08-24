@@ -48,11 +48,12 @@ QVariantMap LinkDialog::getData() const
     return result;
 }
 
-void LinkDialog::setElement(const QDomElement element)
+void LinkDialog::setElement(const QDomElement &element, const QString &imgPath)
 {
     ui->url->setText(Engine::nodeData(element,Engine::Url));
     ui->title->setText(Engine::nodeData(element,Engine::Title));
-
+    fileName = Engine::nodeData(element,Engine::Screenshort);
+    previewUpdate(imgPath+fileName);
 }
 
 void LinkDialog::on_toolButton_clicked()
@@ -75,14 +76,19 @@ void LinkDialog::saveImave(bool)
         QFile::remove(fi.absoluteFilePath());
 
     capture->image(fi.absoluteFilePath(), ui->width->value(), ui->height->value(), ui->zoom->value());
-    QPixmap pixmap = QPixmap::fromImage(QImage(fi.absoluteFilePath()));
-    pixmap = pixmap.scaledToHeight(ui->preview->height());
-    pixmap = pixmap.scaledToWidth(ui->preview->width());
-    ui->preview->setPixmap(pixmap);
+    previewUpdate(fi.absoluteFilePath());
 
     if (ui->title->text().isEmpty())
     {
         QString title = capture->frame()->documentElement().findFirst("title").toPlainText();
         ui->title->setText(title);
     }
+}
+
+void LinkDialog::previewUpdate(const QString &image)
+{
+    QPixmap pixmap = QPixmap::fromImage(QImage(image));
+    pixmap = pixmap.scaledToHeight(ui->preview->height());
+    pixmap = pixmap.scaledToWidth(ui->preview->width());
+    ui->preview->setPixmap(pixmap);
 }

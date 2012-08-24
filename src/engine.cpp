@@ -96,7 +96,7 @@ void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &d
 
     foreach(QString key, items.keys())
     {
-        QDomElement item =doc.createElement(key);
+        QDomElement item = doc.createElement(key);
         item.appendChild(doc.createTextNode(items.value(key).toString()));
         elem.appendChild(item);
     }
