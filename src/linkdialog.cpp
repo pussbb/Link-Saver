@@ -43,7 +43,10 @@ QVariantMap LinkDialog::getData() const
     QVariantMap result;
     result.insert("url", ui->url->text());
     result.insert("title", ui->title->text());
-    result.insert("absoluteFileName", QDir::tempPath() +"/"+ fileName );
+    if (QFile::exists(QDir::tempPath() +"/"+ fileName))
+    {
+        result.insert("absoluteFileName", QDir::tempPath() +"/"+ fileName );
+    }
     result.insert("screenshort", fileName);
     return result;
 }

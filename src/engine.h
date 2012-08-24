@@ -28,7 +28,7 @@ public:
     void addFolder(QDomElement parentNode,const QString &name, const QString &docName);
     void addLink(QDomElement parentNode, QVariantMap items, const QString &docName);
     void moveItem(QDomElement toNode, QDomElement node, const QString &docName);
-
+    void updateLink(QDomElement element, QVariantMap items, const QString &docName);
 
 
     bool deleteDocumentFolder(const QString &docName, int pos, QDomElement parentNode);
@@ -43,6 +43,9 @@ public:
 
     inline QString documentDir() const
     { return documentDir(currentName);}
+
+    inline void updateLink(QDomElement element, QVariantMap items)
+    { updateLink(element, items, currentName);}
 
     inline void moveItem(QDomElement toNode, QDomElement node)
     { moveItem(toNode, node, currentName);}
@@ -94,6 +97,7 @@ private:
     QMap<QString, QString > files;
     QString m_storeDir;
     QString currentName;
+    void copyImage(const QString &image, const QString &fileName);
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Engine::documentElements)

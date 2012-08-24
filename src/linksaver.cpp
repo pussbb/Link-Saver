@@ -369,6 +369,7 @@ void LinkSaver::on_actionEdit_Link_triggered()
     dialog->setElement(elem, m_engine->documentDir()+QDir::toNativeSeparators("/images/"));
     if(dialog->exec() == QDialog::Accepted)
     {
+        m_engine->updateLink(elem, dialog->getData());
         ///ui->linksTree->addLink(dialog->getData());
     }
     dialog->deleteLater();

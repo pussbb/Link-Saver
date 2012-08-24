@@ -58,6 +58,7 @@ void Engine::moveItem(QDomElement toNode, QDomElement node, const QString &docNa
     save(docName);
 }
 
+
 void Engine::addFolder(QDomElement parentNode, const QString &name, const QString &docName)
 {
     QDomDocument doc = document(docName);
@@ -84,14 +85,7 @@ void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &d
         QString file = items.value("absoluteFileName").toString();
         items.remove("absoluteFileName");
         QString resultFile = documentImagesPath(currentName) + items.value("screenshort").toString();
-        QFile::copy(file, resultFile);
-        QFile::setPermissions(resultFile, QFile::ReadOwner | QFile::WriteOwner
-                              | QFile::ExeOwner | QFile::ReadUser
-                              | QFile::WriteUser | QFile::ExeUser
-                              | QFile::ReadGroup | QFile::WriteGroup
-                              | QFile::ExeGroup | QFile::ReadOther
-                              | QFile::WriteOther | QFile::ExeOther
-                             );
+        copyImage(file, resultFile);
     }
 
     foreach(QString key, items.keys())
@@ -100,11 +94,30 @@ void Engine::addLink(QDomElement parentNode, QVariantMap items, const QString &d
         item.appendChild(doc.createTextNode(items.value(key).toString()));
         elem.appendChild(item);
     }
+
     if ( ! parentNode.isNull() )
         parentNode.appendChild(elem);
     else
         doc.documentElement().appendChild(elem);
 
+    save(docName);
+}
+
+void Engine::updateLink(QDomElement element, QVariantMap items, const QString &docName)
+{
+    if (items.contains("absoluteFileName")) {
+        QString file = items.value("absoluteFileName").toString();
+        items.remove("absoluteFileName");
+        QString resultFile = documentImagesPath(currentName) + items.value("screenshort").toString();
+        copyImage(file, resultFile);
+    }
+
+    for(int i = 0; i < element.childNodes().count(); ++i)
+    {
+        QDomNode node = element.childNodes().at(i);
+        if (items.contains(node.nodeName()))
+            node.setNodeValue(items.value(node.nodeName()).toString());
+    }
     save(docName);
 }
 
@@ -172,6 +185,23 @@ QString Engine::nodeData(QDomNode node, Engine::LinkAttribute attr){
         default:
             return QString();
     }
+}
+
+void Engine::copyImage(const QString &image, const QString &fileName)
+{
+
+    if (QFile::exists(fileName))
+    {
+        QFile::remove(fileName);
+    }
+    QFile::copy(image, fileName);
+    QFile::setPermissions(fileName, QFile::ReadOwner | QFile::WriteOwner
+                          | QFile::ExeOwner | QFile::ReadUser
+                          | QFile::WriteUser | QFile::ExeUser
+                          | QFile::ReadGroup | QFile::WriteGroup
+                          | QFile::ExeGroup | QFile::ReadOther
+                          | QFile::WriteOther | QFile::ExeOther
+                         );
 }
 
 Engine::documentElement Engine::nodeType(QDomNode node)
