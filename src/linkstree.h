@@ -30,10 +30,10 @@ public:
     void refreshItem(QTreeWidgetItem *item);
 
     inline int itemType(QTreeWidgetItem *item)
-    { return item->data(0, 33).toInt();}
+    { return item != NULL?item->data(0, 33).toInt():-1;}
 
     inline int itemDomIndex(QTreeWidgetItem *item)
-    { return item->data(0, 32).toInt();}
+    { return item != NULL?item->data(0, 32).toInt():-1;}
 
     inline bool isSelectionValid()
     { return (currentIndex().isValid() && currentItem()->isSelected());}

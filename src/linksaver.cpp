@@ -274,8 +274,8 @@ void LinkSaver::linkSelected()
 void LinkSaver::treeCustomMenu(QPoint pos)
 {
     QMenu *m = new QMenu();
-
-    switch(ui->linksTree->selectedItemType()) {
+    QTreeWidgetItem *item = ui->linksTree->itemAt(pos);
+    switch(ui->linksTree->itemType(item)) {
         case LinksTree::Folder :
             ui->actionDeleteLink->setEnabled(false);
             ui->actionDeleteCategory->setEnabled(true);
