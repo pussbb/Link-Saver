@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
-SUBDIRS =  impotrcore \
+SUBDIRS =  importcore \
   firefox
 
 
