@@ -1,5 +1,6 @@
 TEMPLATE = subdirs
-SUBDIRS =  firefox
+SUBDIRS =  impotrcore \
+  firefox
 
 
 # build must be last:

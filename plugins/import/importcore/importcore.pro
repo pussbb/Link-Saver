@@ -1,13 +1,13 @@
 QT += core gui
 
 include(../../commonplugin.pri)
-TARGET = firefox
+TARGET = importcore
 TEMPLATE = lib
 CONFIG += plugin
 
-SOURCES += firefox.cpp
+SOURCES += importcore.cpp
 
-HEADERS += firefox.h
+HEADERS += importcore.h
 
 
 

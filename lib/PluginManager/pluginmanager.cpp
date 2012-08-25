@@ -38,8 +38,6 @@ bool PluginManager::resolveDependecies(const QStringList &dependecies)
 
     foreach(const QString &file, dependecies) {
         QString baseName = "lib" + file;
-        qDebug()<< file;
-        qDebug()<<initialized(baseName);
         if ( ! initialized(baseName)) {
             QString filePath = plugins.value(baseName).absoluteFilePath();
             if ( filePath.isEmpty())
