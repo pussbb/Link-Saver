@@ -100,6 +100,7 @@
      <string>Options</string>
     </property>
     <addaction name="actionSettings"/>
+    <addaction name="actionImport"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -229,6 +230,11 @@
    </property>
    <property name="toolTip">
     <string>Edit Link</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import</string>
    </property>
   </action>
  </widget>

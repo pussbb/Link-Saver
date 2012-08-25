@@ -14,8 +14,9 @@ LinkSaver::LinkSaver(QWidget *parent) :
     buildLangMenu("qlinksaver");
     langMenuToMenuBar("menuOptions");
     pm = new PluginManager(this, locale);
-    initImport(pm->loadedPlugins());
     m_engine = new Engine(this, appDir + QDir::toNativeSeparators("/links/"));
+    initImport(pm->loadedPlugins());
+
     flow = new LinksFlow();
 
     ui->linksTree->setEngine(m_engine);
@@ -390,11 +391,12 @@ void LinkSaver::on_actionEdit_Link_triggered()
 void LinkSaver::initImport(QMap<QString, QObject *> list)
 {
     foreach(QString name, list.keys()) {
-        qDebug()<<name;
         IImport *import = qobject_cast<IImport *>(list.value(name));
+        QMenu *menu = new QMenu();
+        ui->actionImport->setMenu(menu);
         if (import)
         {
-            qDebug()<<"found";
+            import->addMenuItem(menu);
         }
     }
 }

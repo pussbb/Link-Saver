@@ -19,6 +19,9 @@ public:
     QStringList dependencies() const;
     void init(QMap<QString, QObject *> dependencies, QObject *parent);
     void addMenuItem(QMenu *menu);
+
+public slots:
+    void open();
 };
 
 #endif // FIREFOXIMPORTPLUGIN_H

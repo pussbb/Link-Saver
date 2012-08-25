@@ -12,16 +12,24 @@ QStringList FireFoxImportPlugin::dependencies() const
 
 void FireFoxImportPlugin::init(QMap<QString, QObject *> dependencies, QObject *parent)
 {
-    
+
     Q_UNUSED(dependencies);
 }
 
 void FireFoxImportPlugin::addMenuItem(QMenu *menu)
 {
-  
+    QAction *action = new QAction(tr("Firefox"), menu);
+    menu->addAction(action);
+    connect(action, SIGNAL(triggered()), this, SLOT(open()));
+
 }
 
-Q_EXPORT_PLUGIN2(firefox, FireFoxImportPlugin);
+void FireFoxImportPlugin::open()
+{
+    qDebug()<<"open import from firefox";
+}
+
+Q_EXPORT_PLUGIN2(firefox, FireFoxImportPlugin)
 
 
 

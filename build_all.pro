@@ -1,5 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS = $$PWD/lib/ \ 
+	  plugins \
 	  src  
 
 # build must be last:
