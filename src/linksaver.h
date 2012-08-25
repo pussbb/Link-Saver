@@ -8,6 +8,7 @@
 #include <QDesktopServices>
 #include <QSystemTrayIcon>
 #include <linksflow.h>
+#include <pluginmanager.h>
 
 namespace Ui {
   class LinkSaver;
@@ -48,6 +49,7 @@ private slots:
     void on_actionEdit_Link_triggered();
 
 private:
+    void initImport(QMap<QString, QObject *> list);
     Ui::LinkSaver *ui;
     Engine *m_engine;
     QComboBox *linksList;
@@ -56,6 +58,7 @@ private:
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
     LinksFlow *flow;
+    PluginManager *pm;
 };
 
 #endif // LINKSAVER_H

@@ -49,3 +49,18 @@ FORMS    += linksaver.ui \
 
 RESOURCES += \
     resource/res.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../bin/ -lPluginManager
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../bin/ -lPluginManagerd
+else:symbian: LIBS += -lPluginManager
+else:unix: LIBS += -L$$PWD/../bin/ -lPluginManager
+
+INCLUDEPATH += $$PWD/../lib/PluginManager
+DEPENDPATH += $$PWD/../lib/PluginManager
+
+
+unix:{
+  QMAKE_LFLAGS += -Wl,--rpath=../bin/
+  QMAKE_LFLAGS_RPATH=
+}
+

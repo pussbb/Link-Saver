@@ -13,7 +13,8 @@ LinkSaver::LinkSaver(QWidget *parent) :
 
     buildLangMenu("qlinksaver");
     langMenuToMenuBar("menuOptions");
-
+    pm = new PluginManager(this, locale);
+    initImport(pm->loadedPlugins());
     m_engine = new Engine(this, appDir + QDir::toNativeSeparators("/links/"));
     flow = new LinksFlow();
 
@@ -382,4 +383,18 @@ void LinkSaver::on_actionEdit_Link_triggered()
         ui->linksTree->currentItem()->setText(0, Engine::nodeData(elem,Engine::Title));
     }
     dialog->deleteLater();
+}
+
+#include "../plugins/ifaces.h"
+
+void LinkSaver::initImport(QMap<QString, QObject *> list)
+{
+    foreach(QString name, list.keys()) {
+        qDebug()<<name;
+        IImport *import = qobject_cast<IImport *>(list.value(name));
+        if (import)
+        {
+            qDebug()<<"found";
+        }
+    }
 }

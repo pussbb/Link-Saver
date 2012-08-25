@@ -6,6 +6,7 @@ qrc*.cpp
 *~
 *.pro.user
 *Makefile
-
+*.so*
+*.autosave
 /bin/QLinkSaver
 /bin/data/*

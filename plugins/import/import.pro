@@ -1,7 +1,6 @@
 TEMPLATE = subdirs
-SUBDIRS = $$PWD/qcorewindow/ \
-	  $$PWD/PluginManager
- 
+SUBDIRS =  firefox
+
 
 # build must be last:
 CONFIG += ordered 

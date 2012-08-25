@@ -1,7 +1,6 @@
 TEMPLATE = subdirs
-SUBDIRS = $$PWD/qcorewindow/ \
-	  $$PWD/PluginManager
- 
+SUBDIRS =  import
+
 
 # build must be last:
 CONFIG += ordered 
