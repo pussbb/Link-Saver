@@ -112,11 +112,9 @@ void Engine::updateLink(QDomElement element, QVariantMap items, const QString &d
         copyImage(file, resultFile);
     }
 
-    for(int i = 0; i < element.childNodes().count(); ++i)
+    foreach(QString key, items.keys())
     {
-        QDomNode node = element.childNodes().at(i);
-        if (items.contains(node.nodeName()))
-            node.setNodeValue(items.value(node.nodeName()).toString());
+        element.firstChildElement(key).firstChild().setNodeValue(items.value(key).toString());
     }
     save(docName);
 }

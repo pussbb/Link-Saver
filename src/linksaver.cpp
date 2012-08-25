@@ -274,18 +274,27 @@ void LinkSaver::linkSelected()
 void LinkSaver::treeCustomMenu(QPoint pos)
 {
     QMenu *m = new QMenu();
-    m->addAction(ui->actionNewLink);
-    m->addAction(ui->actionNewCategory);
+
     switch(ui->linksTree->selectedItemType()) {
         case LinksTree::Folder :
+            ui->actionDeleteLink->setEnabled(false);
+            ui->actionDeleteCategory->setEnabled(true);
+            m->addAction(ui->actionNewLink);
+            m->addAction(ui->actionNewCategory);
             m->addAction(ui->actionEdit);
             m->addAction(ui->actionDeleteCategory);
             break;
         case LinksTree::Link :
+            ui->actionDeleteLink->setEnabled(true);
+            ui->actionDeleteCategory->setEnabled(false);
             m->addAction(ui->actionEdit_Link);
             m->addAction(ui->actionDeleteLink);
             break;
         default:
+            ui->actionDeleteLink->setEnabled(false);
+            ui->actionDeleteCategory->setEnabled(false);
+            m->addAction(ui->actionNewLink);
+            m->addAction(ui->actionNewCategory);
             break;
     }
 
@@ -370,7 +379,7 @@ void LinkSaver::on_actionEdit_Link_triggered()
     if(dialog->exec() == QDialog::Accepted)
     {
         m_engine->updateLink(elem, dialog->getData());
-        ///ui->linksTree->addLink(dialog->getData());
+        ui->linksTree->currentItem()->setText(0, Engine::nodeData(elem,Engine::Title));
     }
     dialog->deleteLater();
 }
