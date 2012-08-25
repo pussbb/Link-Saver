@@ -390,13 +390,16 @@ void LinkSaver::on_actionEdit_Link_triggered()
 
 void LinkSaver::initImport(QMap<QString, QObject *> list)
 {
+    QMenu *menu = new QMenu();
     foreach(QString name, list.keys()) {
         IImport *import = qobject_cast<IImport *>(list.value(name));
-        QMenu *menu = new QMenu();
-        ui->actionImport->setMenu(menu);
         if (import)
         {
             import->addMenuItem(menu);
         }
     }
+    if (menu->actions().count() > 0)
+        ui->actionImport->setMenu(menu);
+    else
+        ui->actionImport->setEnabled(false);
 }

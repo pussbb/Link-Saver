@@ -7,13 +7,12 @@
 class IImport
 {
 public:
-    virtual ~IImport() {};
+    virtual ~IImport() {}
     virtual void addMenuItem(QMenu *menu) = 0;
 };
 
 QT_BEGIN_NAMESPACE
-Q_DECLARE_INTERFACE(IImport,
-                    "com.pussbb.LinkSaver.Plugin.IImport/0.1");
+Q_DECLARE_INTERFACE(IImport, "com.pussbb.LinkSaver.Plugin.IImport/0.1")
 QT_END_NAMESPACE
 
 

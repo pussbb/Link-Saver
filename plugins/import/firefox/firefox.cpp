@@ -1,6 +1,6 @@
 #include "firefox.h"
 #include "QDebug"
-#include "../importcore/importcore.h"
+
 #include "QWidget"
 FireFoxImportPlugin::FireFoxImportPlugin()
 {
@@ -15,9 +15,10 @@ void FireFoxImportPlugin::init(QMap<QString, QObject *> dependencies, QObject *p
 {
     QWidget *retVal;
     QObject *obj = dependencies.value("importcore");
-    QMetaObject::invokeMethod(obj, "dummyFunction", Qt::DirectConnection,
+    bool ok = QMetaObject::invokeMethod(obj, "dummyFunction", Qt::DirectConnection,
                                   Q_RETURN_ARG(QWidget *, retVal));
-    retVal->show();
+    if (ok)
+        retVal->show();
 }
 
 void FireFoxImportPlugin::addMenuItem(QMenu *menu)

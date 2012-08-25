@@ -31,7 +31,7 @@ void PluginManager::loadPlugins()
 }
 
 bool PluginManager::resolveDependecies(const QStringList &dependecies)
-{qDebug()<<dependecies;
+{
     m_dependecies.clear();
     if ( dependecies.empty())
         return true;

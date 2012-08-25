@@ -1,5 +1,7 @@
 #include "importcore.h"
 #include "QDebug"
+#define qApp (static_cast<QApplication *>(QCoreApplication::instance()))
+
 
 ImportCorePlugin::ImportCorePlugin()
 {
@@ -14,12 +16,17 @@ void ImportCorePlugin::init(QMap<QString, QObject *> dependencies, QObject *pare
 {
 
     Q_UNUSED(dependencies);
-    m_parent = parent;
+    Q_UNUSED(parent);
+    foreach(QWidget *widget, qApp->topLevelWidgets()) {
+      if(widget->inherits("QMainWindow")){
+          m_parent = widget;
+      }
+    }
 }
 
 QWidget *ImportCorePlugin::dummyFunction()
 {
-    return new QDialog();
+    return new QDialog(m_parent);
 }
 
 Q_EXPORT_PLUGIN2(importcore, ImportCorePlugin)

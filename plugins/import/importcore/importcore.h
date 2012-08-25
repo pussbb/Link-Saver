@@ -5,7 +5,7 @@
 #include <QtGui>
 #include <QObject>
 #include <iplugin.h>
-
+#include <importdialog.h>
 
 class ImportCorePlugin : public QObject, IPlugin
 {
@@ -19,7 +19,8 @@ public:
 public slots:
     QWidget * dummyFunction();
 private:
-    QObject *m_parent;
+    QWidget *m_parent;
+    ImportDialog *importDialog;
 };
 
 #endif // FIREFOXIMPORTPLUGIN_H
