@@ -38,10 +38,7 @@ void FireFoxImportPlugin::open()
     connect(combo, SIGNAL(currentIndexChanged(int)),
             this, SLOT(currentIndexChanged(int)));
     initProfiles();
-    if (importDialog->exec() == QDialog::Accepted)
-    {
-
-    }
+    importDialog->exec();
     importDialog->deleteLater();
 }
 
