@@ -6,6 +6,11 @@ ImportDialog::ImportDialog(QWidget *parent) :
     ui.setupUi(this);
 }
 
+void ImportDialog::clearData()
+{
+    ui.links->clear();
+}
+
 void ImportDialog::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);

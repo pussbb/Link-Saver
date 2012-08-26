@@ -11,11 +11,14 @@
 
 #ifdef Q_OS_WIN32
     #define APP_DATA_PATH getenv("APPDATA")+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")
+    #define CODEC_NAME "Windows-1251"
 #endif
 #ifdef Q_OS_OS2
-     #define APP_DATA_PATH QDir::homePath()+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")
+    #define CODEC_NAME "UTF-8"
+    #define APP_DATA_PATH QDir::homePath()+QDir::toNativeSeparators("\\Mozilla\\Firefox\\")
 #endif
 #ifdef Q_OS_LINUX
+    #define CODEC_NAME "UTF-8"
     #define APP_DATA_PATH QDir::homePath()+QDir::toNativeSeparators("/.mozilla/firefox/")
 #endif
 class FireFoxImportPlugin : public QObject, IPlugin, IImport
@@ -32,10 +35,14 @@ public:
 
 public slots:
     void open();
+    void currentIndexChanged(int index);
 private:
+    QObject *importCore;
     ImportDialog *importDialog;
     QAction *firefoxImportAction;
+    QComboBox *combo;
     bool appExists();
+    void initProfiles();
 };
 
 #endif // FIREFOXIMPORTPLUGIN_H

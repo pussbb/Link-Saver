@@ -17,10 +17,10 @@ public:
     QStringList dependencies() const;
     void init(QMap<QString, QObject *> dependencies, QObject *parent);
 public slots:
-    ImportDialog *dummyFunction();
+    inline ImportDialog *dialog()
+    {return new ImportDialog(m_parent);}
 private:
     QWidget *m_parent;
-    ImportDialog *importDialog;
 };
 
 #endif // FIREFOXIMPORTPLUGIN_H

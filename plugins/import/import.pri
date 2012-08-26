@@ -1,4 +1,14 @@
 
-INCLUDEPATH += $$PWD/importcore/
+INCLUDEPATH += $$PWD/importcore/ \
+            $$PWD/3rdparty/qtjsonsettings/
 
-DEPENDPATH += $$PWD/importcore/
+DEPENDPATH += $$PWD/importcore/ \
+            $$PWD/3rdparty/qtjsonsettings/
+
+HEADERS += \
+    $$PWD/jsonfile.h \
+    json.h
+
+SOURCES += \
+    $$PWD/jsonfile.cpp \
+    json.cpp

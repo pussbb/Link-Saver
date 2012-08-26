@@ -6,13 +6,14 @@
 class ImportDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     explicit ImportDialog(QWidget *parent = 0);
-    
+    void clearData();
+    inline QComboBox * getProfileList() const
+    { return ui.profilesList;}
 protected:
     void changeEvent(QEvent *e);
-    
 private:
     Ui::ImportDialog ui;
 };
