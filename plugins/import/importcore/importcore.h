@@ -17,7 +17,7 @@ public:
     QStringList dependencies() const;
     void init(QMap<QString, QObject *> dependencies, QObject *parent);
 public slots:
-    QWidget * dummyFunction();
+    ImportDialog *dummyFunction();
 private:
     QWidget *m_parent;
     ImportDialog *importDialog;

@@ -24,9 +24,11 @@ void ImportCorePlugin::init(QMap<QString, QObject *> dependencies, QObject *pare
     }
 }
 
-QWidget *ImportCorePlugin::dummyFunction()
+ImportDialog *ImportCorePlugin::dummyFunction()
 {
-    return new QDialog(m_parent);
+    if (importDialog == NULL)
+        importDialog = new ImportDialog(m_parent);
+    return importDialog;
 }
 
 Q_EXPORT_PLUGIN2(importcore, ImportCorePlugin)
