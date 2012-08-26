@@ -1,6 +1,8 @@
 QT += core gui
 
 include(../../commonplugin.pri)
+include(../../coreapp.pri)
+
 TARGET = importcore
 TEMPLATE = lib
 CONFIG += plugin

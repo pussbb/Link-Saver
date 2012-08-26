@@ -1,4 +1,4 @@
-
+include(../../coreapp.pri)
 INCLUDEPATH += $$PWD/ \
             $$PWD/importcore/ \
             $$PWD/3rdparty/qtjsonsettings/

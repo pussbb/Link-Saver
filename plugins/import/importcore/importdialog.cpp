@@ -1,9 +1,13 @@
 #include "importdialog.h"
+#include <QDebug>
 
 ImportDialog::ImportDialog(QWidget *parent) :
     QDialog(parent)
 {
     ui.setupUi(this);
+    bool ok = QMetaObject::invokeMethod(parent, "getEngine", Qt::DirectConnection,
+                                      Q_RETURN_ARG(Engine *, m_engine));
+    qDebug()<<ok<<m_engine->documentImagesPath();
 }
 
 void ImportDialog::clearData()

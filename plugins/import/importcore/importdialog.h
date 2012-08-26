@@ -2,6 +2,7 @@
 #define IMPORTDIALOG_H
 
 #include "ui_importdialog.h"
+#include <engine.h>
 
 class ImportDialog : public QDialog
 {
@@ -17,6 +18,7 @@ protected:
     void changeEvent(QEvent *e);
 private:
     Ui::ImportDialog ui;
+    Engine *m_engine;
 };
 
 #endif // IMPORTDIALOG_H

@@ -53,7 +53,7 @@ void FireFoxImportPlugin::currentIndexChanged(int index)
     QFileInfoList list = bookmarkdir.entryInfoList(QStringList("*.json"),
                                                      QDir::Files,
                                                         QDir::Time);
-    if(list.size()>1)
+    if(list.size() > 1)
     {
         QFileInfo fi = list.at(0);
         importDialog->clearData();
@@ -81,6 +81,7 @@ void FireFoxImportPlugin::initProfiles()
         if(settings.value("IsRelative", true).toBool())
             path = APP_DATA_PATH+path;
         combo->addItem(settings.value("Name","default").toString(),path);
+        settings.endGroup();
     }
 
     return;
