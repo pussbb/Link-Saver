@@ -75,7 +75,7 @@ void ImportDialog::updateDisplay()
 
 void ImportDialog::renderPreview(int percent)
 {
-    ///ui->image->setValue(percent);
+    ui.currentProgress->setValue(percent);
     quint64 recived=0;//websnap.m_page.bytesReceived();
     quint64 B=1;
     QString f;
@@ -99,10 +99,9 @@ void ImportDialog::on_pushButton_clicked()
 {
     int i=0;
 
-    QTreeWidgetItemIterator it(ui.links);
-    while (*it) {//i++;
-        if ((*it)->checkState(0)==Qt::Checked )
-            i++;
+    QTreeWidgetItemIterator it(ui.links, QTreeWidgetItemIterator::Checked);
+    while (*it) {
+        i++;
         ++it;
     }
 

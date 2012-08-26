@@ -14,7 +14,8 @@ public:
     void load(const QUrl &url);
     void load(const QString &url);
     void image(const QString &outputFileName, int width, int height ,int zoom);
-    inline QWebFrame * frame(){return page_.mainFrame();}
+    inline QWebFrame * frame()
+    {return page_.mainFrame();}
     static QUrl guessUrlFromString(const QString &string);
     static bool validUrl(const QString &string);
     inline void setProgressBar(QProgressBar *bar) { progress = bar;}
