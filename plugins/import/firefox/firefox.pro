@@ -7,9 +7,11 @@ TARGET = firefox
 TEMPLATE = lib
 CONFIG += plugin
 
-SOURCES += firefox.cpp
+SOURCES += firefox.cpp \
+    importdialog.cpp
 
-HEADERS += firefox.h
+HEADERS += firefox.h \
+    importdialog.h
 
 
 

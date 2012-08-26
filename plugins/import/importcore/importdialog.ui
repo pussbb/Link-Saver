@@ -36,9 +36,17 @@
        </item>
        <item row="1" column="0" colspan="2">
         <widget class="QTreeWidget" name="links">
+         <property name="animated">
+          <bool>true</bool>
+         </property>
          <column>
           <property name="text">
-           <string notr="true">1</string>
+           <string notr="true">Title</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Url</string>
           </property>
          </column>
         </widget>

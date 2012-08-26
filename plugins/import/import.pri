@@ -1,8 +1,10 @@
 
-INCLUDEPATH += $$PWD/importcore/ \
+INCLUDEPATH += $$PWD/ \
+            $$PWD/importcore/ \
             $$PWD/3rdparty/qtjsonsettings/
 
-DEPENDPATH += $$PWD/importcore/ \
+DEPENDPATH += $$PWD/ \
+            $$PWD/importcore/ \
             $$PWD/3rdparty/qtjsonsettings/
 
 HEADERS += \

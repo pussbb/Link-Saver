@@ -43,6 +43,7 @@ private:
     QComboBox *combo;
     bool appExists();
     void initProfiles();
+    void buildTree(const QVariant &data, QTreeWidgetItem *parent = NULL);
 };
 
 #endif // FIREFOXIMPORTPLUGIN_H

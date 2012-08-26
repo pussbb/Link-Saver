@@ -2,6 +2,8 @@
 #include "QDebug"
 #include "QWidget"
 #include <QSettings>
+#include <jsonfile.h>
+
 FireFoxImportPlugin::FireFoxImportPlugin()
 {
     firefoxImportAction = new QAction(tr("Firefox"), this);
@@ -54,7 +56,8 @@ void FireFoxImportPlugin::currentIndexChanged(int index)
     if(list.size()>1)
     {
         QFileInfo fi = list.at(0);
-        //qDebug()<<fi.absoluteFilePath();
+        importDialog->clearData();
+        buildTree(JsonFile::readFile(fi.absoluteFilePath(), CODEC_NAME));
     }
 }
 
@@ -81,6 +84,26 @@ void FireFoxImportPlugin::initProfiles()
     }
 
     return;
+}
+
+void FireFoxImportPlugin::buildTree(const QVariant &data, QTreeWidgetItem *parent)
+{
+    QString title;
+    QString url;
+    foreach(QVariant plugin, data.toMap().value("children").toList()) {
+        QVariantMap nestedMap = plugin.toMap();
+        title = nestedMap.value("title").toString();
+        url = nestedMap.value("uri").toString();
+        if (nestedMap.contains("children")
+                && nestedMap.value("children").toList().count() > 0)
+        {
+            buildTree(nestedMap, importDialog->appendItem(title,url,true,parent));
+        }
+        else {
+            importDialog->appendItem(title,url,false,parent);
+        }
+
+    }
 }
 
 Q_EXPORT_PLUGIN2(firefox, FireFoxImportPlugin)

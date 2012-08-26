@@ -12,6 +12,7 @@ public:
     void clearData();
     inline QComboBox * getProfileList() const
     { return ui.profilesList;}
+    QTreeWidgetItem * appendItem(const QString &name, const QString &url, bool isFolder, QTreeWidgetItem *parent = NULL);
 protected:
     void changeEvent(QEvent *e);
 private:
