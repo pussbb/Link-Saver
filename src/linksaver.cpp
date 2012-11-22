@@ -11,6 +11,7 @@ LinkSaver::LinkSaver(QWidget *parent) :
 {
     buildLangMenu("qlinksaver");
     ui->setupUi(this);
+    ui->retranslateUi(this);
     langMenuToMenuBar("menuOptions");
     pm = new PluginManager(this, locale);
     m_engine = new Engine(this, appDir + QDir::toNativeSeparators("/links/"));
@@ -383,6 +384,16 @@ void LinkSaver::on_actionEdit_Link_triggered()
         ui->linksTree->currentItem()->setText(0, Engine::nodeData(elem,Engine::Title));
     }
     dialog->deleteLater();
+}
+
+void LinkSaver::changeEvent(QEvent *event)
+{
+    {
+        if (event->type() == QEvent::LanguageChange) {
+            ui->retranslateUi(this);
+        }
+        QMainWindow::changeEvent(event);
+    }
 }
 
 #include "../plugins/ifaces.h"

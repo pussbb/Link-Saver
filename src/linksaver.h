@@ -48,9 +48,11 @@ private slots:
 
     void on_actionEdit_Link_triggered();
 
+
 public slots:
     inline Engine * getEngine()
     { return m_engine;}
+    void changeEvent ( QEvent * event );
 private:
     void initImport(QMap<QString, QObject *> list);
     Ui::LinkSaver *ui;
