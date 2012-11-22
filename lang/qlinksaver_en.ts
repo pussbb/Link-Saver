@@ -2,6 +2,52 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
+    <name>FireFoxImportPlugin</name>
+    <message>
+        <source>Firefox</source>
+        <translation>Firefox</translation>
+    </message>
+</context>
+<context>
+    <name>ImportDialog</name>
+    <message>
+        <source>Import</source>
+        <translation>Import</translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation>Url</translation>
+    </message>
+    <message>
+        <source>Choose profile</source>
+        <translation>Choose profile</translation>
+    </message>
+    <message>
+        <source>Total progress</source>
+        <translation>Total progress</translation>
+    </message>
+    <message>
+        <source>Downloaded:</source>
+        <translation>Downloaded:</translation>
+    </message>
+    <message>
+        <source>Time elapsed:</source>
+        <translation>Time elapsed:</translation>
+    </message>
+    <message>
+        <source>Abort current</source>
+        <translation>Abort current</translation>
+    </message>
+    <message>
+        <source>Processing:</source>
+        <translation>Processing:</translation>
+    </message>
+    <message>
+        <source>Total time elapsed:</source>
+        <translation>Total time elapsed:</translation>
+    </message>
+</context>
+<context>
     <name>Language</name>
     <message>
         <source>English</source>
@@ -12,184 +58,191 @@
     <name>LinkDialog</name>
     <message>
         <source>Add Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Link</translation>
     </message>
     <message>
         <source>http://</source>
-        <translation type="unfinished"></translation>
+        <translation>http://</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Title</translation>
     </message>
     <message>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Refresh</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Width</translation>
     </message>
     <message>
         <source>Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Height</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom</translation>
     </message>
 </context>
 <context>
     <name>LinkSaver</name>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>File</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Options</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Exit</translation>
     </message>
     <message>
         <source>Link Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Link Saver</translation>
     </message>
     <message>
         <source>Links List</source>
-        <translation type="unfinished"></translation>
+        <translation>Links List</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>New</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>About</translation>
     </message>
     <message>
         <source>About Qt</source>
-        <translation type="unfinished"></translation>
+        <translation>About Qt</translation>
     </message>
     <message>
         <source>Link list</source>
-        <translation type="unfinished"></translation>
+        <translation>Link list</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished"></translation>
+        <translation>Category</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link</translation>
     </message>
     <message>
         <source>delete List</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete list</translation>
     </message>
     <message>
         <source>deleteCategory</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Category</translation>
     </message>
     <message>
         <source>deleteLink</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete link</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <source>Add Category</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Category</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Name:</translation>
     </message>
     <message>
         <source>Delete list</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete list</translation>
     </message>
     <message>
         <source>Do you realy what to delete %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Do you realy what to delete %1</translation>
     </message>
     <message>
         <source>It will be removed whole directory 
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>It will be removed whole directory 
+%1</translation>
     </message>
     <message>
         <source>Delete category</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete category</translation>
     </message>
     <message>
         <source>Do you realy what to category 
  %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Do you realy what to category 
+ %1</translation>
     </message>
     <message>
         <source>Delete link</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete link</translation>
     </message>
     <message>
         <source>Do you realy what to delete link 
  %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Do you realy what to delete link 
+ %1</translation>
     </message>
     <message>
         <source>Edit Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Folder</translation>
     </message>
     <message>
         <source>Edit folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit folder</translation>
     </message>
     <message>
         <source>Edit Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Link</translation>
     </message>
     <message>
         <source>Simple Program to Save Links</source>
-        <translation type="unfinished"></translation>
+        <translation>Simple Program to Save Links</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>Import</translation>
     </message>
 </context>
 <context>
     <name>NewList</name>
     <message>
         <source>New list</source>
-        <translation type="unfinished"></translation>
+        <translation>New list</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Folder</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Choose Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose Directory</translation>
     </message>
 </context>
 <context>
@@ -207,100 +260,106 @@
     <name>QObject</name>
     <message>
         <source>Directory write protected</source>
-        <translation type="unfinished"></translation>
+        <translation>Directory write protected</translation>
     </message>
     <message>
         <source>%1
 Please choose another directory.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1
+Please choose another directory.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Must be valid url adrress</source>
-        <translation type="unfinished"></translation>
+        <translation>Must be valid url adrress</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <source>Error creating folder.
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error creating folder.
+%1</translation>
     </message>
     <message>
         <source>Deleting list</source>
-        <translation type="unfinished"></translation>
+        <translation>Deleting list</translation>
     </message>
     <message>
         <source>Could not delete folder and files.
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Could not delete folder and files.
+%1</translation>
     </message>
     <message>
         <source>Deleting category</source>
-        <translation type="unfinished"></translation>
+        <translation>Deleting category</translation>
     </message>
     <message>
         <source>Could not delete category.
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Could not delete category.
+%1</translation>
     </message>
     <message>
         <source>Deleting link</source>
-        <translation type="unfinished"></translation>
+        <translation>Deleting link</translation>
     </message>
     <message>
         <source>Could not delete link.
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Could not delete link.
+%1</translation>
     </message>
     <message>
         <source>Directory not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Directory not found</translation>
     </message>
     <message>
         <source>Directory already contains link list</source>
-        <translation type="unfinished"></translation>
+        <translation>Directory already contains link list</translation>
     </message>
     <message>
         <source>Please choose another directory.</source>
-        <translation type="unfinished"></translation>
+        <translation>Please choose another directory.</translation>
     </message>
     <message>
         <source>Name is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Name is empty</translation>
     </message>
     <message>
         <source>Please type your name of list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Please type your name of list.</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Remeber application language </source>
-        <translation type="unfinished"></translation>
+        <translation>Remeber application language</translation>
     </message>
     <message>
         <source>Hide application to tray on start</source>
-        <translation type="unfinished"></translation>
+        <translation>Hide application to tray on start</translation>
     </message>
     <message>
         <source>Show screenshort for link for tree
  item in tooltip(more memory usage)</source>
-        <translation type="unfinished"></translation>
+        <translation>Show screenshort for link for tree
+ item in tooltip(more memory usage)</translation>
     </message>
     <message>
         <source>Create menu with links in tray menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Create menu with links in tray menu</translation>
     </message>
 </context>
 </TS>

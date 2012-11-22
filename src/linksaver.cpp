@@ -9,9 +9,8 @@ LinkSaver::LinkSaver(QWidget *parent) :
     QCoreWindow(parent),
     ui(new Ui::LinkSaver)
 {
-    ui->setupUi(this);
-
     buildLangMenu("qlinksaver");
+    ui->setupUi(this);
     langMenuToMenuBar("menuOptions");
     pm = new PluginManager(this, locale);
     m_engine = new Engine(this, appDir + QDir::toNativeSeparators("/links/"));

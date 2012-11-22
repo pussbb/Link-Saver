@@ -2,6 +2,52 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>FireFoxImportPlugin</name>
+    <message>
+        <source>Firefox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportDialog</name>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose profile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time elapsed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abort current</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Processing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total time elapsed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Language</name>
     <message>
         <source>English</source>
@@ -166,6 +212,10 @@
     </message>
     <message>
         <source>Simple Program to Save Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
